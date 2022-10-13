@@ -1,0 +1,27 @@
+{
+  "name": "cinnamon-toast-cronch-fec",
+  "version": "1.0.0",
+  "description": "front end capstone project for hr",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cinnamon-Toast-Cronch/FEC.git"
+  },
+  "contributors": [
+  {"name": "Kally Cao"},
+  {"name": "Kate Feaster"},
+  {"name":"Kevin Zhang"},
+  {"name": "Taylor Sheets"}
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cinnamon-Toast-Cronch/FEC/issues"
+  },
+  "homepage": "https://github.com/Cinnamon-Toast-Cronch/FEC#readme",
+  "dependencies": {
+    "react": "^18.2.0"
+  }
+}
