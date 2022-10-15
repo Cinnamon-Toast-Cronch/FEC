@@ -9,6 +9,10 @@ const app = express();
 app.use(morgan());
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
+app.all('/', (req, res) => {
+  res.sendStatus(405);
+});
+
 app.all('/*', (req, res) => {
   controller.forwardRequest(req, res);
 });
