@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "dev": "npx webpack --watch",
-    "server-dev": "npx nodemon -w ./server ./server/index.js",
+    "server-dev": "npx nodemon -w ./server ./server/server.js",
     "build": "npx webpack",
     "prettier": "npx prettier --write client/*"
   },
