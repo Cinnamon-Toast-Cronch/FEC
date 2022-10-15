@@ -13,6 +13,4 @@ app.all('/*', (req, res) => {
   controller.forwardRequest(req, res);
 });
 
-app.listen(process.env.PORT, () => {
-  console.log(`FEC listening on port ${process.env.PORT}`);
-});
+module.exports = app;
