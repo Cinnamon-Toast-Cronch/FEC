@@ -9,7 +9,7 @@ const { useState, useEffect } = React;
 
 function App() {
   // product points to a product_id?
-  const [product, setProduct] = useState();
+  const [product, setProduct] = useState({});
   // setProduct on page load
   useEffect(() => {
     axios.get('/products')
