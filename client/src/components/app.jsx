@@ -13,8 +13,8 @@ function App() {
   // setProduct on page load
   useEffect(() => {
     axios.get('/products')
-      .then((response) => {
-        setProduct(response.data[0]);
+      .then(({ data }) => {
+        setProduct(data[0]);
       });
   }, []);
 
