@@ -1,9 +1,13 @@
 import React from 'react'
+import Card from './relatedCard'
 
-function Related_Products() {
+function relatedProducts( { relatedItems } ) {
   return (
     <carousel>
       {
+        relatedItems.map((item) => {
+          axios.get(`/products/${item}`)
+        })
 
       }
     </carousel>

@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import ProductDetails from './productDetails'; // TODO - fill in filepath
-import Qna from './questionsAnswers'; // TODO - fill in filepath
-import Rnr from './ratingsReviews'; // TODO - fill in filepath
-import RelatedItems from './relatedItems'; // TODO - fill in filepath
+// import ProductDetails from './productDetails'; // TODO - fill in filepath
+// import Qna from './questionsAnswers'; // TODO - fill in filepath
+// import Rnr from './ratingsReviews'; // TODO - fill in filepath
+import RelatedItems from './relatedItems/container'; // TODO - fill in filepath
 
 const { useState, useEffect } = React;
 
@@ -13,8 +13,8 @@ function App() {
   // setProduct on page load
   useEffect(() => {
     axios.get('/products')
-      .then((data) => {
-        setProduct(data[0].id);
+      .then(({ data }) => {
+        setProduct(data[0]);
       });
   }, []);
 
