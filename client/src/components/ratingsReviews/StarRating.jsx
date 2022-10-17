@@ -1,45 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FullStar from '../../assets/images/starIcons/star.svg';
-import HalfStar from '../../assets/images/starIcons/star-half.svg';
-import EmptyStar from '../../assets/images/starIcons/star-outline.svg';
+import StarIcon from './StarIcon';
 
 function StarRating({ rating }) {
-  const starIcons = {
-    full: (
-      <img
-        src={FullStar}
-        height="20px"
-        width="20px"
-        alt="Star that is completely filled"
-      />
-    ),
-    half: (
-      <img
-        src={HalfStar}
-        height="20px"
-        width="20px"
-        alt="Star that is half filled"
-      />
-    ),
-    empty: (
-      <img
-        src={EmptyStar}
-        height="20px"
-        width="20px"
-        alt="Star that is half filled"
-      />
-    ),
-  };
-
   const starsArray = [];
   for (let i = 0; i < 5; i += 1) {
     if (rating >= i + 1) {
-      starsArray[i] = starIcons.full;
+      starsArray[i] = <StarIcon fillStyle="full" id={i} />;
     } else if (rating >= i + 0.5) {
-      starsArray[i] = starIcons.half;
+      starsArray[i] = <StarIcon fillStyle="half" id={i} />;
     } else {
-      starsArray[i] = starIcons.empty;
+      starsArray[i] = <StarIcon fillStyle="empty" id={i} />;
     }
   }
 
