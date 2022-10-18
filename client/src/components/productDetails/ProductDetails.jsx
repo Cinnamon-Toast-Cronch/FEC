@@ -32,9 +32,6 @@ function ProductDetails({ product }) {
         console.log('err', err);
       });
   }, [product]);
-  // console.log('product', product);
-  // console.log('selectedStyle', selectedStyle);
-  // console.log('styles', styles);
 
   return (
     <div>

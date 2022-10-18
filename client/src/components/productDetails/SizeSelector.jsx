@@ -15,11 +15,6 @@ function SizeSelector({ selectedStyle }) {
     }
   }, [selectedStyle]);
 
-  const handleChange = (e) => {
-    setSelectedSizeAmount(e.target.value);
-    setSelectedSizeAmount(0);
-  };
-
   if (skus) {
     const sizesAndAmount = Object.values(skus);
     const skuSizes = Object.keys(skus);

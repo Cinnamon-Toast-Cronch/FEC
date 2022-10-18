@@ -5,7 +5,8 @@ import QuantitySelector from './QuantitySelector.jsx'
 const { useState, useEffect } = React;
 
 function StyleSelector({ styles, setSelectedStyle, selectedStyle }) {
-  // const [selectedStyle, setSelectedStyle] = useState({});
+
+  //Note: will implement overlay of a checkmark on selected style thumbnail functionality with CSS.
 
   useEffect(() => {
     setSelectedStyle(styles[0]);
@@ -15,7 +16,6 @@ function StyleSelector({ styles, setSelectedStyle, selectedStyle }) {
     setSelectedStyle(style);
   };
 
-//  console.log('selectedStyle', selectedStyle)
   return (
     <div>
     <div className="stylesContainer">
@@ -27,9 +27,8 @@ function StyleSelector({ styles, setSelectedStyle, selectedStyle }) {
       </div>
     </div>
     <SizeSelector selectedStyle={selectedStyle}/>
-
     </div>
-    // <AddToCartButton/>
+
 
 
   );
