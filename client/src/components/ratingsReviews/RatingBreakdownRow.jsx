@@ -2,12 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RatingDistributionBar from './RatingDistributionBar.jsx';
 
-function RatingBreakdownRow() {
+function RatingBreakdownRow({ rating, ratingCount, totalRatingCount }) {
   return (
     <div className="rating-breakdown-row">
-      <p>5 stars</p>
-      <RatingDistributionBar reviewCount={5} totalReviewCount={10} />
-      <p>13</p>
+      <p>{`${rating} stars`}</p>
+      <RatingDistributionBar
+        reviewCount={ratingCount}
+        totalReviewCount={totalRatingCount}
+      />
+      <p>{ratingCount}</p>
     </div>
   );
 }
