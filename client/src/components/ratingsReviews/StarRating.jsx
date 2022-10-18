@@ -6,13 +6,13 @@ function StarRating({ rating }) {
   const starsArray = [];
   for (let i = 0; i < 5; i += 1) {
     let fillStyle;
-    if (rating >= i + 1) {
+    if (rating > i + 0.875) {
       fillStyle = 'full';
-    } else if (rating >= i + 0.75) {
+    } else if (rating > i + 0.625) {
       fillStyle = 'threeQuarters';
-    } else if (rating >= i + 0.5) {
+    } else if (rating > i + 0.375) {
       fillStyle = 'half';
-    } else if (rating >= i + 0.25) {
+    } else if (rating > i + 0.125) {
       fillStyle = 'quarter';
     } else {
       fillStyle = 'empty';
