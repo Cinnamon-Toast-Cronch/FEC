@@ -5,7 +5,7 @@ function RatingDistributionBar({ reviewCount, totalReviewCount }) {
   return (
     <div
       className="distribution-background"
-      style={{ height: '10px', backgroundColor: '#707070' }}
+      style={{ height: '100%', backgroundColor: '#707070' }}
     >
       <div
         className="distribution-foreground"
