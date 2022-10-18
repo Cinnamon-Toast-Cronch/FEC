@@ -19,7 +19,7 @@ function RatingBreakdown({ metadata }) {
           ratingCount={count}
           totalRatingCount={totalRatingCount}
         />
-      ))}
+      )).reverse()}
     </div>
   );
 }
