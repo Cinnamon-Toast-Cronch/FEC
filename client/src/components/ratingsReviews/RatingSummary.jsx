@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import _ from 'underscore';
 import StarRating from './StarRating.jsx';
 
@@ -26,5 +27,9 @@ function RatingSummary({ metaData }) {
     </>
   );
 }
+
+RatingSummary.propTypes = {
+  metaData: PropTypes.object.isRequired,
+};
 
 export default RatingSummary;
