@@ -23,14 +23,7 @@ function ProductDetails({ product }) {
           .then((response) => {
             // console.log('response', response.data.results);
             setReviews(response.data.results);
-          })
-          .catch((err) => {
-            console.log(err);
           });
-      })
-      .catch((err) => {
-        console.log('err', err);
-      });
   }, [product]);
 
   return (
