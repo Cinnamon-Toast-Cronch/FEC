@@ -5,6 +5,7 @@ import ImageCarousel from './ImageCarousel.jsx';
 
 // NOTE: Please disregard this file, it should not have been pushed, but it was b/c it was created on the same branch.
 
+// This file is incomplete and was pushed due to being on the same branch. Please disregard.
 const { useEffect, useState } = React;
 
 function ImageGalleryDefault({ selectedStyle }) {

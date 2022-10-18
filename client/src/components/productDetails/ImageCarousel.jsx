@@ -2,22 +2,9 @@ import React from 'react';
 
 const { useState, useEffect } = React;
 
-// NOTE: PLEASE DISREGARD THIS FILE! Should not have been pushed, not complete.
+function ImageCarousel() {
+  // Note: This file was pushed because it was created on the same branch. It should not have been pushed. Please disregard.
 
-function ImageCarousel({ photos, setMainImage, mainImage }) {
-  if (photos) {
-    useEffect(() => {
-      setMainImage(photos[0]);
-    }, [photos]);
-  }
-
-  if (mainImage) {
-    return (
-      <div>
-        <img src={mainImage.url} alt={mainImage.url} />
-      </div>
-    );
-  }
   return (
     <div>Main Image</div>
   );
