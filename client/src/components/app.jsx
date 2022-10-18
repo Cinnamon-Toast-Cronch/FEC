@@ -15,6 +15,9 @@ function App() {
     axios.get('/products')
       .then(({ data }) => {
         setProduct(data[0]);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }, []);
 

@@ -5,6 +5,7 @@ const { useState } = React;
 
 function ProductDetails({ product }) {
   const [reviews, setReviews] = useState([]);
+
   if (product.id !== undefined) {
     axios.get(`/reviews/?product_id=${product.id}`)
       .then(({ data }) => {
@@ -14,11 +15,12 @@ function ProductDetails({ product }) {
         console.log(err);
       });
   }
-  // let ratingTotal = 0;
-  // for (let i = 0; i < reviews.length; i++) {
-  //   ratingTotal += reviews[i].rating;
-  // }
-  // const avgRating = ratingTotal / reviews.length;
+
+  let ratingTotal = 0;
+  for (let i = 0; i < reviews.length; i++) {
+    ratingTotal += reviews[i].rating;
+  }
+  const avgRating = ratingTotal / reviews.length;
 
   return (
     <p>
@@ -47,10 +49,13 @@ function ProductDetails({ product }) {
       {reviews.length}
       {' '}
       reviews.
-      {/* <br />
+      <br />
       Average Rating:
       {' '}
-      {avgRating} */}
+      {avgRating}
+      ⭐️
+      <br />
+      Share on Social Media Icons
     </p>
 
   );
