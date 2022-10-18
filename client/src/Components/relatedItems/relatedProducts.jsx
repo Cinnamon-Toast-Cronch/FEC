@@ -4,20 +4,18 @@ import Card from './relatedCard.jsx';
 
 function relatedProducts({ product }) {
   const [relatedItems, setRelatedItems] = useState([]);
-  const endpoints = [];
 
   useEffect(() => {
     axios.get(`/products/${product.id}/related`)
       .then(({ data }) => {
-        // setRelatedItems(data);
-
-        data.map((item) => {
-          return endpoints.push(`/products/${item}/styles`);
-        })
+        axios.all(data.map((id) => {
+          return (
+            axios.get(`/products/${id}`)
+          );
+        }))
           .then((res) => {
-            console.log(res);
-          })
-
+            setRelatedItems(res);
+          });
 
         // const request = {
         //   params: {
@@ -25,23 +23,11 @@ function relatedProducts({ product }) {
         //   },
         // };
 
-  //       axios.get(`/products/${request.params.id[0]}/styles`)
-  //         .then((res) => {
-  //           console.log(res);
-  //         });
-
         // axios.get('/products', request)
         //   .then((res) => {
         //     console.log(res)
         //     // setRelatedItems(res.data);
         //   });
-
-        // data.forEach((id) => {
-        //   axios.get(`/products/${id}`)
-        //     .then((res) => {
-        //       setRelatedItems([...relatedItems, res.data]);
-        //     });
-        // });
 
       });
   }, [product]);
@@ -49,9 +35,9 @@ function relatedProducts({ product }) {
   return (
     <div className="carousel">
       {
-        relatedItems.map((item) => {
-          // console.log(item)
-          return <Card key={item.id} item={item} />;
+        // console.log('check',relatedItems),
+        relatedItems.map(({ data }) => {
+          return <Card key={data.id} data={data} />;
         })
       }
     </div>
