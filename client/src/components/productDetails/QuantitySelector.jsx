@@ -1,29 +1,26 @@
 import React from 'react';
 
 const { useState } = React;
-function QuantitySelector({ selectedSizeAmount }) {
-  // console.log(selectedSizeAmount);
-  // const [quantityList, setQuantityList] = useState([]);
-
+function QuantitySelector({ selectedSizeAmount, currentSizeAmountVal, setCurrentSizeAmountVal }) {
   const quantityList = [];
   if (selectedSizeAmount <= 15) {
-    for (let i = 1; i <= selectedSizeAmount; i++) {
+    for (let i = 2; i <= selectedSizeAmount; i++) {
       quantityList.push(i);
     }
   } else if (selectedSizeAmount > 15) {
-    for (let i = 1; i <= 15; i++) {
+    for (let i = 2; i <= 15; i++) {
       quantityList.push(i);
     }
   }
 
   return (
-    <form>
+    <div>
       <label htmlFor="Quantity">Select Quantity</label>
       <select name="quantity" id="quantity">
-        <option defaultValue="selected">Select Quantity</option>
+        {(selectedSizeAmount > 0) ? <option defaultValue="selected"> 1 </option> : <option defaultValue="selected" disabled> - </option>}
         {quantityList.map((quantity) => <option key={quantity} value={quantity}>{quantity}</option>)}
       </select>
-    </form>
+    </div>
 
   );
 }
