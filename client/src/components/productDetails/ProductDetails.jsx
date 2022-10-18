@@ -1,63 +1,39 @@
 import React from 'react';
 import axios from 'axios';
+import ProductInformation from './ProductInformation.jsx';
+import StyleSelector from './StyleSelector.jsx';
 
-const { useState } = React;
+const { useState, useEffect } = React;
 
 function ProductDetails({ product }) {
   const [reviews, setReviews] = useState([]);
+  const [styles, setStyles] = useState([]);
 
-  if (product.id !== undefined) {
-    axios.get(`/reviews/?product_id=${product.id}`)
+  useEffect(() => {
+    axios.get(`/products/${product.id}/styles`)
       .then(({ data }) => {
-        setReviews(data.results);
+        setStyles(data.results);
+        console.log(data.results);
+        const request = { params: { product_id: data.product_id } };
+        axios.get('/reviews/', request)
+          .then((response) => {
+            // console.log('response', response.data.results);
+            setReviews(response.data.results);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       })
       .catch((err) => {
         console.log(err);
       });
-  }
-
-  let ratingTotal = 0;
-  for (let i = 0; i < reviews.length; i++) {
-    ratingTotal += reviews[i].rating;
-  }
-  const avgRating = ratingTotal / reviews.length;
+  }, [product]);
 
   return (
-    <p>
-      Title:
-      {' '}
-      {product.name}
-      <br />
-      Category:
-      {' '}
-      {product.category}
-      <br />
-      Price:
-      {' '}
-      $
-      {product.default_price}
-      <br />
-      Product Overview:
-      {' '}
-      <br />
-      {product.slogan}
-      <br />
-      {product.description}
-      <br />
-      Read all
-      {' '}
-      {reviews.length}
-      {' '}
-      reviews.
-      <br />
-      Average Rating:
-      {' '}
-      {avgRating}
-      ⭐️
-      <br />
-      Share on Social Media Icons
-    </p>
-
+    <div>
+      <ProductInformation product={product} reviews={reviews} />
+      <StyleSelector styles={styles} />
+    </div>
   );
 }
 
