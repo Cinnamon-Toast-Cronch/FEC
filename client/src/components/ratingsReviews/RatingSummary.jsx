@@ -23,7 +23,7 @@ function RatingSummary({ metaData }) {
       <h4>RATINGS &amp; REVIEWS</h4>
       <p>{roundedRating}</p>
       <StarRating rating={roundedRating} />
-      <p>average of {ratingCount} reviews</p>
+      <p>{`average of ${ratingCount} reviews`}</p>
     </>
   );
 }
