@@ -139,3 +139,20 @@ table {
 * WIDGET CONFIGURATIONS
 *
 */
+
+/*
+*
+* RATINGS & REVIEWS
+*
+*/
+
+.distribution-background {
+  height: 100%;
+  width: 80%;
+  background-color: #707070;
+}
+
+.distribution-foreground {
+  height: 100%;
+  background-color: #73b98c;
+}
