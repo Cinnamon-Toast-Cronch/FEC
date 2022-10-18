@@ -15,4 +15,10 @@ function RatingBreakdownRow({ rating, ratingCount, totalRatingCount }) {
   );
 }
 
+RatingBreakdownRow.propTypes = {
+  rating: PropTypes.string.isRequired,
+  ratingCount: PropTypes.number.isRequired,
+  totalRatingCount: PropTypes.number.isRequired,
+};
+
 export default RatingBreakdownRow;
