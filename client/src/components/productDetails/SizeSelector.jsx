@@ -1,9 +1,12 @@
 import React from 'react';
+import QuantitySelector from './QuantitySelector.jsx';
 
 const { useEffect, useState } = React;
 
 function SizeSelector({ selectedStyle }) {
   const [skus, setSkus] = useState({});
+  const initialSizeAmount = { size: '', quantity: '' };
+  const [selectedSizeAmount, setSelectedSizeAmount] = useState(initialSizeAmount);
 
   useEffect(() => {
     if (selectedStyle) {
@@ -12,21 +15,24 @@ function SizeSelector({ selectedStyle }) {
   }, [selectedStyle]);
 
   if (skus) {
-    const sizes = Object.values(skus);
+    const sizesAndAmount = Object.values(skus);
     const skuSizes = Object.keys(skus);
 
+    // console.log(selectedSizeAmount);
+
     return (
-      <div>
-        Size Selector
+      <form onChange={(e) => setSelectedSizeAmount(e.target.value)}>
         <label htmlFor="Sizes">Select Size</label>
 
         <select name="sizes" id="sizes">
-          <option value="none" selected>{(sizes.length === 0) ? 'Out Of Stock' : 'Select Size'}</option>
-          {sizes.map((size, index) => <option key={skuSizes[index]} value={size.size}>{size.size ? size.size : null}</option>)}
+          <option defaultValue="selected">{(sizesAndAmount.length === 0) ? 'Out Of Stock' : 'Select Size'}</option>
+          {sizesAndAmount.map((size, index) => <option key={skuSizes[index]} value={size.quantity}>{size.size ? size.size : null}</option>)}
         </select>
-      </div>
+        <QuantitySelector selectedSizeAmount={selectedSizeAmount} />
+      </form>
 
     );
   }
 }
+
 export default SizeSelector;
