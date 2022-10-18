@@ -3,6 +3,8 @@ import ImageCarousel from './ImageCarousel.jsx';
 // import ImageThumbnails from './ImageThumbnails.jsx';
 // import ImageArrowButtons from './ImageArrowButtons.jsx';
 
+// NOTE: Please disregard this file, it should not have been pushed, but it was b/c it was created on the same branch.
+
 const { useEffect, useState } = React;
 
 function ImageGalleryDefault({ selectedStyle }) {

@@ -2,13 +2,15 @@ import React from 'react';
 
 const { useState, useEffect } = React;
 
+// NOTE: PLEASE DISREGARD THIS FILE! Should not have been pushed, not complete.
+
 function ImageCarousel({ photos, setMainImage, mainImage }) {
   if (photos) {
     useEffect(() => {
       setMainImage(photos[0]);
     }, [photos]);
   }
-  console.log(mainImage);
+
   if (mainImage) {
     return (
       <div>
