@@ -11,7 +11,7 @@ function SizeSelector({ selectedStyle }) {
     if (selectedStyle) {
       console.log('selectedStyle', selectedStyle);
       setSelectedSizeAmount(0);
-      return setSkus(selectedStyle.skus);
+      setSkus(selectedStyle.skus);
     }
   }, [selectedStyle]);
 
