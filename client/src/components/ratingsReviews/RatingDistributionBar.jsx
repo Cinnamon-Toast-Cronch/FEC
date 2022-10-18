@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function RatingDistributionBar({ reviewCount, totalReviewCount }) {
+function RatingDistributionBar({ ratingCount, totalRatingCount }) {
   return (
     <div className="distribution-background">
       <div
         className="distribution-foreground"
         style={{
-          width: `${(reviewCount / totalReviewCount) * 100}%`,
+          width: `${(ratingCount / totalRatingCount) * 100}%`,
         }}
       />
     </div>
@@ -15,8 +15,8 @@ function RatingDistributionBar({ reviewCount, totalReviewCount }) {
 }
 
 RatingDistributionBar.propTypes = {
-  reviewCount: PropTypes.number.isRequired,
-  totalReviewCount: PropTypes.number.isRequired,
+  ratingCount: PropTypes.number.isRequired,
+  totalRatingCount: PropTypes.number.isRequired,
 };
 
 export default RatingDistributionBar;

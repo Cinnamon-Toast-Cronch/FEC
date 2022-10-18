@@ -7,8 +7,8 @@ function RatingBreakdownRow({ rating, ratingCount, totalRatingCount }) {
     <div className="rating-breakdown-row">
       <p>{`${rating} stars`}</p>
       <RatingDistributionBar
-        reviewCount={ratingCount}
-        totalReviewCount={totalRatingCount}
+        ratingCount={ratingCount}
+        totalRatingCount={totalRatingCount}
       />
       <p>{ratingCount}</p>
     </div>
