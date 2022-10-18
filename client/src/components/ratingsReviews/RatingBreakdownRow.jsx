@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RatingDistributionBar from './RatingDistributionBar';
+import RatingDistributionBar from './RatingDistributionBar.jsx';
 
 function RatingBreakdownRow() {
   return (
     <div className="rating-breakdown-row">
-      <text>5 stars</text>
+      <p>5 stars</p>
       <RatingDistributionBar reviewCount={5} totalReviewCount={10} />
-      <text>13</text>
+      <p>13</p>
     </div>
   );
 }
