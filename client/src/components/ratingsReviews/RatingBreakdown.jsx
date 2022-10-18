@@ -16,7 +16,7 @@ function RatingBreakdown({ metadata }) {
         <RatingBreakdownRow
           key={rating}
           rating={rating}
-          ratingCount={count}
+          ratingCount={parseInt(count, 10)}
           totalRatingCount={totalRatingCount}
         />
       )).reverse()}
