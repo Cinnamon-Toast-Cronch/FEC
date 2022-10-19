@@ -24,6 +24,7 @@ function ProductDetails({ product }) {
             // console.log('response', response.data.results);
             setReviews(response.data.results);
           });
+      });
   }, [product]);
 
   return (
