@@ -5,14 +5,18 @@ import Card from './relatedCard.jsx';
 function relatedProducts({ product }) {
   const [relatedItems, setRelatedItems] = useState([]);
 
+  const productID = 40344;
   useEffect(() => {
-    axios.get(`/products/${product.id}/related`)
+    axios.get(`/products/${productID}/related`)
       .then(({ data }) => {
         axios.all(data.map((id) => {
           return (
             axios.get(`/products/${id}`)
           );
         }))
+      .catch((err) => {
+        console.log(err);
+      })
           .then((res) => {
             setRelatedItems(res);
           });
@@ -32,16 +36,21 @@ function relatedProducts({ product }) {
       });
   }, [product]);
 
-  return (
-    <div className="carousel">
+  if (relatedItems !== undefined) {
+
+    return (
+      <div className="carousel" data-testid="con-1">
       {
         // console.log('check',relatedItems),
-        relatedItems.map(({ data }) => {
-          return <Card key={data.id} data={data} />;
+        relatedItems.map(({ item }) => {
+          return <Card key={item} item={item} />;
         })
       }
     </div>
   );
+  } else {
+    return null;
+  }
 }
 
 export default relatedProducts;

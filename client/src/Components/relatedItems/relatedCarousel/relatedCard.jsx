@@ -16,15 +16,14 @@ function Card({ data }) {
   useEffect(() => {
     axios.get(`/products/${data.id}/styles`)
       .then((res) => {
-        // console.log('card', res.data.results[0].photos[0].thumbnail_url)
         setImages(res.data.results[0].photos[0].thumbnail_url);
       });
   }, [data]);
-// console.log(images[0].thumbnail_url)
-  // for (let i = 0; i < images.length; i ++) {
-  //   if (images[i]["default?"]) {
-      return (
-        <div className="card">
+
+  if (data !== undefined) {
+
+    return (
+      <div className="card">
           {/* {starAction? return <Comparison/> : return null} */}
           <img src={images}></img>
           <button onClick={handleStarAction}>*STAR*</button>
@@ -34,8 +33,10 @@ function Card({ data }) {
           <div className="rating">*STAR RATING*</div>
         </div>
       );
-  //   }
-  // }
+    } else {
+      return null;
+    }
+
 }
 
 export default Card;

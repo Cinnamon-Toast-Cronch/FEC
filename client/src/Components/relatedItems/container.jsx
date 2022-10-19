@@ -1,14 +1,18 @@
 import React from 'react';
-import RelatedProducts from './relatedProducts.jsx';
-import Outfits from './outfits.jsx';
+import RelatedProducts from './relatedCarousel/relatedProducts.jsx';
+import Outfits from './outfitCarousel/outfits.jsx';
 
 function Container({ product }) {
-  return (
-    <div className="container" data-testid="con-1">
+  if ((Object.keys(product)).length) {
+    return (
+      <div className="container">
       <RelatedProducts product={product} />
       <Outfits />
     </div>
   );
+  } else {
+  return null;
+}
 }
 
 export default Container;
