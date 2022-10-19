@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import _ from 'underscore';
 import RatingBreakdownRow from './RatingBreakdownRow.jsx';
 
-function RatingBreakdown({ metadata, filters, resetFilters, addFilter }) {
+function RatingBreakdown({ ratings, filters, resetFilters, addFilter }) {
   const totalRatingCount = _.reduce(
-    metadata.ratings,
+    ratings,
     (memo, num) => memo + parseInt(num, 10),
     0
   );
 
   return (
     <div className="rating-breakdown">
-      {_.map(metadata.ratings, (count, rating) => (
+      {_.map(ratings, (count, rating) => (
         <RatingBreakdownRow
           key={rating}
           rating={rating}
@@ -41,13 +41,26 @@ function RatingBreakdown({ metadata, filters, resetFilters, addFilter }) {
 }
 
 RatingBreakdown.propTypes = {
-  metadata: PropTypes.object.isRequired,
+  ratings: PropTypes.shape({
+    1: PropTypes.object,
+    2: PropTypes.object,
+    3: PropTypes.object,
+    4: PropTypes.object,
+    5: PropTypes.object,
+  }),
   filters: PropTypes.array,
   resetFilters: PropTypes.func.isRequired,
   addFilter: PropTypes.func.isRequired,
 };
 
 RatingBreakdown.defaultProps = {
+  ratings: {
+    1: '0',
+    2: '0',
+    3: '0',
+    4: '0',
+    5: '0',
+  },
   filters: [],
 };
 
