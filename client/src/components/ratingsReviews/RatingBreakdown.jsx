@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import _ from 'underscore';
 import RatingBreakdownRow from './RatingBreakdownRow.jsx';
 
-function RatingBreakdown({ metadata }) {
+function RatingBreakdown({ metadata, filters }) {
   const totalRatingCount = _.reduce(
     metadata.ratings,
     (memo, num) => memo + parseInt(num, 10),
@@ -20,12 +20,26 @@ function RatingBreakdown({ metadata }) {
           totalRatingCount={totalRatingCount}
         />
       )).reverse()}
+      <h6>Applied Filters</h6>
+      <p className="reset-filter-button">Reset</p>
+      <div className="filter-icons">
+        {filters.map((filter) => (
+          <p key={filter} className="filter-icon">
+            {filter}
+          </p>
+        ))}
+      </div>
     </div>
   );
 }
 
 RatingBreakdown.propTypes = {
   metadata: PropTypes.object.isRequired,
+  filters: PropTypes.array,
+};
+
+RatingBreakdown.defaultProps = {
+  filters: [],
 };
 
 export default RatingBreakdown;
