@@ -146,18 +146,23 @@ table {
 *
 */
 
+.rating-breakdown-row {
+  font-size: 15px;
+  margin: 1px 5px;
+  display: flex;
+}
+
 .rating-breakdown-row * {
   display: inline-block;
 }
 
-.rating-breakdown-row {
-  font-size: 15px;
-  margin: 1px 5px;
+.rating-breakdown-row p {
+  text-decoration: underline;
 }
 
 .distribution-background {
   height: 1em;
-  width: 80%;
+  width: 10em;
   background-color: #707070;
   margin: 0 5px;
 }
