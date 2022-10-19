@@ -10,12 +10,6 @@ function QuestionCard(props) {
   const [answers, setAnswers] = useState([]);
 
   useEffect(() => {
-    // const queryParams = {
-    //   params: {
-    //     page: 10,
-    //     count: 5,
-    //   },
-    // };
     axios.get(`/qa/questions/${question.question_id}/answers`)
       .then((response) => setAnswers(response.data.results));
   }, []);

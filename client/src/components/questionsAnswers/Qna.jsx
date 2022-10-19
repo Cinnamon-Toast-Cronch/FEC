@@ -3,13 +3,15 @@
 import React from 'react';
 import axios from 'axios';
 import Search from './Search.jsx';
-import Accordion from './Accordion.jsx';
+import Questions from './Questions.jsx';
 
 const { useState, useEffect } = React;
 
 function Qna(props) {
   const [search, setSearch] = useState('');
   const [questions, setQuestions] = useState([]);
+  // Using lines 16-19 for testing in-develpment.
+  // Line 15 will be used during implementation to set state after development is finished
   // const { product } = props;
   const product = {
     "id": 40346,
@@ -46,7 +48,7 @@ function Qna(props) {
         setSearch={setSearch}
         handleSearch={handleSearch}
       />
-      <Accordion
+      <Questions
         className="qnaAccordion"
         product={props}
         questions={questions}
