@@ -18,5 +18,9 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react'],
-  rules: { 'no-console': 0, 'react/forbid-prop-types': 0 },
+  rules: {
+    'no-console': 0,
+    'react/forbid-prop-types': 0,
+    'import/extensions': ['error', 'ignorePackages'],
+  },
 };
