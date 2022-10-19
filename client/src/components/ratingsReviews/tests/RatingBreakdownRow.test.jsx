@@ -3,12 +3,16 @@ import { render, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import RatingBreakdownRow from '../RatingBreakdownRow.jsx';
 
+jest.mock('../RatingDistributionBar.jsx', () => () => (
+  <div data-testid="rating-distribution-bar" />
+));
+
 afterEach(cleanup);
 
 describe('Rating Breakdown Row', () => {
   it("Should contain a button, a rating distribution bar, and a <p> element who's text is equal the count of ratings for that rating", () => {
     userEvent.setup();
-    const { getByRole, container, getByText } = render(
+    const { getByRole, getByText, getByTestId } = render(
       <RatingBreakdownRow
         rating="2"
         ratingCount={20}
@@ -18,7 +22,7 @@ describe('Rating Breakdown Row', () => {
     );
 
     const button = getByRole('button');
-    const RatingBar = container.querySelector('.distribution-background');
+    const RatingBar = getByTestId('rating-distribution-bar');
     const p = getByText('20');
 
     expect(button).toBeInTheDocument();
