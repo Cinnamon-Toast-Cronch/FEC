@@ -203,3 +203,23 @@ table {
   padding: 0.2em;
   margin: 2px;
 }
+
+.qna-title {
+  font-size: larger;
+}
+
+.qnaSearch {
+  width: max-content;
+}
+
+.qnaSearchInput {
+  padding: 0;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+}
+
+.qnaSearchIcon {
+  height: 15px;
+  width: 15px;
+}
