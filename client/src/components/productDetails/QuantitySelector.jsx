@@ -14,8 +14,12 @@ function QuantitySelector({ selectedSizeAmount, currentSizeAmountVal, setCurrent
   }
 
   return (
-    <div>
-      <label htmlFor="Quantity">Select Quantity</label>
+    <div role="button" name="Quantity Form">
+      Quantity Form
+      <label htmlFor="Quantity">
+        Select Quantity
+        <input aria-labelledby="Quantity" />
+      </label>
       <select name="quantity" id="quantity">
         {(selectedSizeAmount > 0) ? <option defaultValue="selected"> 1 </option> : <option defaultValue="selected" disabled> - </option>}
         {quantityList.map((quantity) => <option key={quantity} value={quantity}>{quantity}</option>)}
