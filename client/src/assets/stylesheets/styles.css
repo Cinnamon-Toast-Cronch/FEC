@@ -146,6 +146,15 @@ table {
 *
 */
 
+.text-like-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  text-decoration: underline;
+}
+
 .rating-breakdown {
   font-size: 15px;
 }
