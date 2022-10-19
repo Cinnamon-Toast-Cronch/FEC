@@ -21,7 +21,9 @@ function RatingBreakdown({ metadata, filters }) {
         />
       )).reverse()}
       <h6>Applied Filters</h6>
-      <p className="reset-filter-button">Reset</p>
+      <button className="reset-filter-button text-like-button" type="button">
+        Reset
+      </button>
       <div className="filter-icons">
         {filters.map((filter) => (
           <p key={filter} className="filter-icon">
