@@ -42,8 +42,8 @@ function relatedProducts({ product }) {
       <div className="carousel" data-testid="con-1">
       {
         // console.log('check',relatedItems),
-        relatedItems.map(({ item }) => {
-          return <Card key={item} item={item} />;
+        relatedItems.map(({ data }) => {
+          return <Card key={data.id} data={data} />;
         })
       }
     </div>
