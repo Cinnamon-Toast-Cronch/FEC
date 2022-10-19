@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import ProductDetails from './productDetails/ProductDetails.jsx'; // TODO - fill in filepath
-// import Qna from './questionsAnswers'; // TODO - fill in filepath
+import ProductDetails from './productDetails/ProductDetails.jsx';
+import Qna from './questionsAnswers/Qna.jsx';
 // import Rnr from './ratingsReviews'; // TODO - fill in filepath
 // import RelatedItems from './relatedItems'; // TODO - fill in filepath
 
@@ -25,8 +25,8 @@ function App() {
       </div>
       <div className="widgets">
         <ProductDetails product={product} />
-        {/* <Qna product={product} />
-        <Rnr product={product} />
+        <Qna product={product} />
+        {/* <Rnr product={product} />
         <RelatedItems product={product} /> */}
       </div>
     </div>
