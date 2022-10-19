@@ -10,7 +10,9 @@ function RatingReviewContainer({ product }) {
   const [filters, setFilters] = useState([]);
 
   const addFilter = (newFilter) => {
-    setFilters([...filters, newFilter].sort());
+    if (!filters.includes(newFilter)) {
+      setFilters([...filters, newFilter].sort());
+    }
   };
 
   const resetFilters = () => {
