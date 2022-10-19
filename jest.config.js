@@ -8,6 +8,8 @@ const config = {
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
   transformIgnorePatterns: ['<rootDir>/node_modules/(?!(axios)/)'],
   testEnvironment: 'jsdom',
+  collectCoverage: true,
+  collectCoverageFrom: ['src/**/*.{js,jsx}'],
 };
 
 module.exports = config;
