@@ -20,6 +20,16 @@ function QuestionCard(props) {
         Q:
         {question.question_body}
       </div>
+      <div>
+        helpful?
+        <u>yes</u>
+        {' '}
+        {question.helpfulness}
+        {' '}
+        |
+        {' '}
+        <u>Add answer</u>
+      </div>
       <div className="answers">
         {answers.map((answer, i) => (
           <AnswerCard

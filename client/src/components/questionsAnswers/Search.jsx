@@ -1,5 +1,4 @@
 import React from 'react';
-import img from '../../assets/images/searchIcon.png';
 
 const { useState } = React;
 
@@ -23,7 +22,7 @@ function Search(props) {
       />
       <input
         type="image"
-        src={img}
+        // TODO need src attribute
         alt="submit"
         name="qnaSearchInput"
         className="qnaSearchIcon"
