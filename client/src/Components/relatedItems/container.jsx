@@ -4,8 +4,8 @@ import Outfits from './outfits.jsx';
 
 function Container({ product }) {
   return (
-    <div className="container" data-testid="con-1">
-      <RelatedProducts product={product} />
+    <div className="container">
+      <RelatedProducts product={product} testId="con-1" />
       <Outfits />
     </div>
   );
