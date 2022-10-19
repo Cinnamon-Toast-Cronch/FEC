@@ -140,6 +140,70 @@ table {
 *
 */
 
+/*
+*
+* RATINGS & REVIEWS
+*
+*/
+
+.text-like-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  text-decoration: underline;
+}
+
+.rating-breakdown {
+  font-size: 15px;
+}
+
+.rating-breakdown-row {
+  margin: 1px 5px;
+  display: flex;
+}
+
+.rating-breakdown-row * {
+  display: inline-block;
+}
+
+.rating-breakdown-row p {
+  text-decoration: underline;
+}
+
+.distribution-background {
+  height: 1em;
+  width: 10em;
+  background-color: #707070;
+  margin: 0 5px;
+}
+
+.distribution-foreground {
+  height: 1em;
+  background-color: #73b98c;
+}
+
+.rating-breakdown h6,
+.reset-filter-button {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.reset-filter-button {
+  font-size: 0.75em;
+  text-decoration: underline;
+}
+
+.filter-icon {
+  display: inline-block;
+  background-color: #f7f7f7;
+  border: 1px solid #707070;
+  border-radius: 3em;
+  padding: 0.2em;
+  margin: 2px;
+}
+
 .qna-title {
   font-size: larger;
 }
@@ -152,10 +216,10 @@ table {
   padding: 0;
   margin-left: 10%;
   margin-right: 10%;
-  width:80%;
+  width: 80%;
 }
 
 .qnaSearchIcon {
-  height:15px;
-  width:15px;
+  height: 15px;
+  width: 15px;
 }
