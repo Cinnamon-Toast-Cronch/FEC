@@ -6,13 +6,11 @@ function Container({ product }) {
   if ((Object.keys(product)).length) {
     return (
       <div className="container">
-      <RelatedProducts product={product} />
-      <Outfits />
-    </div>
-  );
-  } else {
-  return null;
-}
+        <RelatedProducts product={product} />
+        <Outfits product={product} />
+      </div>
+    );
+  }
 }
 
 export default Container;

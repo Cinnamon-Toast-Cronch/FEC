@@ -8,9 +8,9 @@ import Price from './cardComponents/price.jsx';
 import Comparison from './cardComponents/comparison.jsx';
 // import './cardComponents.css';
 
-// handleCardClick ----need to have a set state prop to change state on app
+// handleCardClick ----need to have a set state prop to change current displayed product on app
 
-function Card({ data }) {
+function Card({ data, displayProduct }) {
   const [images, setImages] = useState([]);
   const [comparePopup, setComparePopup] = useState(false);
   const handlesComparePopup = () => {
@@ -25,21 +25,21 @@ function Card({ data }) {
   }, [data]);
 
   if (data !== undefined) {
-  return (
-    <div className="card">
-      {/* {starAction? return <Comparison/> : return null} */}
-      <Image images={images} handlesComparePopup={handlesComparePopup}></Image>
-      <Category category={data.category} />
-      <Name name={data.name} />
-      <Price price={data.default_price} />
-      <div className="rating">*STAR RATING*</div>
-      <Comparison trigger={comparePopup} handlesComparePopup={handlesComparePopup}/>
-    </div>
+    return (
+      <div className="card">
+        <li>
+          <Image images={images} handlesComparePopup={handlesComparePopup} />
+          <Category category={data.category} />
+          <Name name={data.name} />
+          <Price price={data.default_price} />
+          <div className="rating">*STAR RATING*</div>
+          <Comparison trigger={comparePopup} handlesComparePopup={handlesComparePopup} data={data} displayProduct={displayProduct}/>
+        </li>
+      </div>
     );
   } else {
     return null;
   }
-
 }
 
 export default Card;

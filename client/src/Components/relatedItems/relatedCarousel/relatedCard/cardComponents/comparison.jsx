@@ -1,12 +1,10 @@
 import React from 'react';
 
-function Comparison({ trigger, handlesComparePopup, currentProduct, comparedProduct }) {
+function Comparison({ trigger, handlesComparePopup, data, displayProduct }) {
   return (
-    trigger?
-    <div className="comparison-popup"> hi
+    trigger ?
+    <div className="comparison-popup"> {data.name} {displayProduct.name}
       <button onClick={() => handlesComparePopup()}>X</button>
-
-
     </div> : null
   );
 }
