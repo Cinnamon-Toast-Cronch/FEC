@@ -153,6 +153,7 @@ table {
 .rating-review-container {
   display: flex;
   font-size: 15px;
+  color: #707070;
 }
 
 /*
@@ -166,6 +167,7 @@ table {
   cursor: pointer;
   font: inherit;
   text-decoration: underline;
+  color: inherit;
 }
 
 .rating-breakdown-row {
@@ -175,6 +177,7 @@ table {
 
 .rating-breakdown-row * {
   display: inline-block;
+  white-space: nowrap;
 }
 
 .rating-breakdown-row p {
