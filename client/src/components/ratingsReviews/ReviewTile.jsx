@@ -11,9 +11,12 @@ function ReviewTile({ review, queryReviews }) {
 
   const [markedAsHelpful, setMarkedAsHelpful] = useState(false);
 
+  // TODO: make markedAsHelpful status persist through refreshes: https://felixgerschau.com/react-localstorage/
   const markAsHelpful = () => {
-    Axios.put(`/reviews/${review.review_id}/helpful`);
-    setMarkedAsHelpful(true);
+    if (!markAsHelpful) {
+      Axios.put(`/reviews/${review.review_id}/helpful`);
+      setMarkedAsHelpful(true);
+    }
   };
 
   return (
