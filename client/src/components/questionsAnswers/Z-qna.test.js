@@ -4,8 +4,8 @@
 
 import React from 'react';
 import { render, cleanup } from '@testing-library/react';
-import Qna from './Qna.jsx';
-import Search from './Search.jsx';
+import QnaWidget from './A-QnaWidget.jsx';
+import Search from './B-Search.jsx';
 import App from '../app.jsx';
 
 afterEach(cleanup);
@@ -16,7 +16,7 @@ describe('Sanity test the Qna widget has a title', () => {
       id: 40346,
     };
 
-    const { getByText } = render(<Qna product={product} />);
+    const { getByText } = render(<QnaWidget product={product} />);
     expect(getByText('QUESTIONS & ANSWERS')).toBeInTheDocument();
   });
 });
