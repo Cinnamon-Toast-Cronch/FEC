@@ -9,30 +9,35 @@ function ReviewTile({ review }) {
   );
 
   return (
-    <div className="review-tile">
-      <StarRating rating={review.rating} />
-      <p>{`${review.reviewer_name}, ${humanReadableDate}`}</p>
-      <h5>{review.summary}</h5>
-      <p>{review.body}</p>
-      {review.response && (
-        <div className="response">
-          <h6>Response from seller:</h6>
-          <p>{review.response}</p>
+    <>
+      <div className="review-tile">
+        <div className="flex-between">
+          <StarRating rating={review.rating} />
+          <p>{`${review.reviewer_name}, ${humanReadableDate}`}</p>
         </div>
-      )}
-      {review.photos.map((photo) => (
-        <div className="img-container" key={photo.id}>
-          <img src={photo.url} alt="Photograph from reviewer" />
+        <h5>{review.summary}</h5>
+        <p>{review.body}</p>
+        {review.response && (
+          <div className="response">
+            <h6>Response from seller:</h6>
+            <p>{review.response}</p>
+          </div>
+        )}
+        {review.photos.map((photo) => (
+          <div className="img-container" key={photo.id}>
+            <img src={photo.url} alt="Photograph from reviewer" />
+          </div>
+        ))}
+        <div className="helpful-bar">
+          <p>Helpful?</p>
+          <button className="text-like-button" type="button">
+            Yes
+          </button>
+          <p>{`(${review.helpfulness})`}</p>
         </div>
-      ))}
-      <div className="helpful-bar">
-        <p>Helpful?</p>
-        <button className="text-like-button" type="button">
-          Yes
-        </button>
-        <p>{`(${review.helpfulness})`}</p>
       </div>
-    </div>
+      <hr />
+    </>
   );
 }
 
