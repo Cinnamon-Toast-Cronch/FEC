@@ -18,7 +18,7 @@ function StarRating({ rating }) {
       fillStyle = 'empty';
     }
 
-    starsArray[i] = <StarIcon fillStyle={fillStyle} id={i} />;
+    starsArray[i] = <StarIcon fillStyle={fillStyle} key={i} />;
   }
 
   return <div>{starsArray}</div>;
