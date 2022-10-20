@@ -146,6 +146,10 @@ table {
 *
 */
 
+/*
+* Rating Breakdown
+*/
+
 .text-like-button {
   background: none;
   border: none;
@@ -208,9 +212,43 @@ table {
 * Review Tile
 */
 
+.review-tile {
+  margin: 5px;
+  font-size: 15px;
+}
+
+.review-tile > * {
+  margin-bottom: 0.2em;
+}
+
+.review-tile p {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.review-tile h5 {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.response {
+  background-color: #ededed;
+  padding: 1em;
+}
+
+.response h6 {
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
 .img-container {
-  width: 70px;
-  height: 70px;
+  width: 55px;
+  height: 55px;
   overflow: hidden;
   border: 2px solid #707070;
   display: inline-block;
@@ -223,6 +261,18 @@ table {
   object-fit: cover;
   overflow: hidden;
   background-repeat: no-repeat;
+}
+
+.helpful-bar * {
+  display: inline-block;
+}
+
+.helpful-bar p {
+  margin-right: 5px;
+}
+
+.helpful-bar button {
+  margin-right: 3px;
 }
 
 /*
