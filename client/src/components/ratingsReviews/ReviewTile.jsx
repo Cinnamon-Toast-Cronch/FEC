@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Axios from 'axios';
 import StarRating from './StarRating.jsx';
@@ -9,10 +9,11 @@ function ReviewTile({ review, queryReviews }) {
     { year: 'numeric', month: 'long', day: 'numeric' }
   );
 
+  const [markedAsHelpful, setMarkedAsHelpful] = useState(false);
+
   const markAsHelpful = () => {
-    Axios.put(`/reviews/${review.review_id}/helpful`).then(() =>
-      queryReviews()
-    );
+    Axios.put(`/reviews/${review.review_id}/helpful`);
+    setMarkedAsHelpful(true);
   };
 
   return (
@@ -44,7 +45,9 @@ function ReviewTile({ review, queryReviews }) {
           >
             Yes
           </button>
-          <p>{`(${review.helpfulness})`}</p>
+          <p>{`(${
+            markedAsHelpful ? review.helpfulness + 1 : review.helpfulness
+          })`}</p>
         </div>
       </div>
       <hr />
