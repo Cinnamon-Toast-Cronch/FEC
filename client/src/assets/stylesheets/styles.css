@@ -139,3 +139,162 @@ table {
 * WIDGET CONFIGURATIONS
 *
 */
+
+/*
+*
+* RATINGS & REVIEWS
+*
+*/
+
+/*
+* Rating Breakdown
+*/
+
+.text-like-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  text-decoration: underline;
+}
+
+.rating-breakdown {
+  font-size: 15px;
+}
+
+.rating-breakdown-row {
+  margin: 1px 5px;
+  display: flex;
+}
+
+.rating-breakdown-row * {
+  display: inline-block;
+}
+
+.rating-breakdown-row p {
+  text-decoration: underline;
+}
+
+.distribution-background {
+  height: 1em;
+  width: 10em;
+  background-color: #707070;
+  margin: 0 5px;
+}
+
+.distribution-foreground {
+  height: 1em;
+  background-color: #73b98c;
+}
+
+.rating-breakdown h6,
+.reset-filter-button {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.reset-filter-button {
+  font-size: 0.75em;
+  text-decoration: underline;
+}
+
+.filter-icon {
+  display: inline-block;
+  background-color: #f7f7f7;
+  border: 1px solid #707070;
+  border-radius: 3em;
+  padding: 0.2em;
+  margin: 2px;
+}
+
+/*
+* Review Tile
+*/
+
+.review-tile {
+  margin: 5px;
+  font-size: 15px;
+}
+
+.review-tile > * {
+  margin-bottom: 0.2em;
+}
+
+.review-tile p {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.review-tile h5 {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.response {
+  background-color: #ededed;
+  padding: 1em;
+}
+
+.response h6 {
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.img-container {
+  width: 55px;
+  height: 55px;
+  overflow: hidden;
+  border: 2px solid #707070;
+  display: inline-block;
+  margin: 3px 3px 3px 0;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.helpful-bar * {
+  display: inline-block;
+}
+
+.helpful-bar p {
+  margin-right: 5px;
+}
+
+.helpful-bar button {
+  margin-right: 3px;
+}
+
+/*
+*
+* QUESTIONS & ANSWERS
+*
+*/
+
+.qna-title {
+  font-size: larger;
+}
+
+.qnaSearch {
+  width: max-content;
+}
+
+.qnaSearchInput {
+  padding: 0;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+}
+
+.qnaSearchIcon {
+  height: 15px;
+  width: 15px;
+}

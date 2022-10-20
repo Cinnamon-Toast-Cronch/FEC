@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import _ from 'underscore';
 import StarRating from './StarRating.jsx';
 
-function RatingSummary({ metaData }) {
+function RatingSummary({ metadata }) {
   const ratingCount = _.reduce(
-    metaData.ratings,
+    metadata.ratings,
     (memo, num) => memo + parseInt(num, 10),
     0
   );
   const avgRating =
     _.reduce(
-      metaData.ratings,
+      metadata.ratings,
       (memo, num, key) => memo + num * parseInt(key, 10),
       0
     ) / ratingCount;
@@ -29,7 +29,7 @@ function RatingSummary({ metaData }) {
 }
 
 RatingSummary.propTypes = {
-  metaData: PropTypes.object.isRequired,
+  metadata: PropTypes.object.isRequired,
 };
 
 export default RatingSummary;
