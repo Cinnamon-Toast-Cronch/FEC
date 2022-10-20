@@ -8,6 +8,19 @@ function ReviewList({ productId }) {
   const [page, setPage] = useState(0);
   const [sort, setSort] = useState('relevant');
 
+  const sortByDate = (reviewList) =>
+    reviewList.sort((a, b) => {
+      const dateA = Date.parse(a.date);
+      const dateB = Date.parse(b.date);
+      if (dateA < dateB) {
+        return -1;
+      }
+      if (dateB > dateA) {
+        return 1;
+      }
+      return 0;
+    });
+
   const loadMoreReviews = () => {
     Axios.get(
       `/reviews?product_id=${productId}&page=${page + 1}&sort=${sort}`
@@ -22,7 +35,11 @@ function ReviewList({ productId }) {
       Axios.get(`/reviews?product_id=${productId}&sort=${sort}`).then(
         (response) => {
           setPage(1);
-          setReviews(response.data.results);
+          const newReviews =
+            sort === 'newest'
+              ? sortByDate(response.data.results)
+              : response.data.results;
+          setReviews(newReviews);
         }
       );
     }
