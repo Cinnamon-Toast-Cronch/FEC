@@ -40,7 +40,7 @@ function Qna(props) {
       <h1
         className="qna-title"
       >
-        QUESTIONS & ANSWERS
+        QUESTIONS &amp; ANSWERS
       </h1>
       <Search
         className="qnaSearch"
