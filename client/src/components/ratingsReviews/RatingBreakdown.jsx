@@ -42,11 +42,11 @@ function RatingBreakdown({ ratings, filters, resetFilters, addFilter }) {
 
 RatingBreakdown.propTypes = {
   ratings: PropTypes.shape({
-    1: PropTypes.object,
-    2: PropTypes.object,
-    3: PropTypes.object,
-    4: PropTypes.object,
-    5: PropTypes.object,
+    1: PropTypes.string,
+    2: PropTypes.string,
+    3: PropTypes.string,
+    4: PropTypes.string,
+    5: PropTypes.string,
   }),
   filters: PropTypes.array,
   resetFilters: PropTypes.func.isRequired,
