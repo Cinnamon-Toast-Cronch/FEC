@@ -217,6 +217,25 @@ table {
 }
 
 /*
+* Review List
+*/
+.review-sort-bar {
+  font-size: 1.4em;
+  margin: 0 5px;
+}
+
+.review-sort-bar select {
+  font: inherit;
+  text-decoration: underline;
+  color: inherit;
+  border: none;
+}
+
+.review-sort-bar p {
+  display: inline-block;
+}
+
+/*
 * Review Tile
 */
 
