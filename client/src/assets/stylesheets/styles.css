@@ -147,6 +147,15 @@ table {
 */
 
 /*
+* Rating Review Container
+*/
+
+.rating-review-container {
+  display: flex;
+  font-size: 15px;
+}
+
+/*
 * Rating Breakdown
 */
 
@@ -157,10 +166,6 @@ table {
   cursor: pointer;
   font: inherit;
   text-decoration: underline;
-}
-
-.rating-breakdown {
-  font-size: 15px;
 }
 
 .rating-breakdown-row {
@@ -214,7 +219,6 @@ table {
 
 .review-tile {
   margin: 5px;
-  font-size: 15px;
 }
 
 .review-tile > * {
