@@ -49,4 +49,8 @@ function ReviewList({ productId }) {
   );
 }
 
+ReviewList.propTypes = {
+  productId: PropTypes.number.isRequired,
+};
+
 export default ReviewList;
