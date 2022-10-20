@@ -7,6 +7,7 @@ function ReviewList({ productId }) {
   const [reviews, setReviews] = useState([]);
   const [page, setPage] = useState(0);
   const [sort, setSort] = useState('relevant');
+  const [displayCount, setDisplayCount] = useState(2);
 
   const sortByDate = (reviewList) =>
     reviewList.sort((a, b) => {
@@ -26,7 +27,7 @@ function ReviewList({ productId }) {
       `/reviews?product_id=${productId}&page=${page + 1}&sort=${sort}`
     ).then((response) => {
       setPage(page + 1);
-      setReviews([...reviews, response.data.results]);
+      setReviews([...reviews, ...response.data.results]);
     });
   };
 
@@ -40,6 +41,7 @@ function ReviewList({ productId }) {
               ? sortByDate(response.data.results)
               : response.data.results;
           setReviews(newReviews);
+          setDisplayCount(2);
         }
       );
     }
@@ -59,9 +61,19 @@ function ReviewList({ productId }) {
           <option value="helpful">Helpful</option>
         </select>
       </div>
-      {reviews.map((review) => (
+      {reviews.slice(0, displayCount).map((review) => (
         <ReviewTile review={review} key={review.review_id} />
       ))}
+      {displayCount < reviews.length && (
+        <button
+          type="button"
+          onClick={() => {
+            setDisplayCount(displayCount + 2);
+          }}
+        >
+          Load More Reviews
+        </button>
+      )}
     </>
   );
 }
