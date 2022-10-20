@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Axios from 'axios';
-import ReviewTile from './eviewTile.jsx';
+import ReviewTile from './ReviewTile.jsx';
 
 function ReviewList({ productId }) {
   const [reviews, setReviews] = useState([]);
