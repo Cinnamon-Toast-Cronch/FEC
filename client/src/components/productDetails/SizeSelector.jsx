@@ -9,7 +9,6 @@ function SizeSelector({ selectedStyle }) {
 
   useEffect(() => {
     if (selectedStyle) {
-      console.log('selectedStyle', selectedStyle);
       setSelectedSizeAmount(0);
       setSkus(selectedStyle.skus);
     }

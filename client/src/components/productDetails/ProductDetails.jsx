@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import ProductInformation from './ProductInformation.jsx';
 import StyleSelector from './StyleSelector.jsx';
-import ImageGalleryDefault from './ImageGalleryDefault.jsx';
+import ProductImages from './ProductImages.jsx';
 
 const { useState, useEffect } = React;
 
@@ -30,7 +30,7 @@ function ProductDetails({ product }) {
   return (
     <div>
       <ProductInformation product={product} reviews={reviews} selectedStyle={selectedStyle} />
-      <ImageGalleryDefault selectedStyle={selectedStyle} />
+      <ProductImages selectedStyle={selectedStyle} />
       <StyleSelector styles={styles} setSelectedStyle={setSelectedStyle} selectedStyle={selectedStyle} />
     </div>
   );
