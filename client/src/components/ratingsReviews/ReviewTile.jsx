@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Axios from 'axios';
 import StarRating from './StarRating.jsx';
 
-function ReviewTile({ review, queryReviews }) {
+function ReviewTile({ review }) {
   const humanReadableDate = new Date(review.date).toLocaleDateString(
     undefined,
     { year: 'numeric', month: 'long', day: 'numeric' }
@@ -77,7 +77,6 @@ ReviewTile.propTypes = {
       })
     ),
   }).isRequired,
-  queryReviews: PropTypes.func.isRequired,
 };
 
 export default ReviewTile;
