@@ -34,6 +34,7 @@ function ReviewTile({ review, queryReviews }) {
             <p>{review.response}</p>
           </div>
         )}
+        {/* TODO: make images expand as a modal when clicked */}
         {review.photos.map((photo) => (
           <div className="img-container" key={photo.id}>
             <img src={photo.url} alt="Photograph from reviewer" />
