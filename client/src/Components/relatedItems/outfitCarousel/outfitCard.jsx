@@ -4,7 +4,7 @@ import React from 'react'
 
 function Card({ product }) {
   return (
-    <div className='card'>
+    <div className='outfit-card'>
       <button>*X*</button>
       <text>${product.category}</text>
       <text>${product.name}</text>

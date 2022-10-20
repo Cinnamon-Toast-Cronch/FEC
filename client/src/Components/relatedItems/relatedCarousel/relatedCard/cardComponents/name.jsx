@@ -2,7 +2,7 @@ import React from 'react';
 
 function Name({ name }) {
   return (
-    <div className="name">{name}</div>
+    <div className="related-name">{name}</div>
   );
 }
 

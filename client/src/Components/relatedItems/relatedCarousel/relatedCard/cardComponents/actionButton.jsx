@@ -3,7 +3,7 @@ import React from 'react';
 function Button({ handlesComparePopup }) {
   return (
     <div>
-      <button onClick={() => handlesComparePopup()}>Button</button>
+      <button className="compare-button" type="button" onClick={handlesComparePopup}>button</button>
     </div>
   )
 }

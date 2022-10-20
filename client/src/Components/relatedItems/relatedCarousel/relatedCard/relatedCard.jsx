@@ -26,7 +26,7 @@ function Card({ data, displayProduct }) {
 
   if (data !== undefined) {
     return (
-      <div className="card">
+      <div className="related-card">
         <li>
           <Image images={images} handlesComparePopup={handlesComparePopup} />
           <Category category={data.category} />
