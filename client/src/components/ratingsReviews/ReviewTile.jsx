@@ -1,12 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Axios from 'axios';
 import StarRating from './StarRating.jsx';
 
-function ReviewTile({ review }) {
+function ReviewTile({ review, queryReviews }) {
   const humanReadableDate = new Date(review.date).toLocaleDateString(
     undefined,
     { year: 'numeric', month: 'long', day: 'numeric' }
   );
+
+  const markAsHelpful = () => {
+    Axios.put(`/reviews/${review.review_id}/helpful`).then(() =>
+      queryReviews()
+    );
+  };
 
   return (
     <>
@@ -30,7 +37,11 @@ function ReviewTile({ review }) {
         ))}
         <div className="helpful-bar">
           <p>Helpful?</p>
-          <button className="text-like-button" type="button">
+          <button
+            className="text-like-button"
+            type="button"
+            onClick={markAsHelpful}
+          >
             Yes
           </button>
           <p>{`(${review.helpfulness})`}</p>
@@ -59,6 +70,7 @@ ReviewTile.propTypes = {
       })
     ),
   }).isRequired,
+  queryReviews: PropTypes.func.isRequired,
 };
 
 export default ReviewTile;
