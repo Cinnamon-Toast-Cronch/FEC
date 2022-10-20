@@ -16,8 +16,8 @@ function DefaultGallery({ photoUrls }) {
   };
   return (
     <div>
-      <button onClick={prevImage}>Previous</button>
-      <button onClick={nextImage}>Next</button>
+      {count === 0 ? null : <button type="button" onClick={prevImage}>Previous</button>}
+      {count === photoUrls.length - 1 ? null : <button type="button" onClick={nextImage}>Next</button>}
       {photoUrls.map((url, index) => {
         const key = url.split('-');
         return (
