@@ -11,6 +11,7 @@ function ProductDetails({ product }) {
   const [styles, setStyles] = useState([]);
   const [selectedStyle, setSelectedStyle] = useState({});
 
+  // handle product.id undefined
   useEffect(() => {
     axios.get(`/products/${product.id}/styles`)
       .then(({ data }) => {
@@ -27,13 +28,16 @@ function ProductDetails({ product }) {
       });
   }, [product]);
 
-  return (
-    <div>
-      <ProductInformation product={product} reviews={reviews} selectedStyle={selectedStyle} />
-      <ImageGalleryDefault selectedStyle={selectedStyle} />
-      <StyleSelector styles={styles} setSelectedStyle={setSelectedStyle} selectedStyle={selectedStyle} />
-    </div>
-  );
+  if (Object.keys(product).length > 0) {
+    return (
+      <div>
+        <ProductInformation product={product} reviews={reviews} selectedStyle={selectedStyle} />
+        <ImageGalleryDefault selectedStyle={selectedStyle} />
+        <StyleSelector styles={styles} setSelectedStyle={setSelectedStyle} selectedStyle={selectedStyle} />
+      </div>
+    );
+  }
+  return null;
 }
 
 export default ProductDetails;

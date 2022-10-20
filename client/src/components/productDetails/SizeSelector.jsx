@@ -16,6 +16,7 @@ function SizeSelector({ selectedStyle }) {
       // console.log('selectedStyle', selectedStyle);
       setSelectedSizeAmount(0);
       setSkus(selectedStyle.skus);
+      setSelection(initialSelection);
     }
   }, [selectedStyle]);
 
@@ -32,7 +33,6 @@ function SizeSelector({ selectedStyle }) {
       console.log('skuObj', skus[currentSku]);
       setSelectedSizeAmount(skus[currentSku].quantity);
       setSelection({ ...selection, size: skus[currentSku].size });
-      console.log('selection', selection);
       e.preventDefault();
     };
 
@@ -40,21 +40,27 @@ function SizeSelector({ selectedStyle }) {
       setSelection({ ...selection, quantity: e.target.value });
       e.preventDefault();
     };
+    const handleSizeView = () => {
+      // will add drop down functionality with css
+      console.log('Select Size Dropdown will display all options');
+    };
 
     return (
       <div>
-        <form onChange={(e) => {
-          handleSizeSelection(e);
-        }}
-        >
-          <label htmlFor="Sizes">Select Size</label>
-          <select name="sizes" id="sizes">
-            <option defaultValue="selected">{(sizesAndAmount.length === 0) ? 'Out Of Stock' : 'Select Size'}</option>
-            {sizesAndAmount.map((size, index) => <option key={skuSizes[index]} value={index}>{size.size ? size.size : null}</option>)}
-          </select>
-        </form>
+        <div id="sizeDropdown" className="sizeContent">
+          <form onChange={(e) => {
+            handleSizeSelection(e);
+          }}
+          >
+            <label htmlFor="Sizes">Select Size</label>
+            <select name="sizes" id="sizes">
+              {selectedSizeAmount ? <option defaultValue="selected" disabled>{(sizesAndAmount.length === 0) ? 'Out Of Stock' : 'Select Size'}</option> : <option defaultValue="selected">{(sizesAndAmount.length === 0) ? 'Out Of Stock' : 'Select Size'}</option>}
+              {sizesAndAmount.map((size, index) => <option key={skuSizes[index]} value={index}>{size.size ? size.size : null}</option>)}
+            </select>
+          </form>
+        </div>
         <QuantitySelector selectedSizeAmount={selectedSizeAmount} handleQuantity={handleQuantity} />
-        <AddToCart selection={selection} />
+        {(sizesAndAmount.length === 0) ? null : <AddToCart selection={selection} handleSizeView={handleSizeView} />}
       </div>
 
     );
