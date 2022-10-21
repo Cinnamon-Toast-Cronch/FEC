@@ -2,13 +2,17 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Axios from 'axios';
 import _ from 'underscore';
+import ReactDOM from 'react-dom';
 import ReviewTile from './ReviewTile.jsx';
+import Modal from './Modal.jsx';
+import ReviewSubmissionForm from './ReviewSubmissionForm.jsx';
 
 function ReviewList({ productId, filters }) {
   const [reviews, setReviews] = useState([]);
   const [page, setPage] = useState(1);
   const [sort, setSort] = useState('relevant');
   const [displayCount, setDisplayCount] = useState(2);
+  const [showSubmissionForm, setShowSubmissionForm] = useState(false);
 
   const sorts = {
     newest: (a, b) => {
@@ -89,6 +93,20 @@ function ReviewList({ productId, filters }) {
         >
           MORE REVIEWS
         </button>
+      )}
+      <button
+        type="button"
+        onClick={() => {
+          setShowSubmissionForm(true);
+        }}
+        className="review-list-button"
+      >
+        ADD A REVIEW +
+      </button>
+      {showSubmissionForm && (
+        <Modal>
+          <ReviewSubmissionForm close={() => setShowSubmissionForm(false)} />
+        </Modal>
       )}
     </>
   );
