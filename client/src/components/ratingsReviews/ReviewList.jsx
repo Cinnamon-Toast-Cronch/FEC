@@ -38,7 +38,12 @@ function ReviewList({ productId, filters }) {
       `/reviews?product_id=${productId}&sort=relevant&page=${page}&count=100`
     ).then((response) => {
       setPage(page + 1);
-      setReviews(_.uniq([...reviews, ...response.data.results]));
+      setReviews(
+        _.uniq(
+          [...reviews, ...response.data.results],
+          (review) => review.review_id
+        )
+      );
     });
   }, [productId, Object.keys(reviews).length]);
 
