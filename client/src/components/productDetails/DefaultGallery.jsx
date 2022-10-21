@@ -15,6 +15,10 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
   const prevImage = () => {
     setCount(count === 0 ? length - 1 : count - 1);
   };
+  // const [indexSelected, setIndexSelected] = useState(0);
+  // const onSelect = (indexSelected) => {
+  //   setIndexSelected(indexSelected);
+  // };
   return (
     <div>
       {count === 0 ? null : <button type="button" onClick={prevImage}>Previous</button>}
