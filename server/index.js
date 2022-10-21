@@ -8,6 +8,7 @@ const app = express();
 
 app.use(morgan());
 app.use(express.static(path.join(__dirname, '../client/dist')));
+app.use(express.json());
 
 app.all('/', (req, res) => {
   res.sendStatus(405);
