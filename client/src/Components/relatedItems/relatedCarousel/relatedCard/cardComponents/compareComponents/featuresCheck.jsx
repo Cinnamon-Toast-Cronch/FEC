@@ -32,6 +32,6 @@ function FeaturesCheck({ feature, currentFeatures }) {
   } return (
     <td>{featureValue}</td>
   );
-  // ** need to return <td></td>******
+  // ** need to return <td></td>*****
 }
 export default FeaturesCheck;
