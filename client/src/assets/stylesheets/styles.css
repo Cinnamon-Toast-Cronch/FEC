@@ -134,6 +134,10 @@ table {
 *
 */
 
+.no-scroll {
+  overflow: hidden;
+}
+
 /*
 *
 * WIDGET CONFIGURATIONS
@@ -167,6 +171,20 @@ table {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/*
+* Review Submission Form
+*/
+
+.rnr-submission-form label {
+  display: block;
+}
+
+.rnr-submission-form {
+  background-color: white;
+  border-radius: 20px;
+  padding: 1em;
 }
 
 /*
