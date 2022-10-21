@@ -13,7 +13,7 @@ function ReviewTile({ review }) {
 
   // TODO: make markedAsHelpful status persist through refreshes: https://felixgerschau.com/react-localstorage/
   const markAsHelpful = () => {
-    if (!markAsHelpful) {
+    if (!markedAsHelpful) {
       Axios.put(`/reviews/${review.review_id}/helpful`);
       setMarkedAsHelpful(true);
     }

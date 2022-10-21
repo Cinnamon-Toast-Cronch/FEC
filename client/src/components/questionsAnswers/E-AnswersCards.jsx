@@ -1,33 +1,34 @@
 import React from 'react';
 
-function AnswerCard(props) {
+function AnswersCards(props) {
   const { answer } = props;
+  const { body, answerer_name, date, helpfulness } = answer;
   return (
     <div>
       <div className="answer">
         A:
         {' '}
-        {answer.body}
+        {body}
       </div>
       <div className="answerDetails">
         by
         {' '}
-        {answer.answerer_name}
+        {answerer_name}
         ,
         {' '}
-        {answer.date}
+        {date}
         {' '}
         | helpful?
         <u>yes</u>
         {' '}
-        {answer.helpfulness}
+        {helpfulness}
         {' '}
         |
         {' '}
-        <u>report</u>
+        <button type="button"><u>report</u></button>
       </div>
     </div>
   );
 }
 
-export default AnswerCard;
+export default AnswersCards;
