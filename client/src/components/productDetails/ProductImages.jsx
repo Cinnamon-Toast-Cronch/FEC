@@ -20,7 +20,7 @@ function ProductImages({ selectedStyle }) {
     return (
       <div>
         image gallery
-        <DefaultGallery photoUrls={photoUrls} />
+        <DefaultGallery photoUrls={photoUrls} thumbnailUrls={thumbnailUrls} />
       </div>
     );
   }

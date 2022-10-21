@@ -1,9 +1,10 @@
 import React from 'react';
 import MainImage from './MainImage.jsx';
+import ImageThumbnails from './ImageThumbnails.jsx';
 
-const { useState, useEffect } = React;
+const { useState } = React;
 
-function DefaultGallery({ photoUrls }) {
+function DefaultGallery({ photoUrls, thumbnailUrls }) {
   const [count, setCount] = useState(0);
   const { length } = photoUrls;
 
@@ -28,6 +29,12 @@ function DefaultGallery({ photoUrls }) {
           </div>
         );
       })}
+      <ImageThumbnails
+        thumbnailUrls={thumbnailUrls}
+        count={count}
+        photoUrls={photoUrls}
+        handleSelectThumbnail={(count) => setCount(count)}
+      />
     </div>
   );
 }
