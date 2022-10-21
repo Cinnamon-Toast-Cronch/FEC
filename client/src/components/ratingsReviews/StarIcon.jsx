@@ -27,7 +27,7 @@ const FILL_STYLE_SETTINGS = {
   },
 };
 
-function StarIcon({ fillStyle, id }) {
+function StarIcon({ fillStyle }) {
   return (
     <div
       className="star-outer"
@@ -38,7 +38,6 @@ function StarIcon({ fillStyle, id }) {
         width: `${ICON_SIZE}px`,
         height: `${ICON_SIZE}px`,
       }}
-      key={id}
     >
       <img
         className="star-inner"
@@ -57,7 +56,6 @@ function StarIcon({ fillStyle, id }) {
 
 StarIcon.propTypes = {
   fillStyle: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
 };
 
 export default StarIcon;
