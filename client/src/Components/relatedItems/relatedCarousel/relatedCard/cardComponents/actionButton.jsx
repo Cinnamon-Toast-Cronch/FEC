@@ -5,7 +5,7 @@ function Button({ handlesComparePopup }) {
     <div>
       <button className="compare-button" type="button" onClick={handlesComparePopup}>button</button>
     </div>
-  )
+  );
 }
 
 export default Button;

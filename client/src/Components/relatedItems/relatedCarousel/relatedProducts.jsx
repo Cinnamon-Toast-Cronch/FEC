@@ -34,14 +34,14 @@ function relatedProducts({ product }) {
         <ul>
           {
             relatedItems.map(({ data }) => {
-              return <Card key={data.id} data={data} displayProduct={product} />;
+              return (
+                <Card key={data.id} data={data} displayProduct={product} />
+              )
             })
           }
-      </ul>
+        </ul>
       </div>
-  );
-  } else {
-    return null;
+    );
   }
 }
 
