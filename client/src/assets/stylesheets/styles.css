@@ -147,6 +147,16 @@ table {
 */
 
 /*
+* Rating Review Container
+*/
+
+.rating-review-container {
+  display: flex;
+  font-size: 15px;
+  color: #707070;
+}
+
+/*
 * Rating Breakdown
 */
 
@@ -157,10 +167,7 @@ table {
   cursor: pointer;
   font: inherit;
   text-decoration: underline;
-}
-
-.rating-breakdown {
-  font-size: 15px;
+  color: inherit;
 }
 
 .rating-breakdown-row {
@@ -170,6 +177,7 @@ table {
 
 .rating-breakdown-row * {
   display: inline-block;
+  white-space: nowrap;
 }
 
 .rating-breakdown-row p {
@@ -209,12 +217,45 @@ table {
 }
 
 /*
+* Review List
+*/
+.review-sort-bar {
+  font-size: 1.4em;
+  margin: 0 5px;
+}
+
+.review-sort-bar select {
+  font: inherit;
+  text-decoration: underline;
+  color: inherit;
+  border: none;
+}
+
+.review-sort-bar p {
+  display: inline-block;
+}
+
+.rating-review-right-column {
+  max-height: 100vh;
+  overflow: scroll;
+}
+
+.review-list-button {
+  background-color: transparent;
+  font: inherit;
+  border: 1px solid #707070;
+  color: inherit;
+  border-radius: 0;
+  padding: 10px;
+  font-weight: bold;
+}
+
+/*
 * Review Tile
 */
 
 .review-tile {
   margin: 5px;
-  font-size: 15px;
 }
 
 .review-tile > * {

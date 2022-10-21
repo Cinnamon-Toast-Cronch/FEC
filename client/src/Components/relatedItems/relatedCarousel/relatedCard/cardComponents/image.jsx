@@ -11,5 +11,3 @@ function Image({ images, handlesComparePopup }) {
 }
 
 export default Image;
-testing
-
