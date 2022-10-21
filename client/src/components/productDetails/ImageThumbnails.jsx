@@ -3,13 +3,14 @@ import React from 'react';
 const { useState } = React;
 
 function ImageThumbnails({
-  thumbnailUrls, photoUrls, count, handleSelectThumbnail,
+  thumbnailUrls, count, handleSelectThumbnail,
 }) {
   const [lastThumbnail, setLastThumbnail] = useState(7);
   const thumbnailLength = thumbnailUrls.length;
+  console.log('count', count, 'lastThumb', lastThumbnail);
 
   const nextThumbnail = () => {
-    setLastThumbnail(lastThumbnail === thumbnailLength + 6 ? 0 : lastThumbnail + 1);
+    setLastThumbnail(lastThumbnail === thumbnailLength - 1 ? 0 : lastThumbnail + 1);
   };
 
   const prevThumbnail = () => {
@@ -25,13 +26,13 @@ function ImageThumbnails({
             className={`${count === index ? 'active-thumbnail' : 'thumbnail'}`}
             onClick={() => handleSelectThumbnail(index)}
           >
-            {lastThumbnail > index && index >= lastThumbnail - 7 ? <img src={thumbnail} alt="placeholder" /> : null}
+            {lastThumbnail >= index && index >= lastThumbnail - 7 ? <img src={thumbnail} alt="placeholder" /> : null}
 
           </div>
         ))}
       </div>
-      {thumbnailUrls.length > 6 && lastThumbnail !== 6 ? <button type="button" onClick={prevThumbnail}>TB Previous</button> : null}
-      {thumbnailUrls.length > 6 && lastThumbnail !== thumbnailUrls.length ? <button type="button" onClick={nextThumbnail}>TB Next</button> : null }
+      {thumbnailUrls.length > 7 && lastThumbnail > 7 ? <button type="button" onClick={prevThumbnail}>TB Previous</button> : null}
+      {thumbnailUrls.length > 7 && lastThumbnail < thumbnailUrls.length - 1 ? <button type="button" onClick={nextThumbnail}>TB Next</button> : null }
     </div>
   );
 }
