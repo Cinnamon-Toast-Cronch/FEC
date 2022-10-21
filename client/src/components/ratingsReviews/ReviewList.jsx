@@ -1,51 +1,59 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Axios from 'axios';
+import _ from 'underscore';
 import ReviewTile from './ReviewTile.jsx';
 
-function ReviewList({ productId }) {
+function ReviewList({ productId, filters }) {
   const [reviews, setReviews] = useState([]);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [sort, setSort] = useState('relevant');
   const [displayCount, setDisplayCount] = useState(2);
 
-  const sortByDate = (reviewList) =>
-    reviewList.sort((a, b) => {
+  const sorts = {
+    newest: (a, b) => {
       const dateA = Date.parse(a.date);
       const dateB = Date.parse(b.date);
-      if (dateA < dateB) {
+      if (dateA > dateB) {
         return -1;
       }
-      if (dateB > dateA) {
+      if (dateB < dateA) {
         return 1;
       }
       return 0;
-    });
-
-  const loadMoreReviews = () => {
-    Axios.get(
-      `/reviews?product_id=${productId}&page=${page + 1}&sort=${sort}`
-    ).then((response) => {
-      setPage(page + 1);
-      setReviews([...reviews, ...response.data.results]);
-    });
+    },
+    helpful: (a, b) => {
+      if (a.helpfulness > b.helpfulness) {
+        return -1;
+      }
+      if (b.helpfulness < a.helpfulness) {
+        return 1;
+      }
+      return 0;
+    },
   };
 
   useEffect(() => {
-    if (productId !== undefined) {
-      Axios.get(`/reviews?product_id=${productId}&sort=${sort}`).then(
-        (response) => {
-          setPage(1);
-          const newReviews =
-            sort === 'newest'
-              ? sortByDate(response.data.results)
-              : response.data.results;
-          setReviews(newReviews);
-          setDisplayCount(2);
-        }
-      );
-    }
-  }, [productId, sort]);
+    Axios.get(
+      `/reviews?product_id=${productId}&sort=relevant&page=${page}&count=100`
+    ).then((response) => {
+      setPage(page + 1);
+      setReviews(_.uniq([...reviews, ...response.data.results]));
+    });
+  }, [productId, Object.keys(reviews).length]);
+
+  const displayList = [...reviews]
+    .filter((review) => {
+      if (filters.length === 0) {
+        return true;
+      }
+      if (filters.includes(review.rating.toString())) {
+        return true;
+      }
+      return false;
+    })
+    .sort(sorts[sort])
+    .map((review) => <ReviewTile review={review} key={review.review_id} />);
 
   return (
     <>
@@ -61,9 +69,7 @@ function ReviewList({ productId }) {
           <option value="helpful">Helpful</option>
         </select>
       </div>
-      {reviews.slice(0, displayCount).map((review) => (
-        <ReviewTile review={review} key={review.review_id} />
-      ))}
+      {displayList}
       {displayCount < reviews.length && (
         <button
           type="button"
@@ -80,6 +86,11 @@ function ReviewList({ productId }) {
 
 ReviewList.propTypes = {
   productId: PropTypes.number.isRequired,
+  filters: PropTypes.arrayOf(PropTypes.string),
+};
+
+ReviewList.defaultProps = {
+  filters: [],
 };
 
 export default ReviewList;
