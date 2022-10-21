@@ -235,6 +235,11 @@ table {
   display: inline-block;
 }
 
+.rating-review-right-column {
+  max-height: 100vh;
+  overflow: scroll;
+}
+
 /*
 * Review Tile
 */
