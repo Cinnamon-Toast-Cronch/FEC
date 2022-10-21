@@ -16,7 +16,7 @@ function QnaWidget(props) {
   // Line 15 will be used during implementation to set state after development is finished
   // const { product } = props;
   const product = {
-    "id": 40346,
+    "id": 40344,
     "campus": "hr-rfp",
     "name": "Morning Joggers",
     "slogan": "Make yourself a morning person",

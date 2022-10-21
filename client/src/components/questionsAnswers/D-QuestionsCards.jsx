@@ -8,15 +8,33 @@ const { useState, useEffect } = React;
 
 function QuestionsCards(props) {
   const { question, productName } = props;
-  const [answers, setAnswers] = useState([]);
-  const [openModal, setOpenModal] = useState(false);
-
   const { question_body, question_id, question_helpfulness } = question;
 
+  const [answers, setAnswers] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
+  const [helpful, setHelpful] = useState(localStorage.getItem(`question-${question_id}`));
+
+  // EXECUTES ON RENDER
   useEffect(() => {
     axios.get(`/qa/questions/${question_id}/answers`)
-      .then((response) => setAnswers(response.data.results));
+      .then((response) => setAnswers(response.data.results))
+      .then(() => {
+        if (helpful === null) {
+          setHelpful(false);
+        }
+      });
   }, []);
+
+  // TODO write callback
+  function helpfulQ(question_id) {
+    if (helpful === false) {
+      axios.put(`/qa/questions/${question_id}/helpful`)
+        .then(() => {
+          localStorage.setItem(`question-${question_id}`, true);
+        })
+        .then(() => setHelpful(true));
+    }
+  }
 
   // TODO: HANDLE PHOTOS IN AXIOS POST REQUEST
   function handleModalSubmit(text, nickname, userEmail) {
@@ -41,7 +59,12 @@ function QuestionsCards(props) {
       </div>
       <div className="qButtons">
         helpful?
-        <u>yes</u>
+        <button
+          type="button"
+          onClick={() => helpfulQ(question_id)}
+        >
+          <u>yes</u>
+        </button>
         {' '}
         {question_helpfulness}
         {' '}
