@@ -34,18 +34,20 @@ function ReviewList({ productId, filters }) {
   };
 
   useEffect(() => {
-    Axios.get(
-      `/reviews?product_id=${productId}&sort=relevant&page=${page}&count=100`
-    ).then((response) => {
-      setPage(page + 1);
-      setReviews(
-        _.uniq(
-          [...reviews, ...response.data.results],
-          (review) => review.review_id
-        )
-      );
-    });
-  }, [productId, Object.keys(reviews).length]);
+    if (productId !== undefined) {
+      Axios.get(
+        `/reviews?product_id=${productId}&sort=relevant&page=${page}&count=100`
+      ).then((response) => {
+        setPage(page + 1);
+        setReviews(
+          _.uniq(
+            [...reviews, ...response.data.results],
+            (review) => review.review_id
+          )
+        );
+      });
+    }
+  }, [productId, reviews.length]);
 
   const displayList = [...reviews]
     .filter((review) => {
@@ -93,8 +95,12 @@ function ReviewList({ productId, filters }) {
 }
 
 ReviewList.propTypes = {
-  productId: PropTypes.number.isRequired,
+  productId: PropTypes.number,
   filters: PropTypes.arrayOf(PropTypes.string),
+};
+
+ReviewList.defaultProps = {
+  productId: undefined,
 };
 
 ReviewList.defaultProps = {
