@@ -47,7 +47,7 @@ function QnaWidget(props) {
     console.log(searchEntry);
   }
 
-  function handleSubmit(text, nickname, userEmail) {
+  function handleModalSubmit(text, nickname, userEmail) {
     const body = {
       body: text,
       name: nickname,
@@ -55,11 +55,10 @@ function QnaWidget(props) {
       product_id: productId,
     };
     axios.post('/qa/questions', body)
-      .then((response) => {
-        console.log('success! ', response);
+      .then(() => {
+        setOpenModal(false);
       })
-      .catch((err) => console.log(err))
-      .then(() => setOpenModal(false));
+      .catch((err) => console.error(err));
   }
 
   return (
@@ -98,7 +97,7 @@ function QnaWidget(props) {
         <SubModals
           productName={productName}
           closeModal={setOpenModal}
-          handleSubmit={handleSubmit}
+          handleSubmit={handleModalSubmit}
           question={dummyQuestion}
         />
       )}

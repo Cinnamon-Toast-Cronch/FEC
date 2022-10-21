@@ -31,13 +31,16 @@ function SubModals(props) {
             <div>
               {productName}
               :
+              {' '}
               {question_body}
             </div>
           </div>
         ) : (
           <div>
             <div className="modal-title">
-              Ask your question about the {productName}
+              Ask your question about the
+              {' '}
+              {productName}
             </div>
           </div>
         )}

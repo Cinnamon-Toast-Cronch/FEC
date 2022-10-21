@@ -19,7 +19,7 @@ function QuestionsCards(props) {
   }, []);
 
   // TODO: HANDLE PHOTOS IN AXIOS POST REQUEST
-  function handleSubmit(text, nickname, userEmail) {
+  function handleModalSubmit(text, nickname, userEmail) {
     const body = {
       body: text,
       name: nickname,
@@ -27,11 +27,10 @@ function QuestionsCards(props) {
       photos: ['placeholder'],
     };
     axios.post(`/qa/questions/${question_id}/answers`, body)
-      .then((response) => {
-        console.log('success! ', response);
+      .then(() => {
+        setOpenModal(false);
       })
-      .catch((err) => console.log(err))
-      .then(() => setOpenModal(false));
+      .catch((err) => console.error(err));
   }
 
   return (
@@ -61,7 +60,7 @@ function QuestionsCards(props) {
         closeModal={setOpenModal}
         question={question}
         productName={productName}
-        handleSubmit={handleSubmit}
+        handleSubmit={handleModalSubmit}
       />
       )}
       <div className="answers">
