@@ -58,6 +58,7 @@ function ReviewList({ productId, filters }) {
       return false;
     })
     .sort(sorts[sort])
+    .slice(0, displayCount)
     .map((review) => <ReviewTile review={review} key={review.review_id} />);
 
   return (
@@ -67,6 +68,7 @@ function ReviewList({ productId, filters }) {
         <select
           onChange={(e) => {
             setSort(e.target.value);
+            setDisplayCount(2);
           }}
         >
           <option value="relevant">Relevant</option>
