@@ -83,8 +83,9 @@ function ReviewList({ productId, filters }) {
           onClick={() => {
             setDisplayCount(displayCount + 2);
           }}
+          className="review-list-button"
         >
-          Load More Reviews
+          MORE REVIEWS
         </button>
       )}
     </>
