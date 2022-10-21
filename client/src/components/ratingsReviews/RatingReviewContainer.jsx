@@ -40,7 +40,7 @@ function RatingReviewContainer({ product }) {
         />
       </div>
       <div className="rating-review-right-column">
-        <ReviewList productId={product.id} />
+        <ReviewList productId={product.id} filters={filters} />
       </div>
     </div>
   );
