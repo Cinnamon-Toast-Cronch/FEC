@@ -2,42 +2,42 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const CHARACTERISTIC_DESCRIPTIONS = {
-  size: [
+  Size: [
     'A size too small',
     '½ a size too small',
     'Perfect',
     '½ a size too big',
     'A size too big',
   ],
-  width: [
+  Width: [
     'Too narrow',
     'Slightly narrow',
     'Perfect',
     'Slightly wide',
     'Too wide',
   ],
-  comfort: [
+  Comfort: [
     'Uncomfortable',
     'Sightly uncomfortable',
     'Ok',
     'Comfortable',
     'Pefect',
   ],
-  quality: [
+  Quality: [
     'Poor',
     'Below average',
     'What I expected',
     'Pretty great',
     'Perfect',
   ],
-  length: [
+  Length: [
     'Runs short',
     'Runs slightly short',
     'Perfect',
     'Runs slightly long',
     'Runs long',
   ],
-  fit: [
+  Fit: [
     'Runs tight',
     'Runs slightly tight',
     'Perfect',
