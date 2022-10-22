@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StarRating from './StarRating.jsx';
+import ClickableStarRating from './ClickableStarRating.jsx';
 
 function ReviewSubmissionForm({ close }) {
   return (
     <div className="rnr-submission-form">
       <div className="flex-between">
-        <StarRating rating={0} />
+        <ClickableStarRating />
         <button type="button" onClick={close}>
           Close
         </button>
