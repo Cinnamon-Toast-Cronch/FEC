@@ -7,7 +7,7 @@ import ReviewTile from './ReviewTile.jsx';
 import Modal from './Modal.jsx';
 import ReviewSubmissionForm from './ReviewSubmissionForm.jsx';
 
-function ReviewList({ productId, filters }) {
+function ReviewList({ productId, filters, characteristics }) {
   const [reviews, setReviews] = useState([]);
   const [page, setPage] = useState(1);
   const [sort, setSort] = useState('relevant');
@@ -105,7 +105,10 @@ function ReviewList({ productId, filters }) {
       </button>
       {showSubmissionForm && (
         <Modal>
-          <ReviewSubmissionForm close={() => setShowSubmissionForm(false)} />
+          <ReviewSubmissionForm
+            close={() => setShowSubmissionForm(false)}
+            characteristics={characteristics}
+          />
         </Modal>
       )}
     </>
@@ -115,13 +118,12 @@ function ReviewList({ productId, filters }) {
 ReviewList.propTypes = {
   productId: PropTypes.number,
   filters: PropTypes.arrayOf(PropTypes.string),
+  characteristics: PropTypes.object,
 };
 
 ReviewList.defaultProps = {
   productId: undefined,
-};
-
-ReviewList.defaultProps = {
+  characteristics: {},
   filters: [],
 };
 
