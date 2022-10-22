@@ -4,8 +4,14 @@ import _ from 'underscore';
 import ClickableStarRating from './ClickableStarRating.jsx';
 import CharacteristicRow from './CharacteristicRow.jsx';
 
-function ReviewSubmissionForm({ close, characteristics }) {
-  const [formData, setFormData] = useState({});
+function ReviewSubmissionForm({ close, characteristics, productId }) {
+  const [formData, setFormData] = useState({
+    product_id: productId,
+    summary: '',
+    photos: [],
+    characteristics: {},
+  });
+  const [submitted, setSubmitted] = useState(false);
 
   const onChange = (e) =>
     setFormData((prev) => {
@@ -21,10 +27,70 @@ function ReviewSubmissionForm({ close, characteristics }) {
       return { ...prev, characteristics: stateCharacteristicsCopy };
     });
 
+  const validateForm = () => {
+    // Has required fields
+    if (
+      _.difference(
+        ['rating', 'body', 'recommend', 'name', 'email', 'characteristics'],
+        _.keys(formData)
+      ).length > 0
+    ) {
+      return false;
+    }
+
+    // Has required characteristics
+    _.difference(
+      _.pluck(characteristics, 'id'),
+      _.keys(formData.characteristics)
+    );
+    if (
+      _.difference(
+        _.pluck(characteristics, 'id'),
+        _.keys(formData.characteristics).map((val) => parseInt(val))
+      ).length > 0
+    ) {
+      return false;
+    }
+
+    // Summary, display name, and email are less than or equal to 60 characters
+    if (
+      formData.summary.length > 60 ||
+      formData.name.length > 60 ||
+      formData.email.length > 60
+    ) {
+      return false;
+    }
+    // Body is over 50 characters and less than or equal to 1000 characters
+    if (formData.body.length < 50 || formData.body.length > 1000) {
+      return false;
+    }
+    return true;
+  };
+
+  const submitForm = () => {
+    console.log('form submitted');
+  };
+
+  const required = submitted && <p className="rnr-required">Required</p>;
+
   return (
-    <form className="rnr-submission-form">
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        if (!validateForm()) {
+          console.log('form rejected');
+          setSubmitted(true);
+        } else {
+          console.log('form submitted');
+        }
+      }}
+      className="rnr-submission-form"
+    >
       <div className="flex-between">
-        <ClickableStarRating onChange={onChange} />
+        <div>
+          <ClickableStarRating onChange={onChange} />
+          {!formData.rating && required}
+        </div>
         <button type="button" onClick={close}>
           Close
         </button>
@@ -51,14 +117,17 @@ function ReviewSubmissionForm({ close, characteristics }) {
           />
           no
         </label>
+        {!formData.recommend && required}
       </div>
       {_.map(characteristics, (char, key) => (
-        <CharacteristicRow
-          characteristic={key}
-          characteristicId={char.id}
-          key={char.id}
-          onSelection={onChangeCharacteristic}
-        />
+        <div key={char.id}>
+          <CharacteristicRow
+            characteristic={key}
+            characteristicId={char.id}
+            onSelection={onChangeCharacteristic}
+          />
+          {!formData.characteristics[char.id] && required}
+        </div>
       ))}
       <label htmlFor="review-summary">
         Review Summary
@@ -85,6 +154,7 @@ function ReviewSubmissionForm({ close, characteristics }) {
           onChange={onChange}
         />
         For privacy reasons, do not use your full name or email address.
+        {!formData.name && required}
       </label>
       <label htmlFor="review-email">
         Email
@@ -96,6 +166,7 @@ function ReviewSubmissionForm({ close, characteristics }) {
           onChange={onChange}
         />
         For authentication reasons, you will not be emailed.
+        {!formData.email && required}
       </label>
       <button type="submit">Submit</button>
     </form>
@@ -105,10 +176,12 @@ function ReviewSubmissionForm({ close, characteristics }) {
 ReviewSubmissionForm.propTypes = {
   close: PropTypes.func.isRequired,
   characteristics: PropTypes.object,
+  productId: PropTypes.number,
 };
 
 ReviewSubmissionForm.defaultProps = {
   characteristics: {},
+  productId: undefined,
 };
 
 export default ReviewSubmissionForm;
