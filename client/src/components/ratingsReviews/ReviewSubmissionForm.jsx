@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import _ from 'underscore';
 import ClickableStarRating from './ClickableStarRating.jsx';
+import CharacteristicRow from './CharacteristicRow.jsx';
 
-function ReviewSubmissionForm({ close }) {
+function ReviewSubmissionForm({ close, characteristics }) {
   return (
     <div className="rnr-submission-form">
       <div className="flex-between">
@@ -33,7 +35,13 @@ function ReviewSubmissionForm({ close }) {
           no
         </label>
       </div>
-      {/* Characteristics go here */}
+      {_.map(characteristics, (char, key) => (
+        <CharacteristicRow
+          characteristic={key}
+          characteristicId={char.id}
+          key={char.id}
+        />
+      ))}
       <label htmlFor="review-summary">
         Review Summary
         <textarea
@@ -72,6 +80,11 @@ function ReviewSubmissionForm({ close }) {
 
 ReviewSubmissionForm.propTypes = {
   close: PropTypes.func.isRequired,
+  characteristics: PropTypes.object,
+};
+
+ReviewSubmissionForm.defaultProps = {
+  characteristics: {},
 };
 
 export default ReviewSubmissionForm;
