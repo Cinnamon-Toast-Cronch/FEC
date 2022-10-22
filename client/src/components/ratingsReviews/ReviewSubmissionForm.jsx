@@ -70,4 +70,8 @@ function ReviewSubmissionForm({ close }) {
   );
 }
 
+ReviewSubmissionForm.propTypes = {
+  close: PropTypes.func.isRequired,
+};
+
 export default ReviewSubmissionForm;
