@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import StarRating from './StarRating.jsx';
 
-function ClickableStarRating() {
+function ClickableStarRating({ onChange }) {
   const [currentRating, setCurrentRating] = useState(0);
 
   const ratingDescriptions = {
@@ -16,7 +16,10 @@ function ClickableStarRating() {
     <div className="rnr-overall-rating">
       <StarRating
         rating={currentRating}
-        onClick={(value) => setCurrentRating(value)}
+        onClick={(value) => {
+          setCurrentRating(value);
+          onChange({ target: { value, name: 'rating' } });
+        }}
       />
       {ratingDescriptions[currentRating]}
     </div>

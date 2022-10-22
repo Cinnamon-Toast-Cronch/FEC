@@ -46,10 +46,13 @@ const CHARACTERISTIC_DESCRIPTIONS = {
   ],
 };
 
-function CharacteristicRow({ characteristic, characteristicId }) {
+function CharacteristicRow({ characteristic, characteristicId, onSelection }) {
   const [currentValue, setCurrentValue] = useState(0);
 
-  const onChange = (e) => setCurrentValue(e.target.value);
+  const onChange = (e) => {
+    setCurrentValue(e.target.value);
+    onSelection(e);
+  };
 
   return (
     <div className="rnr-characteristic-row">
