@@ -108,6 +108,7 @@ function ReviewList({ productId, filters, characteristics }) {
           <ReviewSubmissionForm
             close={() => setShowSubmissionForm(false)}
             characteristics={characteristics}
+            productId={productId}
           />
         </Modal>
       )}
