@@ -6,7 +6,7 @@ import Name from './cardComponents/name.jsx';
 import Price from './cardComponents/price.jsx';
 // import Rating from './cardComponents/rating.jsx';
 import Comparison from './cardComponents/comparison.jsx';
-// import './cardComponents.css';
+
 
 // handleCardClick ----need to have a set state prop to change current displayed product on app
 

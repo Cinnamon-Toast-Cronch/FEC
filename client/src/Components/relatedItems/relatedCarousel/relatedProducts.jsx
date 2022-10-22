@@ -4,42 +4,53 @@ import Card from './relatedCard/relatedCard.jsx';
 
 function relatedProducts({ product }) {
   const [relatedItems, setRelatedItems] = useState([]);
-  // set a count state to track count when left or right button is clicked
-  // when count is 0, left arrow disappears
-  // when count is = to the related length, right arrow dissappears
+  const [carouselPosition, setCarouselPosition] = useState(0);
+
   const productID = 40344;
   useEffect(() => {
     axios.get(`/products/${productID}/related`)
       .then(({ data }) => {
-        axios.all(data.map((id) => {
-          return (
-            axios.get(`/products/${id}`)
-          );
-        }))
-      .catch((err) => {
-        console.log(err);
-      })
+        axios.all(data.map((id) => (
+          axios.get(`/products/${id}`)
+        )))
+          .catch((err) => {
+            console.log(err);
+          })
           .then((res) => {
             setRelatedItems(res);
           });
       });
   }, [product]);
 
+  const handleCarouselLeft = () => {
+    setCarouselPosition(carouselPosition - 1);
+  };
+
+  const handleCarouselRight = () => {
+    setCarouselPosition(carouselPosition + 1);
+  };
+
   if (relatedItems !== undefined) {
     return (
-      <div className="carousel" data-testid="con-1">
-        <div className="header">Related Products</div>
-        {/* make a left arrow icon div to click */}
-        {/* make a right arrow icon div to click */}
+      <div className="related-carousel" data-testid="con-1">
+        <div className="related-header">Related Products</div>
+        {
+          carouselPosition > 0 ?
+          <div onClick={handleCarouselLeft}> left </div>
+          : null
+        }
         <ul>
           {
-            relatedItems.map(({ data }) => {
-              return (
-                <Card key={data.id} data={data} displayProduct={product} />
-              )
-            })
+            relatedItems.map(({ data }) => (
+              <Card key={data.id} data={data} displayProduct={product} />
+            ))
           }
         </ul>
+        {
+        carouselPosition < relatedItems.length ?
+          <div onClick={handleCarouselRight}> right </div>
+          : null
+        }
       </div>
     );
   }

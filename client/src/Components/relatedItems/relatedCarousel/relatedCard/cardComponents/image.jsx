@@ -5,8 +5,8 @@ import Cronch from '../../../../../assets/images/cronch.jpeg'
 function Image({ images, handlesComparePopup }) {
   const image = images || Cronch;
   return (
-    <div className="related-image-box">
-      <img src={image}></img>
+    <div className="related-image">
+      <img className="img" src={image}></img>
       <Button handlesComparePopup={handlesComparePopup} />
     </div>
   );
