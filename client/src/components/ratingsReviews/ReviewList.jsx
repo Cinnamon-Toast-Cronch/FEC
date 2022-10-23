@@ -82,36 +82,38 @@ function ReviewList({ productId, filters, characteristics }) {
           <option value="helpful">Helpful</option>
         </select>
       </div>
-      {displayList}
-      {displayCount < reviews.length && (
+      <div className="review-list">
+        {displayList}
+        {displayCount < reviews.length && (
+          <button
+            type="button"
+            onClick={() => {
+              setDisplayCount(displayCount + 2);
+            }}
+            className="review-list-button"
+          >
+            MORE REVIEWS
+          </button>
+        )}
         <button
           type="button"
           onClick={() => {
-            setDisplayCount(displayCount + 2);
+            setShowSubmissionForm(true);
           }}
           className="review-list-button"
         >
-          MORE REVIEWS
+          ADD A REVIEW +
         </button>
-      )}
-      <button
-        type="button"
-        onClick={() => {
-          setShowSubmissionForm(true);
-        }}
-        className="review-list-button"
-      >
-        ADD A REVIEW +
-      </button>
-      {showSubmissionForm && (
-        <Modal>
-          <ReviewSubmissionForm
-            close={() => setShowSubmissionForm(false)}
-            characteristics={characteristics}
-            productId={productId}
-          />
-        </Modal>
-      )}
+        {showSubmissionForm && (
+          <Modal>
+            <ReviewSubmissionForm
+              close={() => setShowSubmissionForm(false)}
+              characteristics={characteristics}
+              productId={productId}
+            />
+          </Modal>
+        )}
+      </div>
     </>
   );
 }
