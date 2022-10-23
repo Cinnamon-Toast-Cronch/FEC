@@ -150,6 +150,17 @@ table {
 *
 */
 
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
 /*
 * Rating Review Container
 */
@@ -171,6 +182,24 @@ table {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/*
+* Review Summary
+*/
+
+.rnr-title {
+  font-size: 1.4em;
+  margin-top: 2.75px;
+}
+
+.rnr-summary > div {
+  display: flex;
+}
+
+.rnr-avg-rating {
+  font-size: 4em;
+  font-weight: bold;
 }
 
 /*
@@ -315,11 +344,6 @@ table {
 .response h6 {
   font-weight: bold;
   margin-bottom: 1em;
-}
-
-.flex-between {
-  display: flex;
-  justify-content: space-between;
 }
 
 .img-container {
