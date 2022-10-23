@@ -134,14 +134,23 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
         <textarea
           id="review-summary"
           name="summary"
-          placeholder="The most important factor for my review is..."
+          placeholder="Example: Best purchase ever!"
           onChange={onChange}
         />
       </label>
       <label htmlFor="review-body">
         Review body
-        <textarea id="review-body" name="body" onChange={onChange} />
-        {/* Text area min char counter goes here */}
+        <textarea
+          id="review-body"
+          name="body"
+          onChange={onChange}
+          placeholder="Why did you like the product or not?"
+        />
+        <p>
+          {formData.body.length < 50
+            ? `Minimum required characters left: ${50 - formData.body.length}`
+            : 'Minimum reached'}
+        </p>
       </label>
       {/* Ability to upload images goes here */}
       <label htmlFor="review-nickname">
