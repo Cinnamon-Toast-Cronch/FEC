@@ -89,6 +89,7 @@ video {
   border: 0;
   font-size: 100%;
   font: inherit;
+  font-family: 'Roboto Flex', sans-serif;
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -133,6 +134,14 @@ table {
 * GLOBAL CONFIGURATIONS
 *
 */
+
+textarea,
+input,
+button,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
 
 .no-scroll {
   overflow: hidden;
@@ -210,10 +219,13 @@ table {
   display: block;
 }
 
-.rnr-submission-form {
+.rnr-submission-form,
+.rnr-image-modal {
   background-color: white;
   border-radius: 20px;
   padding: 1em;
+  max-width: 80%;
+  max-height: 80%;
 }
 
 /*
@@ -371,6 +383,26 @@ table {
 
 .helpful-bar button {
   margin-right: 3px;
+}
+
+.rnr-image-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.rnr-image-modal * {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.button-no-styling {
+  border: none;
+  background: transparent;
+  padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
 /*
