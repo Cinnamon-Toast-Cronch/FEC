@@ -22,7 +22,6 @@ function AnswersCards(props) {
     }
   }, []);
 
-  // TODO write callback
   function helpfulA(answer_id) {
     if (helpful === false) {
       axios.put(`/qa/answers/${answer_id}/helpful`)

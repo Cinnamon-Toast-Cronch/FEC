@@ -21,8 +21,10 @@ function QuestionsCards(props) {
 
   function loadAnswers() {
     const params = {
-      page: 1,
-      count: 25,
+      params: {
+        page: 1,
+        count: 25,
+      },
     };
 
     axios.get(`/qa/questions/${question_id}/answers`, params)
@@ -60,7 +62,6 @@ function QuestionsCards(props) {
       email: userEmail,
       photos,
     };
-    console.log(body);
     axios.post(`/qa/questions/${question_id}/answers`, body)
       .then((response) => console.log(response))
       .then(() => {

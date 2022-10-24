@@ -14,6 +14,7 @@ function QnaWidget(props) {
   const [openModal, setOpenModal] = useState(false);
   const [noQs, setNoQs] = useState(4);
   const [displayedQs, setDisplayedQs] = useState([]);
+  const [searchedQs, setSearchedQs] = useState([]);
 
   // Using lines 16-19 for testing in-develpment.
   // Line 15 will be used during implementation to set state after development is finished
@@ -48,10 +49,6 @@ function QnaWidget(props) {
       });
   }
 
-  useEffect(() => {
-    loadData();
-  }, [noQs]);
-
   function handleSearch(searchEntry) {
     if (searchEntry.length >= 3) {
       const temp = [];
@@ -60,11 +57,20 @@ function QnaWidget(props) {
           temp.push(questions[i]);
         }
       }
+      setSearchedQs(temp);
       setDisplayedQs(temp.slice(0, noQs));
     } else if (searchEntry.length === 2) {
       setDisplayedQs(questions.slice(0, noQs));
     }
   }
+
+  useEffect(() => {
+    if (search.length <= 2) {
+      loadData();
+    } else {
+      handleSearch(search);
+    }
+  }, [noQs]);
 
   useEffect(() => {
     handleSearch(search);
