@@ -134,9 +134,307 @@ table {
 *
 */
 
+body {
+  max-width: 90vw;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-evenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
 /*
 *
 * WIDGET CONFIGURATIONS
+*
+*/
+
+/*
+*
+* RATINGS & REVIEWS
+*
+*/
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+/*
+* Rating Review Container
+*/
+
+.rating-review-container {
+  display: flex;
+  font-size: 15px;
+  color: #707070;
+}
+
+.rnr-modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(0, 0, 0, 0.5);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+* Review Summary
+*/
+
+.rnr-title {
+  font-size: 1.4em;
+  margin-top: 2.75px;
+}
+
+.rnr-summary > div {
+  display: flex;
+}
+
+.rnr-avg-rating {
+  font-size: 4em;
+  font-weight: bold;
+}
+
+/*
+* Review Submission Form
+*/
+
+.rnr-submission-form label {
+  display: block;
+}
+
+.rnr-submission-form {
+  background-color: white;
+  border-radius: 20px;
+  padding: 1em;
+}
+
+/*
+* Rating Breakdown
+*/
+
+.text-like-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  text-decoration: underline;
+  color: inherit;
+}
+
+.rating-breakdown-row {
+  margin: 1px 5px;
+  display: flex;
+}
+
+.rating-breakdown-row * {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.rating-breakdown-row p {
+  text-decoration: underline;
+}
+
+.distribution-background {
+  height: 1em;
+  width: 10em;
+  background-color: #707070;
+  margin: 0 5px;
+}
+
+.distribution-foreground {
+  height: 1em;
+  background-color: #73b98c;
+}
+
+.rating-breakdown h6,
+.reset-filter-button {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.reset-filter-button {
+  font-size: 0.75em;
+  text-decoration: underline;
+}
+
+.filter-icon {
+  display: inline-block;
+  background-color: #f7f7f7;
+  border: 1px solid #707070;
+  border-radius: 3em;
+  padding: 0.2em;
+  margin: 2px;
+}
+
+/*
+* Characteristic Visualizer
+*/
+.rnr-characteristic-visualization {
+  margin: 0.5em 0;
+}
+
+.rnr-characteristic-visualization p {
+  font-size: 0.7em;
+  width: 33%;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.rnr-characteristic-visualization p:first-child {
+  text-align: start;
+}
+
+.rnr-characteristic-visualization p:last-child {
+  text-align: end;
+}
+
+.rnr-characteristic-visualization > * {
+  margin: 0 5%;
+}
+
+.rnr-characteristic-bar {
+  height: 0.7em;
+  width: 90%;
+  background-color: #707070;
+}
+
+.triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 0.4em solid transparent;
+  border-right: 0.4em solid transparent;
+  border-top: 0.8em solid #73b98c;
+  position: relative;
+  top: -0.3em;
+  margin-top: 0.4em;
+}
+
+/*
+* Review List
+*/
+.review-sort-bar {
+  font-size: 1.4em;
+  margin: 0 5px;
+}
+
+.review-sort-bar select {
+  font: inherit;
+  text-decoration: underline;
+  color: inherit;
+  border: none;
+}
+
+.review-sort-bar p {
+  display: inline-block;
+}
+
+.rating-review-right-column {
+  max-height: 100vh;
+}
+
+.review-list {
+  max-height: calc(100% - 2em);
+  overflow-y: scroll;
+  margin-bottom: 1%;
+}
+
+.review-list-button {
+  background-color: transparent;
+  font: inherit;
+  border: 1px solid #707070;
+  color: inherit;
+  border-radius: 0;
+  padding: 10px;
+  font-weight: bold;
+}
+
+/*
+* Review Tile
+*/
+
+.review-tile {
+  margin: 5px;
+}
+
+.review-tile > * {
+  margin-bottom: 0.2em;
+}
+
+.review-tile p {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.review-tile h5 {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.response {
+  background-color: #ededed;
+  padding: 1em;
+}
+
+.response h6 {
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+.img-container {
+  width: 55px;
+  height: 55px;
+  overflow: hidden;
+  border: 2px solid #707070;
+  display: inline-block;
+  margin: 3px 3px 3px 0;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.helpful-bar * {
+  display: inline-block;
+}
+
+.helpful-bar p {
+  margin-right: 5px;
+}
+
+.helpful-bar button {
+  margin-right: 3px;
+}
+
+/*
+*
+* QUESTIONS & ANSWERS
 *
 */
 
@@ -152,10 +450,10 @@ table {
   padding: 0;
   margin-left: 10%;
   margin-right: 10%;
-  width:80%;
+  width: 80%;
 }
 
 .qnaSearchIcon {
-  height:15px;
-  width:15px;
+  height: 15px;
+  width: 15px;
 }
