@@ -16,12 +16,16 @@ function RatingSummary({ ratings }) {
   const roundedRating = Math.round(avgRating * 10) / 10;
 
   return (
-    <>
-      <h4>RATINGS &amp; REVIEWS</h4>
-      <p>{roundedRating || '0.0'}</p>
-      <StarRating rating={roundedRating} />
-      <p>{`average of ${ratingCount} reviews`}</p>
-    </>
+    <div className="rnr-summary">
+      <h4 className="rnr-title">RATINGS &amp; REVIEWS</h4>
+      <div>
+        <p className="rnr-avg-rating">{roundedRating || '0.0'}</p>
+        <div className="flex-column">
+          <StarRating rating={roundedRating} />
+          <p>{`average of ${ratingCount} reviews`}</p>
+        </div>
+      </div>
+    </div>
   );
 }
 

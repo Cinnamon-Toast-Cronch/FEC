@@ -2,13 +2,17 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Axios from 'axios';
 import _ from 'underscore';
+import ReactDOM from 'react-dom';
 import ReviewTile from './ReviewTile.jsx';
+import Modal from './Modal.jsx';
+import ReviewSubmissionForm from './ReviewSubmissionForm.jsx';
 
-function ReviewList({ productId, filters }) {
+function ReviewList({ productId, filters, characteristics }) {
   const [reviews, setReviews] = useState([]);
   const [page, setPage] = useState(1);
   const [sort, setSort] = useState('relevant');
   const [displayCount, setDisplayCount] = useState(2);
+  const [showSubmissionForm, setShowSubmissionForm] = useState(false);
 
   const sorts = {
     newest: (a, b) => {
@@ -78,18 +82,38 @@ function ReviewList({ productId, filters }) {
           <option value="helpful">Helpful</option>
         </select>
       </div>
-      {displayList}
-      {displayCount < reviews.length && (
+      <div className="review-list">
+        {displayList}
+        {displayCount < reviews.length && (
+          <button
+            type="button"
+            onClick={() => {
+              setDisplayCount(displayCount + 2);
+            }}
+            className="review-list-button"
+          >
+            MORE REVIEWS
+          </button>
+        )}
         <button
           type="button"
           onClick={() => {
-            setDisplayCount(displayCount + 2);
+            setShowSubmissionForm(true);
           }}
           className="review-list-button"
         >
-          MORE REVIEWS
+          ADD A REVIEW +
         </button>
-      )}
+        {showSubmissionForm && (
+          <Modal>
+            <ReviewSubmissionForm
+              close={() => setShowSubmissionForm(false)}
+              characteristics={characteristics}
+              productId={productId}
+            />
+          </Modal>
+        )}
+      </div>
     </>
   );
 }
@@ -97,13 +121,12 @@ function ReviewList({ productId, filters }) {
 ReviewList.propTypes = {
   productId: PropTypes.number,
   filters: PropTypes.arrayOf(PropTypes.string),
+  characteristics: PropTypes.object,
 };
 
 ReviewList.defaultProps = {
   productId: undefined,
-};
-
-ReviewList.defaultProps = {
+  characteristics: {},
   filters: [],
 };
 
