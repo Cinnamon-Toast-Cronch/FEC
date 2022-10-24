@@ -3,7 +3,19 @@ import PropTypes from 'prop-types';
 import _ from 'underscore';
 import RatingBreakdownRow from './RatingBreakdownRow.jsx';
 
-function RatingBreakdown({ ratings, filters, resetFilters, addFilter }) {
+function RatingBreakdown({
+  ratings,
+  filters,
+  resetFilters,
+  addFilter,
+  recommendations,
+}) {
+  const percentageRecommended =
+    (parseInt(recommendations.true, 10) /
+      (parseInt(recommendations.true, 10) +
+        parseInt(recommendations.false, 10))) *
+    100;
+
   const totalRatingCount = _.reduce(
     ratings,
     (memo, num) => memo + parseInt(num, 10),
@@ -21,6 +33,7 @@ function RatingBreakdown({ ratings, filters, resetFilters, addFilter }) {
           addFilter={addFilter}
         />
       )).reverse()}
+      <p>{`${percentageRecommended}% of buyers recommend this product`}</p>
       <h6>Applied Filters</h6>
       <button
         className="reset-filter-button text-like-button"
@@ -51,6 +64,10 @@ RatingBreakdown.propTypes = {
   filters: PropTypes.array,
   resetFilters: PropTypes.func.isRequired,
   addFilter: PropTypes.func.isRequired,
+  recommendations: PropTypes.shape({
+    false: PropTypes.string,
+    true: PropTypes.string,
+  }),
 };
 
 RatingBreakdown.defaultProps = {
@@ -62,6 +79,10 @@ RatingBreakdown.defaultProps = {
     5: '0',
   },
   filters: [],
+  recommendations: {
+    true: '1',
+    false: '0',
+  },
 };
 
 export default RatingBreakdown;
