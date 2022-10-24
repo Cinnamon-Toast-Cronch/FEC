@@ -86,7 +86,7 @@ function SubModals(props) {
               <br />
               <input
                 name="emailSubmit"
-                type="text"
+                type="email"
                 placeholder={question_body ?'example: jack@email.com' : 'Why do you like the product or not?'}
                 maxLength={60}
                 value={email}
