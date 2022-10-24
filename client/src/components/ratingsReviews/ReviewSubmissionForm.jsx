@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import _ from 'underscore';
 import ClickableStarRating from './ClickableStarRating.jsx';
 import CharacteristicRow from './CharacteristicRow.jsx';
+import ReviewImageUpload from './ReviewImageUpload.jsx';
 
 function ReviewSubmissionForm({ close, characteristics, productId }) {
   const [formData, setFormData] = useState({
@@ -27,6 +28,14 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
       stateCharacteristicsCopy[e.target.name] = e.target.value;
       return { ...prev, characteristics: stateCharacteristicsCopy };
     });
+
+  const addImage = (url) => {
+    setFormData((prev) => {
+      const photosCopy = [...prev.photos];
+      photosCopy.push(url);
+      return { ...prev, photos: photosCopy };
+    });
+  };
 
   const validateForm = () => {
     // Has required fields
@@ -175,6 +184,14 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
             : 'Minimum reached'}
         </p>
       </label>
+      <div>
+        {formData.photos.map((url) => (
+          <img src={url} alt="User uploaded" key={url} />
+        ))}
+        {formData.photos.length < 5 && (
+          <ReviewImageUpload addImage={addImage} />
+        )}
+      </div>
       {/* Ability to upload images goes here */}
       <label htmlFor="review-nickname">
         Display name
