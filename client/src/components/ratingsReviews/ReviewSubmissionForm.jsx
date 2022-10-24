@@ -64,7 +64,7 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
     if (
       _.difference(
         _.pluck(characteristics, 'id'),
-        _.keys(formData.characteristics).map((val) => parseInt(val))
+        _.keys(formData.characteristics).map((val) => parseInt(val, 10))
       ).length > 0
     ) {
       console.log('form invalid: missing required characteristics');
