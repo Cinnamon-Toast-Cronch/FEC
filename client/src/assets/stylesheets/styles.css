@@ -134,6 +134,10 @@ table {
 *
 */
 
+body {
+  max-width: 90vw;
+}
+
 .flex-between {
   display: flex;
   justify-content: space-between;
@@ -355,7 +359,8 @@ table {
 
 .review-list {
   max-height: calc(100% - 2em);
-  overflow: scroll;
+  overflow-y: scroll;
+  margin-bottom: 1%;
 }
 
 .review-list-button {
