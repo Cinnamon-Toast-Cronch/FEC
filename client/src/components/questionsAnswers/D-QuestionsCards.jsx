@@ -7,7 +7,7 @@ import SubModals from './M-SubmissionModals.jsx';
 const { useState, useEffect } = React;
 
 function QuestionsCards(props) {
-  const { question, productName } = props;
+  const { question, productName, loadData } = props;
   const { question_body, question_id, question_helpfulness } = question;
 
   const [answers, setAnswers] = useState([]);
@@ -17,8 +17,7 @@ function QuestionsCards(props) {
   const [openModal, setOpenModal] = useState(false);
   const [helpful, setHelpful] = useState(localStorage.getItem(`question-${question_id}`));
 
-  // EXECUTES ON RENDER
-  useEffect(() => {
+  function loadAnswers() {
     axios.get(`/qa/questions/${question_id}/answers`)
       .then((response) => {
         setAnswers(response.data.results);
@@ -29,6 +28,11 @@ function QuestionsCards(props) {
           setHelpful(false);
         }
       });
+  }
+
+  // EXECUTES ON RENDER
+  useEffect(() => {
+    loadAnswers();
   }, [moreAs]);
 
   // TODO write callback
@@ -38,7 +42,8 @@ function QuestionsCards(props) {
         .then(() => {
           localStorage.setItem(`question-${question_id}`, true);
         })
-        .then(() => setHelpful(true));
+        .then(() => setHelpful(true))
+        .then(() => loadData());
     }
   }
 
@@ -96,6 +101,7 @@ function QuestionsCards(props) {
         {displayedAs.map((answer, i) => (
           <AnswersCards
             className="answersCards"
+            loadAnswers={loadAnswers}
             answer={answer}
             i={i}
             key={i}

@@ -4,7 +4,7 @@ import axios from 'axios';
 const { useState, useEffect } = React;
 
 function AnswersCards(props) {
-  const { answer } = props;
+  const { answer, loadAnswers } = props;
   const {
     body, answerer_name, date, helpfulness, answer_id,
   } = answer;
@@ -29,7 +29,8 @@ function AnswersCards(props) {
         .then(() => {
           localStorage.setItem(`answer-${answer_id}`, true);
         })
-        .then(() => setHelpful(true));
+        .then(() => setHelpful(true))
+        .then(() => loadAnswers());
     }
   }
 
