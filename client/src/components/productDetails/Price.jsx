@@ -4,23 +4,24 @@ function Price({ selectedStyle }) {
   if (selectedStyle) {
     if (selectedStyle.sale_price) {
       return (
-        <div>
-          <p style={{ color: 'red' }}>
+        <>
+          <p id="sale-price" style={{ color: 'red' }}>
             $
             {selectedStyle.sale_price}
           </p>
-          <s>
+          <p id="before-sale-price">
             $
             {selectedStyle.original_price}
-          </s>
-        </div>
+          </p>
+        </>
+
       );
     }
     return (
-      <div>
+      <p id="no-sale-price">
         $
         {selectedStyle.original_price}
-      </div>
+      </p>
     );
   }
 }

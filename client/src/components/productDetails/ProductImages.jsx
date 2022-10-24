@@ -18,15 +18,10 @@ function ProductImages({ selectedStyle }) {
     const photoUrls = currentPhotos.map((photo) => photo.url);
 
     return (
-      <div>
-        image gallery
-        <DefaultGallery photoUrls={photoUrls} thumbnailUrls={thumbnailUrls} />
-      </div>
+      <DefaultGallery photoUrls={photoUrls} thumbnailUrls={thumbnailUrls} />
     );
   }
-
-  return (
-    <div>Image Gallery</div>
-  );
+  return null;
 }
+
 export default ProductImages;

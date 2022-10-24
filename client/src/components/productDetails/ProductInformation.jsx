@@ -1,5 +1,9 @@
 import React from 'react';
 import Price from './Price.jsx';
+import StarRating from '../ratingsReviews/StarRating.jsx';
+import Facebook from '../../assets/images/socialMediaIcons/facebook.svg';
+import Twitter from '../../assets/images/socialMediaIcons/twitter.svg';
+import Pinterest from '../../assets/images/socialMediaIcons/pinterest.svg';
 
 function ProductInformation({ product, reviews, selectedStyle }) {
   let ratingTotal = 0;
@@ -8,37 +12,66 @@ function ProductInformation({ product, reviews, selectedStyle }) {
   }
   const avgRating = ratingTotal / reviews.length;
 
+  // NTS: if reviews === 0, hide review section
+
   return (
-    <div>
-      Title:
-      {' '}
-      {product.name}
-      <br />
-      Category:
-      {' '}
-      {product.category}
-      <br />
-      <Price selectedStyle={selectedStyle} />
-      <br />
-      Product Overview:
-      {' '}
-      <br />
-      {product.slogan}
-      <br />
-      {product.description}
-      <br />
-      Read all
-      {' '}
-      {reviews.length}
-      {' '}
-      reviews.
-      <br />
-      Average Rating:
-      {' '}
-      {avgRating}
-      ⭐️
-      <br />
-      Share on Social Media Icons
+    <div className="product-information">
+      <div>
+        <p id="product-title">
+          {product.name}
+        </p>
+        <p id="product-category">
+          {product.category}
+        </p>
+        <div id="product-price">
+          <Price selectedStyle={selectedStyle} />
+        </div>
+      </div>
+      <div className="product-overview">
+        <p id="product-slogan">
+          {product.slogan}
+        </p>
+        <p id="product-description">
+          {product.description}
+        </p>
+      </div>
+
+      <div className="product-reviews">
+        <StarRating avgRating={avgRating} />
+        <p id="read-reviews">
+          Read all
+          {' '}
+          {reviews.length}
+          {' '}
+          reviews.
+        </p>
+        <div className="social-media-icons">
+
+          <img
+            className="facebook-icon"
+            src={Facebook}
+            alt="facebook icon"
+            height="20"
+            width="20"
+          />
+          <img
+            className="twitter-icon"
+            src={Twitter}
+            alt="twitter icon"
+            height="20"
+            width="20"
+          />
+
+          <img
+            className="pinterest-icon"
+            src={Pinterest}
+            alt="pinterest icon"
+            height="20"
+            width="20"
+          />
+
+        </div>
+      </div>
     </div>
   );
 }

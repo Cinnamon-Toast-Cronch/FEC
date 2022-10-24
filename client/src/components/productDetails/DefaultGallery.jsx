@@ -1,13 +1,32 @@
 import React from 'react';
 import MainImage from './MainImage.jsx';
 import ImageThumbnails from './ImageThumbnails.jsx';
+import ArrowButtons from './ArrowButtons.jsx';
+import GalleryList from './GalleryList.jsx';
+import ExpandedGallery from './ExpandedGallery.jsx';
 
-const { useState } = React;
+const { useState, useEffect } = React;
 
 function DefaultGallery({ photoUrls, thumbnailUrls }) {
   const [count, setCount] = useState(0);
-  const { length } = photoUrls;
+  const photoAmount = photoUrls.length - 1;
+  const [isExpanded, setExpandView] = useState(false);
 
+  const handleExpansion = (imgSrc) => {
+    setExpandView(true);
+    const modal = document.createElement('div');
+    modal.setAttribute('class', 'modal');
+    document.querySelector('.product-details-container').append(modal);
+    // const newImage = document.createElement('img');
+    // newImage.setAttribute('src', imgSrc);
+    // modal.append(newImage);
+    const setModal = document.querySelector('.product-image-column');
+    setModal.style.width = '100%';
+    const hideInfo = document.querySelector('.product-info-column');
+    hideInfo.style.display = 'none';
+  };
+
+  // left and right arrow controls
   const nextImage = () => {
     setCount(count === length - 1 ? 0 : count + 1);
   };
@@ -15,31 +34,32 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
   const prevImage = () => {
     setCount(count === 0 ? length - 1 : count - 1);
   };
-  // const [indexSelected, setIndexSelected] = useState(0);
-  // const onSelect = (indexSelected) => {
-  //   setIndexSelected(indexSelected);
-  // };
+
   return (
-    <div>
-      {count === 0 ? null : <button type="button" onClick={prevImage}>Previous</button>}
-      {count === photoUrls.length - 1 ? null : <button type="button" onClick={nextImage}>Next</button>}
-      {photoUrls.map((url, index) => {
-        const key = url.split('-');
-        return (
-          <div key={key[1]}>
-            {index === count && (
-            <MainImage imageUrl={url} />
-            )}
+    <>
+      <div className={isExpanded ? 'modal-container' : 'default-gallery-container'} id={isExpanded ? 'expand-gallery' : 'default-gallery'}>
+        {isExpanded ? <button type="button" className="close-expand">&times;</button> : null}
+        <ArrowButtons
+          prevImage={prevImage}
+          nextImage={nextImage}
+          count={count}
+          photoAmount={photoAmount}
+        />
+        <GalleryList photoUrls={photoUrls} count={count} handleExpansion={handleExpansion} />
+        <ImageThumbnails
+          thumbnailUrls={thumbnailUrls}
+          count={count}
+          photoUrls={photoUrls}
+          handleSelectThumbnail={(count) => setCount(count)}
+        />
+      </div>
+      {/* {isExpanded ? null
+        : (
+          <div id="expanded-gallery-modal" className="expanded-gallery-container">
+            <ExpandedGallery isExpanded={isExpanded} setExpandView={setExpandView} />
           </div>
-        );
-      })}
-      <ImageThumbnails
-        thumbnailUrls={thumbnailUrls}
-        count={count}
-        photoUrls={photoUrls}
-        handleSelectThumbnail={(count) => setCount(count)}
-      />
-    </div>
+        )} */}
+    </>
   );
 }
 export default DefaultGallery;

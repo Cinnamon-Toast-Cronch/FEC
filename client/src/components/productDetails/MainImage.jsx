@@ -1,19 +1,20 @@
 import React from 'react';
 
-function MainImage({ imageUrl }) {
+function MainImage({ imageUrl, handleExpansion }) {
   //   -HOVER: mouse icon changes to magnifying glass
   // -CLICK on image -->  gallery changes to expanded view
-  const mouseToMagGlass = () => {
-    console.log('Hovering');
-  };
 
-  const expandView = () => {
-    console.log('Expand View');
-  };
+  // const expandView = () => {
+  //   console.log('Expand View');
+  // };
   return (
-    <div>
-      <img src={imageUrl} alt="placeholder" onMouseOver={mouseToMagGlass} onClick={expandView} />
-    </div>
+    <img
+      className="main-image"
+      src={imageUrl}
+      alt="placeholder"
+      style={{ width: '100%' }}
+      onClick={(e) => handleExpansion(e.target.src)}
+    />
   );
 }
 export default MainImage;
