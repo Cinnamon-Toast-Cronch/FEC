@@ -23,10 +23,24 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
       return stateCopy;
     });
 
+  const onChangeInt = (e) =>
+    setFormData((prev) => {
+      const stateCopy = { ...prev };
+      stateCopy[e.target.name] = parseInt(e.target.value, 10);
+      return stateCopy;
+    });
+
+  const onChangeBool = (e) =>
+    setFormData((prev) => {
+      const stateCopy = { ...prev };
+      stateCopy[e.target.name] = !!e.target.value;
+      return stateCopy;
+    });
+
   const onChangeCharacteristic = (e) =>
     setFormData((prev) => {
       const stateCharacteristicsCopy = { ...prev.characteristics };
-      stateCharacteristicsCopy[e.target.name] = e.target.value;
+      stateCharacteristicsCopy[e.target.name] = parseInt(e.target.value, 10);
       return { ...prev, characteristics: stateCharacteristicsCopy };
     });
 
@@ -46,13 +60,11 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
         _.keys(formData)
       ).length > 0
     ) {
-      console.log('form invalid: missing required fields');
       return false;
     }
 
     // Required Text Fields are not blank
     if (!_.any(['body', 'name', 'email'], (val) => !!formData[val])) {
-      console.log('form invalid: text fields blank');
       return false;
     }
 
@@ -62,7 +74,6 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       ) === -1
     ) {
-      console.log('form invalid: email is invalid');
       return false;
     }
 
@@ -77,7 +88,6 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
         _.keys(formData.characteristics).map((val) => parseInt(val, 10))
       ).length > 0
     ) {
-      console.log('form invalid: missing required characteristics');
       return false;
     }
 
@@ -87,13 +97,11 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
       formData.name.length > 60 ||
       formData.email.length > 60
     ) {
-      console.log('form invalid: summary, display name, or email are too long');
       return false;
     }
 
     // Body is over 50 characters and less than or equal to 1000 characters
     if (formData.body.length < 50 || formData.body.length > 1000) {
-      console.log('form invalid: body is invalid length');
       return false;
     }
 
@@ -101,14 +109,9 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
   };
 
   const submitForm = () => {
-    Axios.post('/reviews', {
-      data: formData,
-    })
-      .then(() => {
-        alert('Review submitted successfully');
-        close();
-      })
-      .catch((err) => console.log(err));
+    Axios.post('/reviews', formData).then(() => {
+      close();
+    });
   };
 
   const required = submitted && <p className="rnr-required">Required</p>;
@@ -118,10 +121,8 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
       onSubmit={(e) => {
         e.preventDefault();
         if (!validateForm()) {
-          console.log('form rejected');
           setSubmitted(true);
         } else {
-          console.log('form submitted');
           submitForm();
         }
       }}
@@ -129,7 +130,7 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
     >
       <div className="flex-between">
         <div>
-          <ClickableStarRating onChange={onChange} />
+          <ClickableStarRating onChange={onChangeInt} />
           {!formData.rating && required}
         </div>
         <button type="button" onClick={close}>
@@ -143,8 +144,8 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
             type="radio"
             name="recommend"
             id="recommend-yes"
-            value="true"
-            onChange={onChange}
+            value="yes"
+            onChange={onChangeBool}
           />
           yes
         </label>
@@ -153,8 +154,8 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
             type="radio"
             name="recommend"
             id="recommend-no"
-            value="false"
-            onChange={onChange}
+            value=""
+            onChange={onChangeBool}
           />
           no
         </label>
