@@ -27,7 +27,7 @@ const FILL_STYLE_SETTINGS = {
   },
 };
 
-function StarIcon({ fillStyle }) {
+function StarIcon({ fillStyle, star, onClick }) {
   return (
     <div
       className="star-outer"
@@ -38,6 +38,18 @@ function StarIcon({ fillStyle }) {
         width: `${ICON_SIZE}px`,
         height: `${ICON_SIZE}px`,
       }}
+      onClick={() => {
+        if (onClick) {
+          onClick(star);
+        }
+      }}
+      role="button"
+      onKeyPress={() => {
+        if (onClick) {
+          onClick(star);
+        }
+      }}
+      tabIndex={0}
     >
       <img
         className="star-inner"
@@ -56,6 +68,12 @@ function StarIcon({ fillStyle }) {
 
 StarIcon.propTypes = {
   fillStyle: PropTypes.string.isRequired,
+  star: PropTypes.number.isRequired,
+  onClick: PropTypes.func,
+};
+
+StarIcon.defaultProps = {
+  onClick: undefined,
 };
 
 export default StarIcon;

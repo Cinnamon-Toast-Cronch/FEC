@@ -48,7 +48,11 @@ function RatingReviewContainer({ product }) {
         ))}
       </div>
       <div className="rating-review-right-column">
-        <ReviewList productId={product.id} filters={filters} />
+        <ReviewList
+          productId={product.id}
+          filters={filters}
+          characteristics={metadata.characteristics}
+        />
       </div>
     </div>
   );
