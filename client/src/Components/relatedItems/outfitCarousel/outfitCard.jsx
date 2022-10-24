@@ -8,7 +8,7 @@ import Price from '../relatedCarousel/relatedCard/cardComponents/price.jsx';
 
 // handle deleting of a card and on storage when x is clicked
 
-function Card({ outfit }) {
+function Card({ outfit, handleDeleteOutfit }) {
   const [styleDetails, setStyleDetails] = useState({});
 
   useEffect(() => {
@@ -18,9 +18,17 @@ function Card({ outfit }) {
       });
   }, []);
 
+  // const handleDeleteOutfit = () => {
+  //   //filter the outfits state array to return new states array where state.id !== selectedId
+  //     const newOutfit = outfits.filter((outfit) => outfit.id !== selectedId);
+  //     console.log(newOutfit);
+  //   // reset the state with the new filter array
+  //   // delete the selected id property in the localstorage
+  //   };
+
   return (
     <div className="outfit-card">
-      <button>*X*</button>
+      <button onClick={() => handleDeleteOutfit(outfit.id)}>*X*</button>
       <Image images={styleDetails} />
       <Category category={outfit.category} />
       <Name name={outfit.name} />
