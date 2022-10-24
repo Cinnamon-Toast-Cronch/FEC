@@ -2,10 +2,7 @@ import React, { useState, useEffect } from 'react';
 import OutfitCard from './outfitCard.jsx';
 
 function Outfits({ product }) {
-  // const initialOutfits = [];
-  // const [outfits, setOutfits] = useState(initialOutfits);
-
-  const [outfits, setOutfits] = useState([product]);
+  const [outfits, setOutfits] = useState([{id: 40345}, {id: 40343}]);
 
   // **** store all product obj in a array under 1 key
   // or use id as key to store each product obj? <--leaning
@@ -35,11 +32,12 @@ function Outfits({ product }) {
     //set the state with the product id
     for (let i = 0; i < outfits.length; i++) {
       if (outfits[i].id === product.id) {
-        break;
+        return;
       }
     }
-    setOutfits(...outfits, product);
-    // localStorage.setItem(`${product.id}`, JSON.stringify(product));
+    setOutfits([...outfits, product]);
+    console.log(product)
+    localStorage.setItem(`testing`, JSON.stringify(product));
   };
 
   const handleDeleteOutfit = (selectedId) => {

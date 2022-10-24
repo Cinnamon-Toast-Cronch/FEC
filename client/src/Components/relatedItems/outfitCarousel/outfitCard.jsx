@@ -19,7 +19,7 @@ function Card({ outfit }) {
   }, []);
 
   return (
-    <div className='outfit-card'>
+    <div className="outfit-card">
       <button>*X*</button>
       <Image images={styleDetails} />
       <Category category={outfit.category} />
