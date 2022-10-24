@@ -197,29 +197,10 @@
     object-fit: contain;
   }
 
-  /* (A6) TOGGLE VISIBILITY */
-  #lightbox.show {
-    visibility: visible;
-    opacity: 1;
-  }
 
-  /* (B) LIGHTBOX IMAGE */
-  #lightbox img {
-    /* (B1) DIMENSIONS */
-    width: 60%;
-    height: auto;
 
-    /* (B2) IMAGE FIT */
-    /* contain | cover | fill | scale-down */
-    object-fit: cover;
-  }
 
-/* (C) LIGHTBOX IMAGE - FULLSCREEN ALTERNATIVE * */
-  /* #lightbox img {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-  } */
+
   .modal-container .gallery-slides img.main-image {
 
     /* justify-content: flex-start;
@@ -264,7 +245,6 @@
   display: flex;
   flex-direction: column;
   top: 60%;
-
 }
 
 .modal-container .thumbnail-column {
