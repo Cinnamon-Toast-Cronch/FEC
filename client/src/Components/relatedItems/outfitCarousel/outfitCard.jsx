@@ -9,17 +9,25 @@ import Price from '../relatedCarousel/relatedCard/cardComponents/price.jsx';
 // handle deleting of a card and on storage when x is clicked
 
 function Card({ outfit }) {
+  const [styleDetails, setStyleDetails] = useState({});
 
-  // return (
-  //   <div className='outfit-card'>
-  //     <button>*X*</button>
-  //     <text>${product.category}</text>
-  //     <text>${product.name}</text>
-  //     <text>${product.price}</text>
-  //     <div>*STAR RATING*</div>
+  useEffect(() => {
+    axios.get(`/products/${outfit.id}/styles`)
+      .then((res) => {
+        setStyleDetails(res.data.results[0].photos[0].thumbnail_url);
+      });
+  }, []);
 
-  //   </div>
-  // );
+  return (
+    <div className='outfit-card'>
+      <button>*X*</button>
+      <Image images={styleDetails} />
+      <Category category={outfit.category} />
+      <Name name={outfit.name} />
+      <Price price={outfit.default_price} />
+      <div className="rating">*STAR RATING*</div>
+    </div>
+  );
 }
 
 export default Card;

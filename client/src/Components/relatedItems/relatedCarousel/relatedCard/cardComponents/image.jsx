@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from './actionButton.jsx';
-import Cronch from '../../../../../assets/images/cronch.jpeg'
+import Cronch from '../../../../../assets/images/cronch.jpeg';
 
 function Image({ images, handlesComparePopup }) {
   const image = images || Cronch;

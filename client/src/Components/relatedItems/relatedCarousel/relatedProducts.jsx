@@ -7,6 +7,7 @@ function relatedProducts({ product }) {
   const [carouselPosition, setCarouselPosition] = useState(0);
 
   const productID = 40344;
+  // hardcoded product id
   useEffect(() => {
     axios.get(`/products/${productID}/related`)
       .then(({ data }) => {
@@ -36,7 +37,7 @@ function relatedProducts({ product }) {
         <div className="related-header">Related Products</div>
         {
           carouselPosition > 0 ?
-          <div onClick={handleCarouselLeft}> left </div>
+          <div className="previous"onClick={handleCarouselLeft}> left </div>
           : null
         }
         <ul>
@@ -48,7 +49,7 @@ function relatedProducts({ product }) {
         </ul>
         {
         carouselPosition < relatedItems.length ?
-          <div onClick={handleCarouselRight}> right </div>
+          <div className="next" onClick={handleCarouselRight}> right </div>
           : null
         }
       </div>

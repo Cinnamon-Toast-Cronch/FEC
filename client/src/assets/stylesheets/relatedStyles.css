@@ -24,12 +24,26 @@
 }
 
 .related-carousel {
+  position: relative;
+  margin: auto;
 
 }
 
 .related-card {
   position: relative;
   display: inline-block;
+  /* display: flex; */
+  /* justify-content: center; */
+  padding: 10px;
+  height: 300px;
+  width: 200px;
+}
+
+.outfit-card {
+  position: relative;
+  display: inline-block;
+  /* display: flex; */
+  /* justify-content: center; */
   padding: 10px;
   height: 300px;
   width: 200px;
@@ -46,4 +60,15 @@
   width: 150px;
   text-align: center;
 
+}
+
+.previous{
+
+}
+
+.next{
+  display: inline-block;
+  right: 0;
+  border-style: dashed;
+  border-radius: 3px 0 0 3px;
 }
