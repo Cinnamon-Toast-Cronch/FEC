@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'underscore';
+import Axios from 'axios';
 import ClickableStarRating from './ClickableStarRating.jsx';
 import CharacteristicRow from './CharacteristicRow.jsx';
 import ReviewImageUpload from './ReviewImageUpload.jsx';
@@ -100,7 +101,14 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
   };
 
   const submitForm = () => {
-    console.log('form submitted');
+    Axios.post('/reviews', {
+      data: formData,
+    })
+      .then(() => {
+        alert('Review submitted successfully');
+        close();
+      })
+      .catch((err) => console.log(err));
   };
 
   const required = submitted && <p className="rnr-required">Required</p>;
@@ -114,6 +122,7 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
           setSubmitted(true);
         } else {
           console.log('form submitted');
+          submitForm();
         }
       }}
       className="rnr-submission-form"
@@ -192,7 +201,6 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
           <ReviewImageUpload addImage={addImage} />
         )}
       </div>
-      {/* Ability to upload images goes here */}
       <label htmlFor="review-nickname">
         Display name
         <input
