@@ -11,19 +11,25 @@ function QuestionsCards(props) {
   const { question_body, question_id, question_helpfulness } = question;
 
   const [answers, setAnswers] = useState([]);
+  const [noAs, setNoAs] = useState(2);
+  const [moreAs, setMoreAs] = useState(false);
+  const [displayedAs, setDisplayedAs] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [helpful, setHelpful] = useState(localStorage.getItem(`question-${question_id}`));
 
   // EXECUTES ON RENDER
   useEffect(() => {
     axios.get(`/qa/questions/${question_id}/answers`)
-      .then((response) => setAnswers(response.data.results))
+      .then((response) => {
+        setAnswers(response.data.results);
+        setDisplayedAs(response.data.results.slice(0, noAs));
+      })
       .then(() => {
         if (helpful === null) {
           setHelpful(false);
         }
       });
-  }, []);
+  }, [moreAs]);
 
   // TODO write callback
   function helpfulQ(question_id) {
@@ -87,7 +93,7 @@ function QuestionsCards(props) {
       />
       )}
       <div className="answers">
-        {answers.map((answer, i) => (
+        {displayedAs.map((answer, i) => (
           <AnswersCards
             className="answersCards"
             answer={answer}
@@ -96,9 +102,19 @@ function QuestionsCards(props) {
           />
         ))}
       </div>
-      <div>
-        <b>LOAD MORE ANSWERS</b>
-      </div>
+      <button
+        type="button"
+        onClick={() => {
+          if (moreAs === false) {
+            setNoAs(answers.length);
+          } else {
+            setNoAs(2);
+          }
+          setMoreAs(!moreAs);
+        }}
+      >
+        {moreAs ? 'Collapse answers' : 'Load more answers'}
+      </button>
     </div>
   );
 }

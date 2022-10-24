@@ -5,14 +5,20 @@ const { useState, useEffect } = React;
 
 function AnswersCards(props) {
   const { answer } = props;
-  const { body, answerer_name, date, helpfulness, answer_id } = answer;
+  const {
+    body, answerer_name, date, helpfulness, answer_id,
+  } = answer;
 
+  const [reported, setReported] = useState(localStorage.getItem(`reported-${answer_id}`));
   const [helpful, setHelpful] = useState(localStorage.getItem(`answer-${answer_id}`));
 
   // EXECUTES ON RENDER
   useEffect(() => {
     if (helpful === null) {
       setHelpful(false);
+    }
+    if (reported === null) {
+      setReported(false);
     }
   }, []);
 
@@ -26,6 +32,14 @@ function AnswersCards(props) {
         .then(() => setHelpful(true));
     }
   }
+
+  function handleReport(answer_id) {
+    if (reported === false) {
+      axios.put(`/qa/answers/${answer_id}/report`)
+        .then(() => localStorage.setItem(`reported-${answer_id}`, true));
+    }
+  }
+
   return (
     <div>
       <div className="answer">
@@ -53,7 +67,16 @@ function AnswersCards(props) {
         {' '}
         |
         {' '}
-        <button type="button"><u>report</u></button>
+        <button
+          type="button"
+          onClick={() => {
+            handleReport(answer_id);
+            setReported(true);
+          }}
+        >
+          <u>{reported ? 'reported' : 'report'}</u>
+
+        </button>
       </div>
     </div>
   );
