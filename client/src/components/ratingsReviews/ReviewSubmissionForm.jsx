@@ -10,13 +10,14 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
     summary: '',
     photos: [],
     characteristics: {},
+    body: '',
   });
   const [submitted, setSubmitted] = useState(false);
 
   const onChange = (e) =>
     setFormData((prev) => {
       const stateCopy = { ...prev };
-      stateCopy[e.target.name] = e.target.value;
+      stateCopy[e.target.name] = e.target.value.trim();
       return stateCopy;
     });
 
@@ -35,6 +36,23 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
         _.keys(formData)
       ).length > 0
     ) {
+      console.log('form invalid: missing required fields');
+      return false;
+    }
+
+    // Required Text Fields are not blank
+    if (!_.any(['body', 'name', 'email'], (val) => !!formData[val])) {
+      console.log('form invalid: text fields blank');
+      return false;
+    }
+
+    // Email is a valid email
+    if (
+      formData.email.search(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      ) === -1
+    ) {
+      console.log('form invalid: email is invalid');
       return false;
     }
 
@@ -49,6 +67,7 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
         _.keys(formData.characteristics).map((val) => parseInt(val))
       ).length > 0
     ) {
+      console.log('form invalid: missing required characteristics');
       return false;
     }
 
@@ -58,12 +77,16 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
       formData.name.length > 60 ||
       formData.email.length > 60
     ) {
+      console.log('form invalid: summary, display name, or email are too long');
       return false;
     }
+
     // Body is over 50 characters and less than or equal to 1000 characters
     if (formData.body.length < 50 || formData.body.length > 1000) {
+      console.log('form invalid: body is invalid length');
       return false;
     }
+
     return true;
   };
 

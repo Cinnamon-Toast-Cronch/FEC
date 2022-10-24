@@ -18,7 +18,7 @@ function ClickableStarRating({ onChange }) {
         rating={currentRating}
         onClick={(value) => {
           setCurrentRating(value);
-          onChange({ target: { value, name: 'rating' } });
+          onChange({ target: { value: String(value), name: 'rating' } });
         }}
       />
       {ratingDescriptions[currentRating]}
