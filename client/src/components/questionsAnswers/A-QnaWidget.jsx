@@ -52,13 +52,6 @@ function QnaWidget(props) {
     loadData();
   }, [noQs]);
 
-  useEffect(() => {
-    const memory = displayedQs.slice();
-    if (search.length >= 3) {
-
-    }
-  })
-
   function handleSearch(searchEntry) {
     // TODO flesh out handleSearch;
     console.log(searchEntry);
