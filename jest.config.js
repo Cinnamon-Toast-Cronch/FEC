@@ -9,7 +9,11 @@ const config = {
   transformIgnorePatterns: ['<rootDir>/node_modules/(?!(axios)/)'],
   testEnvironment: 'jsdom',
   collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.{js,jsx}'],
+  collectCoverageFrom: [
+    'client/src/**/*.{js,jsx}',
+    '!**/node_modules/**',
+    'server/**/*.{js,jsx}',
+  ],
 };
 
 module.exports = config;

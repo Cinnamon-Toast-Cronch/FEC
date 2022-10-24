@@ -134,6 +134,10 @@ table {
 *
 */
 
+.no-scroll {
+  overflow: hidden;
+}
+
 /*
 *
 * WIDGET CONFIGURATIONS
@@ -146,6 +150,72 @@ table {
 *
 */
 
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+/*
+* Rating Review Container
+*/
+
+.rating-review-container {
+  display: flex;
+  font-size: 15px;
+  color: #707070;
+}
+
+.rnr-modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(0, 0, 0, 0.5);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+* Review Summary
+*/
+
+.rnr-title {
+  font-size: 1.4em;
+  margin-top: 2.75px;
+}
+
+.rnr-summary > div {
+  display: flex;
+}
+
+.rnr-avg-rating {
+  font-size: 4em;
+  font-weight: bold;
+}
+
+/*
+* Review Submission Form
+*/
+
+.rnr-submission-form label {
+  display: block;
+}
+
+.rnr-submission-form {
+  background-color: white;
+  border-radius: 20px;
+  padding: 1em;
+}
+
 /*
 * Rating Breakdown
 */
@@ -157,10 +227,7 @@ table {
   cursor: pointer;
   font: inherit;
   text-decoration: underline;
-}
-
-.rating-breakdown {
-  font-size: 15px;
+  color: inherit;
 }
 
 .rating-breakdown-row {
@@ -170,6 +237,7 @@ table {
 
 .rating-breakdown-row * {
   display: inline-block;
+  white-space: nowrap;
 }
 
 .rating-breakdown-row p {
@@ -209,12 +277,49 @@ table {
 }
 
 /*
+* Review List
+*/
+.review-sort-bar {
+  font-size: 1.4em;
+  margin: 0 5px;
+}
+
+.review-sort-bar select {
+  font: inherit;
+  text-decoration: underline;
+  color: inherit;
+  border: none;
+}
+
+.review-sort-bar p {
+  display: inline-block;
+}
+
+.rating-review-right-column {
+  max-height: 100vh;
+}
+
+.review-list {
+  max-height: calc(100% - 2em);
+  overflow: scroll;
+}
+
+.review-list-button {
+  background-color: transparent;
+  font: inherit;
+  border: 1px solid #707070;
+  color: inherit;
+  border-radius: 0;
+  padding: 10px;
+  font-weight: bold;
+}
+
+/*
 * Review Tile
 */
 
 .review-tile {
   margin: 5px;
-  font-size: 15px;
 }
 
 .review-tile > * {
@@ -239,11 +344,6 @@ table {
 .response h6 {
   font-weight: bold;
   margin-bottom: 1em;
-}
-
-.flex-between {
-  display: flex;
-  justify-content: space-between;
 }
 
 .img-container {
