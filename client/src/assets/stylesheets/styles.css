@@ -261,9 +261,22 @@ body {
   display: flex;
 }
 
+.rating-breakdown-row:hover {
+  color: black;
+}
+
+.rating-breakdown-row:hover > div {
+  background-color: black;
+}
+
+.rating-breakdown-row:hover > div > div {
+  background-color: #1d8541;
+}
+
 .rating-breakdown-row * {
   display: inline-block;
   white-space: nowrap;
+  text-align: left;
 }
 
 .rating-breakdown-row p {
