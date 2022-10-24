@@ -134,6 +134,16 @@ table {
 *
 */
 
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-evenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 /*
 *
 * WIDGET CONFIGURATIONS
@@ -217,6 +227,50 @@ table {
 }
 
 /*
+* Characteristic Visualizer
+*/
+.rnr-characteristic-visualization {
+  margin: 0.5em 0;
+}
+
+.rnr-characteristic-visualization p {
+  font-size: 0.7em;
+  width: 33%;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.rnr-characteristic-visualization p:first-child {
+  text-align: start;
+}
+
+.rnr-characteristic-visualization p:last-child {
+  text-align: end;
+}
+
+.rnr-characteristic-visualization > * {
+  margin: 0 5%;
+}
+
+.rnr-characteristic-bar {
+  height: 0.7em;
+  width: 90%;
+  background-color: #707070;
+}
+
+.triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 0.4em solid transparent;
+  border-right: 0.4em solid transparent;
+  border-top: 0.8em solid #73b98c;
+  position: relative;
+  top: -0.3em;
+  margin-top: 0.4em;
+}
+
+/*
 * Review List
 */
 .review-sort-bar {
@@ -280,11 +334,6 @@ table {
 .response h6 {
   font-weight: bold;
   margin-bottom: 1em;
-}
-
-.flex-between {
-  display: flex;
-  justify-content: space-between;
 }
 
 .img-container {
