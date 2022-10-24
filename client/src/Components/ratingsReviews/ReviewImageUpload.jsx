@@ -1,5 +1,5 @@
-// import { Cloudinary } from '@cloudinary/url-gen';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const UPLOAD_PRESET = 'FEC_Cronch';
 const CLOUD_NAME = 'dtnlyldts';
@@ -27,5 +27,9 @@ function ReviewImageUpload({ addImage }) {
     </button>
   );
 }
+
+ReviewImageUpload.propTypes = {
+  addImage: PropTypes.func.isRequired,
+};
 
 export default ReviewImageUpload;
