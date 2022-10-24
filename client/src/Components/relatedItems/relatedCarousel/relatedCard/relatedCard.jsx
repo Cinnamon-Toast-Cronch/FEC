@@ -4,7 +4,7 @@ import Image from './cardComponents/image.jsx';
 import Category from './cardComponents/category.jsx';
 import Name from './cardComponents/name.jsx';
 import Price from './cardComponents/price.jsx';
-// import Rating from './cardComponents/rating.jsx';
+import Rating from './cardComponents/getStarRating.jsx';
 import Comparison from './cardComponents/comparison.jsx';
 
 
@@ -31,15 +31,22 @@ function Card({ data, displayProduct }) {
           <Image images={images} handlesComparePopup={handlesComparePopup} />
           <Category category={data.category} />
           <Name name={data.name} />
+          {/* {
+           product.sale?
+          //  strikethrough the original price
+          // sales price
+          // : <Price price={data.default_price} />
+          } */}
           <Price price={data.default_price} />
-          <div className="rating">*STAR RATING*</div>
-          <Comparison trigger={comparePopup} handlesComparePopup={handlesComparePopup} data={data} displayProduct={displayProduct}/>
+          <Rating product={data}/>
+          <Comparison trigger={comparePopup} handlesComparePopup={handlesComparePopup} data={data}
+            displayProduct={displayProduct}/>
         </li>
       </div>
     );
-  } else {
-    return null;
   }
+  return null;
+
 }
 
 export default Card;

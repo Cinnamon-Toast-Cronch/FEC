@@ -5,20 +5,26 @@
   width: 100%;
   height: 100vh;
   background-color: rgb(59, 58, 71);
-
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.comparison-popup-inner {
+/* .comparison-popup-inner {
   position: relative;
   padding: 32px;
   width: 100%;
   max-width: 640px;
   background-color: #FFF;
+} */
+.related-header {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
 }
-
 .related-container {
 
 }
@@ -26,6 +32,7 @@
 .related-carousel {
   position: relative;
   margin: auto;
+  display: inline-flex;
 
 }
 
@@ -37,6 +44,8 @@
   padding: 10px;
   height: 300px;
   width: 200px;
+  border-style: double;
+  border-color: black;
 }
 
 .outfit-card {

@@ -7,7 +7,7 @@ function Price({ price }) {
 // conditional render the return element to strikethrough original price element
 // and return sale as second element
   return (
-    <div className="related-price">{price}</div>
+    <div className="related-price">${price}</div>
   );
 }
 

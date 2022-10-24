@@ -4,9 +4,7 @@ import Image from '../relatedCarousel/relatedCard/cardComponents/image.jsx';
 import Category from '../relatedCarousel/relatedCard/cardComponents/category.jsx';
 import Name from '../relatedCarousel/relatedCard/cardComponents/name.jsx';
 import Price from '../relatedCarousel/relatedCard/cardComponents/price.jsx';
-// import Rating from './cardComponents/rating.jsx';
-
-// handle deleting of a card and on storage when x is clicked
+import Rating from '../relatedCarousel/relatedCard/cardComponents/getStarRating.jsx';
 
 function Card({ outfit, handleDeleteOutfit }) {
   const [styleDetails, setStyleDetails] = useState({});
@@ -18,14 +16,6 @@ function Card({ outfit, handleDeleteOutfit }) {
       });
   }, []);
 
-  // const handleDeleteOutfit = () => {
-  //   //filter the outfits state array to return new states array where state.id !== selectedId
-  //     const newOutfit = outfits.filter((outfit) => outfit.id !== selectedId);
-  //     console.log(newOutfit);
-  //   // reset the state with the new filter array
-  //   // delete the selected id property in the localstorage
-  //   };
-
   return (
     <div className="outfit-card">
       <button onClick={() => handleDeleteOutfit(outfit.id)}>*X*</button>
@@ -33,7 +23,7 @@ function Card({ outfit, handleDeleteOutfit }) {
       <Category category={outfit.category} />
       <Name name={outfit.name} />
       <Price price={outfit.default_price} />
-      <div className="rating">*STAR RATING*</div>
+      <Rating product={outfit} />
     </div>
   );
 }
