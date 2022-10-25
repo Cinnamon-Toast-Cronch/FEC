@@ -16,11 +16,14 @@ function ReviewTile({ review }) {
   const [modalPhotoUrl, setModalPhotoUrl] = useState('');
   const [showFullBody, setShowFullBody] = useState(false);
 
-  // TODO: make markedAsHelpful status persist through refreshes: https://felixgerschau.com/react-localstorage/
   const markAsHelpful = () => {
-    if (!markedAsHelpful) {
+    if (
+      !markedAsHelpful &&
+      window.localStorage.getItem(`helpful-${review.review_id}`) !== 'true'
+    ) {
       Axios.put(`/reviews/${review.review_id}/helpful`);
       setMarkedAsHelpful(true);
+      window.localStorage.setItem(`helpful-${review.review_id}`, true);
     }
   };
 
