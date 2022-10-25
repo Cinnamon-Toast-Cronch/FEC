@@ -59,7 +59,7 @@ function ReviewTile({ review }) {
           )}
         </div>
         {review.recommend && (
-          <div>
+          <div className="rnr-recommended">
             <span className="material-symbols-outlined">check</span>
             <p>I recommend this product</p>
           </div>

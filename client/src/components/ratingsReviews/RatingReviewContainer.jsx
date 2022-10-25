@@ -41,6 +41,7 @@ function RatingReviewContainer({ product }) {
           toggleFilter={toggleFilter}
           resetFilters={resetFilters}
         />
+        <hr />
         {_.map(metadata.characteristics, (val, key) => (
           <CharacteristicVisualization
             characteristic={key}

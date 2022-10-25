@@ -24,30 +24,36 @@ function RatingBreakdown({
 
   return (
     <div className="rating-breakdown">
-      {_.map(ratings, (count, rating) => (
-        <RatingBreakdownRow
-          key={rating}
-          rating={rating}
-          ratingCount={parseInt(count, 10)}
-          totalRatingCount={totalRatingCount}
-          toggleFilter={toggleFilter}
-        />
-      )).reverse()}
-      <p>{`${percentageRecommended}% of buyers recommend this product`}</p>
-      <h6>Applied Filters</h6>
-      <button
-        className="reset-filter-button text-like-button"
-        type="button"
-        onClick={resetFilters}
-      >
-        Reset
-      </button>
-      <div className="filter-icons">
-        {filters.map((filter) => (
-          <p key={filter} className="filter-icon">
-            {`${filter} stars`}
-          </p>
-        ))}
+      <div className="rating-breakdown-rows">
+        {_.map(ratings, (count, rating) => (
+          <RatingBreakdownRow
+            key={rating}
+            rating={rating}
+            ratingCount={parseInt(count, 10)}
+            totalRatingCount={totalRatingCount}
+            toggleFilter={toggleFilter}
+          />
+        )).reverse()}
+      </div>
+      <p className="rnr-recommended-percentile">{`${percentageRecommended}% of buyers recommend this product`}</p>
+      <div className="rnr-filter-row">
+        <div className="rnr-applied-filter-row">
+          <h6>Applied Filters</h6>
+          <button
+            className="reset-filter-button text-like-button"
+            type="button"
+            onClick={resetFilters}
+          >
+            Reset
+          </button>
+        </div>
+        <div className="filter-icons">
+          {filters.map((filter) => (
+            <p key={filter} className="filter-icon">
+              {`${filter} stars`}
+            </p>
+          ))}
+        </div>
       </div>
     </div>
   );
