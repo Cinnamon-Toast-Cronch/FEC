@@ -22,7 +22,11 @@ function ReviewImageUpload({ addImage }) {
   );
 
   return (
-    <button type="button" onClick={() => uploadWidget.open()}>
+    <button
+      className="review-list-button"
+      type="button"
+      onClick={() => uploadWidget.open()}
+    >
       Upload
     </button>
   );

@@ -89,6 +89,7 @@ video {
   border: 0;
   font-size: 100%;
   font: inherit;
+  font-family: 'Roboto Flex', sans-serif;
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -134,8 +135,17 @@ table {
 *
 */
 
+textarea,
+input,
+button,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
 body {
   max-width: 90vw;
+  color: #707070;
 }
 
 .flex-between {
@@ -150,6 +160,10 @@ body {
 
 .no-scroll {
   overflow: hidden;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
 }
 
 /*
@@ -175,6 +189,10 @@ body {
   justify-content: space-evenly;
 }
 
+.flex-column p {
+  white-space: nowrap;
+}
+
 /*
 * Rating Review Container
 */
@@ -182,7 +200,7 @@ body {
 .rating-review-container {
   display: flex;
   font-size: 15px;
-  color: #707070;
+  gap: 1em;
 }
 
 .rnr-modal {
@@ -196,6 +214,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 
 /*
@@ -220,11 +239,8 @@ body {
 * Review Submission Form
 */
 
-.rnr-submission-form label {
-  display: block;
-}
-
-.rnr-submission-form {
+.rnr-submission-form-outer,
+.rnr-image-modal {
   background-color: white;
   border-radius: 20px;
   padding: 1em;
@@ -244,14 +260,38 @@ body {
   color: inherit;
 }
 
-.rating-breakdown-row {
-  margin: 1px 5px;
+.rating-breakdown {
   display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.rating-breakdown-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rating-breakdown-row {
+  display: flex;
+}
+
+.rating-breakdown-row:hover {
+  color: black;
+}
+
+.rating-breakdown-row:hover > div {
+  background-color: black;
+}
+
+.rating-breakdown-row:hover > div > div {
+  background-color: #1d8541;
 }
 
 .rating-breakdown-row * {
   display: inline-block;
   white-space: nowrap;
+  text-align: left;
 }
 
 .rating-breakdown-row p {
@@ -270,12 +310,6 @@ body {
   background-color: #73b98c;
 }
 
-.rating-breakdown h6,
-.reset-filter-button {
-  display: inline-block;
-  margin: 0 5px;
-}
-
 .reset-filter-button {
   font-size: 0.75em;
   text-decoration: underline;
@@ -288,6 +322,12 @@ body {
   border-radius: 3em;
   padding: 0.2em;
   margin: 2px;
+}
+
+.rnr-applied-filter-row {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 5px;
 }
 
 /*
@@ -340,6 +380,10 @@ body {
 .review-sort-bar {
   font-size: 1.4em;
   margin: 0 5px;
+  position: sticky;
+  top: 0px;
+  background-color: white;
+  z-index: 1;
 }
 
 .review-sort-bar select {
@@ -354,12 +398,19 @@ body {
 }
 
 .rating-review-right-column {
-  max-height: 100vh;
+  width: 100%;
+  overflow-x: clip;
+}
+
+.rating-review-left-column {
+  margin-left: 5px;
+  position: sticky;
+  top: 0px;
+  height: fit-content;
 }
 
 .review-list {
   max-height: calc(100% - 2em);
-  overflow-y: scroll;
   margin-bottom: 1%;
 }
 
@@ -382,7 +433,7 @@ body {
 }
 
 .review-tile > * {
-  margin-bottom: 0.2em;
+  margin-bottom: 0.3em;
 }
 
 .review-tile p {
@@ -430,6 +481,115 @@ body {
 
 .helpful-bar button {
   margin-right: 3px;
+}
+
+.rnr-image-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.rnr-image-modal * {
+  display: block;
+}
+
+.rnr-image-modal img {
+  max-width: 80vw;
+  max-height: 80vh;
+}
+
+.button-no-styling {
+  border: none;
+  background: transparent;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.rnr-recommended {
+  display: flex;
+  align-items: center;
+}
+
+/*
+* Review submission form
+*/
+.rnr-required {
+  color: red;
+}
+
+.rnr-submission-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.rnr-submission-form hr {
+  margin: 0;
+}
+
+.rnr-overall-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.rnr-submission-form label:has(input[type='text']),
+.rnr-submission-form label:has(textarea) {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.rnr-submission-form input[type='text'],
+.rnr-submission-form textarea {
+  border: 1px solid #707070;
+  border-radius: 3px;
+  color: #707070;
+  padding: 2px;
+}
+
+.rnr-submission-form textarea {
+  resize: none;
+}
+
+.rnr-submission-form label:has(input[type='radio']:checked) {
+  font-weight: bold;
+}
+
+.rnr-submission-form button {
+  width: fit-content;
+}
+
+.rnr-characteristic-rows {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 10%;
+  row-gap: 5px;
+}
+
+.rnr-characteristic-rows > div {
+  flex: 40%;
+}
+
+.rnr-characteristic-row {
+  width: fit-content;
+  height: fit-content;
+}
+
+.rnr-characteristic-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 15px;
+}
+
+.rnr-submission-form h6 {
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 /*
