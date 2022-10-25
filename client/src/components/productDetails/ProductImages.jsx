@@ -18,7 +18,9 @@ function ProductImages({ selectedStyle }) {
     const photoUrls = currentPhotos.map((photo) => photo.url);
 
     return (
-      <DefaultGallery photoUrls={photoUrls} thumbnailUrls={thumbnailUrls} />
+      <div className="image-wrapper-content">
+        <DefaultGallery photoUrls={photoUrls} thumbnailUrls={thumbnailUrls} />
+      </div>
     );
   }
   return null;

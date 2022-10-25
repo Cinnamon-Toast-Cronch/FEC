@@ -12,19 +12,19 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
   const photoAmount = photoUrls.length - 1;
   const [isExpanded, setExpandView] = useState(false);
 
-  const handleExpansion = (imgSrc) => {
-    setExpandView(true);
-    const modal = document.createElement('div');
-    modal.setAttribute('class', 'modal');
-    document.querySelector('.product-details-container').append(modal);
-    // const newImage = document.createElement('img');
-    // newImage.setAttribute('src', imgSrc);
-    // modal.append(newImage);
-    const setModal = document.querySelector('.product-image-column');
-    setModal.style.width = '100%';
-    const hideInfo = document.querySelector('.product-info-column');
-    hideInfo.style.display = 'none';
-  };
+  // const handleExpansion = (imgSrc) => {
+  //   setExpandView(true);
+  //   // const modal = document.createElement('div');
+  //   // modal.setAttribute('class', 'modal');
+  //   // document.querySelector('.product-details-container').append(modal);
+  //   // const newImage = document.createElement('img');
+  //   // newImage.setAttribute('src', imgSrc);
+  //   // modal.append(newImage);
+  //   // const setExpandImg = document.querySelector('.product-image-column');
+  //   // setModal.style.width = '100%';
+  //   // const hideInfo = document.querySelector('.product-info-column');
+  //   // hideInfo.style.display = 'none';
+  // };
 
   // left and right arrow controls
   const nextImage = () => {
@@ -36,30 +36,22 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
   };
 
   return (
-    <>
-      <div className={isExpanded ? 'modal-container' : 'default-gallery-container'} id={isExpanded ? 'expand-gallery' : 'default-gallery'}>
-        {isExpanded ? <button type="button" className="close-expand">&times;</button> : null}
-        <ArrowButtons
-          prevImage={prevImage}
-          nextImage={nextImage}
-          count={count}
-          photoAmount={photoAmount}
-        />
-        <GalleryList photoUrls={photoUrls} count={count} handleExpansion={handleExpansion} />
-        <ImageThumbnails
-          thumbnailUrls={thumbnailUrls}
-          count={count}
-          photoUrls={photoUrls}
-          handleSelectThumbnail={(count) => setCount(count)}
-        />
-      </div>
-      {/* {isExpanded ? null
-        : (
-          <div id="expanded-gallery-modal" className="expanded-gallery-container">
-            <ExpandedGallery isExpanded={isExpanded} setExpandView={setExpandView} />
-          </div>
-        )} */}
-    </>
+    <div className="default-gallery-container" id="default-gallery">
+      {isExpanded ? <button type="button" className="close-expand">&times;</button> : null}
+      <ArrowButtons
+        prevImage={prevImage}
+        nextImage={nextImage}
+        count={count}
+        photoAmount={photoAmount}
+      />
+      <GalleryList photoUrls={photoUrls} count={count} isExpanded={isExpanded} setExpandView={setExpandView} />
+      <ImageThumbnails
+        thumbnailUrls={thumbnailUrls}
+        count={count}
+        photoUrls={photoUrls}
+        handleSelectThumbnail={(count) => setCount(count)}
+      />
+    </div>
   );
 }
 export default DefaultGallery;

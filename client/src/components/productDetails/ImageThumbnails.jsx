@@ -49,13 +49,16 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
           {thumbnailUrls.map((thumbnail, index) => (
             <div className="thumbnail-column" key={index}>
               {index <= range[1] && index >= range[0] ? (
-                <img
-                  className={`${count === index ? 'active-thumbnail' : 'thumbnail'}`}
-                  src={thumbnail}
-                  onClick={() => handleSelectThumbnail(index)}
-                  style={{ width: '40px' }}
-                  alt="placeholder"
-                />
+                <span className="thumbnail-image-container">
+                  <img
+                    className={`${count === index ? 'active-thumbnail' : 'thumbnail'}`}
+                    src={thumbnail}
+                    onClick={() => handleSelectThumbnail(index)}
+                    style={{ width: '40px' }}
+                    alt="placeholder"
+                  />
+
+                </span>
               ) : null}
             </div>
           ))}

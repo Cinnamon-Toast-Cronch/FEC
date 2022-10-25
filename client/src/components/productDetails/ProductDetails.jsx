@@ -29,25 +29,26 @@ function ProductDetails({ product }) {
 
   return (
     <div className="product-details-container">
-      <div className="product-image-column">
-        <ProductImages selectedStyle={selectedStyle} />
-      </div>
-      <div id="expanded-gallery-modal" className="expanded-gallery-container">
-        <ExpandedGallery />
-      </div>
-      <div className="product-info-column">
-        <ProductInformation
-          product={product}
-          reviews={reviews}
-          selectedStyle={selectedStyle}
-        />
-        <StyleSelector
-          styles={styles}
-          setSelectedStyle={setSelectedStyle}
-          selectedStyle={selectedStyle}
-        />
-      </div>
+      <div className="product-components-wrapper">
+        <div className="product-image-column">
+          <div className="image-wrapper">
+            <ProductImages selectedStyle={selectedStyle} />
+          </div>
+        </div>
+        <div className="product-info-column">
+          <ProductInformation
+            product={product}
+            reviews={reviews}
+            selectedStyle={selectedStyle}
+          />
+          <StyleSelector
+            styles={styles}
+            setSelectedStyle={setSelectedStyle}
+            selectedStyle={selectedStyle}
+          />
+        </div>
 
+      </div>
     </div>
   );
 }

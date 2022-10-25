@@ -18,7 +18,6 @@ function ExpandedGallery() {
 
   return (
     <>
-
       {/* <div className="expanded-gallery-content"/>
       </div> */}
     </>
