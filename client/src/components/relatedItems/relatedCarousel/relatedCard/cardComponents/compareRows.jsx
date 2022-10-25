@@ -13,17 +13,17 @@ function ComparisonRow({displayProductFeature, relatedProductFeature}) {
   }
 
   return (
-    <span>
+    <>
       {
         allFeatures.map((feature) => (
           <tr>
             <FeaturesCheck feature={feature} currentFeatures={displayProductFeature} />
-            <th>{feature}</th>
+            <td>{feature}</td>
             <FeaturesCheck feature={feature} currentFeatures={relatedProductFeature} />
           </tr>
         ))
       }
-    </span>
+    </>
   );
 }
 

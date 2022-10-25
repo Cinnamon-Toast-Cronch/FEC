@@ -1,13 +1,16 @@
 import React from 'react';
 
 function Price({ price }) {
-
-// make sure prop being passed down is the whole product object and not just the original price
-// check if there is a sales property
-// conditional render the return element to strikethrough original price element
-// and return sale as second element
+  if (price[2]['sale_price']) {
+    return (
+      <div>
+        <s>${price[2]['original_price']}</s>
+        <div className="sale-price">${price[2]['sale_price']}</div>
+      </div>
+    );
+  }
   return (
-    <div className="related-price">${price}</div>
+    <div className="related-price">${price[2]['original_price']}</div>
   );
 }
 

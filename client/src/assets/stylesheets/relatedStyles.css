@@ -17,67 +17,82 @@
   max-width: 640px;
   background-color: #FFF;
 } */
-.related-header {
+.carousel-container {
+ display: flex;
+}
+
+#related-carousel {
   display: flex;
-  justify-content: flex-start;
-  margin: 0;
-  max-width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-.related-container {
-
+  padding: 0 10vw;
+  overflow-x: hidden;
+  width: 600px;
+  height: 450px;
 }
 
-.related-carousel {
-  position: relative;
-  margin: auto;
-  display: inline-flex;
-
+.outfit-carousel {
+  display: flex;
+  padding: 0 10vw;
+  overflow-x: hidden;
+  width: 600px;
+  height: 450px;
 }
 
 .related-card {
-  position: relative;
-  display: inline-block;
-  /* display: flex; */
-  /* justify-content: center; */
-  padding: 10px;
-  height: 300px;
-  width: 200px;
-  border-style: double;
-  border-color: black;
+  flex: 0 0 auto;
+  width: 250px;
+  height: 250px;
+  margin-right: 40px;
+  box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
 }
 
 .outfit-card {
-  position: relative;
-  display: inline-block;
-  /* display: flex; */
-  /* justify-content: center; */
-  padding: 10px;
-  height: 300px;
-  width: 200px;
+  flex: 0 0 auto;
+  width: 250px;
+  height: 250px;
+  margin-right: 40px;
+  box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
 }
 
 .img {
-  height: 200px;
-  width: 150px;
+  position: relative;
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
 }
 
-.add-button {
-  background-color: rgb(167, 162, 162);
-  height: 200px;
-  width: 150px;
-  text-align: center;
-
-}
-
-.previous{
-
+/* .previous{
+  display: inline-block;
+  left: 0;
+  border-radius: 10px;
+  background-color:rgb(90, 90, 85);
+  align-items: center;
+  justify-content: center;
 }
 
 .next{
   display: inline-block;
   right: 0;
-  border-style: dashed;
-  border-radius: 3px 0 0 3px;
+  border-radius: 10px;
+  background-color: rgb(90, 90, 85);
+  align-items: center;
+  justify-content: center;
+} */
+
+.sale-price {
+  color: red;
+}
+
+.related-image {
+}
+
+.compare-button {
+  top: 0;
+  right: 0;
+  padding: 10px;
+  width: 90%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* opacity: 0; */
 }

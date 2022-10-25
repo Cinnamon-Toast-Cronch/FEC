@@ -11,7 +11,7 @@ import Comparison from './cardComponents/comparison.jsx';
 // handleCardClick ----need to have a set state prop to change current displayed product on app
 
 function Card({ data, displayProduct }) {
-  const [images, setImages] = useState([]);
+  const [productStyles, setProductStyles] = useState([]);
   const [comparePopup, setComparePopup] = useState(false);
   const handlesComparePopup = () => {
     setComparePopup(!comparePopup);
@@ -20,33 +20,25 @@ function Card({ data, displayProduct }) {
   useEffect(() => {
     axios.get(`/products/${data.id}/styles`)
       .then((res) => {
-        setImages(res.data.results[0].photos[0].thumbnail_url);
+        setProductStyles(res.data.results);
       });
   }, [data]);
 
-  if (data !== undefined) {
+  if (data !== undefined && productStyles.length) {
     return (
       <div className="related-card">
-        <li>
-          <Image images={images} handlesComparePopup={handlesComparePopup} />
-          <Category category={data.category} />
-          <Name name={data.name} />
-          {/* {
-           product.sale?
-          //  strikethrough the original price
-          // sales price
-          // : <Price price={data.default_price} />
-          } */}
-          <Price price={data.default_price} />
-          <Rating product={data}/>
-          <Comparison trigger={comparePopup} handlesComparePopup={handlesComparePopup} data={data}
-            displayProduct={displayProduct}/>
-        </li>
+        <Image images={productStyles[0].photos[0].thumbnail_url}
+          handlesComparePopup={handlesComparePopup} />
+        <Category category={data.category} />
+        <Name name={data.name} />
+        <Price price={productStyles} />
+        <Rating product={data} />
+        <Comparison trigger={comparePopup} handlesComparePopup={handlesComparePopup} data={data}
+          displayProduct={displayProduct} />
       </div>
     );
   }
   return null;
-
 }
 
 export default Card;

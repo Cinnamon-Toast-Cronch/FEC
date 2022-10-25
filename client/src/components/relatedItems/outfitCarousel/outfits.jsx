@@ -25,8 +25,7 @@ function Outfits({ product }) {
   };
 
   return (
-    <div className="related-carousel">
-      <div className="related-header">Your Outfit</div>
+    <div className="outfit-carousel">
       <div className="outfit-card" onClick={handleAddOutfit}>+ Add to Outfit ** make it a card</div>
       {
         outfits ?

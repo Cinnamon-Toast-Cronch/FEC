@@ -12,20 +12,21 @@ function Card({ outfit, handleDeleteOutfit }) {
   useEffect(() => {
     axios.get(`/products/${outfit.id}/styles`)
       .then((res) => {
-        setStyleDetails(res.data.results[0].photos[0].thumbnail_url);
+        setStyleDetails(res.data.results);
       });
   }, []);
-
-  return (
-    <div className="outfit-card">
-      <button onClick={() => handleDeleteOutfit(outfit.id)}>*X*</button>
-      <Image images={styleDetails} />
-      <Category category={outfit.category} />
-      <Name name={outfit.name} />
-      <Price price={outfit.default_price} />
-      <Rating product={outfit} />
+  if (outfit !== undefined && styleDetails.length) {
+    return (
+      <div className="outfit-card">
+        <button onClick={() => handleDeleteOutfit(outfit.id)}>X</button>
+        <Image images={styleDetails[0].photos[0].thumbnail_url} />
+        <Category category={outfit.category} />
+        <Name name={outfit.name} />
+        <Price price={styleDetails} />
+        <Rating product={outfit} />
     </div>
-  );
+    );
+  }
 }
 
 export default Card;

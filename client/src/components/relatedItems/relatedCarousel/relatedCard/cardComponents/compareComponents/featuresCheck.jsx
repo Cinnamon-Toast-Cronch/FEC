@@ -13,17 +13,17 @@ function FeaturesCheck({ feature, currentFeatures }) {
 
   if (featureValue === true) {
     return (
-      <span>
+      <>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <td><i className="fa fa-check"></i></td>
-      </span>
+      </>
     );
   } if (featureValue === null) {
     return (
-      <span>
+      <>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <td><i className="fa fa-remove"></i></td>
-      </span>
+      </>
     );
   } if (featureValue === 'no such feature') {
     return (

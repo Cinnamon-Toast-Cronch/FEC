@@ -25,28 +25,29 @@ function relatedProducts({ product }) {
 
   const handleCarouselLeft = () => {
     setCarouselPosition(carouselPosition - 1);
+    document.getElementById('related-carousel').scrollLeft -= 400;
   };
 
   const handleCarouselRight = () => {
     setCarouselPosition(carouselPosition + 1);
+    document.getElementById('related-carousel').scrollLeft += 400;
   };
 
   if (relatedItems !== undefined) {
     return (
-      <div className="related-carousel" data-testid="con-1">
-        <div className="related-header">Related Products</div>
+      <div className="carousel-container" data-testid="con-1">
         {
           carouselPosition > 0 ?
           <div className="previous"onClick={handleCarouselLeft}> left </div>
           : null
         }
-        <ul>
+        <div id="related-carousel">
           {
             relatedItems.map(({ data }) => (
               <Card key={data.id} data={data} displayProduct={product} />
             ))
           }
-        </ul>
+        </div>
         {
         carouselPosition < relatedItems.length ?
           <div className="next" onClick={handleCarouselRight}> right </div>
