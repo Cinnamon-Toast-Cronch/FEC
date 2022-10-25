@@ -5,6 +5,14 @@ import ReactDOM from 'react-dom';
 import StarRating from './StarRating.jsx';
 import Modal from './Modal.jsx';
 
+// TODO: Review body - By default the first 250 characters of the review should display.
+// If the review is longer than 250 chars, below the body a link reading “Show more” will appear.
+// Upon clicking this link, the review tile should expand and the rest of the review should display.
+
+// TODO: Recommend - If the reviewer recommends buying the product,
+// the text “I recommend this product” and a checkmark icon will display below the review.
+// If the reviewer does not recommend the product, nothing will display here.
+
 function ReviewTile({ review }) {
   const humanReadableDate = new Date(review.date).toLocaleDateString(
     undefined,
@@ -49,7 +57,6 @@ function ReviewTile({ review }) {
             <p>{review.response}</p>
           </div>
         )}
-        {/* TODO: make images expand as a modal when clicked */}
         {review.photos.map((photo) => (
           <div className="img-container" key={photo.id}>
             <button
