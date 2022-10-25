@@ -12,23 +12,23 @@ function SubModals(props) {
   const [email, setEmail] = useState('');
 
   return (
-    <div className="modal-background">
-      <div className="modal-container">
-        <div className="modalBtn">
+    <div className="qna-modal-background">
+      <div className="qna-modal-container">
+        <div className="qna-modalClose">
           <button
             type="button"
-            className="modalBtn"
+            className="qna-modalBtn"
             onClick={() => closeModal(false)}
           >
-            X
+            close
           </button>
         </div>
         {question_body ? (
           <div>
-            <div className="modal-title">
-              Submit your answer
+            <div className="qna-modal-title">
+              Submit your answer:
             </div>
-            <div>
+            <div className="qna-modal-subtitle">
               {productName}
               :
               {' '}
@@ -37,14 +37,14 @@ function SubModals(props) {
           </div>
         ) : (
           <div>
-            <div className="modal-title">
+            <div className="qna-modal-title">
               Ask your question about the
               {' '}
               {productName}
             </div>
           </div>
         )}
-        <div className="modal-body">
+        <div className="qna-modal-body">
           <form
             className="modalSubmitForm"
             onSubmit={(event) => {
@@ -53,10 +53,8 @@ function SubModals(props) {
             }}
           >
             <div className="modalQnA">
-              {question_body ? 'Your answer' : 'Your question'}
-              :
-              <br />
               <input
+                className="modalQnaSubmit"
                 name="textSubmit"
                 type="text"
                 placeholder={question_body ? 'type your answer here' : 'type your question here'}
@@ -66,10 +64,11 @@ function SubModals(props) {
                 required
               />
             </div>
-            <div className="modalNickname">
+            <div className="qna-modalNickname">
               Nickname:
               <br />
               <input
+                className="qna-modalInput"
                 name="nicknameSubmit"
                 type="text"
                 placeholder={question_body ? 'example: jack543!' : 'example: Jackson11!'}
@@ -81,10 +80,11 @@ function SubModals(props) {
               <br />
               For privacy reasons, do not use your full name or email address
             </div>
-            <div className="modalEmail">
+            <div className="qna-modalEmail">
               Email:
               <br />
               <input
+                className="qna-modalInput"
                 name="emailSubmit"
                 type="email"
                 placeholder={question_body ?'example: jack@email.com' : 'Why do you like the product or not?'}
@@ -97,12 +97,15 @@ function SubModals(props) {
               For authentication reasons, you will not be emailed
             </div>
             {question_body ? (
-              <div>
+              <div className="qna-photoSubmit">
                 Submit photos:
                 {/* TODO */}
               </div>
             ) : ('')}
-            <button type="submit">
+            <button
+              className="qna-modalSubmit"
+              type="submit"
+            >
               {question_body ? 'Submit Answer' : 'Submit Question'}
             </button>
           </form>

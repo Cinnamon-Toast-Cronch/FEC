@@ -63,31 +63,35 @@ function QuestionsCards(props) {
   }
 
   return (
-    <div>
-      <div className="qBody">
-        Q:
-        {question_body}
-      </div>
-      <div className="qButtons">
-        helpful?
-        <button
-          type="button"
-          onClick={() => helpfulQ(question_id)}
-        >
-          <u>yes</u>
-        </button>
-        {' '}
-        {question_helpfulness}
-        {' '}
-        |
-        {' '}
-        <button
-          type="button"
-          className="openModal"
-          onClick={() => setOpenModal(true)}
-        >
-          <u>Add answer</u>
-        </button>
+    <div className="questionsCards">
+      <div className="questionsView">
+        <div className="question">
+          Q:
+          {' '}
+          <p className="qBody">{question_body}</p>
+        </div>
+        <div className="qButtons">
+          helpful?
+          <button
+            className="helpfulQBtn"
+            type="button"
+            onClick={() => helpfulQ(question_id)}
+          >
+            <u>yes</u>
+          </button>
+          {' ('}
+          {question_helpfulness}
+          {') '}
+          |
+          {' '}
+          <button
+            type="button"
+            className="addABtn"
+            onClick={() => setOpenModal(true)}
+          >
+            <u>Add answer</u>
+          </button>
+        </div>
       </div>
       {openModal && (
       <SubModals
@@ -108,19 +112,22 @@ function QuestionsCards(props) {
           />
         ))}
       </div>
-      <button
-        type="button"
-        onClick={() => {
-          if (moreAs === false) {
-            setNoAs(answers.length);
-          } else {
-            setNoAs(2);
-          }
-          setMoreAs(!moreAs);
-        }}
-      >
-        {moreAs ? 'Collapse answers' : 'Load more answers'}
-      </button>
+      {answers.length > 2 ? (
+        <button
+          type="button"
+          className="moreAs"
+          onClick={() => {
+            if (moreAs === false) {
+              setNoAs(answers.length);
+            } else {
+              setNoAs(2);
+            }
+            setMoreAs(!moreAs);
+          }}
+        >
+          {moreAs ? 'COLLAPSE ANSWERS' : 'LOAD MORE ANSWERS'}
+        </button>
+      ) : (<div className="moreAsAlt">No more answers have been submitted</div>)}
     </div>
   );
 }

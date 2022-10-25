@@ -6,10 +6,9 @@ const { useState, useEffect } = React;
 function QuestionsList(props) {
   const { productName, displayedQs, loadData } = props;
   return (
-    <div>
+    <div className="questionsList">
       {displayedQs.map((question, i) => (
         <QuestionsCards
-          className="questionsCards"
           loadData={loadData}
           productName={productName}
           question={question}

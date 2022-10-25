@@ -22,7 +22,6 @@ function AnswersCards(props) {
     }
   }, []);
 
-  // TODO write callback
   function helpfulA(answer_id) {
     if (helpful === false) {
       axios.put(`/qa/answers/${answer_id}/helpful`)
@@ -46,7 +45,7 @@ function AnswersCards(props) {
       <div className="answer">
         A:
         {' '}
-        {body}
+        <p className="aBody">{body}</p>
       </div>
       <div className="answerDetails">
         by
@@ -58,18 +57,20 @@ function AnswersCards(props) {
         {' '}
         | helpful?
         <button
+          className="helpfulA"
           type="button"
           onClick={() => helpfulA(answer_id)}
         >
           <u>yes</u>
         </button>
-        {' '}
+        {' ('}
         {helpfulness}
-        {' '}
+        {') '}
         |
         {' '}
         <button
           type="button"
+          className="qnaReport"
           onClick={() => {
             handleReport(answer_id);
             setReported(true);
