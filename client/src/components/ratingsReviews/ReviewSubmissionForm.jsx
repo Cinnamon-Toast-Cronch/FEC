@@ -190,6 +190,7 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
             name="body"
             onChange={onChange}
             placeholder="Why did you like the product or not?"
+            rows="5"
           />
           {formData.body.length < 50 ? (
             <p

@@ -531,11 +531,29 @@ body {
   margin: 0;
 }
 
+.rnr-overall-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .rnr-submission-form label:has(input[type='text']),
 .rnr-submission-form label:has(textarea) {
   display: flex;
   flex-direction: column;
   gap: 3px;
+}
+
+.rnr-submission-form input[type='text'],
+.rnr-submission-form textarea {
+  border: 1px solid #707070;
+  border-radius: 3px;
+  color: #707070;
+  padding: 2px;
+}
+
+.rnr-submission-form textarea {
+  resize: none;
 }
 
 .rnr-submission-form label:has(input[type='radio']:checked) {
