@@ -10,9 +10,7 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
   const [formData, setFormData] = useState({
     product_id: productId,
     summary: '',
-    photos: [
-      'https://res.cloudinary.com/dtnlyldts/image/upload/v1666735311/bopaikjx7raxw9amuocl.jpg',
-    ],
+    photos: [],
     characteristics: {},
     body: '',
   });
