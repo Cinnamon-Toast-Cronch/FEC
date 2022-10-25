@@ -63,7 +63,6 @@ function QuestionsCards(props) {
       photos,
     };
     axios.post(`/qa/questions/${question_id}/answers`, body)
-      .then((response) => console.log(response))
       .then(() => {
         setOpenModal(false);
       })
