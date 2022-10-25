@@ -2,11 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RatingDistributionBar from './RatingDistributionBar.jsx';
 
-// TODO: The filters will be toggled on and off with each click.
-// Clicking a second time on a rating breakdown will remove the filter
-// for that rating type. If this action removes the last or only filter,
-// then the list should return to its default state and all reviews should be shown.
-
 function RatingBreakdownRow({
   rating,
   ratingCount,
