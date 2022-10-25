@@ -11,9 +11,11 @@ function RatingReviewContainer({ product }) {
   const [metadata, setMetadata] = useState({ characteristics: {} });
   const [filters, setFilters] = useState([]);
 
-  const addFilter = (newFilter) => {
-    if (!filters.includes(newFilter)) {
-      setFilters([...filters, newFilter].sort());
+  const toggleFilter = (filter) => {
+    if (!filters.includes(filter)) {
+      setFilters([...filters, filter].sort());
+    } else {
+      setFilters(_.difference([...filters], [filter]));
     }
   };
 
@@ -36,7 +38,7 @@ function RatingReviewContainer({ product }) {
         <RatingBreakdown
           ratings={metadata.ratings}
           filters={filters}
-          addFilter={addFilter}
+          toggleFilter={toggleFilter}
           resetFilters={resetFilters}
         />
         {_.map(metadata.characteristics, (val, key) => (

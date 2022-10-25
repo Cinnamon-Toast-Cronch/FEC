@@ -7,7 +7,7 @@ function RatingBreakdown({
   ratings,
   filters,
   resetFilters,
-  addFilter,
+  toggleFilter,
   recommendations,
 }) {
   const percentageRecommended =
@@ -30,7 +30,7 @@ function RatingBreakdown({
           rating={rating}
           ratingCount={parseInt(count, 10)}
           totalRatingCount={totalRatingCount}
-          addFilter={addFilter}
+          toggleFilter={toggleFilter}
         />
       )).reverse()}
       <p>{`${percentageRecommended}% of buyers recommend this product`}</p>
@@ -63,7 +63,7 @@ RatingBreakdown.propTypes = {
   }),
   filters: PropTypes.array,
   resetFilters: PropTypes.func.isRequired,
-  addFilter: PropTypes.func.isRequired,
+  toggleFilter: PropTypes.func.isRequired,
   recommendations: PropTypes.shape({
     false: PropTypes.string,
     true: PropTypes.string,
