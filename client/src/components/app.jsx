@@ -24,8 +24,8 @@ function App() {
       </div>
       <div className="widgets">
         <ProductDetails product={product} />
-        <QnaWidget product={product} />
         <RelatedItems product={product} />
+        <QnaWidget product={product} />
         <Rnr product={product} />
       </div>
     </div>
