@@ -5,10 +5,6 @@ import ReactDOM from 'react-dom';
 import StarRating from './StarRating.jsx';
 import Modal from './Modal.jsx';
 
-// TODO: Review body - By default the first 250 characters of the review should display.
-// If the review is longer than 250 chars, below the body a link reading “Show more” will appear.
-// Upon clicking this link, the review tile should expand and the rest of the review should display.
-
 function ReviewTile({ review }) {
   const humanReadableDate = new Date(review.date).toLocaleDateString(
     undefined,
@@ -18,6 +14,7 @@ function ReviewTile({ review }) {
   const [markedAsHelpful, setMarkedAsHelpful] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalPhotoUrl, setModalPhotoUrl] = useState('');
+  const [showFullBody, setShowFullBody] = useState(false);
 
   // TODO: make markedAsHelpful status persist through refreshes: https://felixgerschau.com/react-localstorage/
   const markAsHelpful = () => {
@@ -46,7 +43,18 @@ function ReviewTile({ review }) {
           <p>{`${review.reviewer_name}, ${humanReadableDate}`}</p>
         </div>
         <h5>{review.summary}</h5>
-        <p>{review.body}</p>
+        <div>
+          <p>{showFullBody ? review.body : review.body.slice(0, 250)}</p>
+          {review.body.length > 250 && !showFullBody && (
+            <button
+              type="button"
+              className="text-like-button"
+              onClick={() => setShowFullBody(true)}
+            >
+              Show More
+            </button>
+          )}
+        </div>
         {review.recommend && (
           <div>
             <span className="material-symbols-outlined">check</span>
