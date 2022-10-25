@@ -13,13 +13,12 @@ function RatingSummary({ ratings }) {
     _.reduce(ratings, (memo, num, key) => memo + num * parseInt(key, 10), 0) /
     ratingCount;
 
-  const roundedRating = Math.round(avgRating * 10) / 10;
-
+  const roundedRating = Number.isNaN(avgRating) ? '0.0' : avgRating.toFixed(1);
   return (
     <div className="rnr-summary">
       <h4 className="rnr-title">RATINGS &amp; REVIEWS</h4>
       <div>
-        <p className="rnr-avg-rating">{roundedRating || '0.0'}</p>
+        <p className="rnr-avg-rating">{roundedRating}</p>
         <div className="flex-column">
           <StarRating rating={roundedRating} />
           <p>{`average of ${ratingCount} reviews`}</p>

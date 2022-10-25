@@ -45,7 +45,7 @@ function RatingReviewContainer({ product }) {
         {_.map(metadata.characteristics, (val, key) => (
           <CharacteristicVisualization
             characteristic={key}
-            averageRating={parseInt(val.value, 10)}
+            averageRating={parseFloat(val.value, 10)}
             key={key}
           />
         ))}
