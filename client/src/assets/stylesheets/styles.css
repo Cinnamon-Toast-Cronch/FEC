@@ -188,6 +188,10 @@ body {
   justify-content: space-evenly;
 }
 
+.flex-column p {
+  white-space: nowrap;
+}
+
 /*
 * Rating Review Container
 */
@@ -379,6 +383,10 @@ body {
 .review-sort-bar {
   font-size: 1.4em;
   margin: 0 5px;
+  position: sticky;
+  top: 0px;
+  background-color: white;
+  z-index: 1;
 }
 
 .review-sort-bar select {
@@ -393,18 +401,19 @@ body {
 }
 
 .rating-review-right-column {
-  max-height: 100vh;
   width: 100%;
   overflow-x: clip;
 }
 
 .rating-review-left-column {
   margin-left: 5px;
+  position: sticky;
+  top: 0px;
+  height: fit-content;
 }
 
 .review-list {
   max-height: calc(100% - 2em);
-  overflow-y: auto;
   margin-bottom: 1%;
 }
 
