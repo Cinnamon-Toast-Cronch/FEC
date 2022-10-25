@@ -9,10 +9,6 @@ import Modal from './Modal.jsx';
 // If the review is longer than 250 chars, below the body a link reading “Show more” will appear.
 // Upon clicking this link, the review tile should expand and the rest of the review should display.
 
-// TODO: Recommend - If the reviewer recommends buying the product,
-// the text “I recommend this product” and a checkmark icon will display below the review.
-// If the reviewer does not recommend the product, nothing will display here.
-
 function ReviewTile({ review }) {
   const humanReadableDate = new Date(review.date).toLocaleDateString(
     undefined,
@@ -51,6 +47,12 @@ function ReviewTile({ review }) {
         </div>
         <h5>{review.summary}</h5>
         <p>{review.body}</p>
+        {review.recommend && (
+          <div>
+            <span className="material-symbols-outlined">check</span>
+            <p>I recommend this product</p>
+          </div>
+        )}
         {review.response && (
           <div className="response">
             <h6>Response from seller:</h6>
