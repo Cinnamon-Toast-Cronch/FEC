@@ -30,7 +30,11 @@ function ReviewTile({ review }) {
   const imageModal = (
     <Modal>
       <div className="rnr-image-modal">
-        <button type="button" onClick={() => setModalOpen(false)}>
+        <button
+          className="review-list-button"
+          type="button"
+          onClick={() => setModalOpen(false)}
+        >
           Close
         </button>
         <img src={modalPhotoUrl} alt="Photograph from reviewer" />

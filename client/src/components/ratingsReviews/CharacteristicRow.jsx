@@ -46,7 +46,12 @@ const CHARACTERISTIC_DESCRIPTIONS = {
   ],
 };
 
-function CharacteristicRow({ characteristic, characteristicId, onSelection }) {
+function CharacteristicRow({
+  characteristic,
+  characteristicId,
+  onSelection,
+  required,
+}) {
   const [currentValue, setCurrentValue] = useState(0);
 
   const onChange = (e) => {
@@ -56,24 +61,29 @@ function CharacteristicRow({ characteristic, characteristicId, onSelection }) {
 
   return (
     <div className="rnr-characteristic-row">
-      <h6>{characteristic}</h6>
-      {currentValue === 0 ? (
-        'None selected'
-      ) : (
-        <p>{CHARACTERISTIC_DESCRIPTIONS[characteristic][currentValue - 1]}</p>
-      )}
-      {[1, 2, 3, 4, 5].map((value) => (
-        <label htmlFor={`review-${characteristic}-${value}`} key={value}>
-          <input
-            type="radio"
-            name={characteristicId}
-            id={`review-${characteristic}-${value}`}
-            value={value}
-            onChange={onChange}
-          />
-          {value}
-        </label>
-      ))}
+      <div className="rnr-characteristic-title-row">
+        <h6>{characteristic}</h6>
+        {currentValue === 0 ? (
+          <p>None selected</p>
+        ) : (
+          <p>{CHARACTERISTIC_DESCRIPTIONS[characteristic][currentValue - 1]}</p>
+        )}
+      </div>
+      <div className="rnr-selection-row">
+        {[1, 2, 3, 4, 5].map((value) => (
+          <label htmlFor={`review-${characteristic}-${value}`} key={value}>
+            <input
+              type="radio"
+              name={characteristicId}
+              id={`review-${characteristic}-${value}`}
+              value={value}
+              onChange={onChange}
+            />
+            {value}
+          </label>
+        ))}
+      </div>
+      {required}
     </div>
   );
 }

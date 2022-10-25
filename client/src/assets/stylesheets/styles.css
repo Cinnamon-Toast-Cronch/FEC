@@ -145,6 +145,7 @@ select {
 
 body {
   max-width: 90vw;
+  color: #707070;
 }
 
 .flex-between {
@@ -199,7 +200,6 @@ body {
 .rating-review-container {
   display: flex;
   font-size: 15px;
-  color: #707070;
   gap: 1em;
 }
 
@@ -214,6 +214,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 
 /*
@@ -238,11 +239,7 @@ body {
 * Review Submission Form
 */
 
-.rnr-submission-form label {
-  display: block;
-}
-
-.rnr-submission-form,
+.rnr-submission-form-outer,
 .rnr-image-modal {
   background-color: white;
   border-radius: 20px;
@@ -490,6 +487,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  gap: 5px;
 }
 
 .rnr-image-modal * {
@@ -512,6 +510,68 @@ body {
 .rnr-recommended {
   display: flex;
   align-items: center;
+}
+
+/*
+* Review submission form
+*/
+.rnr-required {
+  color: red;
+}
+
+.rnr-submission-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.rnr-submission-form hr {
+  margin: 0;
+}
+
+.rnr-submission-form label:has(input[type='text']),
+.rnr-submission-form label:has(textarea) {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.rnr-submission-form label:has(input[type='radio']:checked) {
+  font-weight: bold;
+}
+
+.rnr-submission-form button {
+  width: fit-content;
+}
+
+.rnr-characteristic-rows {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 10%;
+  row-gap: 5px;
+}
+
+.rnr-characteristic-rows > div {
+  flex: 40%;
+}
+
+.rnr-characteristic-row {
+  width: fit-content;
+  height: fit-content;
+}
+
+.rnr-characteristic-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 15px;
+}
+
+.rnr-submission-form h6 {
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 /*

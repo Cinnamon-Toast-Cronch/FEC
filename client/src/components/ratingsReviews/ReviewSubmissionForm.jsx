@@ -10,7 +10,9 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
   const [formData, setFormData] = useState({
     product_id: productId,
     summary: '',
-    photos: [],
+    photos: [
+      'https://res.cloudinary.com/dtnlyldts/image/upload/v1666735311/bopaikjx7raxw9amuocl.jpg',
+    ],
     characteristics: {},
     body: '',
   });
@@ -117,117 +119,132 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
   const required = submitted && <p className="rnr-required">Required</p>;
 
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        if (!validateForm()) {
-          setSubmitted(true);
-        } else {
-          submitForm();
-        }
-      }}
-      className="rnr-submission-form"
-    >
-      <div className="flex-between">
+    <div className="rnr-submission-form-outer">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          if (!validateForm()) {
+            setSubmitted(true);
+          } else {
+            submitForm();
+          }
+        }}
+        className="rnr-submission-form"
+      >
+        <div className="flex-between">
+          <div>
+            <ClickableStarRating onChange={onChangeInt} />
+            {!formData.rating && required}
+          </div>
+          <button className="review-list-button" type="button" onClick={close}>
+            Close
+          </button>
+        </div>
         <div>
-          <ClickableStarRating onChange={onChangeInt} />
-          {!formData.rating && required}
+          <h6>Would you recommend this product?</h6>
+          <label htmlFor="recommend-yes">
+            <input
+              type="radio"
+              name="recommend"
+              id="recommend-yes"
+              value="yes"
+              onChange={onChangeBool}
+            />
+            yes
+          </label>
+          <label htmlFor="recommend-no">
+            <input
+              type="radio"
+              name="recommend"
+              id="recommend-no"
+              value=""
+              onChange={onChangeBool}
+            />
+            no
+          </label>
+          {!formData.recommend && required}
         </div>
-        <button type="button" onClick={close}>
-          Close
-        </button>
-      </div>
-      <div>
-        <h6>Would you recommend this product?</h6>
-        <label htmlFor="recommend-yes">
-          <input
-            type="radio"
-            name="recommend"
-            id="recommend-yes"
-            value="yes"
-            onChange={onChangeBool}
-          />
-          yes
-        </label>
-        <label htmlFor="recommend-no">
-          <input
-            type="radio"
-            name="recommend"
-            id="recommend-no"
-            value=""
-            onChange={onChangeBool}
-          />
-          no
-        </label>
-        {!formData.recommend && required}
-      </div>
-      {_.map(characteristics, (char, key) => (
-        <div key={char.id}>
-          <CharacteristicRow
-            characteristic={key}
-            characteristicId={char.id}
-            onSelection={onChangeCharacteristic}
-          />
-          {!formData.characteristics[char.id] && required}
+        <hr />
+        <div className="rnr-characteristic-rows">
+          {_.map(characteristics, (char, key) => (
+            <CharacteristicRow
+              characteristic={key}
+              characteristicId={char.id}
+              onSelection={onChangeCharacteristic}
+              required={!formData.characteristics[char.id] && required}
+            />
+          ))}
         </div>
-      ))}
-      <label htmlFor="review-summary">
-        Review Summary
-        <textarea
-          id="review-summary"
-          name="summary"
-          placeholder="Example: Best purchase ever!"
-          onChange={onChange}
-        />
-      </label>
-      <label htmlFor="review-body">
-        Review body
-        <textarea
-          id="review-body"
-          name="body"
-          onChange={onChange}
-          placeholder="Why did you like the product or not?"
-        />
-        <p>
-          {formData.body.length < 50
-            ? `Minimum required characters left: ${50 - formData.body.length}`
-            : 'Minimum reached'}
-        </p>
-      </label>
-      <div>
-        {formData.photos.map((url) => (
-          <img src={url} alt="User uploaded" key={url} />
-        ))}
+        <hr />
+        <label htmlFor="review-summary">
+          <h6>Review Summary</h6>
+          <textarea
+            id="review-summary"
+            name="summary"
+            placeholder="Example: Best purchase ever!"
+            onChange={onChange}
+          />
+        </label>
+        <label htmlFor="review-body">
+          <h6>Review body</h6>
+          <textarea
+            id="review-body"
+            name="body"
+            onChange={onChange}
+            placeholder="Why did you like the product or not?"
+          />
+          {formData.body.length < 50 ? (
+            <p
+              style={{ color: submitted ? 'red' : 'inherit' }}
+            >{`Minimum required characters left: ${
+              50 - formData.body.length
+            }`}</p>
+          ) : (
+            <p>{'Minimum reached'}</p>
+          )}
+        </label>
+        <hr />
+        <h6>Images</h6>
+        <div>
+          {formData.photos.map((url) => (
+            <div className="img-container" key={url}>
+              <img src={url} alt="User uploaded" />
+            </div>
+          ))}
+        </div>
         {formData.photos.length < 5 && (
           <ReviewImageUpload addImage={addImage} />
         )}
-      </div>
-      <label htmlFor="review-nickname">
-        Display name
-        <input
-          type="text"
-          id="review-nickname"
-          placeholder="Example: jackson11!"
-          name="name"
-          onChange={onChange}
-        />
-        For privacy reasons, do not use your full name or email address.
-        {!formData.name && required}
-      </label>
-      <label htmlFor="review-email">
-        Email
-        <input
-          type="text"
-          id="review-email"
-          placeholder="Example: jackson11@email.com"
-          name="email"
-          onChange={onChange}
-        />
-        For authentication reasons, you will not be emailed.
-        {!formData.email && required}
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+        <hr />
+        <label htmlFor="review-nickname">
+          <h6>Display name</h6>
+          <input
+            type="text"
+            id="review-nickname"
+            placeholder="Example: jackson11!"
+            name="name"
+            onChange={onChange}
+          />
+          For privacy reasons, do not use your full name or email address.
+          {!formData.name && required}
+        </label>
+        <label htmlFor="review-email">
+          <h6>Email</h6>
+          <input
+            type="text"
+            id="review-email"
+            placeholder="Example: jackson11@email.com"
+            name="email"
+            onChange={onChange}
+          />
+          For authentication reasons, you will not be emailed.
+          {!formData.email && required}
+        </label>
+        <button className="review-list-button" type="submit">
+          Submit
+        </button>
+      </form>
+    </div>
   );
 }
 
