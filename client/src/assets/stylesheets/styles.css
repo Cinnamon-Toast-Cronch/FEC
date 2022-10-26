@@ -685,7 +685,7 @@ body {
 }
 
 .questionsList {
-  max-height: 50vh;
+  max-height: 85vh;
   overflow-y: scroll;
   margin: 1%;
 }
@@ -705,7 +705,7 @@ body {
 .answers {
   margin-left: 3%;
   overflow-y: auto;
-  max-height: 30vh;
+  max-height: 50vh;
 }
 
 .qnaSearch {
@@ -728,6 +728,25 @@ body {
   width: fit-content;
 }
 
+.userUploadedPhoto {
+  max-block-size: 6em;
+  cursor: pointer;
+}
+
+.answerPhotos {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.moreQs .addQs {
+  background-color: transparent;
+  font: inherit;
+  border: 1px solid #707070;
+  color: inherit;
+  border-radius: 0;
+  padding: 10px;
+  font-weight: bold;
+}
 
 /*
 *
@@ -755,6 +774,7 @@ QNA MODAL
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 
 .qna-modalClose {

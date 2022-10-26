@@ -1,7 +1,7 @@
 import React from 'react';
 import ReviewImageUpload from '../ratingsReviews/ReviewImageUpload.jsx';
 
-const { useState } = React;
+const { useState, useEffect } = React;
 
 function SubModals(props) {
   const {
@@ -20,6 +20,14 @@ function SubModals(props) {
       setPhotos([...photos, url]);
     }
   }
+
+  useEffect(() => {
+    const noScrollClass = 'no-scroll';
+
+    document.body.classList.add(noScrollClass);
+
+    return () => document.body.classList.remove(noScrollClass);
+  }, []);
 
   return (
     <div className="qna-modal-background">
