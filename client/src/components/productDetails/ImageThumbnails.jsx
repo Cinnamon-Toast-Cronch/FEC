@@ -57,7 +57,6 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
                     style={{ width: '40px' }}
                     alt="placeholder"
                   />
-
                 </span>
               ) : null}
             </div>

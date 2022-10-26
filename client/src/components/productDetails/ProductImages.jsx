@@ -13,7 +13,6 @@ function ProductImages({ selectedStyle }) {
   }, [selectedStyle]);
 
   if (currentPhotos) {
-    // iterate thru array of objs to make 2 arrays for thumbnails and urls
     const thumbnailUrls = currentPhotos.map((photo) => photo.thumbnail_url);
     const photoUrls = currentPhotos.map((photo) => photo.url);
 

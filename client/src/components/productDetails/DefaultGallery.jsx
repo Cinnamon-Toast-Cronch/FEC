@@ -3,7 +3,6 @@ import MainImage from './MainImage.jsx';
 import ImageThumbnails from './ImageThumbnails.jsx';
 import ArrowButtons from './ArrowButtons.jsx';
 import GalleryList from './GalleryList.jsx';
-import ExpandedGallery from './ExpandedGallery.jsx';
 
 const { useState, useEffect } = React;
 
@@ -12,21 +11,6 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
   const photoAmount = photoUrls.length - 1;
   const [isExpanded, setExpandView] = useState(false);
 
-  // const handleExpansion = (imgSrc) => {
-  //   setExpandView(true);
-  //   // const modal = document.createElement('div');
-  //   // modal.setAttribute('class', 'modal');
-  //   // document.querySelector('.product-details-container').append(modal);
-  //   // const newImage = document.createElement('img');
-  //   // newImage.setAttribute('src', imgSrc);
-  //   // modal.append(newImage);
-  //   // const setExpandImg = document.querySelector('.product-image-column');
-  //   // setModal.style.width = '100%';
-  //   // const hideInfo = document.querySelector('.product-info-column');
-  //   // hideInfo.style.display = 'none';
-  // };
-
-  // left and right arrow controls
   const nextImage = () => {
     setCount(count === length - 1 ? 0 : count + 1);
   };
@@ -44,12 +28,17 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
         count={count}
         photoAmount={photoAmount}
       />
-      <GalleryList photoUrls={photoUrls} count={count} isExpanded={isExpanded} setExpandView={setExpandView} />
+      <GalleryList
+        photoUrls={photoUrls}
+        count={count}
+        isExpanded={isExpanded}
+        setExpandView={setExpandView}
+      />
       <ImageThumbnails
         thumbnailUrls={thumbnailUrls}
         count={count}
         photoUrls={photoUrls}
-        handleSelectThumbnail={(count) => setCount(count)}
+        handleSelectThumbnail={() => setCount(count)}
       />
     </div>
   );

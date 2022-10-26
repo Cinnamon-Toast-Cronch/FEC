@@ -25,7 +25,12 @@ function GalleryList({
         {photoUrls.map((url, index) => {
           const key = url.split('-');
           return (
-            <div className="gallery-slides" key={key[1]} id={key[1]} onClick={(e) => expandImage(key[1])}>
+            <div
+              className="gallery-slides"
+              key={key[1]}
+              id={key[1]}
+              onClick={(e) => expandImage(key[1])}
+            >
               {index === count && (
                 <MainImage imageUrl={url} isExpanded={isExpanded} setExpandView={setExpandView} />
               )}

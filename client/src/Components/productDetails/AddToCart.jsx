@@ -4,6 +4,7 @@ import Cart from '../../assets/images/AddToCart.svg';
 function AddToCart({ selection, handleSizeView }) {
   // Note: implement local storage for functionality
 
+  // Note: will implement form pop up view if size selection is empty
   const handleAddToCart = () => {
     if (selection.size === '') {
       handleSizeView();
@@ -11,7 +12,7 @@ function AddToCart({ selection, handleSizeView }) {
   };
   return (
     <div>
-      <button onClick={(e) => handleAddToCart()}>
+      <button type="button" onClick={(e) => handleAddToCart()}>
         <img
           className="cart-icon"
           src={Cart}

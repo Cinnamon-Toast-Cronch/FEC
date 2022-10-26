@@ -3,7 +3,6 @@ import axios from 'axios';
 import ProductInformation from './ProductInformation.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import ProductImages from './ProductImages.jsx';
-import ExpandedGallery from './ExpandedGallery.jsx';
 
 const { useState, useEffect } = React;
 
@@ -47,7 +46,6 @@ function ProductDetails({ product }) {
             selectedStyle={selectedStyle}
           />
         </div>
-
       </div>
     </div>
   );

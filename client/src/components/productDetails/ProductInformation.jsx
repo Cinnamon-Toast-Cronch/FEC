@@ -1,6 +1,6 @@
 import React from 'react';
 import Price from './Price.jsx';
-import StarRating from '../ratingsReviews/StarRating.jsx';
+import ProductInfoReviewStars from './ProductInfoReviewStars.jsx';
 import Facebook from '../../assets/images/socialMediaIcons/facebook.svg';
 import Twitter from '../../assets/images/socialMediaIcons/twitter.svg';
 import Pinterest from '../../assets/images/socialMediaIcons/pinterest.svg';
@@ -11,8 +11,7 @@ function ProductInformation({ product, reviews, selectedStyle }) {
     ratingTotal += reviews[i].rating;
   }
   const avgRating = ratingTotal / reviews.length;
-
-  // NTS: if reviews === 0, hide review section
+  console.log('avgRate', avgRating);
 
   return (
     <div className="product-information">
@@ -37,13 +36,9 @@ function ProductInformation({ product, reviews, selectedStyle }) {
       </div>
 
       <div className="product-reviews">
-        <StarRating avgRating={avgRating} />
+        <ProductInfoReviewStars avgRating={avgRating} />
         <p id="read-reviews">
-          Read all
-          {' '}
-          {reviews.length}
-          {' '}
-          reviews.
+          {reviews.length > 0 ? `Read all ${reviews.length} reviews` : null}
         </p>
         <div className="social-media-icons">
 
