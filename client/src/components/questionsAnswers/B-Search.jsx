@@ -11,6 +11,7 @@ function Search(props) {
       onSubmit={(event) => {
         event.preventDefault();
         handleSearch(search);
+        setSearch('');
       }}
     >
       <input

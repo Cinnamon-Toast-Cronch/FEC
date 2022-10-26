@@ -6,7 +6,7 @@ const { useState, useEffect } = React;
 function AnswersCards(props) {
   const { answer, loadAnswers } = props;
   const {
-    body, answerer_name, date, helpfulness, answer_id,
+    body, answerer_name, date, helpfulness, answer_id, photos
   } = answer;
 
   const [reported, setReported] = useState(localStorage.getItem(`reported-${answer_id}`));
@@ -46,6 +46,16 @@ function AnswersCards(props) {
         A:
         {' '}
         <p className="aBody">{body}</p>
+      </div>
+      <div className="answerPhotos">
+        {photos.map((photo) => (
+          <img
+            className="userUploadedPhoto"
+            src={photo.url}
+            alt="user uploaded"
+            key={photo.url}
+          />
+        ))}
       </div>
       <div className="answerDetails">
         by

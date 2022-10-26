@@ -14,6 +14,7 @@ function QnaWidget(props) {
   const [openModal, setOpenModal] = useState(false);
   const [noQs, setNoQs] = useState(4);
   const [displayedQs, setDisplayedQs] = useState([]);
+  const [searchedQs, setSearchedQs] = useState([]);
 
   // Using lines 16-19 for testing in-develpment.
   // Line 15 will be used during implementation to set state after development is finished
@@ -38,7 +39,7 @@ function QnaWidget(props) {
       params: {
         product_id: productId,
         page: 1,
-        count: 100,
+        count: 500,
       },
     };
     axios.get('/qa/questions', queryParams)
@@ -48,14 +49,32 @@ function QnaWidget(props) {
       });
   }
 
+  function handleSearch(searchEntry) {
+    if (searchEntry.length >= 3) {
+      const temp = [];
+      for (let i = 0; i < questions.length; i += 1) {
+        if (questions[i].question_body.includes(searchEntry)) {
+          temp.push(questions[i]);
+        }
+      }
+      setSearchedQs(temp);
+      setDisplayedQs(temp.slice(0, noQs));
+    } else if (searchEntry.length === 2) {
+      setDisplayedQs(questions.slice(0, noQs));
+    }
+  }
+
   useEffect(() => {
-    loadData();
+    if (search.length <= 2) {
+      loadData();
+    } else {
+      handleSearch(search);
+    }
   }, [noQs]);
 
-  function handleSearch(searchEntry) {
-    // TODO flesh out handleSearch;
-    console.log(searchEntry);
-  }
+  useEffect(() => {
+    handleSearch(search);
+  }, [search]);
 
   function handleModalSubmit(text, nickname, userEmail) {
     const body = {
@@ -68,7 +87,8 @@ function QnaWidget(props) {
       .then(() => {
         setOpenModal(false);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err))
+      .then(() => loadData());
   }
 
   return (

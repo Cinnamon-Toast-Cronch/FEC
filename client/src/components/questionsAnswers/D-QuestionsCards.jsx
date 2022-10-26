@@ -7,7 +7,9 @@ import SubModals from './M-SubmissionModals.jsx';
 const { useState, useEffect } = React;
 
 function QuestionsCards(props) {
-  const { question, productName, loadData } = props;
+  const {
+    question, productName, loadData, displayedQs,
+  } = props;
   const { question_body, question_id, question_helpfulness } = question;
 
   const [answers, setAnswers] = useState([]);
@@ -18,7 +20,14 @@ function QuestionsCards(props) {
   const [helpful, setHelpful] = useState(localStorage.getItem(`question-${question_id}`));
 
   function loadAnswers() {
-    axios.get(`/qa/questions/${question_id}/answers`)
+    const params = {
+      params: {
+        page: 1,
+        count: 25,
+      },
+    };
+
+    axios.get(`/qa/questions/${question_id}/answers`, params)
       .then((response) => {
         setAnswers(response.data.results);
         setDisplayedAs(response.data.results.slice(0, noAs));
@@ -30,12 +39,10 @@ function QuestionsCards(props) {
       });
   }
 
-  // EXECUTES ON RENDER
   useEffect(() => {
     loadAnswers();
-  }, [moreAs]);
+  }, [moreAs, displayedQs]);
 
-  // TODO write callback
   function helpfulQ(question_id) {
     if (helpful === false) {
       axios.put(`/qa/questions/${question_id}/helpful`)
@@ -48,18 +55,19 @@ function QuestionsCards(props) {
   }
 
   // TODO: HANDLE PHOTOS IN AXIOS POST REQUEST
-  function handleModalSubmit(text, nickname, userEmail) {
+  function handleModalSubmit(text, nickname, userEmail, photos) {
     const body = {
       body: text,
       name: nickname,
       email: userEmail,
-      photos: ['placeholder'],
+      photos,
     };
     axios.post(`/qa/questions/${question_id}/answers`, body)
       .then(() => {
         setOpenModal(false);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err))
+      .then(() => loadAnswers());
   }
 
   return (
