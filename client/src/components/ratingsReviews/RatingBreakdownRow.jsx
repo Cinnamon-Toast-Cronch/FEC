@@ -6,23 +6,23 @@ function RatingBreakdownRow({
   rating,
   ratingCount,
   totalRatingCount,
-  addFilter,
+  toggleFilter,
 }) {
   return (
-    <div className="rating-breakdown-row">
-      <button
-        type="button"
-        className="text-like-button"
-        onClick={() => addFilter(rating)}
-      >
-        {`${rating} stars`}
-      </button>
+    <button
+      className="rating-breakdown-row text-like-button"
+      type="button"
+      onClick={() => {
+        toggleFilter(rating);
+      }}
+    >
+      <p>{`${rating} stars`}</p>
       <RatingDistributionBar
         ratingCount={ratingCount}
         totalRatingCount={totalRatingCount}
       />
       <p>{ratingCount}</p>
-    </div>
+    </button>
   );
 }
 
@@ -30,7 +30,7 @@ RatingBreakdownRow.propTypes = {
   rating: PropTypes.string.isRequired,
   ratingCount: PropTypes.number.isRequired,
   totalRatingCount: PropTypes.number.isRequired,
-  addFilter: PropTypes.func.isRequired,
+  toggleFilter: PropTypes.func.isRequired,
 };
 
 export default RatingBreakdownRow;

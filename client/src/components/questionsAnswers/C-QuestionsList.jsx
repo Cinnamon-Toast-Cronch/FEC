@@ -2,12 +2,14 @@ import React from 'react';
 import QuestionsCards from './D-QuestionsCards.jsx';
 
 function QuestionsList(props) {
-  const { productName, questions } = props;
+  const { productName, displayedQs, loadData } = props;
   return (
-    <div>
-      {questions.map((question, i) => (
+    <div className="questionsList">
+      {displayedQs.map((question, i) => (
         <QuestionsCards
           className="questionsCards"
+          displayedQs={displayedQs}
+          loadData={loadData}
           productName={productName}
           question={question}
           i={i}
