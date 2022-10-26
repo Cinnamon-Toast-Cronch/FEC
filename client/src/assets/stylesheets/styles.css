@@ -712,6 +712,13 @@ body {
 
 .qnaSearch {
   margin-top: 1%;
+  display: flex;
+}
+
+.qnaSearchIcon {
+  cursor: pointer;
+  background: transparent;
+  border: none;
 }
 
 .questionsView {
