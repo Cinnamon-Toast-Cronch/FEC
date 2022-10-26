@@ -64,7 +64,6 @@ function ReviewList({ productId, filters, characteristics }) {
       return false;
     })
     .sort(sorts[sort])
-    .slice(0, displayCount)
     .map((review) => <ReviewTile review={review} key={review.review_id} />);
 
   const addReviewButton = (
@@ -107,8 +106,8 @@ function ReviewList({ productId, filters, characteristics }) {
         </select>
       </div>
       <div className="review-list">
-        {displayList}
-        {displayCount < reviews.length && (
+        {displayList.slice(0, displayCount)}
+        {displayCount < displayList.length && (
           <button
             type="button"
             onClick={() => {
