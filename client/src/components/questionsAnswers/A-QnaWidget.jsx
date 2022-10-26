@@ -12,40 +12,69 @@ function QnaWidget(props) {
   const [search, setSearch] = useState('');
   const [questions, setQuestions] = useState([]);
   const [openModal, setOpenModal] = useState(false);
+  const [noQs, setNoQs] = useState(4);
+  const [displayedQs, setDisplayedQs] = useState([]);
+  const [searchedQs, setSearchedQs] = useState([]);
+
   // Using lines 16-19 for testing in-develpment.
   // Line 15 will be used during implementation to set state after development is finished
   // const { product } = props;
   const product = {
-    "id": 40346,
-    "campus": "hr-rfp",
-    "name": "Morning Joggers",
-    "slogan": "Make yourself a morning person",
-    "description": "Whether you're a morning person or not.  Whether you're gym bound or not.  Everyone looks good in joggers.",
-    "category": "Pants",
-    "default_price": "40.00",
-    "created_at": "2021-08-13T14:38:44.509Z",
-    "updated_at": "2021-08-13T14:38:44.509Z"
+    id: 40348,
+    campus: 'hr-rfp',
+    name: 'Morning Joggers',
+    slogan: 'Make yourself a morning person',
+    description: "Whether you're a morning person or not.  Whether you're gym bound or not.  Everyone looks good in joggers.",
+    category: 'Pants',
+    default_price: '40.00',
+    created_at: '2021-08-13T14:38:44.509Z',
+    updated_at: '2021-08-13T14:38:44.509Z',
   };
   const productId = product.id;
   const productName = product.name;
-  const dummyQuestion = {question_body: false}
+  const dummyQuestion = { question_body: false };
 
-  useEffect(() => {
+  function loadData() {
     const queryParams = {
       params: {
         product_id: productId,
         page: 1,
-        count: 10,
+        count: 500,
       },
     };
     axios.get('/qa/questions', queryParams)
-      .then((response) => setQuestions(response.data.results));
-  }, []);
+      .then((response) => {
+        setQuestions(response.data.results);
+        setDisplayedQs(response.data.results.slice(0, noQs));
+      });
+  }
 
   function handleSearch(searchEntry) {
-    // TODO flesh out handleSearch;
-    console.log(searchEntry);
+    if (searchEntry.length >= 3) {
+      const temp = [];
+      for (let i = 0; i < questions.length; i += 1) {
+        if (questions[i].question_body.includes(searchEntry)) {
+          temp.push(questions[i]);
+        }
+      }
+      setSearchedQs(temp);
+      setDisplayedQs(temp.slice(0, noQs));
+    } else if (searchEntry.length === 2) {
+      setDisplayedQs(questions.slice(0, noQs));
+    }
   }
+
+  useEffect(() => {
+    if (search.length <= 2) {
+      loadData();
+    } else {
+      handleSearch(search);
+    }
+  }, [noQs]);
+
+  useEffect(() => {
+    handleSearch(search);
+  }, [search]);
 
   function handleModalSubmit(text, nickname, userEmail) {
     const body = {
@@ -58,18 +87,18 @@ function QnaWidget(props) {
       .then(() => {
         setOpenModal(false);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err))
+      .then(() => loadData());
   }
 
   return (
-    <div>
+    <div className="qnaApp">
       <h1
         className="qna-title"
       >
         QUESTIONS &amp; ANSWERS
       </h1>
       <Search
-        className="Search"
         search={search}
         setSearch={setSearch}
         handleSearch={handleSearch}
@@ -77,12 +106,16 @@ function QnaWidget(props) {
       <QuestionsList
         className="questionsList"
         product={props}
-        questions={questions}
         productName={productName}
+        noQs={noQs}
+        questions={questions}
+        displayedQs={displayedQs}
+        loadData={loadData}
       />
       <button
         className="moreQs"
         type="button"
+        onClick={() => setNoQs(noQs + 2)}
       >
         MORE ANSWERED QUESTIONS
       </button>

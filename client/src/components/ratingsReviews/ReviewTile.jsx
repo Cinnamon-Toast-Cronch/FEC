@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Axios from 'axios';
+import ReactDOM from 'react-dom';
 import StarRating from './StarRating.jsx';
+import Modal from './Modal.jsx';
 
 function ReviewTile({ review }) {
   const humanReadableDate = new Date(review.date).toLocaleDateString(
@@ -10,14 +12,35 @@ function ReviewTile({ review }) {
   );
 
   const [markedAsHelpful, setMarkedAsHelpful] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalPhotoUrl, setModalPhotoUrl] = useState('');
+  const [showFullBody, setShowFullBody] = useState(false);
 
-  // TODO: make markedAsHelpful status persist through refreshes: https://felixgerschau.com/react-localstorage/
   const markAsHelpful = () => {
-    if (!markedAsHelpful) {
+    if (
+      !markedAsHelpful &&
+      window.localStorage.getItem(`helpful-${review.review_id}`) !== 'true'
+    ) {
       Axios.put(`/reviews/${review.review_id}/helpful`);
       setMarkedAsHelpful(true);
+      window.localStorage.setItem(`helpful-${review.review_id}`, true);
     }
   };
+
+  const imageModal = (
+    <Modal>
+      <div className="rnr-image-modal">
+        <button
+          className="review-list-button"
+          type="button"
+          onClick={() => setModalOpen(false)}
+        >
+          Close
+        </button>
+        <img src={modalPhotoUrl} alt="Photograph from reviewer" />
+      </div>
+    </Modal>
+  );
 
   return (
     <>
@@ -27,19 +50,45 @@ function ReviewTile({ review }) {
           <p>{`${review.reviewer_name}, ${humanReadableDate}`}</p>
         </div>
         <h5>{review.summary}</h5>
-        <p>{review.body}</p>
+        <div>
+          <p>{showFullBody ? review.body : review.body.slice(0, 250)}</p>
+          {review.body.length > 250 && !showFullBody && (
+            <button
+              type="button"
+              className="text-like-button"
+              onClick={() => setShowFullBody(true)}
+            >
+              Show More
+            </button>
+          )}
+        </div>
+        {review.recommend && (
+          <div className="rnr-recommended">
+            <span className="material-symbols-outlined">check</span>
+            <p>I recommend this product</p>
+          </div>
+        )}
         {review.response && (
           <div className="response">
             <h6>Response from seller:</h6>
             <p>{review.response}</p>
           </div>
         )}
-        {/* TODO: make images expand as a modal when clicked */}
         {review.photos.map((photo) => (
           <div className="img-container" key={photo.id}>
-            <img src={photo.url} alt="Photograph from reviewer" />
+            <button
+              className="button-no-styling"
+              type="button"
+              onClick={() => {
+                setModalOpen(true);
+                setModalPhotoUrl(photo.url);
+              }}
+            >
+              <img src={photo.url} alt="Photograph from reviewer" />
+            </button>
           </div>
         ))}
+        {modalOpen && ReactDOM.createPortal(imageModal, document.body)}
         <div className="helpful-bar">
           <p>Helpful?</p>
           <button

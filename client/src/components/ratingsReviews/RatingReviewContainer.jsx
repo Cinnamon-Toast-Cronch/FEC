@@ -5,14 +5,17 @@ import Axios from 'axios';
 import RatingSummary from './RatingSummary.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import ReviewList from './ReviewList.jsx';
+import CharacteristicVisualization from './CharacteristicVisualization.jsx';
 
 function RatingReviewContainer({ product }) {
-  const [metadata, setMetadata] = useState({});
+  const [metadata, setMetadata] = useState({ characteristics: {} });
   const [filters, setFilters] = useState([]);
 
-  const addFilter = (newFilter) => {
-    if (!filters.includes(newFilter)) {
-      setFilters([...filters, newFilter].sort());
+  const toggleFilter = (filter) => {
+    if (!filters.includes(filter)) {
+      setFilters([...filters, filter].sort());
+    } else {
+      setFilters(_.difference([...filters], [filter]));
     }
   };
 
@@ -35,12 +38,24 @@ function RatingReviewContainer({ product }) {
         <RatingBreakdown
           ratings={metadata.ratings}
           filters={filters}
-          addFilter={addFilter}
+          toggleFilter={toggleFilter}
           resetFilters={resetFilters}
         />
+        <hr />
+        {_.map(metadata.characteristics, (val, key) => (
+          <CharacteristicVisualization
+            characteristic={key}
+            averageRating={parseFloat(val.value, 10)}
+            key={key}
+          />
+        ))}
       </div>
       <div className="rating-review-right-column">
-        <ReviewList productId={product.id} filters={filters} />
+        <ReviewList
+          productId={product.id}
+          filters={filters}
+          characteristics={metadata.characteristics}
+        />
       </div>
     </div>
   );
