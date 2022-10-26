@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import ProductInformation from './ProductInformation.jsx';
 import StyleSelector from './StyleSelector.jsx';
-import ImageGalleryDefault from './ImageGalleryDefault.jsx';
+import ProductImages from './ProductImages.jsx';
 
 const { useState, useEffect } = React;
 
@@ -21,17 +21,32 @@ function ProductDetails({ product }) {
       .then((requestParams) => {
         axios.get('/reviews/', requestParams)
           .then((response) => {
-            // console.log('response', response.data.results);
             setReviews(response.data.results);
           });
       });
   }, [product]);
 
   return (
-    <div>
-      <ProductInformation product={product} reviews={reviews} selectedStyle={selectedStyle} />
-      <ImageGalleryDefault selectedStyle={selectedStyle} />
-      <StyleSelector styles={styles} setSelectedStyle={setSelectedStyle} selectedStyle={selectedStyle} />
+    <div className="product-details-container">
+      <div className="product-components-wrapper">
+        <div className="product-image-column">
+          <div className="image-wrapper">
+            <ProductImages selectedStyle={selectedStyle} />
+          </div>
+        </div>
+        <div className="product-info-column">
+          <ProductInformation
+            product={product}
+            reviews={reviews}
+            selectedStyle={selectedStyle}
+          />
+          <StyleSelector
+            styles={styles}
+            setSelectedStyle={setSelectedStyle}
+            selectedStyle={selectedStyle}
+          />
+        </div>
+      </div>
     </div>
   );
 }
