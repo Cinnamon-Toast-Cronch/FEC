@@ -7,6 +7,7 @@ function Search(props) {
 
   return (
     <form
+      className="qnaSearch"
       onSubmit={(event) => {
         event.preventDefault();
         handleSearch(search);

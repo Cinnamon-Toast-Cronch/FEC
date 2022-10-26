@@ -67,8 +67,32 @@ function ReviewList({ productId, filters, characteristics }) {
     .slice(0, displayCount)
     .map((review) => <ReviewTile review={review} key={review.review_id} />);
 
-  return (
+  const addReviewButton = (
     <>
+      <button
+        type="button"
+        onClick={() => {
+          setShowSubmissionForm(true);
+        }}
+        className="review-list-button"
+      >
+        ADD A REVIEW +
+      </button>
+      {showSubmissionForm && (
+        <Modal>
+          <ReviewSubmissionForm
+            close={() => setShowSubmissionForm(false)}
+            characteristics={characteristics}
+            productId={productId}
+          />
+        </Modal>
+      )}
+    </>
+  );
+
+  const contentWithReviews = (
+    <>
+      {' '}
       <div className="review-sort-bar">
         <p>Sorted on:</p>
         <select
@@ -95,26 +119,20 @@ function ReviewList({ productId, filters, characteristics }) {
             MORE REVIEWS
           </button>
         )}
-        <button
-          type="button"
-          onClick={() => {
-            setShowSubmissionForm(true);
-          }}
-          className="review-list-button"
-        >
-          ADD A REVIEW +
-        </button>
-        {showSubmissionForm && (
-          <Modal>
-            <ReviewSubmissionForm
-              close={() => setShowSubmissionForm(false)}
-              characteristics={characteristics}
-              productId={productId}
-            />
-          </Modal>
-        )}
+        {addReviewButton}
       </div>
     </>
+  );
+
+  return reviews.length > 0 ? (
+    contentWithReviews
+  ) : (
+    <div className="no-reviews">
+      <p className="review-sort-bar">
+        There are no reviews for this product. Be the first!
+      </p>
+      {addReviewButton}
+    </div>
   );
 }
 

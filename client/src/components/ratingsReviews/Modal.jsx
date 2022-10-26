@@ -10,11 +10,7 @@ function Modal({ children }) {
     return () => document.body.classList.remove(noScrollClass);
   }, []);
 
-  const content = (
-    <div className="rnr-modal">
-      <div>{children}</div>
-    </div>
-  );
+  const content = <div className="rnr-modal">{children}</div>;
 
   return ReactDOM.createPortal(content, document.body);
 }

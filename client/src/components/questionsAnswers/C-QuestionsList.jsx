@@ -4,7 +4,7 @@ import QuestionsCards from './D-QuestionsCards.jsx';
 function QuestionsList(props) {
   const { productName, displayedQs, loadData } = props;
   return (
-    <div>
+    <div className="questionsList">
       {displayedQs.map((question, i) => (
         <QuestionsCards
           className="questionsCards"

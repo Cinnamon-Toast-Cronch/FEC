@@ -20,7 +20,7 @@ function QnaWidget(props) {
   // Line 15 will be used during implementation to set state after development is finished
   // const { product } = props;
   const product = {
-    id: 40346,
+    id: 40348,
     campus: 'hr-rfp',
     name: 'Morning Joggers',
     slogan: 'Make yourself a morning person',
@@ -92,14 +92,13 @@ function QnaWidget(props) {
   }
 
   return (
-    <div>
+    <div className="qnaApp">
       <h1
         className="qna-title"
       >
         QUESTIONS &amp; ANSWERS
       </h1>
       <Search
-        className="Search"
         search={search}
         setSearch={setSearch}
         handleSearch={handleSearch}
