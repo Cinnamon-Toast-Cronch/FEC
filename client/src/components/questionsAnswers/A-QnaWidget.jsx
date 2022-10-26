@@ -113,14 +113,14 @@ function QnaWidget(props) {
         loadData={loadData}
       />
       <button
-        className="moreQs"
+        className="review-list-button"
         type="button"
         onClick={() => setNoQs(noQs + 2)}
       >
         MORE ANSWERED QUESTIONS
       </button>
       <button
-        className="addQs"
+        className="review-list-button"
         type="button"
         onClick={() => setOpenModal(true)}
       >
