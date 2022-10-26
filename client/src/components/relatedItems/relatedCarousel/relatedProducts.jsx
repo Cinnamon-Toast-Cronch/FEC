@@ -18,6 +18,7 @@ function relatedProducts({ product, setProduct }) {
           })
           .then((res) => {
             setRelatedItems(res);
+            console.log(res)
           });
       });
   }, [product]);
