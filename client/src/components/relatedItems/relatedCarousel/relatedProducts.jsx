@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from './relatedCard/relatedCard.jsx';
 
-function relatedProducts({ product }) {
+function relatedProducts({ product, setProduct }) {
   const [relatedItems, setRelatedItems] = useState([]);
   const [carouselPosition, setCarouselPosition] = useState(0);
-
-  const productID = 40344;
-  // hardcoded product id
+  // const productID = 40344;
+  // hardcoded product id to pass Jest test
   useEffect(() => {
-    axios.get(`/products/${productID}/related`)
+    axios.get(`/products/${product.id}/related`)
       .then(({ data }) => {
         axios.all(data.map((id) => (
           axios.get(`/products/${id}`)
@@ -44,7 +43,7 @@ function relatedProducts({ product }) {
         <div id="related-carousel">
           {
             relatedItems.map(({ data }) => (
-              <Card key={data.id} data={data} displayProduct={product} />
+              <Card key={data.id} data={data} displayProduct={product} setProduct={setProduct} />
             ))
           }
         </div>

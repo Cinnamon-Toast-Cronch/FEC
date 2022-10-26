@@ -19,12 +19,15 @@ function Card({ outfit, handleDeleteOutfit }) {
     return (
       <div className="outfit-card">
         <button onClick={() => handleDeleteOutfit(outfit.id)}>X</button>
-        <Image images={styleDetails[0].photos[0].thumbnail_url} />
+        <div>
+          <img className="img" src={styleDetails[0].photos[0].thumbnail_url} />
+        </div>
+        {/* <Image images={styleDetails[0].photos[0].thumbnail_url} /> */}
         <Category category={outfit.category} />
         <Name name={outfit.name} />
         <Price price={styleDetails} />
         <Rating product={outfit} />
-    </div>
+      </div>
     );
   }
 }

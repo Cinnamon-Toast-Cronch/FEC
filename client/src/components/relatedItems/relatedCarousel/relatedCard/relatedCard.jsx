@@ -7,10 +7,7 @@ import Price from './cardComponents/price.jsx';
 import Rating from './cardComponents/getStarRating.jsx';
 import Comparison from './cardComponents/comparison.jsx';
 
-
-// handleCardClick ----need to have a set state prop to change current displayed product on app
-
-function Card({ data, displayProduct }) {
+function Card({ data, displayProduct, setProduct }) {
   const [productStyles, setProductStyles] = useState([]);
   const [comparePopup, setComparePopup] = useState(false);
   const handlesComparePopup = () => {
@@ -26,7 +23,7 @@ function Card({ data, displayProduct }) {
 
   if (data !== undefined && productStyles.length) {
     return (
-      <div className="related-card">
+      <div className="related-card" onClick={()=> setProduct(data)}>
         <Image images={productStyles[0].photos[0].thumbnail_url}
           handlesComparePopup={handlesComparePopup} />
         <Category category={data.category} />

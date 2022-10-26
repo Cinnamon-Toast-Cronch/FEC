@@ -1,16 +1,16 @@
 import React from 'react';
 
 function Price({ price }) {
-  if (price[2]['sale_price']) {
+  if (price[0]['sale_price']) {
     return (
       <div>
-        <s>${price[2]['original_price']}</s>
-        <div className="sale-price">${price[2]['sale_price']}</div>
+        <s className="related-price">${price[0]['original_price']}</s>
+        <div className="sale-price">${price[0]['sale_price']}</div>
       </div>
     );
   }
   return (
-    <div className="related-price">${price[2]['original_price']}</div>
+    <div className="related-price">${price[0]['original_price']}</div>
   );
 }
 
