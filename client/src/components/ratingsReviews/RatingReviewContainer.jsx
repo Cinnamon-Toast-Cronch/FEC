@@ -40,6 +40,7 @@ function RatingReviewContainer({ product }) {
           filters={filters}
           toggleFilter={toggleFilter}
           resetFilters={resetFilters}
+          recommendations={metadata.recommended}
         />
         <hr />
         {_.map(metadata.characteristics, (val, key) => (
