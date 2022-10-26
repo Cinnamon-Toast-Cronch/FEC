@@ -17,7 +17,7 @@ describe('Rating Breakdown Row', () => {
         rating="2"
         ratingCount={20}
         totalRatingCount={40}
-        addFilter={() => {}}
+        toggleFilter={() => {}}
       />
     );
 
@@ -37,7 +37,7 @@ describe('Rating Breakdown Row', () => {
         rating="2"
         ratingCount={20}
         totalRatingCount={40}
-        addFilter={() => {}}
+        toggleFilter={() => {}}
       />
     );
 
@@ -58,7 +58,7 @@ describe('Rating Breakdown Row', () => {
         rating="2"
         ratingCount={20}
         totalRatingCount={40}
-        addFilter={addFilter}
+        toggleFilter={addFilter}
       />
     );
 
