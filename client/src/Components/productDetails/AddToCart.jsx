@@ -1,4 +1,5 @@
 import React from 'react';
+import Cart from '../../assets/images/AddToCart.svg';
 
 function AddToCart({ selection, handleSizeView }) {
   // Note: implement local storage for functionality
@@ -10,7 +11,16 @@ function AddToCart({ selection, handleSizeView }) {
   };
   return (
     <div>
-      <button onClick={(e) => handleAddToCart()}> Add to Cart </button>
+      <button onClick={(e) => handleAddToCart()}>
+        <img
+          className="cart-icon"
+          src={Cart}
+          alt="add to cart"
+          height="20"
+          width="20"
+        />
+
+      </button>
     </div>
 
   );
