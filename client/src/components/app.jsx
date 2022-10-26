@@ -24,13 +24,8 @@ function App() {
       </div>
       <div className="widgets">
         <ProductDetails product={product} />
-<<<<<<< HEAD
-        <Qna product={product} />
-        <RelatedItems product={product} setProduct={setProduct} />
-=======
         <RelatedItems product={product} />
         <QnaWidget product={product} />
->>>>>>> main
         <Rnr product={product} />
       </div>
     </div>
