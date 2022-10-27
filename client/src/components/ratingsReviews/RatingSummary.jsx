@@ -20,7 +20,7 @@ function RatingSummary({ ratings }) {
       <div>
         <p className="rnr-avg-rating">{roundedRating}</p>
         <div className="flex-column">
-          <StarRating rating={roundedRating} />
+          <StarRating rating={parseFloat(roundedRating, 10)} />
           <p>{`average of ${ratingCount} reviews`}</p>
         </div>
       </div>

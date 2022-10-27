@@ -76,7 +76,7 @@ function AnswersCards(props) {
         {photos.map((photo) => (
           <div key={photo.url}>
             <img
-              className="userUploadedPhoto"
+              className="img-container"
               src={photo.url}
               alt="user uploaded"
               onClick={() => setOpenModal(true)}
@@ -93,13 +93,13 @@ function AnswersCards(props) {
         {' '}
         {modDate}
         {' '}
-        | helpful?
+        | Helpful?
         <button
           className="helpfulA"
           type="button"
           onClick={() => helpfulA(answer_id)}
         >
-          <u>yes</u>
+          <u>Yes</u>
         </button>
         {' ('}
         {helpfulness}
@@ -117,6 +117,7 @@ function AnswersCards(props) {
           <u>{reported ? 'reported' : 'report'}</u>
 
         </button>
+        <hr className="answerLineBreak" />
       </div>
     </div>
   );
