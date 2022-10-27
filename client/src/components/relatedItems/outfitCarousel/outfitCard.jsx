@@ -18,9 +18,9 @@ function Card({ outfit, handleDeleteOutfit }) {
   if (outfit !== undefined && styleDetails.length) {
     return (
       <div className="outfit-card">
-        <button onClick={() => handleDeleteOutfit(outfit.id)}>X</button>
-        <div>
-          <img className="img" src={styleDetails[0].photos[0].thumbnail_url} />
+        <div className='outfit-image-container'>
+          <div className="remove-outfit" onClick={() => handleDeleteOutfit(outfit.id)}>&#9746;</div>
+          <img className="related-img" src={styleDetails[0].photos[0].thumbnail_url} />
         </div>
         {/* <Image images={styleDetails[0].photos[0].thumbnail_url} /> */}
         <Category category={outfit.category} />

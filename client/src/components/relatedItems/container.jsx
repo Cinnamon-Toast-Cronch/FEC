@@ -9,7 +9,7 @@ function Container({ product, setProduct }) {
         {/* <div className="related-header">Related Products</div> */}
         <div className="header">
           <h1>Related Products</h1>
-          <div className='scroll-buttons'>
+          {/* <div className='scroll-buttons'>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
             <span className="left-arrow">
               <i className="fa fa-arrow-left"></i>
@@ -17,10 +17,10 @@ function Container({ product, setProduct }) {
             <span className="right-arrow">
               <i className="fa fa-arrow-right"></i>
             </span>
-          </div>
+          </div> */}
         </div>
         <RelatedProducts product={product} setProduct={setProduct} />
-        <div className="related-header">Your Outfit</div>
+        <div className="header">Your Outfit</div>
         <Outfits product={product} />
       </div>
     );
