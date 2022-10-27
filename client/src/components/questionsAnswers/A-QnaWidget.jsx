@@ -18,18 +18,17 @@ function QnaWidget(props) {
 
   // Using lines 16-19 for testing in-develpment.
   // Line 15 will be used during implementation to set state after development is finished
-  // const { product } = props;
-  const product = {
-    id: 40348,
-    campus: 'hr-rfp',
-    name: 'Morning Joggers',
-    slogan: 'Make yourself a morning person',
-    description: "Whether you're a morning person or not.  Whether you're gym bound or not.  Everyone looks good in joggers.",
-    category: 'Pants',
-    default_price: '40.00',
-    created_at: '2021-08-13T14:38:44.509Z',
-    updated_at: '2021-08-13T14:38:44.509Z',
-  };
+  const { product } = props;
+  // const product = {
+  //   id: 40348,
+  //   campus: 'hr-rfp',
+  //   name: 'Morning Joggers',
+  //   slogan: 'Make yourself a morning person',
+  //   category: 'Pants',
+  //   default_price: '40.00',
+  //   created_at: '2021-08-13T14:38:44.509Z',
+  //   updated_at: '2021-08-13T14:38:44.509Z',
+  // };
   const productId = product.id;
   const productName = product.name;
   const dummyQuestion = { question_body: false };
@@ -65,12 +64,16 @@ function QnaWidget(props) {
   }
 
   useEffect(() => {
+    setNoQs(4);
+  }, [product]);
+
+  useEffect(() => {
     if (search.length <= 2) {
       loadData();
     } else {
       handleSearch(search);
     }
-  }, [noQs]);
+  }, [product, noQs]);
 
   useEffect(() => {
     handleSearch(search);
