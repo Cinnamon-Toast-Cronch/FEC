@@ -15,24 +15,26 @@ function Comparison({ trigger, handlesComparePopup, data, displayProduct }) {
     return (
       trigger ?
         (
-          <div className="comparison-popup">
-            <div className="comparison-button">
-              <button type="button" onClick={handlesComparePopup}>X</button>
+          <div className="comparison-bg">
+            <div className="comparison-popup">
+              <div className="comparison-button">
+                <button type="button" onClick={handlesComparePopup}>X</button>
+              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>{displayProductDetails.name}</th>
+                    <th>Products</th>
+                    <th>{data.name}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <Row
+                    displayProductFeature={displayProductDetails.features}
+                    relatedProductFeature={data.features}/>
+                </tbody>
+              </table>
             </div>
-            <table>
-              <thead>
-                <tr>
-                  <th>{displayProductDetails.name}</th>
-                  <th>Products</th>
-                  <th>{data.name}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <Row
-                  displayProductFeature={displayProductDetails.features}
-                  relatedProductFeature={data.features}/>
-              </tbody>
-            </table>
           </div>
         ) : null
     );

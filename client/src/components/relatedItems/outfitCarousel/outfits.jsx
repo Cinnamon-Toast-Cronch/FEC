@@ -27,8 +27,8 @@ function Outfits({ product }) {
   return (
     <div className="outfit-carousel">
       <div className="add-outfit" onClick={handleAddOutfit}>
-        <p className="add-outfit-1">&#10090; + &#10091;</p>
-        <p className="add-outfit-1">Add to Outfit</p>
+        <p className="add-outfit-text">&#10090; + &#10091;</p>
+        <p className="add-outfit-text">Add to Outfit</p>
       </div>
       {
         outfits ?
