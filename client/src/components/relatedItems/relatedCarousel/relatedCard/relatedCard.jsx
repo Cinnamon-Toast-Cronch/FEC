@@ -23,13 +23,16 @@ function Card({ data, displayProduct, setProduct }) {
 
   if (data !== undefined && productStyles.length) {
     return (
-      <div className="related-card" onClick={()=> setProduct(data)}>
+      <div className="related-card">
+      {/* <div className="related-card" onClick={()=> setProduct(data)}> */}
         <Image images={productStyles[0].photos[0].thumbnail_url}
           handlesComparePopup={handlesComparePopup} />
         <Category category={data.category} />
         <Name name={data.name} />
         <Price price={productStyles} />
-        <Rating product={data} />
+        <div className="related-starRatings">
+          <Rating product={data} />
+        </div>
         <Comparison trigger={comparePopup} handlesComparePopup={handlesComparePopup} data={data}
           displayProduct={displayProduct} />
       </div>
