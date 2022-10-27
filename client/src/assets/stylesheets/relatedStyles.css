@@ -102,7 +102,6 @@ main .text{
   text-transform: uppercase;
   font-size: large;
   text-align: center;
-  /* justify-content: space-evenly; */
   padding-bottom: 10px;
 }
 
