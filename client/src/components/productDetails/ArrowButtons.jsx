@@ -6,13 +6,13 @@ function ArrowButtons({
   return (
     <>
       {count === 0 ? null : (
-        <button className="left-arrow" type="button" onClick={prevImage}>
+        <button className="gallery-left-arrow" type="button" onClick={prevImage}>
           &#10094;
         </button>
       )}
 
       {count === photoAmount ? null : (
-        <button className="right-arrow" type="button" onClick={nextImage}>
+        <button className="gallery-right-arrow" type="button" onClick={nextImage}>
           &#10095;
         </button>
       )}

@@ -10,6 +10,7 @@ function relatedProducts({ product, setProduct }) {
   useEffect(() => {
     axios.get(`/products/${product.id}/related`)
       .then(({ data }) => {
+        // filter out duplicate product ids
         axios.all(data.map((id) => (
           axios.get(`/products/${id}`)
         )))
@@ -18,6 +19,7 @@ function relatedProducts({ product, setProduct }) {
           })
           .then((res) => {
             setRelatedItems(res);
+            // console.log(res)
           });
       });
   }, [product]);
@@ -37,7 +39,7 @@ function relatedProducts({ product, setProduct }) {
       <div className="carousel-container" data-testid="con-1">
         {
           carouselPosition > 0 ?
-          <div className="previous"onClick={handleCarouselLeft}> left </div>
+          <div className="previous"onClick={handleCarouselLeft}> &#10094; </div>
           : null
         }
         <div id="related-carousel">
@@ -49,7 +51,7 @@ function relatedProducts({ product, setProduct }) {
         </div>
         {
         carouselPosition < relatedItems.length ?
-          <div className="next" onClick={handleCarouselRight}> right </div>
+          <div className="next" onClick={handleCarouselRight}> &#10095; </div>
           : null
         }
       </div>
