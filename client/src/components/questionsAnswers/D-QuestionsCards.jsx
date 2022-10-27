@@ -79,13 +79,13 @@ function QuestionsCards(props) {
           <p className="qBody">{question_body}</p>
         </div>
         <div className="qButtons">
-          helpful?
+          Helpful?
           <button
             className="helpfulQBtn"
             type="button"
             onClick={() => helpfulQ(question_id)}
           >
-            <u>yes</u>
+            <u>Yes</u>
           </button>
           {' ('}
           {question_helpfulness}
