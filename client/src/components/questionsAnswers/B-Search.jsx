@@ -1,4 +1,5 @@
 import React from 'react';
+import searchIcon from '../../assets/images/searchIcon.png';
 
 const { useState } = React;
 
@@ -7,9 +8,11 @@ function Search(props) {
 
   return (
     <form
+      className="qnaSearch"
       onSubmit={(event) => {
         event.preventDefault();
         handleSearch(search);
+        setSearch('');
       }}
     >
       <input
@@ -20,14 +23,16 @@ function Search(props) {
           setSearch(event.target.value);
         }}
       />
-      <input
-        type="image"
-        // TODO need src attribute
-        alt="submit"
-        name="qnaSearchInput"
-        className="qnaSearchIcon"
-        id="qnaSearchIcon"
-      />
+      <button type="submit" className="qnaSearchIcon">
+        <img
+          type="image"
+          src={searchIcon}
+          alt="submit"
+          name="qnaSearchInput"
+          className="qnaSearchIcon"
+          id="qnaSearchIcon"
+        />
+      </button>
     </form>
   );
 }
