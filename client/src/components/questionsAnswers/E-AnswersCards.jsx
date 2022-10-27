@@ -1,7 +1,23 @@
 import React from 'react';
 import axios from 'axios';
+import PhotoModal from './P-PhotoModals.jsx';
 
 const { useState, useEffect } = React;
+
+const months = {
+  1: 'January',
+  2: 'February',
+  3: 'March',
+  4: 'April',
+  5: 'May',
+  6: 'June',
+  7: 'July',
+  8: 'August',
+  9: 'September',
+  10: 'October',
+  11: 'November',
+  12: 'December',
+};
 
 function AnswersCards(props) {
   const { answer, loadAnswers } = props;
@@ -11,7 +27,16 @@ function AnswersCards(props) {
 
   const [reported, setReported] = useState(localStorage.getItem(`reported-${answer_id}`));
   const [helpful, setHelpful] = useState(localStorage.getItem(`answer-${answer_id}`));
+  const [openModal, setOpenModal] = useState(false);
 
+  function modifyDate(date) {
+    const month = months[Number(date[5] + date[6])];
+    const day = date[8] + date[9];
+    const year = date[0] + date[1] + date[2] + date[3];
+    return `${month} ${day}, ${year}`;
+  }
+
+  const modDate = modifyDate(date);
   // EXECUTES ON RENDER
   useEffect(() => {
     if (helpful === null) {
@@ -49,12 +74,15 @@ function AnswersCards(props) {
       </div>
       <div className="answerPhotos">
         {photos.map((photo) => (
-          <img
-            className="userUploadedPhoto"
-            src={photo.url}
-            alt="user uploaded"
-            key={photo.url}
-          />
+          <div key={photo.url}>
+            <img
+              className="userUploadedPhoto"
+              src={photo.url}
+              alt="user uploaded"
+              onClick={() => setOpenModal(true)}
+            />
+            {openModal && <PhotoModal url={photo.url} closeModal={setOpenModal} />}
+          </div>
         ))}
       </div>
       <div className="answerDetails">
@@ -63,7 +91,7 @@ function AnswersCards(props) {
         {answerer_name}
         ,
         {' '}
-        {date}
+        {modDate}
         {' '}
         | helpful?
         <button
