@@ -29,7 +29,9 @@ function Card({ data, displayProduct, setProduct }) {
         <Category category={data.category} />
         <Name name={data.name} />
         <Price price={productStyles} />
-        <Rating product={data} />
+        <div className="related-starRatings">
+          <Rating product={data} />
+        </div>
         <Comparison trigger={comparePopup} handlesComparePopup={handlesComparePopup} data={data}
           displayProduct={displayProduct} />
       </div>

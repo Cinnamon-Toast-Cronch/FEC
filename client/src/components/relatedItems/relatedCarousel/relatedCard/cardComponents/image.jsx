@@ -6,7 +6,7 @@ function Image({ images, handlesComparePopup }) {
   const image = images;
   return (
     <div className="related-image">
-      <img className="img" src={image}></img>
+      <img className="related-img" src={image}></img>
       <Button handlesComparePopup={handlesComparePopup} />
     </div>
   );

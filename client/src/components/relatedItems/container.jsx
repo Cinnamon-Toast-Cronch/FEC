@@ -20,7 +20,7 @@ function Container({ product, setProduct }) {
           </div>
         </div>
         <RelatedProducts product={product} setProduct={setProduct} />
-        <div className="related-header">Your Outfit</div>
+        <div className="header">Your Outfit</div>
         <Outfits product={product} />
       </div>
     );

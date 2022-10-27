@@ -26,7 +26,10 @@ function Outfits({ product }) {
 
   return (
     <div className="outfit-carousel">
-      <div className="outfit-card" onClick={handleAddOutfit}>+ Add to Outfit ** make it a card</div>
+      <div className="add-outfit" onClick={handleAddOutfit}>
+        <p className="add-outfit-1">&#10090; + &#10091;</p>
+        <p className="add-outfit-1">Add to Outfit</p>
+      </div>
       {
         outfits ?
           outfits.map((outfit) => (
