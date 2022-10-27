@@ -38,7 +38,7 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
         thumbnailUrls={thumbnailUrls}
         count={count}
         photoUrls={photoUrls}
-        handleSelectThumbnail={() => setCount(count)}
+        handleSelectThumbnail={(num) => setCount(num)}
       />
     </div>
   );
