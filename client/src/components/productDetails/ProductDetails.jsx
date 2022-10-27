@@ -42,6 +42,7 @@ function ProductDetails({ product }) {
           />
           <StyleSelector
             styles={styles}
+            setStyles={setStyles}
             setSelectedStyle={setSelectedStyle}
             selectedStyle={selectedStyle}
           />

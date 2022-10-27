@@ -7,16 +7,18 @@ const { useEffect, useState } = React;
 function SizeSelector({ selectedStyle }) {
   const [skus, setSkus] = useState({});
   const [selectedSizeAmount, setSelectedSizeAmount] = useState(0);
-  const initialSelection = { size: '', quantity: '' };
+  const initialSelection = { style: '', size: '', quantity: '' };
   const [selection, setSelection] = useState(initialSelection);
+  const [addCartNoSize, setAddCartNoSize] = useState(false);
 
   useEffect(() => {
     if (selectedStyle) {
       setSelectedSizeAmount(0);
       setSkus(selectedStyle.skus);
-      setSelection(initialSelection);
+      setSelection({ ...selection, style: selectedStyle.name });
     }
   }, [selectedStyle]);
+  console.log(selection);
 
   if (skus) {
     const sizesAndAmount = Object.values(skus);
@@ -27,6 +29,7 @@ function SizeSelector({ selectedStyle }) {
       console.log('skuObj', skus[currentSku]);
       setSelectedSizeAmount(skus[currentSku].quantity);
       setSelection({ ...selection, size: skus[currentSku].size });
+      setAddCartNoSize(false);
       e.preventDefault();
     };
 
@@ -34,8 +37,9 @@ function SizeSelector({ selectedStyle }) {
       setSelection({ ...selection, quantity: e.target.value });
       e.preventDefault();
     };
+
     const handleSizeView = () => {
-      console.log('Select Size Dropdown will display all options');
+      setAddCartNoSize(true);
     };
 
     return (
@@ -45,6 +49,7 @@ function SizeSelector({ selectedStyle }) {
             handleSizeSelection(e);
           }}
           >
+            {addCartNoSize ? <p className="no-size">Please select size.</p> : null}
             <label htmlFor="Sizes">Select Size</label>
             <select name="sizes" id="sizes">
               {selectedSizeAmount ? <option defaultValue="selected" disabled>{(sizesAndAmount.length === 0) ? 'Out Of Stock' : 'Select Size'}</option> : <option defaultValue="selected">{(sizesAndAmount.length === 0) ? 'Out Of Stock' : 'Select Size'}</option>}
