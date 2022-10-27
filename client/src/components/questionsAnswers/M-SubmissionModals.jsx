@@ -1,15 +1,33 @@
 import React from 'react';
+import ReviewImageUpload from '../ratingsReviews/ReviewImageUpload.jsx';
 
-const { useState } = React;
+const { useState, useEffect } = React;
 
 function SubModals(props) {
-  const { closeModal, question, productName, handleSubmit } = props;
+  const {
+    closeModal, question, productName, handleSubmit,
+  } = props;
 
   const { question_body } = question;
 
   const [subText, setSubText] = useState('');
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
+  const [photos, setPhotos] = useState([]);
+
+  function addImage(url) {
+    if (photos.length <= 5) {
+      setPhotos([...photos, url]);
+    }
+  }
+
+  useEffect(() => {
+    const noScrollClass = 'no-scroll';
+
+    document.body.classList.add(noScrollClass);
+
+    return () => document.body.classList.remove(noScrollClass);
+  }, []);
 
   return (
     <div className="qna-modal-background">
@@ -49,7 +67,7 @@ function SubModals(props) {
             className="modalSubmitForm"
             onSubmit={(event) => {
               event.preventDefault();
-              handleSubmit(subText, userName, email);
+              handleSubmit(subText, userName, email, photos);
             }}
           >
             <div className="modalQnA">
@@ -87,7 +105,7 @@ function SubModals(props) {
                 className="qna-modalInput"
                 name="emailSubmit"
                 type="email"
-                placeholder={question_body ?'example: jack@email.com' : 'Why do you like the product or not?'}
+                placeholder={question_body ? 'example: jack@email.com' : 'Why do you like the product or not?'}
                 maxLength={60}
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
@@ -99,7 +117,22 @@ function SubModals(props) {
             {question_body ? (
               <div className="qna-photoSubmit">
                 Submit photos:
-                {/* TODO */}
+                {' '}
+                <ReviewImageUpload
+                  addImage={addImage}
+                />
+                <br />
+                {photos.length ? (
+                  photos.map((url) => (
+                    <img
+                      src={url}
+                      alt="User uploaded"
+                      key={url}
+                      className="imagePreview"
+                    />
+                  ))) : (
+                    <br />
+                )}
               </div>
             ) : ('')}
             <button
