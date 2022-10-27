@@ -15,12 +15,13 @@ function ProductInformation({ product, reviews, selectedStyle }) {
   return (
     <div className="product-information">
       <div>
-        <p id="product-title">
-          {product.name}
-        </p>
         <p id="product-category">
           {product.category}
         </p>
+        <p id="product-title">
+          {product.name}
+        </p>
+
         <div id="product-price">
           <Price selectedStyle={selectedStyle} />
         </div>

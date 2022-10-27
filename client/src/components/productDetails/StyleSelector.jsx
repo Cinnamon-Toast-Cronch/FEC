@@ -25,10 +25,10 @@ function StyleSelector({
       <div className="stylesContainer">
         <SizeSelector selectedStyle={selectedStyle} />
         <p className="selectedStyle">
-          {selectedStyle ? selectedStyle.name : null}
+          Style
+          <span>{selectedStyle ? selectedStyle.name : null}</span>
         </p>
         <div className="style-thumbnail-row">
-
           {styles.map((style, index) => (
             <div className="style-thumbnail-column">
               <div className="style-image-container">
