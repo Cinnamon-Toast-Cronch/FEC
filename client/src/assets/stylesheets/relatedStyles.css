@@ -85,13 +85,40 @@ main .text{
   padding: 25px;
 }
 
-/* .comparison-popup-inner {
-  position: relative;
-  padding: 32px;
-  width: 100%;
-  max-width: 640px;
-  background-color: #FFF;
-} */
+.comparison-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.comparison-button button {
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.comparison-table thead tr th {
+  border-bottom: 1px dashed grey;
+  text-transform: uppercase;
+  font-size: large;
+  text-align: center;
+  /* justify-content: space-evenly; */
+  padding-bottom: 10px;
+}
+
+.comparison-table tbody tr td{
+  font-size: medium;
+  text-align: center;
+  color: black;
+  padding: 10px;
+}
+
+.comparison-table thead tr th:nth-last-child(2),
+.comparison-table tbody tr td:nth-last-child(2) {
+  font-size: small;
+  color: grey;
+}
+
 .carousel-container {
  display: flex;
 }

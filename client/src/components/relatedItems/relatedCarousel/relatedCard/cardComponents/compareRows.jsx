@@ -12,6 +12,8 @@ function ComparisonRow({displayProductFeature, relatedProductFeature}) {
     allFeatures.push(relatedProductFeature[i].feature);
   }
 
+  // filter the allFeatures array to remove duplicates
+
   return (
     <>
       {

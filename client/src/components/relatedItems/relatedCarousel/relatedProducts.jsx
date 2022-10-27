@@ -10,6 +10,7 @@ function relatedProducts({ product, setProduct }) {
   useEffect(() => {
     axios.get(`/products/${product.id}/related`)
       .then(({ data }) => {
+        // filter out duplicate product ids
         axios.all(data.map((id) => (
           axios.get(`/products/${id}`)
         )))

@@ -20,7 +20,7 @@ function Comparison({ trigger, handlesComparePopup, data, displayProduct }) {
               <div className="comparison-button">
                 <button type="button" onClick={handlesComparePopup}>X</button>
               </div>
-              <table>
+              <table className="comparison-table">
                 <thead>
                   <tr>
                     <th>{displayProductDetails.name}</th>
