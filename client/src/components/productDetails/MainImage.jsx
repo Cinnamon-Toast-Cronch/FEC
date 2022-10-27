@@ -3,6 +3,7 @@ import React from 'react';
 function MainImage({ imageUrl, isExpanded, setExpandView }) {
   // -HOVER: mouse icon changes to magnifying glass
   // -CLICK on image -->  gallery changes to expanded view
+  console.log(imageUrl);
 
   return (
     <img
@@ -15,3 +16,6 @@ function MainImage({ imageUrl, isExpanded, setExpandView }) {
 }
 
 export default MainImage;
+// <div
+//   style={{ backgroundImage: 'url("imageUrl")' }}
+// />;

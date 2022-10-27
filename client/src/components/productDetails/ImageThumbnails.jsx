@@ -53,7 +53,10 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
                   <img
                     className={`${count === index ? 'active-thumbnail' : 'thumbnail'}`}
                     src={thumbnail}
-                    onClick={() => handleSelectThumbnail(index)}
+                    onClick={() => {
+                      handleSelectThumbnail(index);
+                      console.log('index', index);
+                    }}
                     style={{ width: '40px' }}
                     alt="placeholder"
                   />
