@@ -8,7 +8,6 @@ function GalleryList({
     const expandImage = (imageId) => {
       const expandImg = document.getElementById(imageId);
       if (isExpanded) {
-        // remove name
         expandImg.classList.remove('expand-image');
         setExpandView(false);
       } else {

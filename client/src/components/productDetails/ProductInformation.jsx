@@ -11,7 +11,6 @@ function ProductInformation({ product, reviews, selectedStyle }) {
     ratingTotal += reviews[i].rating;
   }
   const avgRating = ratingTotal / reviews.length;
-  console.log('avgRate', avgRating);
 
   return (
     <div className="product-information">

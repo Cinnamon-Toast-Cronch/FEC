@@ -18,7 +18,6 @@ function SizeSelector({ selectedStyle }) {
       setSelection({ ...selection, style: selectedStyle.name });
     }
   }, [selectedStyle]);
-  console.log(selection);
 
   if (skus) {
     const sizesAndAmount = Object.values(skus);

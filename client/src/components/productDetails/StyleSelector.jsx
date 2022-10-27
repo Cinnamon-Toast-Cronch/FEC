@@ -8,8 +8,6 @@ const { useState, useEffect } = React;
 function StyleSelector({
   styles, setSelectedStyle, selectedStyle, setStyles,
 }) {
-  // Note: will implement overlay of a checkmark on selected style thumbnail functionality with CSS.
-
   useEffect(() => {
     setSelectedStyle(styles[0]);
   }, [styles]);
