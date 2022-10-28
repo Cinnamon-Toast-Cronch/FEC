@@ -98,7 +98,7 @@
 }
 
 #product-description {
-  font-size: 1em;
+  font-size: .9em;
   margin-top: 1px;
   font-weight: lighter;
 }
@@ -111,6 +111,7 @@
   margin-top: 0.5em;
   font-size: 1em;
 
+  text-transform: uppercase;
   font-weight: lighter;
   color: #444;
 }
@@ -120,9 +121,9 @@
   height: 1.7em;
   margin-top: 1em;
   margin-bottom: 1em;
-  height: 20px;
-
+  height: 30px;
 }
+
 
 #sale-price {
   color: rgb(255, 0, 0);
@@ -146,6 +147,7 @@ select#sizes {
   text-transform: uppercase;
   box-shadow: rgb(100 100 111 / 20%);
   border-radius: 5px;
+  cursor: pointer;
 }
 label.quantity {
   font-size: 1em;
@@ -164,6 +166,7 @@ select#quantity {
   text-transform: uppercase;
   box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
   border-radius: 5px;
+  cursor: pointer;
 }
 #sizeDropDown.sizeContent {
   margin-top: 0.5em;
@@ -194,6 +197,9 @@ p.selectedStyle {
   font-size: 1em;
     /* font-weight: 500; */
     color: #444;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+    font-weight: bold;
 }
 .selectedStyle span {
   padding-left: 0.5em;
@@ -224,12 +230,10 @@ p.selectedStyle {
   height: 100%
 }
 .style-thumbnail-column {
-
-  width: 100%;
-  height: 100%;
-
-
+  width: 60px;
+  height: 60px;
 }
+
 
 .styleThumbnails {
   /* display: flex;
@@ -272,7 +276,6 @@ p#currStyle {
   top: 0;
   z-index: 1;
   font-size: xxx-large;
-  height: inherit;
   color: white;
   opacity: .8;
 
@@ -306,6 +309,7 @@ p#currStyle {
   min-height: 90vh;
   background-repeat: no-repeat;
   transform: scale(2.5);
+  cursor: zoom-out;
 
 }
 /* make position relative container for modal? */
@@ -334,17 +338,19 @@ p#currStyle {
 
 .close-expand {
   background-color: transparent;
-  font: inherit;
-  border: 1px solid #707070;
-  color: inherit;
-  border-radius: 0;
-  padding: 10px;
-  font-weight: bold;
-  margin-left: 1%;
-  margin-right: 1%;
-  z-index: 5;
-  position: absolute;
-  top: 10%;
+    font: inherit;
+    border: 3px solid #707070;
+    color: inherit;
+    /* border-radius: 0; */
+    padding: 5px;
+    font-weight: bold;
+    /* margin-left: 1%; */
+    margin-right: 1%;
+    z-index: 5;
+    position: absolute;
+    top: 10%;
+    border-radius: 5px;
+    font-size: x-large;
 }
 .expand-image-modal * {
   display: block;
@@ -527,6 +533,7 @@ height: 100%;
   width:  100%;
   height: 100%;
   opacity: 0.6;
+  cursor: pointer;
 
 }
 .active-thumbnail,
@@ -570,6 +577,7 @@ height: 100%;
   margin: 20px;
   cursor: pointer;
   transition: 0.2s ease-in-out;
+
 }
 .closeBtn:hover {
   color: rgb(255, 255, 255);
