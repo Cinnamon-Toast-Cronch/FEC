@@ -5,39 +5,38 @@
 */
 
 .qnaApp {
-  max-height: 100vh;
+  width: 100%;
 }
 
 .qna-title {
   color: #707070;
   font-size: 1.4em;
-  margin-top: 2%;
 }
 
 .question {
   color: #707070;
   font-weight: bold;
-  font-size: 1.0em;
+  font-size: 1em;
   max-width: 70%;
   display: flex;
 }
 
 .qBody {
   color: #707070;
-  font-size: 1.0em;
+  font-size: 1em;
   margin-left: 2%;
 }
 
 .answer {
   color: #707070;
   font-weight: bold;
-  font-size: 1.0em;
+  font-size: 1em;
   margin-top: 1%;
 }
 
 .aBody {
   color: #707070;
-  font-size: 1.0em;
+  font-size: 1em;
   display: inline;
   margin-top: 2%;
 }
@@ -171,7 +170,7 @@ QNA MODAL
   padding: 1em;
   display: flex;
   flex-direction: column;
-  color:#707070
+  color: #707070;
 }
 
 .qna-modal-background {
@@ -198,8 +197,8 @@ QNA MODAL
 }
 
 .qna-modal-title {
-  font-size: 1.0em;
-  color:#707070
+  font-size: 1em;
+  color: #707070;
 }
 
 .qna-modal-subtitle {
@@ -251,11 +250,10 @@ QNA MODAL
   margin-top: 1%;
 }
 
-
-input[type="text"]::placeholder {
+input[type='text']::placeholder {
   text-align: left;
 }
 
-input[type="email"]::placeholder {
+input[type='email']::placeholder {
   text-align: left;
 }

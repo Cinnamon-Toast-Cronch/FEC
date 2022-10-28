@@ -18,6 +18,10 @@ main .text{
 
 } */
 
+.related-container {
+  width: 100%;
+}
+
 .header {
   width: 98%;
   height: 40px;
@@ -106,7 +110,7 @@ main .text{
   padding-bottom: 10px;
 }
 
-.comparison-table tbody tr td{
+.comparison-table tbody tr td {
   font-size: medium;
   text-align: center;
   color: black;
@@ -120,7 +124,7 @@ main .text{
 }
 
 .carousel-container {
- display: flex;
+  display: flex;
 }
 
 #related-carousel {
@@ -171,7 +175,6 @@ main .text{
 }
 
 .compare-button :hover {
-
 }
 
 .related-img {
@@ -183,7 +186,7 @@ main .text{
   /* display: block; */
 }
 .related-category {
-  font-size:x-small;
+  font-size: x-small;
   text-transform: uppercase;
 }
 
@@ -191,7 +194,9 @@ main .text{
   font-size: xx-small;
 }
 
-.related-name, .related-category, .related-price {
+.related-name,
+.related-category,
+.related-price {
   width: 90%;
   margin: auto;
   padding: 5px;
@@ -218,8 +223,6 @@ main .text{
   padding-left: 10px;
 }
 
-
-
 .outfit-carousel {
   /* display: flex;
   padding: 0 10vw;
@@ -233,7 +236,6 @@ main .text{
   align-items: center;
   margin: auto;
 }
-
 
 .outfit-card {
   /* flex: 0 0 auto;
@@ -295,7 +297,7 @@ main .text{
   text-align: center;
 }
 
-.previous{
+.previous {
   display: flex;
   position: relative;
   border-radius: 10px;
@@ -304,7 +306,7 @@ main .text{
   font-size: 1.8em;
 }
 
-.next{
+.next {
   display: flex;
   position: relative;
   border-radius: 10px;
