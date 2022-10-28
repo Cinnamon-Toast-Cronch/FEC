@@ -77,9 +77,13 @@
 * Review Submission Form
 */
 
+.rnr-submission-form-outer {
+  width: 80%;
+}
+
 .rnr-submission-form-outer,
 .rnr-image-modal {
-  background-color: white;
+  background-color: mintcream;
   border-radius: 20px;
   padding: 1em;
 }
@@ -220,7 +224,7 @@
   margin: 0 5px;
   position: sticky;
   top: 0px;
-  background-color: white;
+  background-color: mintcream;
   z-index: 1;
 }
 
@@ -228,6 +232,7 @@
   font: inherit;
   text-decoration: underline;
   color: inherit;
+  background-color: inherit;
   border: none;
 }
 
@@ -369,6 +374,7 @@
   gap: 10px;
   max-height: 80vh;
   overflow-y: auto;
+  width: 100%;
 }
 
 .rnr-submission-form hr {
@@ -394,6 +400,7 @@
   border-radius: 3px;
   color: #707070;
   padding: 2px;
+  background-color: mintcream;
 }
 
 .rnr-submission-form textarea {
