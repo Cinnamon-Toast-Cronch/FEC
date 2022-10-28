@@ -8,40 +8,23 @@ const { useState, useEffect } = React;
 
 function QuestionsCards(props) {
   const {
-    question, productName, loadData, displayedQs,
+    question, productName, loadData, displayedQs, i
   } = props;
-  const { question_body, question_id, question_helpfulness } = question;
+  const { question_body, question_id, question_helpfulness, answers } = question;
 
-  const [answers, setAnswers] = useState([]);
-  const [noAs, setNoAs] = useState(2);
+  const [answersArray, setAnswersArray] = useState([]);
   const [moreAs, setMoreAs] = useState(false);
-  const [displayedAs, setDisplayedAs] = useState([]);
+  const [displayedAs, setDisplayedAs] = useState(Object.values(answers).slice(0, 2));
   const [openModal, setOpenModal] = useState(false);
   const [helpful, setHelpful] = useState(localStorage.getItem(`question-${question_id}`));
 
-  function loadAnswers() {
-    const params = {
-      params: {
-        page: 1,
-        count: 25,
-      },
-    };
-
-    axios.get(`/qa/questions/${question_id}/answers`, params)
-      .then((response) => {
-        setAnswers(response.data.results);
-        setDisplayedAs(response.data.results.slice(0, noAs));
-      })
-      .then(() => {
-        if (helpful === null) {
-          setHelpful(false);
-        }
-      });
-  }
-
   useEffect(() => {
-    loadAnswers();
-  }, [moreAs, displayedQs]);
+    if (helpful === null) {
+      setHelpful(false);
+    }
+    setAnswersArray((Object.values(answers)));
+    setDisplayedAs((Object.values(answers).slice(0, 2)));
+  }, [displayedQs]);
 
   function helpfulQ(question_id) {
     if (helpful === false) {
@@ -50,11 +33,11 @@ function QuestionsCards(props) {
           localStorage.setItem(`question-${question_id}`, true);
         })
         .then(() => setHelpful(true))
-        .then(() => loadData());
+        .then(() => loadData())
+        .catch((err) => console.error(err));
     }
   }
 
-  // TODO: HANDLE PHOTOS IN AXIOS POST REQUEST
   function handleModalSubmit(text, nickname, userEmail, photos) {
     const body = {
       body: text,
@@ -66,8 +49,8 @@ function QuestionsCards(props) {
       .then(() => {
         setOpenModal(false);
       })
-      .catch((err) => console.error(err))
-      .then(() => loadAnswers());
+      .then(() => loadData())
+      .catch((err) => console.error(err));
   }
 
   return (
@@ -113,27 +96,27 @@ function QuestionsCards(props) {
         {displayedAs.map((answer, i) => (
           <AnswersCards
             className="answersCards"
-            loadAnswers={loadAnswers}
+            loadData={loadData}
             answer={answer}
             i={i}
             key={i}
           />
         ))}
       </div>
-      {answers.length > 2 ? (
+      {answersArray.length > 2 ? (
         <button
           type="button"
           className="moreAs"
           onClick={() => {
             if (moreAs === false) {
-              setNoAs(answers.length);
+              setDisplayedAs(answersArray);
             } else {
-              setNoAs(2);
+              setDisplayedAs(Object.values(answers).slice(0, 2));
             }
             setMoreAs(!moreAs);
           }}
         >
-          {moreAs ? 'COLLAPSE ANSWERS' : 'LOAD MORE ANSWERS'}
+          {moreAs ? 'COLLAPSE ANSWERS' : 'LOAD MORE ANSWERS' }
         </button>
       ) : (<div className="moreAsAlt">No more answers have been submitted</div>)}
     </div>
