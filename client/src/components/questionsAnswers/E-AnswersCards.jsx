@@ -28,6 +28,7 @@ function AnswersCards(props) {
   const [reported, setReported] = useState(localStorage.getItem(`reported-${id}`));
   const [helpful, setHelpful] = useState(localStorage.getItem(`answer-${id}`));
   const [openModal, setOpenModal] = useState(false);
+  const [currentModalImg, setCurrentModalImg] = useState('');
 
   function modifyDate(date) {
     const month = months[Number(date[5] + date[6])];
@@ -69,9 +70,7 @@ function AnswersCards(props) {
   return (
     <div>
       <div className="answer">
-        A:
-        {' '}
-        <p className="aBody">{body}</p>
+        A: <p className="aBody">{body}</p>
       </div>
       <div className="answerPhotos">
         {photos.map((url) => (
@@ -80,21 +79,20 @@ function AnswersCards(props) {
               className="img-container"
               src={url}
               alt="user uploaded"
-              onClick={() => setOpenModal(true)}
+              onClick={() => {
+                setOpenModal(true);
+                setCurrentModalImg(photo.url);
+              }}
             />
             {openModal && <PhotoModal url={url} closeModal={setOpenModal} />}
           </div>
         ))}
+        {openModal && (
+          <PhotoModal url={currentModalImg} closeModal={setOpenModal} />
+        )}
       </div>
       <div className="answerDetails">
-        by
-        {' '}
-        {answerer_name}
-        ,
-        {' '}
-        {modDate}
-        {' '}
-        | Helpful?
+        by {answerer_name}, {modDate} | Helpful?
         <button
           className="helpfulA"
           type="button"
@@ -104,9 +102,7 @@ function AnswersCards(props) {
         </button>
         {' ('}
         {helpfulness}
-        {') '}
-        |
-        {' '}
+        {') '}|{' '}
         <button
           type="button"
           className="qnaReport"
@@ -116,7 +112,6 @@ function AnswersCards(props) {
           }}
         >
           <u>{reported ? 'reported' : 'report'}</u>
-
         </button>
         <hr className="answerLineBreak" />
       </div>

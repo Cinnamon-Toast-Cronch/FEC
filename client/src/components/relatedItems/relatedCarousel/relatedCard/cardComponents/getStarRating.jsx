@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 // import StarRating from '../../../../ratingsReviews/StarRating.jsx';
-import CountStarRatings from './CountStarRatings.jsx';
+import CountStarRatings from './countStarRatings.jsx';
 
 // import the star rating file
 // takes in product/product id

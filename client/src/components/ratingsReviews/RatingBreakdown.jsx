@@ -10,11 +10,12 @@ function RatingBreakdown({
   toggleFilter,
   recommendations,
 }) {
-  const percentageRecommended =
+  const percentageRecommended = Math.round(
     (parseInt(recommendations.true, 10) /
       (parseInt(recommendations.true, 10) +
         parseInt(recommendations.false, 10))) *
-    100;
+      100
+  );
 
   const totalRatingCount = _.reduce(
     ratings,
