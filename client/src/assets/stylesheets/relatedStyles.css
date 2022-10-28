@@ -1,4 +1,8 @@
 
+.related-container {
+  width: 100%;
+}
+
 .header {
   width: 98%;
   height: 40px;
@@ -74,7 +78,7 @@
 }
 
 .carousel-container {
- display: flex;
+  display: flex;
 }
 
 #related-carousel {
@@ -116,6 +120,12 @@
   font-size: 1.3em;
 }
 
+<<<<<<< HEAD
+=======
+.compare-button :hover {
+}
+
+>>>>>>> main
 .related-img {
   width: 100%;
   border-radius: 10px;
@@ -156,8 +166,6 @@
   padding-left: 10px;
 }
 
-
-
 .outfit-carousel {
   display: flex;
   overflow-x: auto;
@@ -167,6 +175,7 @@
   margin: auto;
 }
 
+<<<<<<< HEAD
 .inner-outfit-box {
   display: flex;
   overflow-x: auto;
@@ -176,6 +185,14 @@
   margin: auto;
 }
 
+=======
+.outfit-card {
+  /* flex: 0 0 auto;
+  width: 250px;
+  height: 250px;
+  margin-right: 40px;
+  box-shadow: 2px 2px 30px rgba(0,0,0,0.2); */
+>>>>>>> main
 
 .outfit-card {
   min-width: 24%;

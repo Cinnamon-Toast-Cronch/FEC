@@ -170,7 +170,7 @@ box-sizing: border-box;
   margin: 0 auto;
   position: relative;
   /* display: flex; */
-
+  width: 100%;
   /* max-width: 1366px;
   max-height: 768px; */
 }
@@ -180,8 +180,6 @@ box-sizing: border-box;
   flex: 0 1 auto;
   /* flex-direction:row; */
   box-sizing: border-box;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
   /* min-height: inherit; */
   height: 100vh;
   z-index: 3;
