@@ -29,13 +29,13 @@ function RelatedProducts({ product, setProduct }) {
       document.getElementById('related-carousel').scrollLeft -= 60;
     } else {
       setCarouselPosition(carouselPosition - 1);
-      document.getElementById('related-carousel').scrollLeft -= 220;
+      document.getElementById('related-carousel').scrollLeft -= 205;
     }
   };
 
   const handleCarouselRight = () => {
     setCarouselPosition(carouselPosition + 1);
-    document.getElementById('related-carousel').scrollLeft += 220;
+    document.getElementById('related-carousel').scrollLeft += 205;
   };
 
   if (relatedItems !== undefined) {
