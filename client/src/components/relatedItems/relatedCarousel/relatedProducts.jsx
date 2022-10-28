@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from './relatedCard/relatedCard.jsx';
 
-function relatedProducts({ product, setProduct }) {
+function RelatedProducts({ product, setProduct }) {
   const [relatedItems, setRelatedItems] = useState([]);
-  const [carouselPosition, setCarouselPosition] = useState(0);
+  const [carouselPosition, setCarouselPosition] = useState(3);
   // const productID = 40344;
   // hardcoded product id to pass Jest test
   useEffect(() => {
     axios.get(`/products/${product.id}/related`)
       .then(({ data }) => {
-        // filter out duplicate product ids
-        axios.all(data.map((id) => (
+        const filteredId = Array.from(new Set(data));
+        axios.all(filteredId.map((id) => (
           axios.get(`/products/${id}`)
         )))
           .catch((err) => {
@@ -19,26 +19,30 @@ function relatedProducts({ product, setProduct }) {
           })
           .then((res) => {
             setRelatedItems(res);
-            // console.log(res)
           });
       });
   }, [product]);
 
   const handleCarouselLeft = () => {
-    setCarouselPosition(carouselPosition - 1);
-    document.getElementById('related-carousel').scrollLeft -= 400;
+    if (carouselPosition === relatedItems.length) {
+      setCarouselPosition(carouselPosition - 1);
+      document.getElementById('related-carousel').scrollLeft -= 60;
+    } else {
+      setCarouselPosition(carouselPosition - 1);
+      document.getElementById('related-carousel').scrollLeft -= 205;
+    }
   };
 
   const handleCarouselRight = () => {
     setCarouselPosition(carouselPosition + 1);
-    document.getElementById('related-carousel').scrollLeft += 400;
+    document.getElementById('related-carousel').scrollLeft += 205;
   };
 
   if (relatedItems !== undefined) {
     return (
       <div className="carousel-container" data-testid="con-1">
         {
-          carouselPosition > 0 ?
+          carouselPosition > 3 ?
           <div className="previous"onClick={handleCarouselLeft}> &#10094; </div>
           : null
         }
@@ -59,4 +63,4 @@ function relatedProducts({ product, setProduct }) {
   }
 }
 
-export default relatedProducts;
+export default RelatedProducts;
