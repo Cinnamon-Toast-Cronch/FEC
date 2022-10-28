@@ -4,7 +4,7 @@ import Card from './relatedCard/relatedCard.jsx';
 
 function relatedProducts({ product, setProduct }) {
   const [relatedItems, setRelatedItems] = useState([]);
-  const [carouselPosition, setCarouselPosition] = useState(0);
+  const [carouselPosition, setCarouselPosition] = useState(3);
   // const productID = 40344;
   // hardcoded product id to pass Jest test
   useEffect(() => {
@@ -25,20 +25,25 @@ function relatedProducts({ product, setProduct }) {
   }, [product]);
 
   const handleCarouselLeft = () => {
-    setCarouselPosition(carouselPosition - 1);
-    document.getElementById('related-carousel').scrollLeft -= 400;
+    if (carouselPosition === relatedItems.length) {
+      setCarouselPosition(carouselPosition - 1);
+      document.getElementById('related-carousel').scrollLeft -= 60;
+    } else {
+      setCarouselPosition(carouselPosition - 1);
+      document.getElementById('related-carousel').scrollLeft -= 210;
+    }
   };
 
   const handleCarouselRight = () => {
     setCarouselPosition(carouselPosition + 1);
-    document.getElementById('related-carousel').scrollLeft += 400;
+    document.getElementById('related-carousel').scrollLeft += 210;
   };
 
   if (relatedItems !== undefined) {
     return (
       <div className="carousel-container" data-testid="con-1">
         {
-          carouselPosition > 0 ?
+          carouselPosition > 3 ?
           <div className="previous"onClick={handleCarouselLeft}> &#10094; </div>
           : null
         }
