@@ -18,13 +18,14 @@ function Comparison({ trigger, handlesComparePopup, data, displayProduct }) {
           <div className="comparison-bg">
             <div className="comparison-popup">
               <div className="comparison-button">
-                <button type="button"
+                <button
+                  type="button"
                   onClick={(e) => {
                     e.stopPropagation();
                     handlesComparePopup();
                   }}
                 >
-                  X
+                  Close
                 </button>
               </div>
               <table className="comparison-table">

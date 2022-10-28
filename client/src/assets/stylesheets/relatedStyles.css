@@ -40,13 +40,16 @@
 .comparison-button {
   display: flex;
   justify-content: flex-end;
+  padding-bottom: 20px;
 }
 
 .comparison-button button {
   background-color: transparent;
-  border: none;
   font-size: 25px;
   cursor: pointer;
+  color: #707070;
+  border: 1px solid #707070;
+  font-size: 1.1em;
 }
 
 .comparison-table thead tr th {

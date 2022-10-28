@@ -2,15 +2,14 @@ import React from 'react';
 import axios from 'axios';
 import ProductDetails from './productDetails/ProductDetails.jsx';
 import QnaWidget from './questionsAnswers/A-QnaWidget.jsx';
-import Rnr from './ratingsReviews/RatingReviewContainer.jsx'; // TODO - fill in filepath
+import Rnr from './ratingsReviews/RatingReviewContainer.jsx';
 import RelatedItems from './relatedItems/container.jsx';
 
 const { useState, useEffect } = React;
 
 function App() {
-  // product points to a product_id?
   const [product, setProduct] = useState({});
-  // setProduct on page load
+
   useEffect(() => {
     axios.get('/products').then(({ data }) => {
       setProduct(data[0]);
