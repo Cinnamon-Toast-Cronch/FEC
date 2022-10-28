@@ -35,7 +35,7 @@ function SubModals(props) {
         <div className="qna-modalClose">
           <button
             type="button"
-            className="qna-modalBtn"
+            className="review-list-button"
             onClick={() => closeModal(false)}
           >
             close
@@ -83,8 +83,7 @@ function SubModals(props) {
               />
             </div>
             <div className="qna-modalNickname">
-              Nickname:
-              <br />
+              <p className="qna-modalText">Nickname:</p>
               <input
                 className="qna-modalInput"
                 name="nicknameSubmit"
@@ -99,8 +98,7 @@ function SubModals(props) {
               For privacy reasons, do not use your full name or email address
             </div>
             <div className="qna-modalEmail">
-              Email:
-              <br />
+              <p className="qna-modalText">Email:</p>
               <input
                 className="qna-modalInput"
                 name="emailSubmit"
@@ -116,8 +114,7 @@ function SubModals(props) {
             </div>
             {question_body ? (
               <div className="qna-photoSubmit">
-                Submit photos:
-                {' '}
+                <p className="qna-modalText">Submit photos:</p>
                 <ReviewImageUpload
                   addImage={addImage}
                 />
@@ -136,7 +133,7 @@ function SubModals(props) {
               </div>
             ) : ('')}
             <button
-              className="qna-modalSubmit"
+              className="review-list-button"
               type="submit"
             >
               {question_body ? 'Submit Answer' : 'Submit Question'}
