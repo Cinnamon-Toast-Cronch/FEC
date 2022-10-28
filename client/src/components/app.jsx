@@ -23,10 +23,10 @@ function App() {
         <h1 className="appTitle">App Title: Hello World</h1>
       </div>
       <div className="widgets">
-        <ProductDetails product={product} />
+        {/* <ProductDetails product={product} /> */}
         <RelatedItems product={product} setProduct={setProduct} />
-        <QnaWidget product={product} />
-        <Rnr product={product} />
+        {/* <QnaWidget product={product} />
+        <Rnr product={product} /> */}
       </div>
     </div>
   );

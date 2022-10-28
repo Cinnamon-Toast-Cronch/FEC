@@ -30,13 +30,15 @@ function Outfits({ product }) {
         <p className="add-outfit-text">&#10090; + &#10091;</p>
         <p className="add-outfit-text">Add to Outfit</p>
       </div>
-      {
-        outfits ?
-          outfits.map((outfit) => (
-            <OutfitCard outfit={outfit} handleDeleteOutfit={handleDeleteOutfit} key={outfit.id} />
-          ))
-          : null
-      }
+      <div className="inner-outfit-box">
+        {
+          outfits ?
+            outfits.map((outfit) => (
+              <OutfitCard outfit={outfit} handleDeleteOutfit={handleDeleteOutfit} key={outfit.id} />
+            ))
+            : null
+          }
+      </div>
     </div>
   );
 }

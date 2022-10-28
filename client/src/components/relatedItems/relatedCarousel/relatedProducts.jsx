@@ -10,8 +10,11 @@ function relatedProducts({ product, setProduct }) {
   useEffect(() => {
     axios.get(`/products/${product.id}/related`)
       .then(({ data }) => {
-        // filter out duplicate product ids
-        axios.all(data.map((id) => (
+        // data is unfiltered ids
+        // console.log('data id', data);
+        const filteredId = Array.from(new Set(data));
+        // console.log('filtered id', filteredId);
+        axios.all(filteredId.map((id) => (
           axios.get(`/products/${id}`)
         )))
           .catch((err) => {
@@ -19,7 +22,6 @@ function relatedProducts({ product, setProduct }) {
           })
           .then((res) => {
             setRelatedItems(res);
-            // console.log(res)
           });
       });
   }, [product]);
