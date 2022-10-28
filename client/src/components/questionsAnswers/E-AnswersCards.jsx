@@ -20,13 +20,13 @@ const months = {
 };
 
 function AnswersCards(props) {
-  const { answer, loadAnswers } = props;
+  const { answer, loadData /*loadAnswers*/ } = props;
   const {
-    body, answerer_name, date, helpfulness, answer_id, photos
+    body, answerer_name, date, helpfulness, id, photos
   } = answer;
 
-  const [reported, setReported] = useState(localStorage.getItem(`reported-${answer_id}`));
-  const [helpful, setHelpful] = useState(localStorage.getItem(`answer-${answer_id}`));
+  const [reported, setReported] = useState(localStorage.getItem(`reported-${id}`));
+  const [helpful, setHelpful] = useState(localStorage.getItem(`answer-${id}`));
   const [openModal, setOpenModal] = useState(false);
 
   function modifyDate(date) {
@@ -47,21 +47,22 @@ function AnswersCards(props) {
     }
   }, []);
 
-  function helpfulA(answer_id) {
+  function helpfulA(id) {
     if (helpful === false) {
-      axios.put(`/qa/answers/${answer_id}/helpful`)
+      axios.put(`/qa/answers/${id}/helpful`)
         .then(() => {
-          localStorage.setItem(`answer-${answer_id}`, true);
+          localStorage.setItem(`answer-${id}`, true);
         })
         .then(() => setHelpful(true))
-        .then(() => loadAnswers());
+        .then(() => loadData());
+        //.then(() => loadAnswers());
     }
   }
 
-  function handleReport(answer_id) {
+  function handleReport(id) {
     if (reported === false) {
-      axios.put(`/qa/answers/${answer_id}/report`)
-        .then(() => localStorage.setItem(`reported-${answer_id}`, true));
+      axios.put(`/qa/answers/${id}/report`)
+        .then(() => localStorage.setItem(`reported-${id}`, true));
     }
   }
 
@@ -73,15 +74,15 @@ function AnswersCards(props) {
         <p className="aBody">{body}</p>
       </div>
       <div className="answerPhotos">
-        {photos.map((photo) => (
-          <div key={photo.url}>
+        {photos.map((url) => (
+          <div key={url}>
             <img
               className="img-container"
-              src={photo.url}
+              src={url}
               alt="user uploaded"
               onClick={() => setOpenModal(true)}
             />
-            {openModal && <PhotoModal url={photo.url} closeModal={setOpenModal} />}
+            {openModal && <PhotoModal url={url} closeModal={setOpenModal} />}
           </div>
         ))}
       </div>
@@ -97,7 +98,7 @@ function AnswersCards(props) {
         <button
           className="helpfulA"
           type="button"
-          onClick={() => helpfulA(answer_id)}
+          onClick={() => helpfulA(id)}
         >
           <u>Yes</u>
         </button>
@@ -110,7 +111,7 @@ function AnswersCards(props) {
           type="button"
           className="qnaReport"
           onClick={() => {
-            handleReport(answer_id);
+            handleReport(id);
             setReported(true);
           }}
         >

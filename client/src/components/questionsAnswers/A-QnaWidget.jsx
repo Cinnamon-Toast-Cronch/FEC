@@ -13,8 +13,7 @@ function QnaWidget(props) {
   const [questions, setQuestions] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [noQs, setNoQs] = useState(4);
-  const [displayedQs, setDisplayedQs] = useState([]);
-  const [searchedQs, setSearchedQs] = useState([]);
+  const [searchedQuestions, setSearchedQuestions] = useState([]);
 
   const { product } = props;
   const productId = product.id;
@@ -32,9 +31,12 @@ function QnaWidget(props) {
     axios.get('/qa/questions', queryParams)
       .then((response) => {
         setQuestions(response.data.results);
-        setDisplayedQs(response.data.results.slice(0, noQs));
       });
   }
+
+  useEffect(() => {
+    loadData();
+  }, [product]);
 
   function handleSearch(searchEntry) {
     if (searchEntry.length >= 3) {
@@ -44,10 +46,9 @@ function QnaWidget(props) {
           temp.push(questions[i]);
         }
       }
-      setSearchedQs(temp);
-      setDisplayedQs(temp.slice(0, noQs));
+      setSearchedQuestions(temp);
     } else if (searchEntry.length === 2) {
-      setDisplayedQs(questions.slice(0, noQs));
+      setSearchedQuestions([]);
     }
   }
 
@@ -55,13 +56,13 @@ function QnaWidget(props) {
     setNoQs(4);
   }, [product]);
 
-  useEffect(() => {
-    if (search.length <= 2) {
-      loadData();
-    } else {
-      handleSearch(search);
-    }
-  }, [product, noQs]);
+  // useEffect(() => {
+  //   if (search.length <= 2) {
+  //     loadData();
+  //   } else {
+  //     handleSearch(search);
+  //   }
+  // }, [product, noQs]);
 
   useEffect(() => {
     handleSearch(search);
@@ -99,8 +100,8 @@ function QnaWidget(props) {
         product={props}
         productName={productName}
         noQs={noQs}
+        searchedQuestions={searchedQuestions}
         questions={questions}
-        displayedQs={displayedQs}
         loadData={loadData}
       />
       <button
