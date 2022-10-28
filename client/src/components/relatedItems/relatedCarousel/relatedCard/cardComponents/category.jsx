@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Category({category}) {
+function Category({ category }) {
   return (
     <div className="related-category">{category}</div>
   );

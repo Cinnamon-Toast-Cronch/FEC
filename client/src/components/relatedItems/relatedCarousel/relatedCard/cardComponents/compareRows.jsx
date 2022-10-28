@@ -12,12 +12,12 @@ function ComparisonRow({displayProductFeature, relatedProductFeature}) {
     allFeatures.push(relatedProductFeature[i].feature);
   }
 
-  // filter the allFeatures array to remove duplicates
+  const filteredFeatures = Array.from(new Set(allFeatures));
 
   return (
     <>
       {
-        allFeatures.map((feature) => (
+        filteredFeatures.map((feature) => (
           <tr>
             <FeaturesCheck feature={feature} currentFeatures={displayProductFeature} />
             <td>{feature}</td>

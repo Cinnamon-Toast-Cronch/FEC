@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from './relatedCard/relatedCard.jsx';
 
-function relatedProducts({ product, setProduct }) {
+function RelatedProducts({ product, setProduct }) {
   const [relatedItems, setRelatedItems] = useState([]);
   const [carouselPosition, setCarouselPosition] = useState(3);
   // const productID = 40344;
@@ -10,10 +10,7 @@ function relatedProducts({ product, setProduct }) {
   useEffect(() => {
     axios.get(`/products/${product.id}/related`)
       .then(({ data }) => {
-        // data is unfiltered ids
-        // console.log('data id', data);
         const filteredId = Array.from(new Set(data));
-        // console.log('filtered id', filteredId);
         axios.all(filteredId.map((id) => (
           axios.get(`/products/${id}`)
         )))
@@ -66,4 +63,4 @@ function relatedProducts({ product, setProduct }) {
   }
 }
 
-export default relatedProducts;
+export default RelatedProducts;
