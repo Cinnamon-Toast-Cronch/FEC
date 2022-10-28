@@ -44,15 +44,17 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
   );
   const expandImageModal = (
     <ExpandImageModal>
-      <div className="expand-image-modal">
-        <button
-          type="button"
-          className="close-expand"
-          onClick={() => setExpandView(false)}
-        >
-          &times;
-        </button>
-        {galleryContents}
+      <div className="expand-image-container">
+        <div className="expand-image-modal">
+          <button
+            type="button"
+            className="close-expand"
+            onClick={() => setExpandView(false)}
+          >
+            &times;
+          </button>
+          {galleryContents}
+        </div>
       </div>
     </ExpandImageModal>
   );

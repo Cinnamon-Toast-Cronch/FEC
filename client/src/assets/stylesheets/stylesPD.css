@@ -35,8 +35,6 @@
   width: 40%;
   padding: 10px;
 
-
-
 }
 
 
@@ -153,8 +151,6 @@
   width: 10vw;
   height: 20vh;
   object-fit: cover;
-
-
 }
 .product-details-modal {
   height: 100vh;
@@ -168,6 +164,34 @@
   justify-content: center;
   align-items: center;
   z-index: 2;
+}
+
+/* Zoom Image View */
+.zoom-image {
+  --x: 0px;
+  --y: 0px;
+  /* background-size: 1000px; */
+  /* background-position: var(--x) var(--y);
+  width: 300px;
+  height: 300px;
+  --x: 0px;
+  --y: 0px; */
+  background-position: var(--x) var(--y);
+  min-width: 90vw;
+  min-height: 90vh;
+  background-repeat: no-repeat;
+  transform: scale(2.5);
+
+}
+/* make position relative container for modal? */
+
+/* Expanded Gallery View */
+.expand-image-container {
+  display: flex;
+  position: relative;
+  text-align: center;
+  height: 100%;
+  width: 100%;
 }
 
 
@@ -201,10 +225,20 @@
   display: block;
 }
 
-.expand-image-modal .img.main-image {
+#expanded.main-image {
   max-width: 95vw;
   max-height: 95vh;
   position: relative;
+  cursor: crosshair;
+}
+
+#default.main-image {
+  object-fit: contain;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+
 }
 
 
@@ -235,13 +269,7 @@
 
 }
 
-/* @media only screen and (min-width: 62rem) .product-details-container {
-  padding-right: 1.5625rem;
-  padding-left: 1.5625rem;
-} */
-/* *, :after, :before {
-  box-sizing: border-box;
-} */
+
 
 .product-details-container {
   /* margin-right: auto;
@@ -259,16 +287,11 @@ box-sizing: border-box;
 .product-components-wrapper {
   display: flex;
   flex: 0 1 auto;
-  /* flex-direction:row; */
   box-sizing: border-box;
   margin-bottom: 2rem;
   margin-top: 2rem;
-  /* min-height: inherit; */
   height: 100vh;
-  z-index: 3;
-  /* justify-content: space-evenly; */
-
-  /* align-items:  */
+  /* z-index: 3; */
 
 }
 .product-image-column {
@@ -289,7 +312,7 @@ height: 100%;
 .image-wrapper-content {
     display: flex;
     position: relative;
-    z-index: 10;
+    /* z-index: 10; */
     text-align: center;
     height: 100%;
     width: 100%;
@@ -361,16 +384,7 @@ height: 100%;
 
 
 }
-.main-image:target {
-  /* transform: scale(0.8) */
-}
-img.main-image {
-  object-fit: contain;
-  position: absolute;
-  left: 0;
-  top: 0;
 
-}
 .active-thumbnail, .thumbnail {
   display: inline-flex;
   width: 1.5rem;

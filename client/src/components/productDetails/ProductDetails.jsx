@@ -12,18 +12,16 @@ function ProductDetails({ product }) {
   const [selectedStyle, setSelectedStyle] = useState({});
 
   useEffect(() => {
-    axios.get(`/products/${product.id}/styles`)
-      .then(({ data }) => {
-        setStyles(data.results);
-        const requestParams = { params: { product_id: data.product_id } };
-        return requestParams;
-      })
-      .then((requestParams) => {
-        axios.get('/reviews/', requestParams)
-          .then((response) => {
-            setReviews(response.data.results);
-          });
-      });
+    if (product.id !== undefined) {
+      axios.get(`/products/${product.id}/styles`)
+        .then(({ data }) => {
+          setStyles(data.results);
+          axios.get(`/reviews/meta?product_id=${data.product_id}`)
+            .then((response) => {
+              setReviews(response.data.ratings);
+            });
+        });
+    }
   }, [product]);
 
   return (

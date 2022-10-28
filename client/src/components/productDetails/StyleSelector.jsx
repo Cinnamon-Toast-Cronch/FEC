@@ -11,6 +11,7 @@ function StyleSelector({
   useEffect(() => {
     setSelectedStyle(styles[0]);
   }, [styles]);
+
   const handleStyle = (style, e) => {
     const styleIndex = e.target.value;
     const stylesArr = styles;
@@ -30,8 +31,14 @@ function StyleSelector({
         </p>
         <div className="style-thumbnail-row">
           {styles.map((style, index) => (
-            <div className="style-thumbnail-column">
-              <div className="style-image-container">
+            <div
+              className="style-thumbnail-column"
+              key={style.style_id}
+            >
+              <div
+                className="style-image-container"
+                key={style.name}
+              >
                 <input
                   className={`${index === 0 ? 'active-style-image' : 'style-image'}`}
                   type="image"
