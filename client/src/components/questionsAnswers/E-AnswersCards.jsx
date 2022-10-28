@@ -21,13 +21,16 @@ const months = {
 
 function AnswersCards(props) {
   const { answer, loadAnswers } = props;
-  const {
-    body, answerer_name, date, helpfulness, answer_id, photos
-  } = answer;
+  const { body, answerer_name, date, helpfulness, answer_id, photos } = answer;
 
-  const [reported, setReported] = useState(localStorage.getItem(`reported-${answer_id}`));
-  const [helpful, setHelpful] = useState(localStorage.getItem(`answer-${answer_id}`));
+  const [reported, setReported] = useState(
+    localStorage.getItem(`reported-${answer_id}`)
+  );
+  const [helpful, setHelpful] = useState(
+    localStorage.getItem(`answer-${answer_id}`)
+  );
   const [openModal, setOpenModal] = useState(false);
+  const [currentModalImg, setCurrentModalImg] = useState('');
 
   function modifyDate(date) {
     const month = months[Number(date[5] + date[6])];
@@ -49,7 +52,8 @@ function AnswersCards(props) {
 
   function helpfulA(answer_id) {
     if (helpful === false) {
-      axios.put(`/qa/answers/${answer_id}/helpful`)
+      axios
+        .put(`/qa/answers/${answer_id}/helpful`)
         .then(() => {
           localStorage.setItem(`answer-${answer_id}`, true);
         })
@@ -60,7 +64,8 @@ function AnswersCards(props) {
 
   function handleReport(answer_id) {
     if (reported === false) {
-      axios.put(`/qa/answers/${answer_id}/report`)
+      axios
+        .put(`/qa/answers/${answer_id}/report`)
         .then(() => localStorage.setItem(`reported-${answer_id}`, true));
     }
   }
@@ -68,9 +73,7 @@ function AnswersCards(props) {
   return (
     <div>
       <div className="answer">
-        A:
-        {' '}
-        <p className="aBody">{body}</p>
+        A: <p className="aBody">{body}</p>
       </div>
       <div className="answerPhotos">
         {photos.map((photo) => (
@@ -79,21 +82,19 @@ function AnswersCards(props) {
               className="img-container"
               src={photo.url}
               alt="user uploaded"
-              onClick={() => setOpenModal(true)}
+              onClick={() => {
+                setOpenModal(true);
+                setCurrentModalImg(photo.url);
+              }}
             />
-            {openModal && <PhotoModal url={photo.url} closeModal={setOpenModal} />}
           </div>
         ))}
+        {openModal && (
+          <PhotoModal url={currentModalImg} closeModal={setOpenModal} />
+        )}
       </div>
       <div className="answerDetails">
-        by
-        {' '}
-        {answerer_name}
-        ,
-        {' '}
-        {modDate}
-        {' '}
-        | Helpful?
+        by {answerer_name}, {modDate} | Helpful?
         <button
           className="helpfulA"
           type="button"
@@ -103,9 +104,7 @@ function AnswersCards(props) {
         </button>
         {' ('}
         {helpfulness}
-        {') '}
-        |
-        {' '}
+        {') '}|{' '}
         <button
           type="button"
           className="qnaReport"
@@ -115,7 +114,6 @@ function AnswersCards(props) {
           }}
         >
           <u>{reported ? 'reported' : 'report'}</u>
-
         </button>
         <hr className="answerLineBreak" />
       </div>
