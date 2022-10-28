@@ -33,17 +33,19 @@ function ProductDetails({ product }) {
           </div>
         </div>
         <div className="product-info-column">
-          <ProductInformation
-            product={product}
-            reviews={reviews}
-            selectedStyle={selectedStyle}
-          />
-          <StyleSelector
-            styles={styles}
-            setStyles={setStyles}
-            setSelectedStyle={setSelectedStyle}
-            selectedStyle={selectedStyle}
-          />
+          <div className="product-info-container">
+            <ProductInformation
+              product={product}
+              reviews={reviews}
+              selectedStyle={selectedStyle}
+            />
+            <StyleSelector
+              styles={styles}
+              setStyles={setStyles}
+              setSelectedStyle={setSelectedStyle}
+              selectedStyle={selectedStyle}
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -44,7 +44,7 @@ function ProductInformation({ product, reviews, selectedStyle }) {
       <div className="product-reviews">
         <ProductInfoReviewStars reviews={reviews} reviewCount={reviewCount} />
         <p id="read-reviews">
-          {reviewCount > 0 ? `Read all ${reviewCount} reviews` : null}
+          {reviewCount > 0 ? `Read all ${reviewCount} reviews.` : null}
         </p>
         <div className="social-media-icons">
 
@@ -52,23 +52,17 @@ function ProductInformation({ product, reviews, selectedStyle }) {
             className="facebook-icon"
             src={Facebook}
             alt="facebook icon"
-            height="20"
-            width="20"
           />
           <img
             className="twitter-icon"
             src={Twitter}
             alt="twitter icon"
-            height="20"
-            width="20"
           />
 
           <img
             className="pinterest-icon"
             src={Pinterest}
             alt="pinterest icon"
-            height="20"
-            width="20"
           />
 
         </div>

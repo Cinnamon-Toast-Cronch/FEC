@@ -25,40 +25,37 @@ function StyleSelector({
     <div>
       <div className="stylesContainer">
         <SizeSelector selectedStyle={selectedStyle} />
+
         <p className="selectedStyle">
           Style
           <span>{selectedStyle ? selectedStyle.name : null}</span>
         </p>
-        <div className="style-thumbnail-row">
-          {styles.map((style, index) => (
-            <div
-              className="style-thumbnail-column"
-              key={style.style_id}
-            >
+        <div className="styleThumbnailContainer">
+          <div className="style-thumbnail-row">
+            {styles.map((style, index) => (
               <div
-                className="style-image-container"
-                key={style.name}
+                className="style-thumbnail-column"
+                key={style.style_id}
               >
-                <input
-                  className={`${index === 0 ? 'active-style-image' : 'style-image'}`}
-                  type="image"
+                <div
+                  className="style-image-container"
                   key={style.name}
-                  value={index}
-                  onClick={(e) => handleStyle(style, e)}
-                  alt={style.name}
-                  src={style.photos[0].thumbnail_url}
-                />
-                {index === 0 ? (
-                  <img
-                    className="style-checkmark"
-                    src={Checkmark}
-                    alt="checkmark"
+                >
+                  <input
+                    className={`${index === 0 ? 'active-style-image' : 'style-image'}`}
+                    type="image"
+                    key={style.name}
+                    value={index}
+                    onClick={(e) => handleStyle(style, e)}
+                    alt={style.name}
+                    src={style.photos[0].thumbnail_url}
                   />
-                ) : null}
+                  {index === 0 ? <p id="currStyle">&#10003;</p> : null}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
 
+          </div>
         </div>
       </div>
     </div>

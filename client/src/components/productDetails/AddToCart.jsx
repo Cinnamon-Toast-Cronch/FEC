@@ -19,15 +19,8 @@ function AddToCart({ selection, handleSizeView }) {
   };
   return (
     <div>
-      <button type="button" onClick={() => handleAddToCart()}>
-        <img
-          className="cart-icon"
-          src={Cart}
-          alt="add to cart"
-          height="20"
-          width="20"
-        />
-
+      <button id="addCartButton" type="button" onClick={() => handleAddToCart()}>
+        Add To Cart +
       </button>
     </div>
 
