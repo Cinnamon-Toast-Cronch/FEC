@@ -1,8 +1,6 @@
 import React from 'react';
 import searchIcon from '../../assets/images/searchIcon.png';
 
-const { useState } = React;
-
 function Search(props) {
   const { search, setSearch, handleSearch } = props;
 
