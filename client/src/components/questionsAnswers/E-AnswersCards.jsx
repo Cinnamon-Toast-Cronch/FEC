@@ -81,10 +81,10 @@ function AnswersCards(props) {
               alt="user uploaded"
               onClick={() => {
                 setOpenModal(true);
-                setCurrentModalImg(photo.url);
+                setCurrentModalImg(url);
               }}
             />
-            {openModal && <PhotoModal url={url} closeModal={setOpenModal} />}
+            {/* {openModal && <PhotoModal url={url} closeModal={setOpenModal} />} */}
           </div>
         ))}
         {openModal && (
