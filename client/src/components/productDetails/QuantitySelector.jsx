@@ -20,7 +20,7 @@ function QuantitySelector({ selectedSizeAmount, handleQuantity }) {
           handleQuantity(e);
         }}
         >
-          <label htmlFor="Quantity">Select Quantity</label>
+          <label className="quantity" htmlFor="Quantity">Select Quantity</label>
           <select name="quantity" id="quantity">
             {(selectedSizeAmount > 0) ? <option defaultValue="selected"> 1 </option> : <option defaultValue="selected" disabled> - </option>}
             {quantityList.map((quantity) => (

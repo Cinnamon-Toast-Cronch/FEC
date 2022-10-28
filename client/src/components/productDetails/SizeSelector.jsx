@@ -18,7 +18,6 @@ function SizeSelector({ selectedStyle }) {
       setSelection({ ...selection, style: selectedStyle.name });
     }
   }, [selectedStyle]);
-  console.log(selection);
 
   if (skus) {
     const sizesAndAmount = Object.values(skus);
@@ -50,7 +49,7 @@ function SizeSelector({ selectedStyle }) {
           }}
           >
             {addCartNoSize ? <p className="no-size">Please select size.</p> : null}
-            <label htmlFor="Sizes">Select Size</label>
+            <label className="sizes" htmlFor="Sizes">Select Size</label>
             <select name="sizes" id="sizes">
               {selectedSizeAmount ? <option defaultValue="selected" disabled>{(sizesAndAmount.length === 0) ? 'Out Of Stock' : 'Select Size'}</option> : <option defaultValue="selected">{(sizesAndAmount.length === 0) ? 'Out Of Stock' : 'Select Size'}</option>}
               {sizesAndAmount.map((size, index) => (

@@ -33,46 +33,74 @@
 
 .product-info-column {
   width: 40%;
-  padding: 10px;
-
-
+  height: inherit;
+  object-fit: contain;
+  padding: 1vh;
+  margin-top: 3vh;
+  /* padding: 1vh; */
+  /* box-sizing: border-box; */
 
 }
 
+.product-info-container {
+  height: inherit;
+}
 
 /* Product Information */
 .product-information {
-  box-sizing: content-box;
-  margin-bottom: 1rem;
+
   position: relative;
+  width: auto;
 
 }
 .p {
   margin-top: 1em;
 }
-#product-title {
-  font-size: x-large;
-
-}
 
 #product-category {
-  font-size: medium;
+  font-size: 1em;
+  text-transform: uppercase;
+  border-bottom: 2px solid #ddd;
+  padding: 1px;
 
 }
+#product-title {
+  font-size: 1.7em;
+  text-transform: uppercase;
+  padding-top: .25em;
+  padding-bottom: .25em;
+  color: #444;
+
+
+}
+.stylesContainer {
+  text-transform: uppercase;
+  width: 100%;
+}
+
 #product-price {
+  font-size: 1em;
+  color: #444;
 
 }
 
 .product-overview {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 
 }
 
 #product-slogan {
-
+  font-size: 1em;
+  margin-top: 2.75px;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
 }
 
 #product-description {
-
+  font-size: .9em;
+  margin-top: 1px;
+  font-weight: lighter;
 }
 
 .product-reviews {
@@ -80,13 +108,22 @@
 }
 
 #read-reviews {
+  margin-top: 0.5em;
+  font-size: 1em;
 
+  text-transform: uppercase;
+  font-weight: lighter;
+  color: #444;
 }
 
 .social-media-icons {
-
-
+  display: flex;
+  height: 1.7em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  height: 30px;
 }
+
 
 #sale-price {
   color: rgb(255, 0, 0);
@@ -95,24 +132,108 @@
 #before-sale-price {
   text-decoration: line-through;
 }
+label.sizes {
+  font-size: 1em;
+  text-transform: uppercase;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  color: #444;
+  padding-right: 0.5em;
+}
+select#sizes {
+  font-size: 1em;
+  padding: 0.5px;
+  color: #707070;
+  text-transform: uppercase;
+  box-shadow: rgb(100 100 111 / 20%);
+  border-radius: 5px;
+  cursor: pointer;
+}
+label.quantity {
+  font-size: 1em;
+  text-transform: uppercase;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  color: #444;
+  padding-right: 0.5em;
+
+}
+
+select#quantity {
+  font-size: 1em;
+  padding: 0.5px;
+  color: #707070;
+  text-transform: uppercase;
+  box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#sizeDropDown.sizeContent {
+  margin-top: 0.5em;
+}
+.quantityContent {
+  margin-top: 0.5em;
+}
+p.no-size {
+  padding-bottom: 5px;
+  color: #444;
+}
+button#addCartButton {
+
+  background-color: transparent;
+  font: inherit;
+  border: 1px solid #707070;
+  border-radius: 5px;
+  padding: 0.25em;
+  padding-left: 2.7em;
+  padding-right: 2.7em;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+p.selectedStyle {
+  font-size: 1em;
+    /* font-weight: 500; */
+    color: #444;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+    font-weight: bold;
+}
+.selectedStyle span {
+  padding-left: 0.5em;
+  color: #707070;
+  text-underline-position: auto;
+}
   /* ADD POINTERS FOR WHERE U CAN CLIKC */
+  .styleThumbnailContainer {
+    /* height: inherit;
+    width: auto; */
+    position: relative;
+
+  }
 .stylesContainer {
   width: 100%;
+  text-transform: uppercase;
 
 
 }
 .style-thumbnail-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  min-height: 35vh;
+
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  height: 100%
 }
 .style-thumbnail-column {
-  /* flex: 25%; */
-  padding: 5px;
-  display: flex;
-
-
+  width: 60px;
+  height: 60px;
 }
+
 
 .styleThumbnails {
   /* display: flex;
@@ -125,8 +246,8 @@
   cursor: pointer; */
 }
 .style-image-container {
-  position: relative;
-  width: 100%;
+ width: 75%;
+ height: 75%;
 
 }
 .style-image-container .style-checkmark {
@@ -134,33 +255,154 @@
 
   height: 50%;
   width: 100%;
-  /* opacity: 1; */
+  opacity: 1;
   transform: translate(-79%, -10%);
 
   text-align: center;
   z-index: 2;
 
 }
-.style-image, .active-style-image {
-  cursor: pointer;
-  padding: 2px;
-  border-radius: 5px;
-  width: 10vw;
-  height: 20vh;
-  object-fit: cover;
 
+.style-image, .active-style-image {
+
+  border-radius: 5px;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+p#currStyle {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  font-size: xxx-large;
+  color: white;
+  opacity: .8;
+
+}
+.product-details-modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(0, 0, 0, 0.5);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+/* Zoom Image View */
+.zoom-image {
+  --x: 0px;
+  --y: 0px;
+  /* background-size: 1000px; */
+  /* background-position: var(--x) var(--y);
+  width: 300px;
+  height: 300px;
+  --x: 0px;
+  --y: 0px; */
+  background-position: var(--x) var(--y);
+  min-width: 90vw;
+  min-height: 90vh;
+  background-repeat: no-repeat;
+  transform: scale(2.5);
+  cursor: zoom-out;
+
+}
+/* make position relative container for modal? */
+
+/* Expanded Gallery View */
+.expand-image-container {
+  display: flex;
+  position: relative;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+
+.expand-image-modal {
+  background-color: white;
+  border-radius: 20px;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  width: 100%;
+  height: 100%;
+}
+
+.close-expand {
+  background-color: transparent;
+    font: inherit;
+    border: 3px solid #707070;
+    color: inherit;
+    /* border-radius: 0; */
+    padding: 5px;
+    font-weight: bold;
+    /* margin-left: 1%; */
+    margin-right: 1%;
+    z-index: 5;
+    position: absolute;
+    top: 10%;
+    border-radius: 5px;
+    font-size: x-large;
+}
+.expand-image-modal * {
+  display: block;
+}
+
+#expanded.main-image {
+  max-width: 95vw;
+  max-height: 95vh;
+  position: relative;
+  cursor: crosshair;
+}
+
+#default.main-image {
+  object-fit: contain;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* //just add// */
+  height: 100%;
 
 }
 
 
+.expand-image-modal .gallery-left-arrow .gallery-right-arrow {
+  z-index: 10;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 5px;
+  border-color: transparent;
+  color: rgb(224, 16, 16);
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
 
-/* @media only screen and (min-width: 62rem) .product-details-container {
-  padding-right: 1.5625rem;
-  padding-left: 1.5625rem;
-} */
-/* *, :after, :before {
-  box-sizing: border-box;
-} */
+
+
+}
+.expand-image-modal .gallery-right-arrow {
+  right: 10%;
+}
+.expand-image-modal .gallery-left-arrow {
+  left: 10%;
+}
+
+.expand-image-modal .thumbnail-container {
+
+}
+
+
 
 .product-details-container {
   /* margin-right: auto;
@@ -169,6 +411,7 @@ box-sizing: border-box;
   /* max-width: 85.75rem; */
   margin: 0 auto;
   position: relative;
+  padding: 20px;
   /* display: flex; */
   width: 100%;
   /* max-width: 1366px;
@@ -178,22 +421,18 @@ box-sizing: border-box;
 .product-components-wrapper {
   display: flex;
   flex: 0 1 auto;
-  /* flex-direction:row; */
   box-sizing: border-box;
   /* min-height: inherit; */
   height: 100vh;
-  z-index: 3;
-  /* justify-content: space-evenly; */
-
-  /* align-items:  */
+  /* z-index: 3; */
 
 }
 .product-image-column {
   width: 60%;
-  height: auto;
+  height: inherit;
   padding: 5px;
   object-fit: contain;
-  border: 1px solid;
+
 
 }
 
@@ -206,7 +445,7 @@ height: 100%;
 .image-wrapper-content {
     display: flex;
     position: relative;
-    z-index: 10;
+    /* z-index: 10; */
     text-align: center;
     height: 100%;
     width: 100%;
@@ -218,7 +457,7 @@ height: 100%;
   .default-gallery-container {
 
     /* justify-content: center; */
-    display: flex;
+    /* display: flex; */
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
@@ -236,13 +475,13 @@ height: 100%;
 .gallery-right-arrow, .gallery-left-arrow {
 
   z-index: 10;
-  font-size: 25px;
+  font-size: 4vh;
   font-weight: bold;
   background-color: transparent;
   cursor: pointer;
   padding: 5px;
   border-color: transparent;
-  color: rgb(224, 16, 16);
+  color: rgb(255, 255, 255);
   border-radius: 5px;
   position: absolute;
   top: 50%;
@@ -252,10 +491,10 @@ height: 100%;
 }
 .gallery-right-arrow {
   /* transform: translate(50%, 100%); */
-  right: 0;
+  right: 3vw;
 }
 .gallery-left-arrow {
-  /* transform: translate(50%, 0%); */
+  transform: translate(50%, 0%);
 }
 .gallery-right-arrow:hover,
 .gallery-left-arrow:hover {
@@ -270,6 +509,8 @@ height: 100%;
   align-items: center;
   width: 100%;
   height: 100%;
+  /* just addi */
+  justify-content: center;
 
 }
 .main-image {
@@ -278,16 +519,7 @@ height: 100%;
 
 
 }
-.main-image:target {
-  /* transform: scale(0.8) */
-}
-img.main-image {
-  object-fit: contain;
-  position: absolute;
-  left: 0;
-  top: 0;
 
-}
 .active-thumbnail, .thumbnail {
   display: inline-flex;
   width: 1.5rem;
@@ -301,6 +533,7 @@ img.main-image {
   width:  100%;
   height: 100%;
   opacity: 0.6;
+  cursor: pointer;
 
 }
 .active-thumbnail,
@@ -314,11 +547,11 @@ img.main-image {
   /* transition: all .3s ease 0s; */
 }
 .thumbnail-container {
-  /* align-self: flex-start; */
-  margin: 5px;
+
   top: 30%;
   position: absolute;
-  width: 15%;
+  width: 20%;
+  left: 5%;
 }
 
 
@@ -344,6 +577,7 @@ img.main-image {
   margin: 20px;
   cursor: pointer;
   transition: 0.2s ease-in-out;
+
 }
 .closeBtn:hover {
   color: rgb(255, 255, 255);

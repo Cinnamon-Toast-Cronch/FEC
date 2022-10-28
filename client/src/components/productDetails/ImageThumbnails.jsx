@@ -1,6 +1,4 @@
 import React from 'react';
-import upArrow from '../../assets/images/arrowIcons/upArrow.svg';
-import downArrow from '../../assets/images/arrowIcons/downArrow.svg';
 
 const { useState, useEffect } = React;
 

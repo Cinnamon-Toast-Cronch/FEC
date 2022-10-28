@@ -10,10 +10,6 @@ function AddToCart({ selection, handleSizeView }) {
     localStorage.setItem('cart', JSON.stringify(cartSelection));
   }, [cartSelection]);
 
-  // Note: implement local storage for functionality
-
-  // Note: will implement form pop up view if size selection is empty
-
   const handleAddToCart = () => {
     if (selection.size === '') {
       handleSizeView();
@@ -23,15 +19,8 @@ function AddToCart({ selection, handleSizeView }) {
   };
   return (
     <div>
-      <button type="button" onClick={() => handleAddToCart()}>
-        <img
-          className="cart-icon"
-          src={Cart}
-          alt="add to cart"
-          height="20"
-          width="20"
-        />
-
+      <button id="addCartButton" type="button" onClick={() => handleAddToCart()}>
+        Add To Cart +
       </button>
     </div>
 

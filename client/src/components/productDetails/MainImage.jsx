@@ -1,21 +1,52 @@
 import React from 'react';
 
-function MainImage({ imageUrl, isExpanded, setExpandView }) {
-  // -HOVER: mouse icon changes to magnifying glass
-  // -CLICK on image -->  gallery changes to expanded view
-  console.log(imageUrl);
+const { useState } = React;
 
-  return (
-    <img
-      className="main-image"
-      src={imageUrl}
-      alt="placeholder"
-      style={{ width: '100%' }}
-    />
-  );
+function MainImage({ imageUrl, isExpanded, setExpandView }) {
+  const [clickZoom, setClickZoom] = useState(false);
+
+  const handleZoom = () => {
+    const zoomImg = document.querySelector('.zoom-image');
+    zoomImg.addEventListener('mousemove', (e) => {
+      zoomImg.style.setProperty('--x', `${-e.offsetX}px`);
+      zoomImg.style.setProperty('--y', `${-e.offsetY}px`);
+    });
+  };
+
+  if (isExpanded && !clickZoom) {
+    return (
+      <img
+        className="main-image"
+        id="expanded"
+        src={imageUrl}
+        alt="placeholder"
+
+        onClick={() => setClickZoom(true)}
+      />
+    );
+  }
+  if (clickZoom) {
+    return (
+      <img
+        className="zoom-image"
+        id="zoom"
+        style={{ backgroundImage: `url(${imageUrl})` }}
+        onClick={() => setClickZoom(false)}
+        onMouseMove={(e) => handleZoom(e)}
+      />
+    );
+  }
+  if (!isExpanded) {
+    return (
+      <img
+        className="main-image"
+        id="default"
+        src={imageUrl}
+        alt="placeholder"
+        onClick={() => setExpandView(true)}
+      />
+    );
+  }
 }
 
 export default MainImage;
-// <div
-//   style={{ backgroundImage: 'url("imageUrl")' }}
-// />;

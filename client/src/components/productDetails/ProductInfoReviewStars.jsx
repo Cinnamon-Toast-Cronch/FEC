@@ -1,21 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import _ from 'underscore';
 import StarRating from '../ratingsReviews/StarRating.jsx';
 
-// import the star rating file
-// takes in product/product id
-// does axios get to reviews/meta/product id
-// pass in the argument into star rating file
-function ProductInfoReviewStars({ avgRating }) {
-  const [rating, setRating] = useState(0);
-
-  useEffect(() => {
-    setRating(avgRating);
-  }, [avgRating]);
-
-  if (rating) {
+function ProductInfoReviewStars({ reviews, reviewCount }) {
+  const avgRating = _.reduce(reviews, (memo, num, key) => memo + num * parseInt(key, 10), 0)
+  / reviewCount;
+  if (avgRating) {
     return (
-      <StarRating rating={avgRating} />
+      <StarRating rating={parseFloat(avgRating.toFixed(1), 10)} />
     );
   }
 }

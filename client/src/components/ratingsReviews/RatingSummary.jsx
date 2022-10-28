@@ -7,11 +7,10 @@ function RatingSummary({ ratings }) {
   const ratingCount = _.reduce(
     ratings,
     (memo, num) => memo + parseInt(num, 10),
-    0
+    0,
   );
-  const avgRating =
-    _.reduce(ratings, (memo, num, key) => memo + num * parseInt(key, 10), 0) /
-    ratingCount;
+  const avgRating = _.reduce(ratings, (memo, num, key) => memo + num * parseInt(key, 10), 0)
+    / ratingCount;
 
   const roundedRating = Number.isNaN(avgRating) ? '0.0' : avgRating.toFixed(1);
   return (

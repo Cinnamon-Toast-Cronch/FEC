@@ -1,8 +1,10 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import MainImage from './MainImage.jsx';
 import ImageThumbnails from './ImageThumbnails.jsx';
 import ArrowButtons from './ArrowButtons.jsx';
 import GalleryList from './GalleryList.jsx';
+import ExpandImageModal from './ExpandImageModal.jsx';
 
 const { useState, useEffect } = React;
 
@@ -18,10 +20,8 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
   const prevImage = () => {
     setCount(count === 0 ? length - 1 : count - 1);
   };
-
-  return (
-    <div className="default-gallery-container" id="default-gallery">
-      {isExpanded ? <button type="button" className="close-expand">&times;</button> : null}
+  const galleryContents = (
+    <>
       <ArrowButtons
         prevImage={prevImage}
         nextImage={nextImage}
@@ -40,7 +40,34 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
         photoUrls={photoUrls}
         handleSelectThumbnail={(num) => setCount(num)}
       />
-    </div>
+    </>
+  );
+  const expandImageModal = (
+    <ExpandImageModal>
+      <div className="expand-image-container">
+        <div className="expand-image-modal">
+          <button
+            type="button"
+            className="close-expand"
+            onClick={() => setExpandView(false)}
+          >
+            &times;
+          </button>
+          {galleryContents}
+        </div>
+      </div>
+    </ExpandImageModal>
+  );
+
+  return (
+    <>
+      {isExpanded ? ReactDOM.createPortal(expandImageModal, document.body)
+        : (
+          <div className="default-gallery-container" id="default-gallery">
+            {galleryContents}
+          </div>
+        )}
+    </>
   );
 }
 export default DefaultGallery;
