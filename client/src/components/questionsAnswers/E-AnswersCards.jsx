@@ -20,7 +20,7 @@ const months = {
 };
 
 function AnswersCards(props) {
-  const { answer, loadData /*loadAnswers*/ } = props;
+  const { answer, loadData } = props;
   const {
     body, answerer_name, date, helpfulness, id, photos
   } = answer;
@@ -55,8 +55,8 @@ function AnswersCards(props) {
           localStorage.setItem(`answer-${id}`, true);
         })
         .then(() => setHelpful(true))
-        .then(() => loadData());
-        //.then(() => loadAnswers());
+        .then(() => loadData())
+        .catch((err) => console.error(err));
     }
   }
 

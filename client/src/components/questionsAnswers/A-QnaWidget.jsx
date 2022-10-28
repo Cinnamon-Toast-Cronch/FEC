@@ -31,7 +31,8 @@ function QnaWidget(props) {
     axios.get('/qa/questions', queryParams)
       .then((response) => {
         setQuestions(response.data.results);
-      });
+      })
+      .catch((err) => console.error(err));
   }
 
   useEffect(() => {
@@ -56,14 +57,6 @@ function QnaWidget(props) {
     setNoQs(4);
   }, [product]);
 
-  // useEffect(() => {
-  //   if (search.length <= 2) {
-  //     loadData();
-  //   } else {
-  //     handleSearch(search);
-  //   }
-  // }, [product, noQs]);
-
   useEffect(() => {
     handleSearch(search);
   }, [search]);
@@ -79,8 +72,8 @@ function QnaWidget(props) {
       .then(() => {
         setOpenModal(false);
       })
-      .catch((err) => console.error(err))
-      .then(() => loadData());
+      .then(() => loadData())
+      .catch((err) => console.error(err));
   }
 
   return (

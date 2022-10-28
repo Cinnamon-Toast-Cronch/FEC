@@ -18,47 +18,26 @@ function QuestionsCards(props) {
   const [openModal, setOpenModal] = useState(false);
   const [helpful, setHelpful] = useState(localStorage.getItem(`question-${question_id}`));
 
-  // function loadAnswers() {
-  //   const params = {
-  //     params: {
-  //       page: 1,
-  //       count: 25,
-  //     },
-  //   };
-
-  //   axios.get(`/qa/questions/${question_id}/answers`, params)
-  //     .then((response) => {
-  //       setAnswers(response.data.results);
-  //       setDisplayedAs(response.data.results.slice(0, noAs));
-  //     })
-  //     .then(() => {
-  //       if (helpful === null) {
-  //         setHelpful(false);
-  //       }
-  //     });
-  // }
-
   useEffect(() => {
-    console.log('question is changed!', answersArray);
     if (helpful === null) {
       setHelpful(false);
     }
     setAnswersArray((Object.values(answers)));
     setDisplayedAs((Object.values(answers).slice(0, 2)));
-    //loadAnswers();
   }, [displayedQs]);
 
   function helpfulQ(question_id) {
     if (helpful === false) {
       axios.put(`/qa/questions/${question_id}/helpful`)
-        .then((response) => {
-          console.log(response);
+        .then(() => {
           localStorage.setItem(`question-${question_id}`, true);
-        }).then(() => setHelpful(true)).then(() => loadData());
+        })
+        .then(() => setHelpful(true))
+        .then(() => loadData())
+        .catch((err) => console.error(err));
     }
   }
 
-  // TODO: HANDLE PHOTOS IN AXIOS POST REQUEST
   function handleModalSubmit(text, nickname, userEmail, photos) {
     const body = {
       body: text,
@@ -70,9 +49,8 @@ function QuestionsCards(props) {
       .then(() => {
         setOpenModal(false);
       })
-      .catch((err) => console.error(err))
-      .then(() => loadData());
-    // .then(() => loadAnswers());
+      .then(() => loadData())
+      .catch((err) => console.error(err));
   }
 
   return (
@@ -119,7 +97,6 @@ function QuestionsCards(props) {
           <AnswersCards
             className="answersCards"
             loadData={loadData}
-            // loadAnswers={loadAnswers}
             answer={answer}
             i={i}
             key={i}
