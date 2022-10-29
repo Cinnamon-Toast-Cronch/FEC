@@ -122,14 +122,6 @@
   color: black;
 }
 
-.rating-breakdown-row:hover > div {
-  background-color: black;
-}
-
-.rating-breakdown-row:hover > div > div {
-  background-color: #1d8541;
-}
-
 .rating-breakdown-row * {
   display: inline-block;
   white-space: nowrap;
@@ -143,13 +135,7 @@
 .distribution-background {
   height: 1em;
   width: 10em;
-  background-color: #707070;
   margin: 0 5px;
-}
-
-.distribution-foreground {
-  height: 1em;
-  background-color: #73b98c;
 }
 
 .reset-filter-button {
