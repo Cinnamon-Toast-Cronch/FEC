@@ -1,7 +1,4 @@
-// TODO create thorough setup instructions
-// CRONCH
-//TODO create thorough setup instructions
+Welcome to our Front End Capstone project! 
 
-## Read the manual
-
+<iframe src="https://giphy.com/embed/6uKMx3bejVl6vqLJX8" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/6uKMx3bejVl6vqLJX8">via GIPHY</a></p>
 
