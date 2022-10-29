@@ -104,17 +104,20 @@ function ReviewList({ productId, filters, characteristics }) {
   const contentWithReviews = (
     <>
       <div className="review-sort-bar">
-        <p>Sorted on:</p>
-        <select
-          onChange={(e) => {
-            setSort(e.target.value);
-            setDisplayCount(2);
-          }}
-        >
-          <option value="relevant">Relevant</option>
-          <option value="newest">Newest</option>
-          <option value="helpful">Helpful</option>
-        </select>
+        <label htmlFor="review-sort-select">
+          Sorted on:
+          <select
+            onChange={(e) => {
+              setSort(e.target.value);
+              setDisplayCount(2);
+            }}
+            id="review-sort-select"
+          >
+            <option value="relevant">Relevant</option>
+            <option value="newest">Newest</option>
+            <option value="helpful">Helpful</option>
+          </select>
+        </label>
       </div>
       <div className="review-list">
         {displayList.slice(0, displayCount)}

@@ -166,7 +166,7 @@
 }
 
 .rnr-characteristic-visualization p {
-  font-size: 0.7em;
+  font-size: 0.8em;
   width: 33%;
   display: inline-block;
   text-align: center;
@@ -221,10 +221,6 @@
   background-color: inherit;
   border: none;
   cursor: pointer;
-}
-
-.review-sort-bar p {
-  display: inline-block;
 }
 
 .rating-review-right-column {
