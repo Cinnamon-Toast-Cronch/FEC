@@ -39,7 +39,7 @@ function RatingBreakdown({
       <p className="rnr-recommended-percentile">{`${percentageRecommended}% of buyers recommend this product`}</p>
       <div className="rnr-filter-row">
         <div className="rnr-applied-filter-row">
-          <h6>Applied Filters</h6>
+          <h3>Applied Filters</h3>
           <button
             className="reset-filter-button text-like-button"
             type="button"
