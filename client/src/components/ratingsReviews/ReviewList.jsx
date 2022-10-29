@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Axios from 'axios';
 import _ from 'underscore';
-import ReactDOM from 'react-dom';
 import ReviewTile from './ReviewTile.jsx';
 import Modal from './Modal.jsx';
 import ReviewSubmissionForm from './ReviewSubmissionForm.jsx';
@@ -37,8 +36,23 @@ function ReviewList({ productId, filters, characteristics }) {
     },
   };
 
+  const fetchMoreReviews = () => {};
+
   useEffect(() => {
     if (productId !== undefined) {
+      Axios.get(
+        `/reviews?product_id=${productId}&sort=relevant&count=100`
+      ).then((response) => {
+        setReviews(response.data.results);
+        setPage(2);
+        setDisplayCount(2);
+        setSort('relevant');
+      });
+    }
+  }, [productId]);
+
+  useEffect(() => {
+    if (reviews.length) {
       Axios.get(
         `/reviews?product_id=${productId}&sort=relevant&page=${page}&count=100`
       ).then((response) => {
@@ -51,7 +65,7 @@ function ReviewList({ productId, filters, characteristics }) {
         );
       });
     }
-  }, [productId, reviews.length]);
+  }, [reviews.length]);
 
   const displayList = [...reviews]
     .filter((review) => {
@@ -91,7 +105,6 @@ function ReviewList({ productId, filters, characteristics }) {
 
   const contentWithReviews = (
     <>
-      {' '}
       <div className="review-sort-bar">
         <p>Sorted on:</p>
         <select
