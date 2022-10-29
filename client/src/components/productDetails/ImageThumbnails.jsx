@@ -1,4 +1,6 @@
 import React from 'react';
+import upArrow from '../../assets/images/arrowIcons/upArrow.svg';
+import downArrow from '../../assets/images/arrowIcons/downArrow.svg';
 
 const { useState, useEffect } = React;
 
@@ -38,8 +40,8 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
               className="thumbnail-up-arrow"
               src={upArrow}
               alt="upward arrow"
-              height="50"
-              width="50"
+              height="20"
+              width="20"
             />
           </button>
         ) : null}

@@ -4,28 +4,6 @@
 *
 */
 
-/*
-* Product Details Container
-/*
-
-
-.product-details-container {
-  display: flex;
-  font-size: 15px;
-  color:rgb(0, 0, 0);
-  height: 150vh;
-  overflow: hidden;
-  /* max-height: 650px;
-  overflow: scroll; */
-  /* width: 100vw;
-  max-height: 100vh; */
-  /* width: auto;
-  height: 40em;
-  align-items: center;
-  padding: 10px;
-
-
-} */
 
 * {
   box-sizing: border-box;
@@ -206,19 +184,19 @@ p.selectedStyle {
   color: #707070;
   text-underline-position: auto;
 }
-  /* ADD POINTERS FOR WHERE U CAN CLIKC */
-  .styleThumbnailContainer {
-    /* height: inherit;
-    width: auto; */
-    position: relative;
+/* ADD POINTERS FOR WHERE U CAN CLIKC */
+.styleThumbnailContainer {
+  /* height: inherit;
+  width: auto; */
+  position: relative;
 
-  }
+}
+
 .stylesContainer {
   width: 100%;
   text-transform: uppercase;
-
-
 }
+
 .style-thumbnail-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -235,16 +213,6 @@ p.selectedStyle {
 }
 
 
-.styleThumbnails {
-  /* display: flex;
-  flex-wrap: wrap;
-  flex-direction:row;
-  box-sizing: border-box;
-  position: relative;
-  justify-content: start;
-  margin-top: 1rem;
-  cursor: pointer; */
-}
 .style-image-container {
  width: 75%;
  height: 75%;
@@ -553,7 +521,37 @@ height: 100%;
   width: 20%;
   left: 5%;
 }
+img.thumbnail-up-arrow {
+  z-index: 10;
+  font-size: 4vh;
+  font-weight: bold;
+  background-color: transparent;
+  cursor: pointer;
+  border-color: transparent;
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
 
+  /* position: absolute; */
+}
+
+img.thumbnail-down-arrow {
+  z-index: 10;
+  font-size: 4vh;
+  font-weight: bold;
+  background-color: transparent;
+  cursor: pointer;
+  border-color: transparent;
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+}
+button.thumbnail-down-arrow, button.thumbnail-up-arrow {
+  background-color: rgb(255 255 255);
+  opacity: .5;
+  border-radius: 5px;
+}
+button.thumbnail-down-arrow:hover, button.thumbnail-up-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.271);
+}
 
 
 
