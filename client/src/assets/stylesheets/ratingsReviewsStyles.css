@@ -220,6 +220,7 @@
   color: inherit;
   background-color: inherit;
   border: none;
+  cursor: pointer;
 }
 
 .review-sort-bar p {
@@ -303,6 +304,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .helpful-bar * {
@@ -373,6 +375,10 @@
   gap: 5px;
 }
 
+.rnr-overall-rating > div {
+  cursor: pointer;
+}
+
 .rnr-submission-form label:has(input[type='text']),
 .rnr-submission-form label:has(textarea) {
   display: flex;
@@ -391,6 +397,11 @@
 
 .rnr-submission-form textarea {
   resize: none;
+}
+
+.rnr-submission-form label:has(input[type='radio']),
+.rnr-submission-form input[type='radio'] {
+  cursor: pointer;
 }
 
 .rnr-submission-form label:has(input[type='radio']:checked) {
