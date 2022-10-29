@@ -36,8 +36,6 @@ function ReviewList({ productId, filters, characteristics }) {
     },
   };
 
-  const fetchMoreReviews = () => {};
-
   useEffect(() => {
     if (productId !== undefined) {
       Axios.get(
