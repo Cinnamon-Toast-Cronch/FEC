@@ -170,6 +170,7 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
               characteristicId={char.id}
               onSelection={onChangeCharacteristic}
               required={!formData.characteristics[char.id] && required}
+              key={char.id}
             />
           ))}
         </div>
