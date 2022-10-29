@@ -160,7 +160,7 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
             />
             no
           </label>
-          {!formData.recommend && required}
+          {formData.recommend === undefined && required}
         </div>
         <hr />
         <div className="rnr-characteristic-rows">
