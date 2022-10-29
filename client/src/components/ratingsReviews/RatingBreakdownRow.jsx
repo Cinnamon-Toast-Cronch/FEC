@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import RatingDistributionBar from './RatingDistributionBar.jsx';
 
@@ -8,6 +8,8 @@ function RatingBreakdownRow({
   totalRatingCount,
   toggleFilter,
 }) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <button
       className="rating-breakdown-row text-like-button"
@@ -15,11 +17,14 @@ function RatingBreakdownRow({
       onClick={() => {
         toggleFilter(rating);
       }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <p>{`${rating} stars`}</p>
       <RatingDistributionBar
         ratingCount={ratingCount}
         totalRatingCount={totalRatingCount}
+        isHovered={isHovered}
       />
       <p>{ratingCount}</p>
     </button>

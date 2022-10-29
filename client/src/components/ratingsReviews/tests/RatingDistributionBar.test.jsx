@@ -5,53 +5,50 @@ import RatingDistributionBar from '../RatingDistributionBar.jsx';
 afterEach(cleanup);
 
 describe('Rating distribution bar', () => {
-  test('rating distribution bar should be a distribution backgrou that contains a distribution foreground', () => {
+  test('rating distribution bar should be a singular div', () => {
     const { container } = render(
       <RatingDistributionBar ratingCount={5} totalRatingCount={10} />
     );
 
     const backgroundElement = container.firstChild;
-    const foregroundElement = backgroundElement.firstChild;
 
     expect(backgroundElement.tagName).toBe('DIV');
     expect(backgroundElement).toHaveClass('distribution-background');
-    expect(foregroundElement.tagName).toBe('DIV');
-    expect(foregroundElement).toHaveClass('distribution-foreground');
   });
 
-  test('distribution-foreground should have a width of 0% when there are no ratings for that rating ', () => {
+  test('distribution-background gradient should have a color stop of 0% when there are no ratings for that rating', () => {
     const { container } = render(
       <RatingDistributionBar ratingCount={0} totalRatingCount={10} />
     );
 
-    const foregroundElement = container.firstChild.firstChild;
+    const backgroundElement = container.firstChild;
 
-    expect(foregroundElement).toHaveStyle({
-      width: '0%',
+    expect(backgroundElement).toHaveStyle({
+      background: 'linear-gradient(90deg, #73b98c 0%, #707070 0%)',
     });
   });
 
-  test('distribution-foreground should have a width of 50% when the rating count for that rating is half of the total ratings', () => {
+  test('distribution-background gradient should have a color stop of 50% when the rating count for that rating is half of the total ratings', () => {
     const { container } = render(
       <RatingDistributionBar ratingCount={5} totalRatingCount={10} />
     );
 
-    const foregroundElement = container.firstChild.firstChild;
+    const backgroundElement = container.firstChild;
 
-    expect(foregroundElement).toHaveStyle({
-      width: '50%',
+    expect(backgroundElement).toHaveStyle({
+      background: 'linear-gradient(90deg, #73b98c 50%, #707070 50%)',
     });
   });
 
-  test('distribution-foreground shoudl have a width of 100% when the rating count for that rating equals the totalRatingCount', () => {
+  test('distribution-background gradient should have a color stop of 100% when the rating count for that rating equals the totalRatingCount', () => {
     const { container } = render(
       <RatingDistributionBar ratingCount={10} totalRatingCount={10} />
     );
 
-    const foregroundElement = container.firstChild.firstChild;
+    const backgroundElement = container.firstChild;
 
-    expect(foregroundElement).toHaveStyle({
-      width: '100%',
+    expect(backgroundElement).toHaveStyle({
+      background: 'linear-gradient(90deg, #73b98c 100%, #707070 100%)',
     });
   });
 });

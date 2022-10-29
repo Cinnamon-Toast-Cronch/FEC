@@ -25,12 +25,14 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
       setRange(range[0] === 0 ? range : [range[0] - 1, range[1] - 1]);
     };
     const nextThumbnail = () => {
-      setRange(range[1] === thumbnailLength - 1 ? range : [range[0] + 1, range[1] + 1]);
+      setRange(
+        range[1] === thumbnailLength - 1 ? range : [range[0] + 1, range[1] + 1]
+      );
     };
 
     return (
       <div className="thumbnail-container">
-        {thumbnailUrls.length > 6 && range[0] > 0 ? (
+        {/* {thumbnailUrls.length > 6 && range[0] > 0 ? (
           <button
             className="thumbnail-up-arrow"
             type="button"
@@ -44,14 +46,16 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
               width="20"
             />
           </button>
-        ) : null}
+        ) : null} */}
         <div className="thumbnail-row">
           {thumbnailUrls.map((thumbnail, index) => (
             <div className="thumbnail-column" key={index}>
               {index <= range[1] && index >= range[0] ? (
                 <span className="thumbnail-image-container">
                   <img
-                    className={`${count === index ? 'active-thumbnail' : 'thumbnail'}`}
+                    className={`${
+                      count === index ? 'active-thumbnail' : 'thumbnail'
+                    }`}
                     src={thumbnail}
                     onClick={() => {
                       handleSelectThumbnail(index);
@@ -66,7 +70,7 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
           ))}
         </div>
 
-        {thumbnailUrls.length > 6 && range[1] < thumbnailUrls.length - 1 ? (
+        {/* {thumbnailUrls.length > 6 && range[1] < thumbnailUrls.length - 1 ? (
           <button
             className="thumbnail-down-arrow"
             type="button"
@@ -80,7 +84,7 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
               width="20"
             />
           </button>
-        ) : null }
+        ) : null} */}
       </div>
     );
   }
