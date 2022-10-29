@@ -14,7 +14,7 @@
 <h2>
   About the project:
 </h2>  
-<p> This repo is the front-end capstone for the Cinnamon-Toast-Cronch group working to complete the Hack Reactor advanced software engineering bootcamp. The project is a representation of the skills we have developed over the course of learning to become software engineers.  We worked together as a group of four to implement the repo from scratch and develop a client-facing storefront website according to the specifications of a business requirements document using an API provided by Hack Reactor.  The work included but was not limited to: 
+<p> The project is an e-commerce website developed according to business requirements documents set out by Hack Reactor.  It contains four primary modules including product details, related items, questions and answers, and ratings and reviews modules.  We worked together as a group of four to implement the repo from scratch and develop a client-facing storefront website using an API provided by Hack Reactor.  The work included but was not limited to: 
 <ol>
   <li>Creating a blank repository and building a file skeleton, including dependencies</li>
   <li>Agreeing on technologies we would use throughout the project, including testing software</li>
@@ -85,20 +85,19 @@
   </h2>
   <ul>
     <li>axios</li>
-    <li>babel</li>
-    <li>eslint (airbnb config)</li>
-    <li>express</li>
-    <li>jest</li>
-    <li>morgan</li>
-    <li>node</li>
-    <li>nodemon</li>
     <li>prettier</li>
-    <li>react</li>
-    <li>reactDOM</li>
-    <li>reactDOM-router</li>
     <li>supertest</li>
     <li>underscore</li>
-    <li>webpack</li>
+    <li><img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="aws" /></li>
+    <li><img src="https://img.shields.io/badge/Babel-F9DC3e?style=for-the-badge&logo=babel&logoColor=black" alt="babel badge" /></li>
+    <li><img src="https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white" alt="eslint badge" /></li>
+    <li><img src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB" alt="express badge" /></li>
+    <li><img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" alt="github badge" /></li>
+    <li><img src="https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white" alt="jest badge" /></li>
+    <li><img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white" alt="node badge" /></li>
+    <li><img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="react badge" /></li>
+    <li><img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white" alt="react-router badge" /></li>
+    <li><img src="https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black" alt="webpack badge" /></li>
   </ul>
 
 
