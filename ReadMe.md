@@ -16,7 +16,7 @@
 </h2>
 <p> The project is an e-commerce website developed according to business requirements documents set out by Hack Reactor. It contains four primary widgets including product details, related items, questions and answers, and ratings and reviews. We worked together as a group of four to implement the repo from scratch and develop a client-facing storefront website using a provided API. The work included but was not limited to:
 <ol>
-  <li>Creating a blank repository and building a file skeleton, including dependencies</li>
+  <li>Creating a blank repository and building a file skeleton</li>
   <li>Planning out which technologies we would use throughout the project, including testing software</li>
   <li>Building a server to interact with a provided Hack Reactor API</li>
   <li>Splitting up the app into widgets and agreeing how responsibility for each widget would be divided</li>
