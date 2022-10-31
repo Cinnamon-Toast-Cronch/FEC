@@ -24,8 +24,6 @@ function StyleSelector({
   return (
     <div>
       <div className="stylesContainer">
-        <SizeSelector selectedStyle={selectedStyle} />
-
         <p className="selectedStyle">
           Style
           <span>{selectedStyle ? selectedStyle.name : null}</span>
@@ -57,6 +55,7 @@ function StyleSelector({
 
           </div>
         </div>
+        <SizeSelector selectedStyle={selectedStyle} />
       </div>
     </div>
 
