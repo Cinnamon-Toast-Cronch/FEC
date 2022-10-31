@@ -13,8 +13,8 @@
 <ul>
 <h2>
   About the project:
-</h2>  
-<p> The project is an e-commerce website developed according to business requirements documents set out by Hack Reactor.  It contains four primary modules including product details, related items, questions and answers, and ratings and reviews modules.  We worked together as a group of four to implement the repo from scratch and develop a client-facing storefront website using an API provided by Hack Reactor.  The work included but was not limited to: 
+</h2>
+<p> The project is an e-commerce website developed according to business requirements documents set out by Hack Reactor.  It contains four primary modules including product details, related items, questions and answers, and ratings and reviews modules.  We worked together as a group of four to implement the repo from scratch and develop a client-facing storefront website using an API provided by Hack Reactor.  The work included but was not limited to:
 <ol>
   <li>Creating a blank repository and building a file skeleton, including dependencies</li>
   <li>Agreeing on technologies we would use throughout the project, including testing software</li>
@@ -39,7 +39,21 @@
       <h4>Related Products - primary Author: <a href="https://github.com/KevZhang11" target="_blank">Kevin Zhang</a></h4>
         <details>
           <summary>widget details</summary>
-          <!--- TODO: USE THIS DIV TO DESCRIBE THE RELATED PRODUCTS WIDGET --->
+          <p>
+            The main functionality of the related products component is it lists products related to the displayed product, into cards that displays the related product’s name, image, category, price, and star ratings. The component also has a sibling component called Your Outfits that allows the user to save the displayed product onto a list that will persist as the user browses through the site.
+          </p>
+          <p align="center">
+            <img src="https://media.giphy.com/media/fSSrrPsArFz3LXkm8l/giphy.gif">
+          </p>
+          <p>
+            Users can scroll through the list of related products using the directional arrows. By clicking on the star icon located at the top right corner of the image, users can also see a table comparing all the different features of the displayed product and the selected product.
+          </p>
+          <p align="center">
+            <img src="https://media.giphy.com/media/ulhYXCly8FWWW7tXeF/giphy.gif">
+          </p>
+          <p>
+            By clicking the add to outfit card, users can add the displayed product to their personal list and remove the product by clicking on the ‘X’ button located at the top right corner of the image.
+          </p>
         </details>
     </li>
     <li>
@@ -52,20 +66,20 @@
           <p align="center">
             <img src="https://media.giphy.com/media/k4Il9mNXhhP0VJaiuV/giphy.gif" alt="search for a question" />
           </p>
-          <p> 
-            Users can ask a question by pressing the "add a question" button, which opens up a form submission modal. 
+          <p>
+            Users can ask a question by pressing the "add a question" button, which opens up a form submission modal.
           </p>
           <p align="center">
-            <img src="https://media.giphy.com/media/gOXLtEnkvP1fcxFDdD/giphy.gif" alt="add a question" /> 
+            <img src="https://media.giphy.com/media/gOXLtEnkvP1fcxFDdD/giphy.gif" alt="add a question" />
           </p>
-          <p> 
-            Users can answer a question by pressing the "Add answer" button, which opens a similar form submission modal. 
+          <p>
+            Users can answer a question by pressing the "Add answer" button, which opens a similar form submission modal.
           </p>
           <p align="center">
             <img src="https://media.giphy.com/media/YXVZ0bSOhOL6tZcLat/giphy.gif" alt="add an answer" />
           </p>
-          <p> 
-            Questions and answers both appear in order of helpfulness.  Users can mark a question or an answer as helpful to increase the counter.  Users can do this once per question or answer.  By default, four questions are displayed on the screen with two answers per question.  Users can press the "see more questions" button to display two more questions on the screen. Filters applied by the search bar remain active when displaying more questions.  The number of questions displayed is reset to four if the user selects a different product.  The user can also choose to view all of the answers available for a given question by pressing the "Load more answers" button.  Doing this will switch the button text to "collapse answers" which restores the display to just two answers. 
+          <p>
+            Questions and answers both appear in order of helpfulness.  Users can mark a question or an answer as helpful to increase the counter.  Users can do this once per question or answer.  By default, four questions are displayed on the screen with two answers per question.  Users can press the "see more questions" button to display two more questions on the screen. Filters applied by the search bar remain active when displaying more questions.  The number of questions displayed is reset to four if the user selects a different product.  The user can also choose to view all of the answers available for a given question by pressing the "Load more answers" button.  Doing this will switch the button text to "collapse answers" which restores the display to just two answers.
           </p>
           <p align="center">
             <img src="https://media.giphy.com/media/BlWnlLk0EVNyK9Doap/giphy.gif" alt="q&a accordion behavior" />
@@ -79,7 +93,7 @@
         </details>
     </li>
   </ol>
-  
+
   <h2>
     Technologies:
   </h2>
