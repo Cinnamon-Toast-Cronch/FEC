@@ -44,7 +44,9 @@ function ProductInformation({ product, reviews, selectedStyle }) {
       <div className="product-reviews">
         <ProductInfoReviewStars reviews={reviews} reviewCount={reviewCount} />
         <p id="read-reviews">
-          {reviewCount > 0 ? `Read all ${reviewCount} reviews.` : null}
+          <a href="#rating-review-container">
+            {reviewCount > 0 ? `Read all ${reviewCount} reviews.` : null}
+          </a>
         </p>
         <div className="social-media-icons">
 

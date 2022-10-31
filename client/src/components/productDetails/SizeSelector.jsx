@@ -25,7 +25,6 @@ function SizeSelector({ selectedStyle }) {
 
     const handleSizeSelection = (e) => {
       const currentSku = skuSizes[e.target.value];
-      console.log('skuObj', skus[currentSku]);
       setSelectedSizeAmount(skus[currentSku].quantity);
       setSelection({ ...selection, size: skus[currentSku].size });
       setAddCartNoSize(false);
@@ -42,7 +41,7 @@ function SizeSelector({ selectedStyle }) {
     };
 
     return (
-      <div>
+      <div className="addToCartContainer">
         <div id="sizeDropdown" className="sizeContent">
           <form onChange={(e) => {
             handleSizeSelection(e);

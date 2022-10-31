@@ -7,19 +7,16 @@ function GalleryList({
   if (photoUrls) {
     return (
       <>
-        {photoUrls.map((url, index) => {
-          const key = url.split('-');
-          return (
-            <div
-              className="gallery-slides"
-              key={key[1]}
-            >
-              {index === count && (
-                <MainImage imageUrl={url} isExpanded={isExpanded} setExpandView={setExpandView} />
-              )}
-            </div>
-          );
-        })}
+        {photoUrls.map((url, index) => (
+          <div
+            className="gallery-slides"
+            key={`gallery ${url}`}
+          >
+            {index === count && (
+              <MainImage imageUrl={url} isExpanded={isExpanded} setExpandView={setExpandView} />
+            )}
+          </div>
+        ))}
       </>
     );
   }

@@ -15,8 +15,6 @@
   object-fit: contain;
   padding: 1vh;
   margin-top: 3vh;
-  /* padding: 1vh; */
-  /* box-sizing: border-box; */
 
 }
 
@@ -81,10 +79,6 @@
   font-weight: lighter;
 }
 
-.product-reviews {
-
-}
-
 #read-reviews {
   margin-top: 0.5em;
   font-size: 1em;
@@ -100,6 +94,7 @@
   margin-top: 1em;
   margin-bottom: 1em;
   height: 30px;
+  cursor: pointer;
 }
 
 
@@ -171,6 +166,10 @@ button#addCartButton {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
+button#addCartButton:hover {
+  background-color: rgba(0, 0, 0, 0.103);
+
+}
 p.selectedStyle {
   font-size: 1em;
     /* font-weight: 500; */
@@ -184,10 +183,8 @@ p.selectedStyle {
   color: #707070;
   text-underline-position: auto;
 }
-/* ADD POINTERS FOR WHERE U CAN CLIKC */
+
 .styleThumbnailContainer {
-  /* height: inherit;
-  width: auto; */
   position: relative;
 
 }
@@ -266,12 +263,6 @@ p#currStyle {
 .zoom-image {
   --x: 0px;
   --y: 0px;
-  /* background-size: 1000px; */
-  /* background-position: var(--x) var(--y);
-  width: 300px;
-  height: 300px;
-  --x: 0px;
-  --y: 0px; */
   background-position: var(--x) var(--y);
   min-width: 90vw;
   min-height: 90vh;
@@ -280,7 +271,7 @@ p#currStyle {
   cursor: zoom-out;
 
 }
-/* make position relative container for modal? */
+
 
 /* Expanded Gallery View */
 .expand-image-container {
@@ -309,10 +300,8 @@ p#currStyle {
     font: inherit;
     border: 3px solid #707070;
     color: inherit;
-    /* border-radius: 0; */
     padding: 5px;
     font-weight: bold;
-    /* margin-left: 1%; */
     margin-right: 1%;
     z-index: 5;
     position: absolute;
@@ -337,7 +326,6 @@ p#currStyle {
   left: 0;
   top: 0;
   width: 100%;
-  /* //just add// */
   height: 100%;
 
 }
@@ -351,7 +339,7 @@ p#currStyle {
   cursor: pointer;
   padding: 5px;
   border-color: transparent;
-  color: rgb(224, 16, 16);
+  color: rgb(249, 249, 249);
   border-radius: 5px;
   position: absolute;
   top: 50%;
@@ -366,33 +354,21 @@ p#currStyle {
   left: 10%;
 }
 
-.expand-image-modal .thumbnail-container {
-
-}
-
 
 
 .product-details-container {
-  /* margin-right: auto;
-  margin-left: auto; */
-box-sizing: border-box;
-  /* max-width: 85.75rem; */
+  box-sizing: border-box;
   margin: 0 auto;
   position: relative;
   padding: 20px;
-  /* display: flex; */
   width: 100%;
-  /* max-width: 1366px;
-  max-height: 768px; */
 }
 
 .product-components-wrapper {
   display: flex;
   flex: 0 1 auto;
   box-sizing: border-box;
-  /* min-height: inherit; */
   height: 100vh;
-  /* z-index: 3; */
 
 }
 .product-image-column {
@@ -400,8 +376,6 @@ box-sizing: border-box;
   height: inherit;
   padding: 5px;
   object-fit: contain;
-
-
 }
 
 .image-wrapper {
@@ -413,30 +387,19 @@ height: 100%;
 .image-wrapper-content {
     display: flex;
     position: relative;
-    /* z-index: 10; */
     text-align: center;
     height: 100%;
     width: 100%;
 }
 /* Default Carousel Gallery View */
-
-
-
   .default-gallery-container {
-
-    /* justify-content: center; */
-    /* display: flex; */
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     width: 100%;
-    /* height: 100%; */
     display: flex;
     position: relative;
-    /* z-index: 10; */
-    /* text-align: center; */
     height: 100%;
-    /* box-sizing: border-box; */
 
   }
 
@@ -453,12 +416,10 @@ height: 100%;
   border-radius: 5px;
   position: absolute;
   top: 50%;
-  /* left: 0; */
 
 
 }
 .gallery-right-arrow {
-  /* transform: translate(50%, 100%); */
   right: 3vw;
 }
 .gallery-left-arrow {
@@ -469,7 +430,6 @@ height: 100%;
   background-color: rgba(0, 0, 0, 0.271);
 }
 .gallery-slides {
-
   transform-origin: center center;
   transition: transform 0.5s;
   display: flex;
@@ -477,7 +437,6 @@ height: 100%;
   align-items: center;
   width: 100%;
   height: 100%;
-  /* just addi */
   justify-content: center;
 
 }
@@ -530,8 +489,6 @@ img.thumbnail-up-arrow {
   border-color: transparent;
   color: rgb(0, 0, 0);
   border-radius: 5px;
-
-  /* position: absolute; */
 }
 
 img.thumbnail-down-arrow {

@@ -13,8 +13,8 @@
 <ul>
 <h2>
   About the project:
-</h2>  
-<p> The project is an e-commerce website developed according to business requirements documents set out by Hack Reactor.  It contains four primary modules including product details, related items, questions and answers, and ratings and reviews modules.  We worked together as a group of four to implement the repo from scratch and develop a client-facing storefront website using an API provided by Hack Reactor.  The work included but was not limited to: 
+</h2>
+<p> The project is an e-commerce website developed according to business requirements documents set out by Hack Reactor.  It contains four primary modules including product details, related items, questions and answers, and ratings and reviews modules.  We worked together as a group of four to implement the repo from scratch and develop a client-facing storefront website using an API provided by Hack Reactor.  The work included but was not limited to:
 <ol>
   <li>Creating a blank repository and building a file skeleton, including dependencies</li>
   <li>Agreeing on technologies we would use throughout the project, including testing software</li>
@@ -29,10 +29,44 @@
   </h2>
   <ol>
     <li>
-      <h4>Product Details - primary Author: <a href="https://github.com/kallycao" target="_blank">Kally Cao<a/></h4>
+      <h4>Product Overview - primary Author: <a href="https://github.com/kallycao" target="_blank">Kally Cao<a/></h4>
         <details>
           <summary>widget details</summary>
-          <!--- TODO: USE THIS DIV TO DESCRIBE THE PRODUCT DETAILS WIDGET --->
+          <p>The functionality contained within this module is split into four distinct sections: product information, style selector, add to cart, and product gallery (default/expanded view). Its purpose is to display relevant product images based on user selection and guide the user through selecting a specific style, size, and quantity to add to their cart.
+          </p>
+          <p align="center">
+            <img src="https://media.giphy.com/media/AzC0ZxOpON2yieEclY/giphy.gif" alt="product overview" />
+          </p>
+          <p>
+            Users can view general product information such as its category, title, number of reviews, rating, price dependent on style selection, and description. By clicking on "Read all (#) of reviews", this will navigate the user to the Ratings and Review section. This section also consists of buttons that allow the user to share this product on social media platforms.
+          </p>
+          <p align="center">
+          <img src="https://media.giphy.com/media/DT2vZ28ArqfVXI8o6h/giphy.gif" alt="product information" />
+          </p>
+          <p>
+          Below the product information, users are presented with the style selector that consists of all styles of the current product. Users can click between various styles. The currently selected style is indicated with an overlay of a checkmark and the style title is displayed above the list of style thumbnail images.
+          </p>
+          <p align="center">
+          <img src="https://media.giphy.com/media/zK63iaKKLBsH2Q6yzX/giphy.gif" alt="style selector" />
+          </p>
+          <p>
+          Below the style selector, users are presented with two dropdowns that allow that user to select a size and quantity of the item to add to their cart via the add to cart button. The options available vary depending on the selected product style. If a size isn't selected, the user will be prompted to select a size prior to adding to their cart.
+          </p>
+          <p align="center">
+          <img src="https://media.giphy.com/media/AuiHO7pdOUyoyCTD0u/giphy.gif" alt="select size, quantity, and add to cart" />
+          </p>
+          <p>
+          Users are able to view images of the currently selected product style via the image gallery. In the default view of the image gallery, users are able to navigate through the images via the right and left arrows that overlay the main image. All images of the current product are also displayed on the left side of the main image which the user can click to navigate to. If the user clicks on the main image, the image gallery will change to the expanded view.
+          </p>
+          <p align="center">
+          <img src="https://media.giphy.com/media/Ho33fFXy7As8pBbjno/giphy.gif" alt="default view of image gallery" />
+          </p>
+          <p>
+          The expanded view of the image gallery has similar functionality to the default view. Unlike the default view, the expanded view has the main image spanning the entire screen. This view also allows the user to zoom into the main image by clicking on it. To exit the zoomed view, the user can click on the main image. To exit the expanded view of the image gallery, the user can click on the 'X' button located at the top right corner of the page.
+          </p>
+          <p align="center">
+          <img src="https://media.giphy.com/media/oetAdDol24pdGd8O2G/giphy.gif" alt="expanded view of image gallery" />
+          </p>
         </details>
     </li>
     <li>
@@ -52,20 +86,20 @@
           <p align="center">
             <img src="https://media.giphy.com/media/k4Il9mNXhhP0VJaiuV/giphy.gif" alt="search for a question" />
           </p>
-          <p> 
-            Users can ask a question by pressing the "add a question" button, which opens up a form submission modal. 
+          <p>
+            Users can ask a question by pressing the "add a question" button, which opens up a form submission modal.
           </p>
           <p align="center">
-            <img src="https://media.giphy.com/media/gOXLtEnkvP1fcxFDdD/giphy.gif" alt="add a question" /> 
+            <img src="https://media.giphy.com/media/gOXLtEnkvP1fcxFDdD/giphy.gif" alt="add a question" />
           </p>
-          <p> 
-            Users can answer a question by pressing the "Add answer" button, which opens a similar form submission modal. 
+          <p>
+            Users can answer a question by pressing the "Add answer" button, which opens a similar form submission modal.
           </p>
           <p align="center">
             <img src="https://media.giphy.com/media/YXVZ0bSOhOL6tZcLat/giphy.gif" alt="add an answer" />
           </p>
-          <p> 
-            Questions and answers both appear in order of helpfulness.  Users can mark a question or an answer as helpful to increase the counter.  Users can do this once per question or answer.  By default, four questions are displayed on the screen with two answers per question.  Users can press the "see more questions" button to display two more questions on the screen. Filters applied by the search bar remain active when displaying more questions.  The number of questions displayed is reset to four if the user selects a different product.  The user can also choose to view all of the answers available for a given question by pressing the "Load more answers" button.  Doing this will switch the button text to "collapse answers" which restores the display to just two answers. 
+          <p>
+            Questions and answers both appear in order of helpfulness.  Users can mark a question or an answer as helpful to increase the counter.  Users can do this once per question or answer.  By default, four questions are displayed on the screen with two answers per question.  Users can press the "see more questions" button to display two more questions on the screen. Filters applied by the search bar remain active when displaying more questions.  The number of questions displayed is reset to four if the user selects a different product.  The user can also choose to view all of the answers available for a given question by pressing the "Load more answers" button.  Doing this will switch the button text to "collapse answers" which restores the display to just two answers.
           </p>
           <p align="center">
             <img src="https://media.giphy.com/media/BlWnlLk0EVNyK9Doap/giphy.gif" alt="q&a accordion behavior" />
@@ -79,7 +113,7 @@
         </details>
     </li>
   </ol>
-  
+
   <h2>
     Technologies:
   </h2>
