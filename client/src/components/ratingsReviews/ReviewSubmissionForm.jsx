@@ -160,7 +160,7 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
             />
             no
           </label>
-          {!formData.recommend && required}
+          {formData.recommend === undefined && required}
         </div>
         <hr />
         <div className="rnr-characteristic-rows">
@@ -170,6 +170,7 @@ function ReviewSubmissionForm({ close, characteristics, productId }) {
               characteristicId={char.id}
               onSelection={onChangeCharacteristic}
               required={!formData.characteristics[char.id] && required}
+              key={char.id}
             />
           ))}
         </div>

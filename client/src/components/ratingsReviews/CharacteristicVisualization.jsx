@@ -15,7 +15,7 @@ function CharacteristicVisualization({ characteristic, averageRating }) {
 
   return (
     <div className="rnr-characteristic-visualization">
-      <h6>{characteristic}</h6>
+      <h4>{characteristic}</h4>
       <div className="rnr-characteristic-bar">
         <div
           style={{

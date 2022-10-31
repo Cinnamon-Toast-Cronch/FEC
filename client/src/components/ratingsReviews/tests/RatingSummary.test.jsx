@@ -22,7 +22,7 @@ describe('RatingSummary', () => {
       <RatingSummary ratings={{ 1: '1', 2: '1', 3: '0', 4: '1', 5: '1' }} />
     );
 
-    expect(getByText('starRating=3.0')).toBeInTheDocument();
+    expect(getByText('starRating=3')).toBeInTheDocument();
   });
 
   it('Should display the total number of reviews', () => {
