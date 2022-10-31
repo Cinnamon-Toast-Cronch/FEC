@@ -1,4 +1,6 @@
 import React from 'react';
+import upArrow from '../../assets/images/arrowIcons/upArrow.svg';
+import downArrow from '../../assets/images/arrowIcons/downArrow.svg';
 
 const { useState, useEffect } = React;
 
@@ -24,13 +26,13 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
     };
     const nextThumbnail = () => {
       setRange(
-        range[1] === thumbnailLength - 1 ? range : [range[0] + 1, range[1] + 1]
+        range[1] === thumbnailLength - 1 ? range : [range[0] + 1, range[1] + 1],
       );
     };
 
     return (
       <div className="thumbnail-container">
-        {/* {thumbnailUrls.length > 6 && range[0] > 0 ? (
+        {thumbnailUrls.length > 6 && range[0] > 0 ? (
           <button
             className="thumbnail-up-arrow"
             type="button"
@@ -40,14 +42,14 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
               className="thumbnail-up-arrow"
               src={upArrow}
               alt="upward arrow"
-              height="50"
-              width="50"
+              height="20"
+              width="20"
             />
           </button>
-        ) : null} */}
+        ) : null}
         <div className="thumbnail-row">
           {thumbnailUrls.map((thumbnail, index) => (
-            <div className="thumbnail-column" key={index}>
+            <div className="thumbnail-column" key={`thumbnail${index}`}>
               {index <= range[1] && index >= range[0] ? (
                 <span className="thumbnail-image-container">
                   <img
@@ -57,10 +59,9 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
                     src={thumbnail}
                     onClick={() => {
                       handleSelectThumbnail(index);
-                      console.log('index', index);
                     }}
                     style={{ width: '40px' }}
-                    alt="placeholder"
+                    alt="thumbnail"
                   />
                 </span>
               ) : null}
@@ -68,7 +69,7 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
           ))}
         </div>
 
-        {/* {thumbnailUrls.length > 6 && range[1] < thumbnailUrls.length - 1 ? (
+        {thumbnailUrls.length > 6 && range[1] < thumbnailUrls.length - 1 ? (
           <button
             className="thumbnail-down-arrow"
             type="button"
@@ -82,7 +83,7 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
               width="20"
             />
           </button>
-        ) : null} */}
+        ) : null}
       </div>
     );
   }

@@ -18,7 +18,7 @@ function ComparisonRow({displayProductFeature, relatedProductFeature}) {
     <>
       {
         filteredFeatures.map((feature) => (
-          <tr>
+          <tr key={Math.random()}>
             <FeaturesCheck feature={feature} currentFeatures={displayProductFeature} />
             <td>{feature}</td>
             <FeaturesCheck feature={feature} currentFeatures={relatedProductFeature} />

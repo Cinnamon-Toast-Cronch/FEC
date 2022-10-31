@@ -32,7 +32,7 @@ function RatingReviewContainer({ product }) {
   }, [product]);
 
   return (
-    <div className="rating-review-container">
+    <div className="rating-review-container" id="rating-review-container">
       <div className="rating-review-left-column">
         <RatingSummary ratings={metadata.ratings} />
         <RatingBreakdown

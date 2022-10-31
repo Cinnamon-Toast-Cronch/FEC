@@ -14,7 +14,11 @@
 <h2>
   About the project:
 </h2>
+<<<<<<< HEAD
 <p> The project is an e-commerce website developed according to business requirements documents set out by Hack Reactor. It contains four primary widgets including product details, related items, questions and answers, and ratings and reviews. We worked together as a group of four to implement the repo from scratch and develop a client-facing storefront website using a provided API. The work included but was not limited to:
+=======
+<p> The project is an e-commerce website developed according to business requirements documents set out by Hack Reactor.  It contains four primary modules including product details, related items, questions and answers, and ratings and reviews modules.  We worked together as a group of four to implement the repo from scratch and develop a client-facing storefront website using an API provided by Hack Reactor.  The work included but was not limited to:
+>>>>>>> main
 <ol>
   <li>Creating a blank repository and building a file skeleton</li>
   <li>Planning out which technologies we would use throughout the project, including testing software</li>
@@ -29,17 +33,65 @@
   </h2>
   <ol>
     <li>
-      <h4>Product Details - primary Author: <a href="https://github.com/kallycao" target="_blank">Kally Cao<a/></h4>
+      <h4>Product Overview - primary Author: <a href="https://github.com/kallycao" target="_blank">Kally Cao<a/></h4>
         <details>
           <summary>widget details</summary>
-          <!--- TODO: USE THIS DIV TO DESCRIBE THE PRODUCT DETAILS WIDGET --->
+          <p>The functionality contained within this module is split into four distinct sections: product information, style selector, add to cart, and product gallery (default/expanded view). Its purpose is to display relevant product images based on user selection and guide the user through selecting a specific style, size, and quantity to add to their cart.
+          </p>
+          <p align="center">
+            <img src="https://media.giphy.com/media/AzC0ZxOpON2yieEclY/giphy.gif" alt="product overview" />
+          </p>
+          <p>
+            Users can view general product information such as its category, title, number of reviews, rating, price dependent on style selection, and description. By clicking on "Read all (#) of reviews", this will navigate the user to the Ratings and Review section. This section also consists of buttons that allow the user to share this product on social media platforms.
+          </p>
+          <p align="center">
+          <img src="https://media.giphy.com/media/DT2vZ28ArqfVXI8o6h/giphy.gif" alt="product information" />
+          </p>
+          <p>
+          Below the product information, users are presented with the style selector that consists of all styles of the current product. Users can click between various styles. The currently selected style is indicated with an overlay of a checkmark and the style title is displayed above the list of style thumbnail images.
+          </p>
+          <p align="center">
+          <img src="https://media.giphy.com/media/zK63iaKKLBsH2Q6yzX/giphy.gif" alt="style selector" />
+          </p>
+          <p>
+          Below the style selector, users are presented with two dropdowns that allow that user to select a size and quantity of the item to add to their cart via the add to cart button. The options available vary depending on the selected product style. If a size isn't selected, the user will be prompted to select a size prior to adding to their cart.
+          </p>
+          <p align="center">
+          <img src="https://media.giphy.com/media/AuiHO7pdOUyoyCTD0u/giphy.gif" alt="select size, quantity, and add to cart" />
+          </p>
+          <p>
+          Users are able to view images of the currently selected product style via the image gallery. In the default view of the image gallery, users are able to navigate through the images via the right and left arrows that overlay the main image. All images of the current product are also displayed on the left side of the main image which the user can click to navigate to. If the user clicks on the main image, the image gallery will change to the expanded view.
+          </p>
+          <p align="center">
+          <img src="https://media.giphy.com/media/Ho33fFXy7As8pBbjno/giphy.gif" alt="default view of image gallery" />
+          </p>
+          <p>
+          The expanded view of the image gallery has similar functionality to the default view. Unlike the default view, the expanded view has the main image spanning the entire screen. This view also allows the user to zoom into the main image by clicking on it. To exit the zoomed view, the user can click on the main image. To exit the expanded view of the image gallery, the user can click on the 'X' button located at the top right corner of the page.
+          </p>
+          <p align="center">
+          <img src="https://media.giphy.com/media/oetAdDol24pdGd8O2G/giphy.gif" alt="expanded view of image gallery" />
+          </p>
         </details>
     </li>
     <li>
       <h4>Related Products - primary Author: <a href="https://github.com/KevZhang11" target="_blank">Kevin Zhang</a></h4>
         <details>
           <summary>widget details</summary>
-          <!--- TODO: USE THIS DIV TO DESCRIBE THE RELATED PRODUCTS WIDGET --->
+          <p>
+            The main functionality of the related products component is it lists products related to the displayed product, into cards that displays the related product’s name, image, category, price, and star ratings. The component also has a sibling component called Your Outfits that allows the user to save the displayed product onto a list that will persist as the user browses through the site.
+          </p>
+          <p align="center">
+            <img src="https://media.giphy.com/media/fSSrrPsArFz3LXkm8l/giphy.gif">
+          </p>
+          <p>
+            Users can scroll through the list of related products using the directional arrows. By clicking on the star icon located at the top right corner of the image, users can also see a table comparing all the different features of the displayed product and the selected product.
+          </p>
+          <p align="center">
+            <img src="https://media.giphy.com/media/ulhYXCly8FWWW7tXeF/giphy.gif">
+          </p>
+          <p>
+            By clicking the add to outfit card, users can add the displayed product to their personal list and remove the product by clicking on the ‘X’ button located at the top right corner of the image.
+          </p>
         </details>
     </li>
     <li>
