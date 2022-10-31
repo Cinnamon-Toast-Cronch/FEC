@@ -81,10 +81,16 @@
           </p>
           <p>On the right side of the widget is a list of all of the reviews for the product. This list can be sorted by relevant reviews, newest reviews, or helpful reviews, and each individual review shows the buyer's overall rating, their display name and date posted, the content of their review including user uploaded photos, a seller response if applicable, and the number of other shoppers that found the review helpful. Shoppers can provide feedback on which reviews they found helpful, but to prevent spam, shoppers cannot mark the same review as helpful more than once.</p>
           <p align="center">
-            <img src="http://www.giphy.com/gifs/eIQOL1m2t0fS0n6lZp" alt="Gif demonstrating the ratings and reviews' review list" style="width: 40%; min-width: 400px">
+            <img src="https://media.giphy.com/media/eIQOL1m2t0fS0n6lZp/giphy.gif" alt="Gif demonstrating the ratings and reviews' review list" style="width: 40%; min-width: 400px">
           </p>
           <p>The reviews list initially shows only two reviews for the product to keep load times short and to prevent the page from looking too busy. However, shoppers can load more reviews to keep reading if they are interested. As the length of the review list grows, the rating summary and sort bar stay visible at the top of the page to keep the page feeling managable. </p>
+          <p align="center">
+            <img src="https://media.giphy.com/media/M8nCk6Zueh8PhXnhyZ/giphy.gif" alt="Gif demonstrating the ratings and reviews' review list scrolling functionality" style="width: 40%; min-width: 400px">
+          </p>
           <p> Buyers of the product also have the option of submitting a new review. Here, buyers can explain their experience with the product and upload images to show it off. To prevent spam or accidental submissions of incomplete reviews, all reviews are validated to ensure that fields are filled out correctly </p>
+          <p align="center">
+            <img src="https://media.giphy.com/media/ijO5xyFOr6D650bq92/giphy.gif" alt="Gif demonstrating a buyer submitting a new review" style="width: 40%; min-width: 400px">
+          </p>
         </details>
     </li>
   </ol>
