@@ -77,11 +77,11 @@
           <summary>widget details</summary>
           <p>The ratings and reviews widget was designed to give shoppers an easily digestible overview of previous buyers' experiences with the displayed product, a way to view more detailed experiences as needed, and a way to proride their experience with the product. On the left side of the widget, the shopper is greeted with a rating summary that displays the average product rating, a rating breakdown that shows the frequency of each rating, and a set of characteristic visualizations that summarize the elements of the product that previous buyers liked or disliked. Clicking on any of the rating breakdowns filters reviews by the selected ratings.</p>
           <p align="center">
-            <img src="https://res.cloudinary.com/dtnlyldts/image/upload/v1667178661/tlhoz7gukmm507pam7w3.png" alt="Ratings and Reviews widget" style="width: 40%; min-width: 400px"/>
+            <img src="https://media.giphy.com/media/bJ71hmIfErrVnDsWev/giphy.gif" alt="Ratings and Reviews widget" style="width: 40%; min-width: 400px"/>
           </p>
           <p>On the right side of the widget is a list of all of the reviews for the product. This list can be sorted by relevant reviews, newest reviews, or helpful reviews, and each individual review shows the buyer's overall rating, their display name and date posted, the content of their review including user uploaded photos, a seller response if applicable, and the number of other shoppers that found the review helpful. Shoppers can provide feedback on which reviews they found helpful, but to prevent spam, shoppers cannot mark the same review as helpful more than once.</p>
           <p align="center">
-            <img src="https://media.giphy.com/media/eIQOL1m2t0fS0n6lZp/giphy.gif" alt="Gif demonstrating the ratings and reviews' review list" style="width: 40%; min-width: 400px">
+            <img src="https://media.giphy.com/media/UZx0Mrge6sov69UKXZ/giphy.gif" alt="Gif demonstrating the ratings and reviews' review list" style="width: 40%; min-width: 400px">
           </p>
           <p>The reviews list initially shows only two reviews for the product to keep load times short and to prevent the page from looking too busy. However, shoppers can load more reviews to keep reading if they are interested. As the length of the review list grows, the rating summary and sort bar stay visible at the top of the page to keep the page feeling managable. </p>
           <p align="center">
