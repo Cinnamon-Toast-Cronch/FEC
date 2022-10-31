@@ -1,5 +1,5 @@
 <h1 align="center">
-  Welcome to the Cinnamon-Toast-Cronch Front End Capstone github repo!
+  Welcome to the Cinnamon Front End Capstone github repo!
 </h1>
 <p align="center">
   <img src="https://media.giphy.com/media/6uKMx3bejVl6vqLJX8/giphy.gif" alt="FEC-overview" />
@@ -14,13 +14,13 @@
 <h2>
   About the project:
 </h2>
-<p> The project is an e-commerce website developed according to business requirements documents set out by Hack Reactor.  It contains four primary modules including product details, related items, questions and answers, and ratings and reviews modules.  We worked together as a group of four to implement the repo from scratch and develop a client-facing storefront website using an API provided by Hack Reactor.  The work included but was not limited to:
+<p> The project is an e-commerce website developed according to business requirements documents set out by Hack Reactor. It contains four primary widgets including product details, related items, questions and answers, and ratings and reviews. We worked together as a group of four to implement the repo from scratch and develop a client-facing storefront website using a provided API. The work included but was not limited to:
 <ol>
-  <li>Creating a blank repository and building a file skeleton, including dependencies</li>
-  <li>Agreeing on technologies we would use throughout the project, including testing software</li>
+  <li>Creating a blank repository and building a file skeleton</li>
+  <li>Planning out which technologies we would use throughout the project, including testing software</li>
   <li>Building a server to interact with a provided Hack Reactor API</li>
   <li>Splitting up the app into widgets and agreeing how responsibility for each widget would be divided</li>
-  <li>Staying in regular communication to be aware of potential blockers or bugs as development proceeded</li>
+  <li>Staying in regular communication and using an AGILE workflow to be aware of potential blockers or bugs as development proceeded</li>
   <li>Deploying the app on AWS</li>
 </ol>
 
@@ -117,13 +117,28 @@
           </p>
           <p align="center">
             <img src="https://media.giphy.com/media/BlWnlLk0EVNyK9Doap/giphy.gif" alt="q&a accordion behavior" />
-        </div>
+        </details>
     </li>
     <li>
       <h4>Ratings and Reviews - primary Author: <a href="https://github.com/KateFeaster" target="_blank">Kate Feaster</a></h4>
         <details>
           <summary>widget details</summary>
-          <!--- TODO: USE THIS DIV TO DESCRIBE THE RATINGS AND REVIEWS WIDGET --->
+          <p>The ratings and reviews widget was designed to give shoppers an easily digestible overview of previous buyers' experiences with the displayed product and a way to provide their experience with the product. On the left side of the widget, the shopper is greeted with a rating summary that displays the average product rating, a rating breakdown, and a set of characteristic visualizations that summarize the elements of the product that previous buyers liked or disliked. Clicking on any of the rating breakdowns will filter the reviews by the chosen rating. Mutliple filters can be chosen and reviews of all filtered ratings will be shown.</p>
+          <p align="center">
+            <img src="https://media.giphy.com/media/bJ71hmIfErrVnDsWev/giphy.gif" alt="Ratings and Reviews widget" style="width: 40%; min-width: 400px"/>
+          </p>
+          <p>On the right side of the widget is a list of all of the reviews for the product that match the current filter. This list can be sorted by relevant reviews, newest reviews, or helpful reviews, and each individual review shows the buyer's overall rating, their display name and date posted, the content of their review including user uploaded photos, a seller response if present, and the number of other shoppers that found the review helpful. Shoppers can provide feedback on which reviews they found helpful, but to prevent spam, shoppers cannot mark the same review as helpful more than once.</p>
+          <p align="center">
+            <img src="https://media.giphy.com/media/UZx0Mrge6sov69UKXZ/giphy.gif" alt="Gif demonstrating the ratings and reviews' review list" style="width: 40%; min-width: 400px">
+          </p>
+          <p>The reviews list initially shows only two reviews for the product to keep load times short and to prevent the page from looking too busy. However, shoppers can load more reviews to keep reading if they are interested. As the length of the review list grows, the rating summary and sort bar stay visible at the top of the page to keep the page feeling managable. </p>
+          <p align="center">
+            <img src="https://media.giphy.com/media/M8nCk6Zueh8PhXnhyZ/giphy.gif" alt="Gif demonstrating the ratings and reviews' review list scrolling functionality" style="width: 40%; min-width: 400px">
+          </p>
+          <p> Buyers of the product also have the option of submitting a new review. Here, buyers can explain their experience with the product and upload images to show it off. To prevent spam or accidental submissions of incomplete reviews, all reviews are validated to ensure that fields are filled out correctly.</p>
+          <p align="center">
+            <img src="https://media.giphy.com/media/ijO5xyFOr6D650bq92/giphy.gif" alt="Gif demonstrating a buyer submitting a new review" style="width: 40%; min-width: 400px">
+          </p>
         </details>
     </li>
   </ol>
@@ -147,5 +162,3 @@
     <li><img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white" alt="react-router badge" /></li>
     <li><img src="https://img.shields.io/badge/webpack-%238DD6F9.svg?style=for-the-badge&logo=webpack&logoColor=black" alt="webpack badge" /></li>
   </ul>
-
-
