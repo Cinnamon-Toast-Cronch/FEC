@@ -125,12 +125,12 @@
   border-radius: 10px;
 }
 .related-category {
-  font-size: x-small;
+  font-size: .7em;
   text-transform: uppercase;
 }
 
 .related-price {
-  font-size: xx-small;
+  font-size: .7em;
 }
 
 .related-name,
@@ -248,4 +248,9 @@
   font-size: 1.8em;
   right: 15%;
   cursor: pointer;
+}
+
+.related-img-text {
+  padding-top: 50%;
+  padding-left: 10%;
 }

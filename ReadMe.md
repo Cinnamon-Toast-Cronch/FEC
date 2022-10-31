@@ -73,7 +73,21 @@
       <h4>Related Products - primary Author: <a href="https://github.com/KevZhang11" target="_blank">Kevin Zhang</a></h4>
         <details>
           <summary>widget details</summary>
-          <!--- TODO: USE THIS DIV TO DESCRIBE THE RELATED PRODUCTS WIDGET --->
+          <p>
+            The main functionality of the related products component is it lists products related to the displayed product, into cards that displays the related product’s name, image, category, price, and star ratings. The component also has a sibling component called Your Outfits that allows the user to save the displayed product onto a list that will persist as the user browses through the site.
+          </p>
+          <p align="center">
+            <img src="https://media.giphy.com/media/fSSrrPsArFz3LXkm8l/giphy.gif">
+          </p>
+          <p>
+            Users can scroll through the list of related products using the directional arrows. By clicking on the star icon located at the top right corner of the image, users can also see a table comparing all the different features of the displayed product and the selected product.
+          </p>
+          <p align="center">
+            <img src="https://media.giphy.com/media/ulhYXCly8FWWW7tXeF/giphy.gif">
+          </p>
+          <p>
+            By clicking the add to outfit card, users can add the displayed product to their personal list and remove the product by clicking on the ‘X’ button located at the top right corner of the image.
+          </p>
         </details>
     </li>
     <li>
