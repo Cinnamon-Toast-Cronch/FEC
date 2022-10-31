@@ -1,5 +1,5 @@
 <h1 align="center">
-  Welcome to the Cinnamon-Toast-Cronch Front End Capstone github repo!
+  Welcome to the Cinnamon Front End Capstone github repo!
 </h1>
 <p align="center">
   <img src="https://media.giphy.com/media/6uKMx3bejVl6vqLJX8/giphy.gif" alt="FEC-overview" />
@@ -14,13 +14,13 @@
 <h2>
   About the project:
 </h2>
-<p> The project is an e-commerce website developed according to business requirements documents set out by Hack Reactor.  It contains four primary modules including product details, related items, questions and answers, and ratings and reviews modules.  We worked together as a group of four to implement the repo from scratch and develop a client-facing storefront website using an API provided by Hack Reactor.  The work included but was not limited to:
+<p> The project is an e-commerce website developed according to business requirements documents set out by Hack Reactor. It contains four primary widgets including product details, related items, questions and answers, and ratings and reviews. We worked together as a group of four to implement the repo from scratch and develop a client-facing storefront website using a provided API. The work included but was not limited to:
 <ol>
   <li>Creating a blank repository and building a file skeleton, including dependencies</li>
-  <li>Agreeing on technologies we would use throughout the project, including testing software</li>
+  <li>Planning out which technologies we would use throughout the project, including testing software</li>
   <li>Building a server to interact with a provided Hack Reactor API</li>
   <li>Splitting up the app into widgets and agreeing how responsibility for each widget would be divided</li>
-  <li>Staying in regular communication to be aware of potential blockers or bugs as development proceeded</li>
+  <li>Staying in regular communication and using an AGILE workflow to be aware of potential blockers or bugs as development proceeded</li>
   <li>Deploying the app on AWS</li>
 </ol>
 
