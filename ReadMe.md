@@ -14,11 +14,7 @@
 <h2>
   About the project:
 </h2>
-<<<<<<< HEAD
 <p> The project is an e-commerce website developed according to business requirements documents set out by Hack Reactor. It contains four primary widgets including product details, related items, questions and answers, and ratings and reviews. We worked together as a group of four to implement the repo from scratch and develop a client-facing storefront website using a provided API. The work included but was not limited to:
-=======
-<p> The project is an e-commerce website developed according to business requirements documents set out by Hack Reactor.  It contains four primary modules including product details, related items, questions and answers, and ratings and reviews modules.  We worked together as a group of four to implement the repo from scratch and develop a client-facing storefront website using an API provided by Hack Reactor.  The work included but was not limited to:
->>>>>>> main
 <ol>
   <li>Creating a blank repository and building a file skeleton</li>
   <li>Planning out which technologies we would use throughout the project, including testing software</li>
