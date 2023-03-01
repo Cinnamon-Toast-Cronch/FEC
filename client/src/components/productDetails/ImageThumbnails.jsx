@@ -38,20 +38,35 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
             type="button"
             onClick={prevThumbnail}
           >
-            <img
+            {/* <img
               className="thumbnail-up-arrow"
               src={upArrow}
               alt="upward arrow"
               height="20"
               width="20"
-            />
+            /> */}
+            &#10094;
           </button>
-        ) : null}
-        {/* <div className="thumbnail-row"> */}
+        ) : (
+          <button
+            className="thumbnail-up-arrow"
+            type="button"
+            onClick={prevThumbnail}
+            style={{ visibility: 'hidden' }}
+          >
+            {/* <img
+              className="thumbnail-up-arrow"
+              src={upArrow}
+              alt="upward arrow"
+              height="20"
+              width="20"
+            /> */}
+            &#10094;
+          </button>
+        )}
         {thumbnailUrls.map((thumbnail, index) => (
           <div className="thumbnail-item" key={`thumbnail${index}`}>
             {index <= range[1] && index >= range[0] ? (
-              // <span className="thumbnail-image-container">
               <img
                 className={`${
                   count === index ? 'active-thumbnail' : 'thumbnail'
@@ -60,14 +75,11 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
                 onClick={() => {
                   handleSelectThumbnail(index);
                 }}
-                // style={{ width: '40px' }}
                 alt="thumbnail"
               />
-            ) : // </span>
-            null}
+            ) : null}
           </div>
         ))}
-        {/* </div> */}
 
         {thumbnailUrls.length > 6 && range[1] < thumbnailUrls.length - 1 ? (
           <button
@@ -75,15 +87,18 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
             type="button"
             onClick={nextThumbnail}
           >
-            <img
-              className="thumbnail-down-arrow"
-              src={downArrow}
-              alt="downward arrow"
-              height="20"
-              width="20"
-            />
+            &#10094;
           </button>
-        ) : null}
+        ) : (
+          <button
+            className="thumbnail-down-arrow"
+            type="button"
+            onClick={nextThumbnail}
+            style={{ visibility: 'hidden' }}
+          >
+            &#10094;
+          </button>
+        )}
       </div>
     );
   }

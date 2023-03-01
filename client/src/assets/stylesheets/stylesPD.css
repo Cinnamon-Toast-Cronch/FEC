@@ -384,6 +384,24 @@ p#currStyle {
   width: 100%;
   /* height: 100%; */
 }
+
+.gallery-right-arrow,
+.gallery-left-arrow {
+  font-size: 4vh;
+  font-weight: bold;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 5px;
+  border-color: transparent;
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+}
+
+.gallery-right-arrow:hover,
+.gallery-left-arrow:hover {
+  background-color: rgba(255, 252, 252, 0.271);
+}
+
 .thumbnail-container {
   /* top: 30%;
   width: 20%;
@@ -401,23 +419,35 @@ p#currStyle {
   height: 4rem;
   object-fit: cover;
   margin-top: 1vh;
-}
-.gallery-right-arrow,
-.gallery-left-arrow {
-  font-size: 4vh;
-  font-weight: bold;
-  background-color: transparent;
-  cursor: pointer;
-  padding: 5px;
-  border-color: transparent;
-  color: rgb(0, 0, 0);
+  margin-bottom: 1vh;
   border-radius: 5px;
 }
 
-.gallery-right-arrow:hover,
-.gallery-left-arrow:hover {
-  background-color: rgba(255, 252, 252, 0.271);
+button.thumbnail-up-arrow {
+  background-color: rgb(255 255 255);
+  opacity: 0.5;
+  border-radius: 5px;
+  transform: rotate(90deg);
+  width: 2rem;
+  height: 2rem;
+  align-self: center;
+  border-width: 0;
 }
+button.thumbnail-down-arrow {
+  background-color: rgb(255 255 255);
+  opacity: 0.5;
+  border-radius: 5px;
+  transform: rotate(270deg);
+  width: 2rem;
+  height: 2rem;
+  align-self: center;
+  border-width: 0;
+}
+button.thumbnail-down-arrow:hover,
+button.thumbnail-up-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.271);
+}
+
 /* .thumbnail-item {
   padding: 1vh;
 } */
@@ -442,10 +472,7 @@ p#currStyle {
 .gallery-left-arrow {
   transform: translate(50%, 0%);
 }
-.gallery-right-arrow:hover,
-.gallery-left-arrow:hover {
-  background-color: rgba(0, 0, 0, 0.271);
-}
+
 .gallery-slides {
   transform-origin: center center;
   transition: transform 0.5s;
@@ -507,16 +534,6 @@ img.thumbnail-down-arrow {
   border-color: transparent;
   color: rgb(0, 0, 0);
   border-radius: 5px;
-}
-button.thumbnail-down-arrow,
-button.thumbnail-up-arrow {
-  background-color: rgb(255 255 255);
-  opacity: 0.5;
-  border-radius: 5px;
-}
-button.thumbnail-down-arrow:hover,
-button.thumbnail-up-arrow:hover {
-  background-color: rgba(0, 0, 0, 0.271);
 }
 
 .expand-image .main-image {
