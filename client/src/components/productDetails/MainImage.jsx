@@ -35,6 +35,7 @@ function MainImage({ imageUrl, isExpanded, setExpandView }) {
       />
     );
   }
+
   if (!isExpanded) {
     return (
       <div className="main-image-container">

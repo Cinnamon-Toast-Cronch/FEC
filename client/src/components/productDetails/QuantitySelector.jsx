@@ -14,28 +14,24 @@ function QuantitySelector({ selectedSizeAmount, handleQuantity }) {
   }
 
   return (
-    <div>
-      <div className="quantityContent">
-        <form onChange={(e) => {
-          handleQuantity(e);
-        }}
-        >
-          <label className="quantity" htmlFor="Quantity">Select Quantity</label>
-          <select name="quantity" id="quantity">
-            {(selectedSizeAmount > 0) ? <option defaultValue="selected"> 1 </option> : <option defaultValue="selected" disabled> - </option>}
-            {quantityList.map((quantity) => (
-              <option
-                key={quantity}
-                value={quantity}
-              >
-                {quantity}
-              </option>
-            ))}
-          </select>
-        </form>
-      </div>
-    </div>
-
+    <form
+      onChange={(e) => {
+        handleQuantity(e);
+      }}
+    >
+      <select name="quantity" id="quantity">
+        {selectedSizeAmount > 0 ? (
+          <option defaultValue="selected"> 1 </option>
+        ) : (
+          <option defaultValue="selected"> - </option>
+        )}
+        {quantityList.map((quantity) => (
+          <option key={quantity} value={quantity}>
+            {quantity}
+          </option>
+        ))}
+      </select>
+    </form>
   );
 }
 export default QuantitySelector;

@@ -81,11 +81,14 @@
 
 .social-media-icons {
   display: flex;
-  height: 1.7em;
+  height: 2em;
   margin-top: 1em;
   margin-bottom: 1em;
   height: 30px;
   cursor: pointer;
+}
+.social-media-icons img {
+  padding: 0.1em;
 }
 
 #sale-price {
@@ -95,72 +98,55 @@
 #before-sale-price {
   text-decoration: line-through;
 }
-label.sizes {
-  font-size: 1em;
-  text-transform: uppercase;
-  padding-top: 0.25em;
-  padding-bottom: 0.25em;
-  color: #444;
-  padding-right: 0.5em;
+/* Cart Section */
+.size-quantity-selectors {
+  display: flex;
 }
+.size-quantity-selectors form {
+  margin: 1vh;
+}
+
 select#sizes {
-  font-size: 1em;
-  padding: 0.5px;
+  padding: 1vh;
   color: #707070;
   text-transform: uppercase;
   box-shadow: rgb(100 100 111 / 20%);
   border-radius: 5px;
   cursor: pointer;
-}
-label.quantity {
-  font-size: 1em;
-  text-transform: uppercase;
-  padding-top: 0.25em;
-  padding-bottom: 0.25em;
-  color: #444;
-  padding-right: 0.5em;
+  width: 20vw;
 }
 
 select#quantity {
-  font-size: 1em;
-  padding: 0.5px;
+  padding: 1vh;
   color: #707070;
   text-transform: uppercase;
   box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
   border-radius: 5px;
   cursor: pointer;
 }
-#sizeDropDown.sizeContent {
-  margin-top: 0.5em;
-}
-.quantityContent {
-  margin-top: 0.5em;
-}
+
 p.no-size {
   padding-bottom: 5px;
   color: #444;
 }
 button#addCartButton {
-  background-color: transparent;
+  background-color: black;
+  color: white;
   font: inherit;
-  border: 1px solid #707070;
   border-radius: 5px;
-  padding: 0.25em;
-  padding-left: 2.7em;
-  padding-right: 2.7em;
+  padding: 0.5em;
   font-size: 1.1em;
   text-transform: uppercase;
   cursor: pointer;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  margin: 0.5em;
+  width: 100%;
 }
 button#addCartButton:hover {
-  background-color: rgba(0, 0, 0, 0.103);
+  background-color: #000000ba;
 }
 
 .add-confirmation {
-  margin-top: 1vh;
-  margin-bottom: 1vh;
+  margin: 0.5em;
 }
 #cart {
   background-color: transparent;
@@ -184,7 +170,13 @@ p.selectedStyle {
 }
 
 .styleThumbnailContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
   position: relative;
+  height: 100%;
 }
 
 .stylesContainer {
@@ -192,51 +184,31 @@ p.selectedStyle {
   text-transform: uppercase;
 }
 
-.style-thumbnail-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-
-  padding: 0;
-  box-sizing: border-box;
-  margin: 0;
-  position: relative;
-  height: 100%;
-}
-.style-thumbnail-column {
-  width: 60px;
-  height: 60px;
-}
-
 .style-image-container {
-  width: 75%;
-  height: 75%;
-}
-.style-image-container .style-checkmark {
-  position: absolute;
-
-  height: 50%;
-  width: 100%;
-  opacity: 1;
-  transform: translate(-79%, -10%);
-
-  text-align: center;
-  z-index: 2;
-}
-
-.style-image,
-.active-style-image {
-  border-radius: 5px;
   position: relative;
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
+  height: 4rem;
+  width: 4rem;
+  margin: 0.5em;
 }
-p#currStyle {
+
+.style-image-container input {
+  border-radius: 50%;
   position: absolute;
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
   top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+span#currStyle {
+  position: absolute;
+  top: -5px;
+  right: -10px;
   z-index: 1;
-  font-size: xxx-large;
-  color: white;
+  font-size: x-large;
+  color: black;
   opacity: 0.8;
 }
 .product-details-modal {
@@ -367,13 +339,12 @@ p#currStyle {
 
 .default-gallery-container {
   /* overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
+
   width: 100%; */
   display: flex;
   /* flex-wrap: wrap; */
   position: relative;
-  height: 100%;
+  /* height: 100%; */
   align-items: center;
 }
 .main-image-container {
@@ -382,34 +353,27 @@ p#currStyle {
 #default.main-image {
   object-fit: contain;
   width: 100%;
-  /* height: 100%; */
 }
 
 .gallery-right-arrow,
 .gallery-left-arrow {
-  font-size: 4vh;
-  font-weight: bold;
   background-color: transparent;
   cursor: pointer;
-  padding: 5px;
+  margin: 0.5rem;
   border-color: transparent;
-  color: rgb(0, 0, 0);
+  color: #707070;
   border-radius: 5px;
 }
 
 .gallery-right-arrow:hover,
 .gallery-left-arrow:hover {
-  background-color: rgba(255, 252, 252, 0.271);
+  background-color: rgb(0 0 0 / 12%);
 }
 
 .thumbnail-container {
-  /* top: 30%;
-  width: 20%;
-  left: 5%; */
   display: flex;
   flex-direction: column;
-  /* height: 100%;
-  width: 7vw; */
+
   justify-content: center;
   padding: 1vh;
   flex-basis: 15%;
@@ -432,6 +396,7 @@ button.thumbnail-up-arrow {
   height: 2rem;
   align-self: center;
   border-width: 0;
+  cursor: pointer;
 }
 button.thumbnail-down-arrow {
   background-color: rgb(255 255 255);
@@ -442,11 +407,58 @@ button.thumbnail-down-arrow {
   height: 2rem;
   align-self: center;
   border-width: 0;
+  cursor: pointer;
 }
 button.thumbnail-down-arrow:hover,
 button.thumbnail-up-arrow:hover {
   background-color: rgba(0, 0, 0, 0.271);
 }
+.active-thumbnail,
+.thumbnail {
+  opacity: 0.6;
+  cursor: pointer;
+}
+.active-thumbnail,
+.thumbnail:hover {
+  opacity: 1;
+}
+
+.active-thumbnail,
+.thumbnail::after {
+  opacity: 1;
+}
+/* carousel test  */
+/* .carousel {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.gallery-slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  width: 450px;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease-in-out;
+} */
+/* carousel test end  */
 
 /* .thumbnail-item {
   padding: 1vh;
@@ -488,31 +500,7 @@ button.thumbnail-up-arrow:hover {
   border-radius: 5px;
 }
 
-.active-thumbnail,
-.thumbnail {
-  display: inline-flex;
-  width: 1.5rem;
-  height: 1.5rem;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  margin: 0 0 0.5 rem 0;
-  position: relative;
-  border-color: transparent;
-  width: 100%;
-  height: 100%;
-  opacity: 0.6;
-  cursor: pointer;
-}
-.active-thumbnail,
-.thumbnail:hover {
-  opacity: 1;
-}
 
-.active-thumbnail,
-.thumbnail::after {
-  opacity: 1;
-}
 
 img.thumbnail-up-arrow {
   z-index: 10;

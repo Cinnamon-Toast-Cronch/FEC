@@ -18,18 +18,18 @@ function ProductInformation({ product, reviews, selectedStyle }) {
 
   return (
     <div className="product-information">
-      <div>
-        <p id="product-category">{product.category}</p>
-        <p id="product-title">{product.name}</p>
+      {/* <div> */}
+      <p id="product-category">{product.category}</p>
+      <p id="product-title">{product.name}</p>
 
-        <div id="product-price">
-          <Price selectedStyle={selectedStyle} />
-        </div>
+      <div id="product-price">
+        <Price selectedStyle={selectedStyle} />
       </div>
-      <div className="product-overview">
+      {/* </div> */}
+      {/* <div className="product-overview">
         <p id="product-slogan">{product.slogan}</p>
         <p id="product-description">{product.description}</p>
-      </div>
+      </div> */}
 
       <div className="product-reviews">
         <ProductInfoReviewStars reviews={reviews} reviewCount={reviewCount} />
@@ -41,7 +41,6 @@ function ProductInformation({ product, reviews, selectedStyle }) {
         <div className="social-media-icons">
           <img className="facebook-icon" src={Facebook} alt="facebook icon" />
           <img className="twitter-icon" src={Twitter} alt="twitter icon" />
-
           <img
             className="pinterest-icon"
             src={Pinterest}

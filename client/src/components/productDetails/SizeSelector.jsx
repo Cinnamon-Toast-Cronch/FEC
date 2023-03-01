@@ -8,7 +8,10 @@ function SizeSelector({ selectedStyle }) {
   const [skus, setSkus] = useState({});
   const [selectedSizeAmount, setSelectedSizeAmount] = useState(0);
   const initialSelection = {
-    sku: '', style: '', size: '', quantity: '',
+    sku: '',
+    style: '',
+    size: '',
+    quantity: '',
   };
   const [selection, setSelection] = useState(initialSelection);
   const [addCartNoSize, setAddCartNoSize] = useState(false);
@@ -31,7 +34,10 @@ function SizeSelector({ selectedStyle }) {
       const currentSku = skuSizes[e.target.value];
       setSelectedSizeAmount(skus[currentSku].quantity);
       setSelection({
-        ...selection, size: skus[currentSku].size, sku: currentSku, quantity: 1,
+        ...selection,
+        size: skus[currentSku].size,
+        sku: currentSku,
+        quantity: 1,
       });
       setAddCartNoSize(false);
       setConfirmAdd(false);
@@ -49,29 +55,41 @@ function SizeSelector({ selectedStyle }) {
     };
 
     return (
-      <div className="addToCartContainer">
-        <div id="sizeDropdown" className="sizeContent">
-          <form onChange={(e) => {
-            handleSizeSelection(e);
-          }}
+      <>
+        <div className="size-quantity-selectors">
+          <form
+            onChange={(e) => {
+              handleSizeSelection(e);
+            }}
           >
-            {addCartNoSize ? <p className="no-size">Please select size.</p> : null}
-            <label className="sizes" htmlFor="Sizes">Select Size</label>
+            {addCartNoSize ? (
+              <p className="no-size">Please select size.</p>
+            ) : null}
+
             <select name="sizes" id="sizes">
-              {selectedSizeAmount ? <option defaultValue="selected" disabled>{(sizesAndAmount.length === 0) ? 'Out Of Stock' : 'Select Size'}</option> : <option defaultValue="selected">{(sizesAndAmount.length === 0) ? 'Out Of Stock' : 'Select Size'}</option>}
+              {selectedSizeAmount ? (
+                <option defaultValue="selected" disabled>
+                  {sizesAndAmount.length === 0 ? 'Out Of Stock' : 'Select Size'}
+                </option>
+              ) : (
+                <option defaultValue="selected">
+                  {sizesAndAmount.length === 0 ? 'Out Of Stock' : 'Select Size'}
+                </option>
+              )}
               {sizesAndAmount.map((size, index) => (
-                <option
-                  key={skuSizes[index]}
-                  value={index}
-                >
+                <option key={skuSizes[index]} value={index}>
                   {size.size ? size.size : null}
                 </option>
               ))}
             </select>
           </form>
+          <QuantitySelector
+            selectedSizeAmount={selectedSizeAmount}
+            handleQuantity={handleQuantity}
+          />
         </div>
-        <QuantitySelector selectedSizeAmount={selectedSizeAmount} handleQuantity={handleQuantity} />
-        {(sizesAndAmount.length === 0) ? null : (
+
+        {sizesAndAmount.length === 0 ? null : (
           <AddToCart
             selection={selection}
             handleSizeView={handleSizeView}
@@ -79,8 +97,7 @@ function SizeSelector({ selectedStyle }) {
             confirmAdd={confirmAdd}
           />
         )}
-      </div>
-
+      </>
     );
   }
 }
