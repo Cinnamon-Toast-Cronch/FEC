@@ -168,11 +168,22 @@ button#addCartButton {
 }
 button#addCartButton:hover {
   background-color: rgba(0, 0, 0, 0.103);
-
 }
+
+.add-confirmation {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+#cart {
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+  font-size: 3.2em;
+  cursor: pointer
+}
+
 p.selectedStyle {
   font-size: 1em;
-    /* font-weight: 500; */
     color: #444;
     margin-bottom: 1vh;
     margin-top: 1vh;

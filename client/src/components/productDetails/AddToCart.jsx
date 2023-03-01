@@ -1,27 +1,31 @@
 import React from 'react';
-import Cart from '../../assets/images/AddToCart.svg';
+import axios from 'axios';
 
 const { useEffect, useState } = React;
-function AddToCart({ selection, handleSizeView }) {
-  const cartStorage = JSON.parse(localStorage.getItem('cart')) || [];
-  const [cartSelection, setCartSelection] = useState(cartStorage);
-
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cartSelection));
-  }, [cartSelection]);
-
+function AddToCart({
+  selection, handleSizeView, setConfirmAdd, confirmAdd,
+}) {
   const handleAddToCart = () => {
     if (selection.size === '') {
       handleSizeView();
+      setConfirmAdd(false);
     } else {
-      setCartSelection([...cartSelection, selection]);
+      const skuAndCount = { sku_id: selection.sku, count: selection.quantity };
+      axios.post('/cart', skuAndCount)
+        .then(() => setConfirmAdd(true));
     }
   };
   return (
     <div>
-      <button id="addCartButton" type="button" onClick={() => handleAddToCart()}>
-        Add To Cart +
-      </button>
+      <p className="add-confirmation">
+        {confirmAdd ? 'Added to cart!' : null}
+      </p>
+      {selection.size === '' ? null : (
+        <button id="addCartButton" type="button" onClick={handleAddToCart}>
+          Add To Cart +
+        </button>
+      )}
+
     </div>
 
   );

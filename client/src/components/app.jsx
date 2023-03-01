@@ -9,6 +9,7 @@ const { useState, useEffect } = React;
 
 function App() {
   const [product, setProduct] = useState({});
+  const [cartList, setCartList] = useState([]);
 
   useEffect(() => {
     axios.get('/products').then(({ data }) => {
@@ -16,15 +17,24 @@ function App() {
     });
   }, []);
 
+  const handleCartView = (() => {
+    axios.get('/cart').then(({ data }) => setCartList(data));
+  });
+
   return (
     <div>
       <div className="widgets">
         <div className="title-container">
           <h1 className="title">Cinnamon</h1>
           <div className="title-icons">
-            <span className="material-symbols-outlined">
+            <button
+              type="button"
+              className="material-symbols-outlined"
+              id="cart"
+              onClick={handleCartView}
+            >
               shopping_cart_checkout
-            </span>
+            </button>
             <span className="material-symbols-outlined">account_circle</span>
           </div>
         </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import SizeSelector from './SizeSelector.jsx';
 import QuantitySelector from './QuantitySelector.jsx';
-import Checkmark from '../../assets/images/checkmark.svg';
 
 const { useState, useEffect } = React;
 
