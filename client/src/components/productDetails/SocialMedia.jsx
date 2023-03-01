@@ -1,0 +1,42 @@
+import React from 'react';
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  PinterestShareButton,
+  PinterestIcon,
+} from 'react-share';
+
+function SocialMedia({ product, photo }) {
+  return (
+    <div className="social-media-icons">
+      <FacebookShareButton
+        quote={product.description}
+        url="http://localhost:3000/"
+        style={{ padding: '.5vh' }}
+      >
+        <FacebookIcon size={25} borderRadius="5px" />
+      </FacebookShareButton>
+
+      <TwitterShareButton
+        title={product.name}
+        via="Cinnamon"
+        url="http://localhost:3000/"
+        style={{ padding: '.5vh' }}
+      >
+        <TwitterIcon size={25} borderRadius="5px" />
+      </TwitterShareButton>
+
+      <PinterestShareButton
+        media={photo}
+        description={product.description}
+        url="http://localhost:3000/"
+        style={{ padding: '.5vh' }}
+      >
+        <PinterestIcon size={25} borderRadius="5px" />
+      </PinterestShareButton>
+    </div>
+  );
+}
+export default SocialMedia;

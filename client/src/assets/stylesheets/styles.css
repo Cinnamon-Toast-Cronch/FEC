@@ -177,25 +177,32 @@ body {
 
 .title-container {
   color: mintcream;
-  background: rgb(169, 132, 103);
-  background: linear-gradient(
+  background: rgb(169 132 103 / 65%);
+  /* background: linear-gradient(
     180deg,
     rgba(169, 132, 103, 1) 47%,
     rgba(255, 255, 255, 1) 88%
-  );
-  padding-bottom: 2.5em;
+  ); */
+  /* padding-bottom: 2.5em; */
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
 .title {
-  font-size: 4em;
-  font-family: 'Pinyon Script', cursive;
+  font-size: 3em;
+  font-variant: all-small-caps;
+  padding-left: 2vh;
 }
 
-.title-icons span {
-  font-size: 3.2em;
+.title-icons span,
+.title-icons button {
+  font-size: 2em;
+  padding-left: 2vh;
+  padding-right: 2vh;
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
   cursor: pointer;
 }
 

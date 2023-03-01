@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Price from './Price.jsx';
 import ProductInfoReviewStars from './ProductInfoReviewStars.jsx';
-import Facebook from '../../assets/images/socialMediaIcons/facebook.svg';
-import Twitter from '../../assets/images/socialMediaIcons/twitter.svg';
-import Pinterest from '../../assets/images/socialMediaIcons/pinterest.svg';
+import SocialMedia from './SocialMedia.jsx';
 
 function ProductInformation({ product, reviews, selectedStyle }) {
   const [reviewCount, setReviewCount] = useState(0);
@@ -19,6 +17,20 @@ function ProductInformation({ product, reviews, selectedStyle }) {
   return (
     <div className="product-information">
       {/* <div> */}
+      <div className="product-reviews">
+        <ProductInfoReviewStars reviews={reviews} reviewCount={reviewCount} />
+        <p id="read-reviews">
+          <a href="#rating-review-container">
+            {reviewCount > 0 ? `Read all ${reviewCount} reviews` : null}
+          </a>
+        </p>
+      </div>
+      {selectedStyle ? (
+        selectedStyle.photos ? (
+          <SocialMedia product={product} photo={selectedStyle.photos[0].url} />
+        ) : null
+      ) : null}
+
       <p id="product-category">{product.category}</p>
       <p id="product-title">{product.name}</p>
 
@@ -30,20 +42,6 @@ function ProductInformation({ product, reviews, selectedStyle }) {
         <p id="product-slogan">{product.slogan}</p>
         <p id="product-description">{product.description}</p>
       </div> */}
-
-      <div className="product-reviews">
-        <ProductInfoReviewStars reviews={reviews} reviewCount={reviewCount} />
-        <p id="read-reviews">
-          <a href="#rating-review-container">
-            {reviewCount > 0 ? `Read all ${reviewCount} reviews` : null}
-          </a>
-        </p>
-      </div>
-      <div className="social-media-icons">
-        <img className="facebook-icon" src={Facebook} alt="facebook icon" />
-        <img className="twitter-icon" src={Twitter} alt="twitter icon" />
-        <img className="pinterest-icon" src={Pinterest} alt="pinterest icon" />
-      </div>
     </div>
   );
 }

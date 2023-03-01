@@ -1,11 +1,49 @@
-import React from 'react';
-import upArrow from '../../assets/images/arrowIcons/upArrow.svg';
-import downArrow from '../../assets/images/arrowIcons/downArrow.svg';
-
-const { useState, useEffect } = React;
+import React, { useState, useEffect, useRef } from 'react';
 
 function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
   const [range, setRange] = useState([0, 6]);
+  // const [loadedThumbnails, setLoadedThumbnails] = useState([]);
+
+  // const observer = useRef(null);
+
+  // const thumbnailRefs = useRef(
+  //   Array(thumbnailUrls.length)
+  //     .fill()
+  //     .map((_, i) => ({ ref: React.createRef(), index: i }))
+  // );
+  // useEffect(() => {
+  //   // Create a new IntersectionObserver instance
+  //   observer.current = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           // Set the src attribute of the <img> tag to the data-src attribute
+  //           const img = entry.target.firstChild;
+  //           img.src = img.dataset.src;
+
+  //           // Update the loadedThumbnails state
+  //           const { index } = thumbnailRefs.current.find(
+  //             (ref) => ref.ref.current === entry.target
+  //           );
+  //           setLoadedThumbnails((prevState) => [...prevState, index]);
+  //         }
+  //       });
+  //     },
+  //     { threshold: 0.5 }
+  //   );
+
+  //   // Observe each thumbnail ref
+  //   thumbnailRefs.current.forEach((ref) => {
+  //     observer.current.observe(ref.ref.current);
+  //   });
+
+  //   // Cleanup function to disconnect the IntersectionObserver instance
+  //   return () => {
+  //     if (observer.current) {
+  //       observer.current.disconnect();
+  //     }
+  //   };
+  // }, []);
   if (thumbnailUrls) {
     const thumbnailLength = thumbnailUrls.length;
     useEffect(() => {
@@ -38,13 +76,6 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
             type="button"
             onClick={prevThumbnail}
           >
-            {/* <img
-              className="thumbnail-up-arrow"
-              src={upArrow}
-              alt="upward arrow"
-              height="20"
-              width="20"
-            /> */}
             &#10094;
           </button>
         ) : (
@@ -54,13 +85,6 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
             onClick={prevThumbnail}
             style={{ visibility: 'hidden' }}
           >
-            {/* <img
-              className="thumbnail-up-arrow"
-              src={upArrow}
-              alt="upward arrow"
-              height="20"
-              width="20"
-            /> */}
             &#10094;
           </button>
         )}
@@ -80,6 +104,22 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
             ) : null}
           </div>
         ))}
+        {/* {thumbnailRefs.current.map(({ ref, index }) => (
+          <div className="thumbnail-item" key={`thumbnail${index}`} ref={ref}>
+            {index <= range[1] && index >= range[0] ? (
+              <img
+                className={`${
+                  count === index ? 'active-thumbnail' : 'thumbnail'
+                }`}
+                src={thumbnail}
+                onClick={() => {
+                  handleSelectThumbnail(index);
+                }}
+                alt="thumbnail"
+              />
+            ) : null}
+              </div> */}
+        {/* // ))} */}
 
         {thumbnailUrls.length > 6 && range[1] < thumbnailUrls.length - 1 ? (
           <button

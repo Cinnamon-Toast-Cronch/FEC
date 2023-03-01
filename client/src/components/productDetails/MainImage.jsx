@@ -5,14 +5,7 @@ const { useState } = React;
 function MainImage({ imageUrl, isExpanded, setExpandView }) {
   const [clickZoom, setClickZoom] = useState(false);
 
-  const handleZoom = () => {
-    const zoomImg = document.querySelector('.zoom-image');
-    zoomImg.addEventListener('mousemove', (e) => {
-      zoomImg.style.setProperty('--x', `${-e.offsetX}px`);
-      zoomImg.style.setProperty('--y', `${-e.offsetY}px`);
-    });
-  };
-
+  se;
   if (isExpanded && !clickZoom) {
     return (
       <img

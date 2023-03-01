@@ -15,8 +15,22 @@ function AddToCart({ selection, handleSizeView, setConfirmAdd, confirmAdd }) {
   return (
     <>
       <p className="add-confirmation">{confirmAdd ? 'Added to cart!' : null}</p>
-      {selection.size === '' ? null : (
-        <button id="addCartButton" type="button" onClick={handleAddToCart}>
+      {selection.size === '' ? (
+        <button
+          id="addCartButton"
+          type="button"
+          onClick={handleAddToCart}
+          style={{ visibility: 'hidden' }}
+        >
+          Add To Cart
+        </button>
+      ) : (
+        <button
+          id="addCartButton"
+          type="button"
+          style={{ visibility: 'visible' }}
+          onClick={handleAddToCart}
+        >
           Add To Cart
         </button>
       )}
