@@ -24,9 +24,7 @@ function ProductDetails({ product }) {
     <div className="product-details-container">
       <div className="product-components-wrapper">
         <div className="product-image-column">
-          {/* <div className="image-wrapper"> */}
           <ProductImages selectedStyle={selectedStyle} />
-          {/* </div> */}
         </div>
         <div className="product-info-column">
           <div className="product-info-container">
@@ -43,6 +41,10 @@ function ProductDetails({ product }) {
             />
           </div>
         </div>
+      </div>
+      <div className="product-overview">
+        <p id="product-slogan">{product.slogan}</p>
+        <p id="product-description">{product.description}</p>
       </div>
     </div>
   );

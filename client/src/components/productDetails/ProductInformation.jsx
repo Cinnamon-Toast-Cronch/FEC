@@ -35,18 +35,14 @@ function ProductInformation({ product, reviews, selectedStyle }) {
         <ProductInfoReviewStars reviews={reviews} reviewCount={reviewCount} />
         <p id="read-reviews">
           <a href="#rating-review-container">
-            {reviewCount > 0 ? `Read all ${reviewCount} reviews.` : null}
+            {reviewCount > 0 ? `Read all ${reviewCount} reviews` : null}
           </a>
         </p>
-        <div className="social-media-icons">
-          <img className="facebook-icon" src={Facebook} alt="facebook icon" />
-          <img className="twitter-icon" src={Twitter} alt="twitter icon" />
-          <img
-            className="pinterest-icon"
-            src={Pinterest}
-            alt="pinterest icon"
-          />
-        </div>
+      </div>
+      <div className="social-media-icons">
+        <img className="facebook-icon" src={Facebook} alt="facebook icon" />
+        <img className="twitter-icon" src={Twitter} alt="twitter icon" />
+        <img className="pinterest-icon" src={Pinterest} alt="pinterest icon" />
       </div>
     </div>
   );

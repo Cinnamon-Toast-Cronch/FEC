@@ -1,7 +1,6 @@
 import React from 'react';
-import MainImage from './MainImage.jsx';
 
-function GalleryList({ photoUrls, count, isExpanded, setExpandView }) {
+function GalleryList({ photoUrls, count, handleExpand }) {
   if (photoUrls) {
     return (
       <>
@@ -13,9 +12,9 @@ function GalleryList({ photoUrls, count, isExpanded, setExpandView }) {
                 id="default"
                 src={url}
                 alt="placeholder"
-                onClick={() => setExpandView(true)}
+                onClick={() => handleExpand()}
                 style={
-                  index === count ? { display: 'block' } : { display: 'none' }
+                  index === count ? { display: 'flex' } : { display: 'none' }
                 }
               />
             </div>
@@ -52,23 +51,3 @@ export default GalleryList;
 
 // export default GalleryList;
 // //end OG
-
-// function GalleryList({ photoUrls, count, isExpanded, setExpandView }) {
-//   if (photoUrls) {
-//     return (
-//       <div className="carousel">
-//         <div className="gallery-slides">
-//           {photoUrls.map((url, index) => (
-//             <div
-//               className={index === count ? 'slide active' : 'slide'}
-//               key={`gallery ${url}`}
-//             >
-//               <img src={url} alt="placeholder" />
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-// export default GalleryList;
