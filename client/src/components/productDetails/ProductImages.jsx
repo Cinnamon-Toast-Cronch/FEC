@@ -1,7 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import DefaultGallery from './DefaultGallery.jsx';
-
-const { useEffect, useState } = React;
 
 function ProductImages({ selectedStyle }) {
   const [currentPhotos, setCurrentPhotos] = useState([]);
@@ -17,9 +15,7 @@ function ProductImages({ selectedStyle }) {
     const photoUrls = currentPhotos.map((photo) => photo.url);
 
     return (
-      <div className="image-wrapper-content">
-        <DefaultGallery photoUrls={photoUrls} thumbnailUrls={thumbnailUrls} />
-      </div>
+      <DefaultGallery photoUrls={photoUrls} thumbnailUrls={thumbnailUrls} />
     );
   }
   return null;

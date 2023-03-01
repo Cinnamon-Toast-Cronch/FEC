@@ -4,9 +4,7 @@ import QuantitySelector from './QuantitySelector.jsx';
 
 const { useState, useEffect } = React;
 
-function StyleSelector({
-  styles, setSelectedStyle, selectedStyle, setStyles,
-}) {
+function StyleSelector({ styles, setSelectedStyle, selectedStyle, setStyles }) {
   useEffect(() => {
     setSelectedStyle(styles[0]);
   }, [styles]);
@@ -30,16 +28,12 @@ function StyleSelector({
         <div className="styleThumbnailContainer">
           <div className="style-thumbnail-row">
             {styles.map((style, index) => (
-              <div
-                className="style-thumbnail-column"
-                key={style.style_id}
-              >
-                <div
-                  className="style-image-container"
-                  key={style.name}
-                >
+              <div className="style-thumbnail-column" key={style.style_id}>
+                <div className="style-image-container" key={style.name}>
                   <input
-                    className={`${index === 0 ? 'active-style-image' : 'style-image'}`}
+                    className={`${
+                      index === 0 ? 'active-style-image' : 'style-image'
+                    }`}
                     type="image"
                     key={style.name}
                     value={index}
@@ -51,13 +45,11 @@ function StyleSelector({
                 </div>
               </div>
             ))}
-
           </div>
         </div>
         <SizeSelector selectedStyle={selectedStyle} />
       </div>
     </div>
-
   );
 }
 

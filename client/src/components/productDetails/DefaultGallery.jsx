@@ -21,7 +21,22 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
 
   const galleryContents = (
     <>
-      {count === 0 ? null : (
+      <ImageThumbnails
+        thumbnailUrls={thumbnailUrls}
+        count={count}
+        photoUrls={photoUrls}
+        handleSelectThumbnail={(num) => setCount(num)}
+      />
+      {count === 0 ? (
+        <button
+          className="gallery-left-arrow"
+          type="button"
+          onClick={prevImage}
+          style={{ visibility: 'hidden' }}
+        >
+          &#10094;
+        </button>
+      ) : (
         <button
           className="gallery-left-arrow"
           type="button"
@@ -30,12 +45,6 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
           &#10094;
         </button>
       )}
-      <ImageThumbnails
-        thumbnailUrls={thumbnailUrls}
-        count={count}
-        photoUrls={photoUrls}
-        handleSelectThumbnail={(num) => setCount(num)}
-      />
 
       <GalleryList
         photoUrls={photoUrls}
@@ -43,7 +52,16 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
         isExpanded={isExpanded}
         setExpandView={setExpandView}
       />
-      {count === photoAmount ? null : (
+      {count === photoAmount ? (
+        <button
+          className="gallery-right-arrow"
+          type="button"
+          onClick={nextImage}
+          style={{ visibility: 'hidden' }}
+        >
+          &#10095;
+        </button>
+      ) : (
         <button
           className="gallery-right-arrow"
           type="button"

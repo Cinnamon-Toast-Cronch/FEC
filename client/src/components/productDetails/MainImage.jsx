@@ -20,7 +20,6 @@ function MainImage({ imageUrl, isExpanded, setExpandView }) {
         id="expanded"
         src={imageUrl}
         alt="placeholder"
-
         onClick={() => setClickZoom(true)}
       />
     );
@@ -38,13 +37,15 @@ function MainImage({ imageUrl, isExpanded, setExpandView }) {
   }
   if (!isExpanded) {
     return (
-      <img
-        className="main-image"
-        id="default"
-        src={imageUrl}
-        alt="placeholder"
-        onClick={() => setExpandView(true)}
-      />
+      <div className="main-image-container">
+        <img
+          className="main-image"
+          id="default"
+          src={imageUrl}
+          alt="placeholder"
+          onClick={() => setExpandView(true)}
+        />
+      </div>
     );
   }
 }

@@ -26,7 +26,7 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
     };
     const nextThumbnail = () => {
       setRange(
-        range[1] === thumbnailLength - 1 ? range : [range[0] + 1, range[1] + 1],
+        range[1] === thumbnailLength - 1 ? range : [range[0] + 1, range[1] + 1]
       );
     };
 
@@ -47,27 +47,27 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
             />
           </button>
         ) : null}
-        <div className="thumbnail-row">
-          {thumbnailUrls.map((thumbnail, index) => (
-            <div className="thumbnail-column" key={`thumbnail${index}`}>
-              {index <= range[1] && index >= range[0] ? (
-                <span className="thumbnail-image-container">
-                  <img
-                    className={`${
-                      count === index ? 'active-thumbnail' : 'thumbnail'
-                    }`}
-                    src={thumbnail}
-                    onClick={() => {
-                      handleSelectThumbnail(index);
-                    }}
-                    style={{ width: '40px' }}
-                    alt="thumbnail"
-                  />
-                </span>
-              ) : null}
-            </div>
-          ))}
-        </div>
+        {/* <div className="thumbnail-row"> */}
+        {thumbnailUrls.map((thumbnail, index) => (
+          <div className="thumbnail-item" key={`thumbnail${index}`}>
+            {index <= range[1] && index >= range[0] ? (
+              // <span className="thumbnail-image-container">
+              <img
+                className={`${
+                  count === index ? 'active-thumbnail' : 'thumbnail'
+                }`}
+                src={thumbnail}
+                onClick={() => {
+                  handleSelectThumbnail(index);
+                }}
+                // style={{ width: '40px' }}
+                alt="thumbnail"
+              />
+            ) : // </span>
+            null}
+          </div>
+        ))}
+        {/* </div> */}
 
         {thumbnailUrls.length > 6 && range[1] < thumbnailUrls.length - 1 ? (
           <button
