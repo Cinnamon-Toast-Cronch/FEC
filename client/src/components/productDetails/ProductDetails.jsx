@@ -4,6 +4,7 @@ import ProductInformation from './ProductInformation.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import ProductImages from './ProductImages.jsx';
 import SocialMedia from './SocialMedia.jsx';
+import ProductSelectors from './ProductSelectors.jsx';
 
 function ProductDetails({ product }) {
   const [reviews, setReviews] = useState([]);
@@ -40,6 +41,7 @@ function ProductDetails({ product }) {
             setSelectedStyle={setSelectedStyle}
             selectedStyle={selectedStyle}
           />
+          <ProductSelectors selectedStyle={selectedStyle} />
           {selectedStyle ? (
             selectedStyle.photos ? (
               <SocialMedia

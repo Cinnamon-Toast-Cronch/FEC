@@ -1,5 +1,5 @@
 import React from 'react';
-import SizeSelector from './SizeSelector.jsx';
+// import SizeSelector from './SizeSelector.jsx';
 import QuantitySelector from './QuantitySelector.jsx';
 
 const { useState, useEffect } = React;
@@ -19,7 +19,6 @@ function StyleSelector({ styles, setSelectedStyle, selectedStyle, setStyles }) {
   };
 
   return (
-    // <div>
     <div className="styles-container">
       <p className="style-title">
         Style
@@ -43,7 +42,7 @@ function StyleSelector({ styles, setSelectedStyle, selectedStyle, setStyles }) {
           </div>
         ))}
       </div>
-      <SizeSelector selectedStyle={selectedStyle} />
+      {/* <SizeSelector selectedStyle={selectedStyle} /> */}
     </div>
   );
 }

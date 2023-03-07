@@ -164,11 +164,11 @@ p.style-title {
 
 /* Size and Quantity Selectors */
 
-.size-quantity-selectors {
+.cart-selections {
   display: flex;
   justify-content: space-between;
 }
-.size-quantity-selectors form {
+.cart-selections form {
   margin: 1vh;
 }
 
