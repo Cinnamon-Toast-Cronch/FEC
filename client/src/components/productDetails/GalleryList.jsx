@@ -1,6 +1,13 @@
 import React from 'react';
 
-function GalleryList({ photoUrls, count, handleExpand, isExpanded, setZoom }) {
+function GalleryList({
+  photoUrls,
+  count,
+  handleExpand,
+  isExpanded,
+  setZoom,
+  handleZoom,
+}) {
   if (photoUrls) {
     return (
       <>
@@ -11,7 +18,7 @@ function GalleryList({ photoUrls, count, handleExpand, isExpanded, setZoom }) {
                 className="main-image"
                 id="default"
                 src={url}
-                alt="placeholder"
+                alt="main product image"
                 onClick={() => (isExpanded ? setZoom(true) : handleExpand())}
                 style={
                   index === count ? { display: 'flex' } : { display: 'none' }

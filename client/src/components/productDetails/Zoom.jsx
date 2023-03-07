@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 
-function Zoom({ imageUrl, setZoom, zoom }) {
+function Zoom({ imageUrl, setZoom, zoom, handleZoom }) {
   const sourceRef = useRef(null);
   const targetRef = useRef(null);
   const containerRef = useRef(null);
@@ -47,6 +47,7 @@ function Zoom({ imageUrl, setZoom, zoom }) {
       className="zoom-container"
       ref={containerRef}
       onClick={() => setZoom(false)}
+      // onClick={() => handleZoom()}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}

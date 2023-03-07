@@ -10,32 +10,34 @@ import {
 
 function SocialMedia({ product, photo }) {
   return (
-    <div className="social-media-icons">
-      <FacebookShareButton
-        quote={product.description}
-        url="http://localhost:3000/"
-        style={{ padding: '.5vh' }}
-      >
-        <FacebookIcon size={25} borderRadius="5px" />
-      </FacebookShareButton>
+    <div className="social-media-container">
+      <div className="social-media-icons">
+        <FacebookShareButton
+          quote={product.description}
+          url="http://localhost:3000/"
+          style={{ padding: '.5vh' }}
+        >
+          <FacebookIcon size={30} borderRadius="5px" />
+        </FacebookShareButton>
 
-      <TwitterShareButton
-        title={product.name}
-        via="Cinnamon"
-        url="http://localhost:3000/"
-        style={{ padding: '.5vh' }}
-      >
-        <TwitterIcon size={25} borderRadius="5px" />
-      </TwitterShareButton>
+        <TwitterShareButton
+          title={product.name}
+          via="Cinnamon"
+          url="http://localhost:3000/"
+          style={{ padding: '.5vh' }}
+        >
+          <TwitterIcon size={30} borderRadius="5px" />
+        </TwitterShareButton>
 
-      <PinterestShareButton
-        media={photo}
-        description={product.description}
-        url="http://localhost:3000/"
-        style={{ padding: '.5vh' }}
-      >
-        <PinterestIcon size={25} borderRadius="5px" />
-      </PinterestShareButton>
+        <PinterestShareButton
+          media={photo}
+          description={product.description}
+          url="http://localhost:3000/"
+          style={{ padding: '.5vh' }}
+        >
+          <PinterestIcon size={30} borderRadius="5px" />
+        </PinterestShareButton>
+      </div>
     </div>
   );
 }

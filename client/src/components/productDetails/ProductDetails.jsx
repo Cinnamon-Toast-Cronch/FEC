@@ -23,11 +23,11 @@ function ProductDetails({ product }) {
 
   return (
     <div className="product-details-container">
-      <div className="product-components-wrapper">
+      <div className="product-details-row">
         <div className="product-image-column">
           <ProductImages selectedStyle={selectedStyle} />
         </div>
-        <div className="product-info-column">
+        <div className="product-image-column">
           <div className="product-info-container">
             <ProductInformation
               product={product}
@@ -40,20 +40,24 @@ function ProductDetails({ product }) {
               setSelectedStyle={setSelectedStyle}
               selectedStyle={selectedStyle}
             />
-            {/* {selectedStyle ? (
+            {selectedStyle ? (
               selectedStyle.photos ? (
                 <SocialMedia
                   product={product}
                   photo={selectedStyle.photos[0].url}
                 />
               ) : null
-            ) : null} */}
+            ) : null}
           </div>
         </div>
       </div>
-      <div className="product-overview">
-        <p id="product-slogan">{product.slogan}</p>
-        <p id="product-description">{product.description}</p>
+      <div className="product-details-row">
+        <div className="product-overview">
+          <div className="product-overview-left">
+            <p id="product-slogan">{product.slogan}</p>
+            <p id="product-description">{product.description}</p>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Price from './Price.jsx';
 import ProductInfoReviewStars from './ProductInfoReviewStars.jsx';
-import SocialMedia from './SocialMedia.jsx';
 
 function ProductInformation({ product, reviews, selectedStyle }) {
   const [reviewCount, setReviewCount] = useState(0);
@@ -25,11 +24,11 @@ function ProductInformation({ product, reviews, selectedStyle }) {
           </a>
         </p>
       </div>
-      {selectedStyle ? (
+      {/* {selectedStyle ? (
         selectedStyle.photos ? (
           <SocialMedia product={product} photo={selectedStyle.photos[0].url} />
         ) : null
-      ) : null}
+      ) : null} */}
 
       <p id="product-category">{product.category}</p>
       <p id="product-title">{product.name}</p>

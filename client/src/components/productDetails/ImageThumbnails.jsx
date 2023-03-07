@@ -1,49 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
+function ImageThumbnails({
+  thumbnailUrls,
+  count,
+  handleSelectThumbnail,
+  isExpanded,
+}) {
   const [range, setRange] = useState([0, 6]);
-  // const [loadedThumbnails, setLoadedThumbnails] = useState([]);
 
-  // const observer = useRef(null);
-
-  // const thumbnailRefs = useRef(
-  //   Array(thumbnailUrls.length)
-  //     .fill()
-  //     .map((_, i) => ({ ref: React.createRef(), index: i }))
-  // );
-  // useEffect(() => {
-  //   // Create a new IntersectionObserver instance
-  //   observer.current = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.isIntersecting) {
-  //           // Set the src attribute of the <img> tag to the data-src attribute
-  //           const img = entry.target.firstChild;
-  //           img.src = img.dataset.src;
-
-  //           // Update the loadedThumbnails state
-  //           const { index } = thumbnailRefs.current.find(
-  //             (ref) => ref.ref.current === entry.target
-  //           );
-  //           setLoadedThumbnails((prevState) => [...prevState, index]);
-  //         }
-  //       });
-  //     },
-  //     { threshold: 0.5 }
-  //   );
-
-  //   // Observe each thumbnail ref
-  //   thumbnailRefs.current.forEach((ref) => {
-  //     observer.current.observe(ref.ref.current);
-  //   });
-
-  //   // Cleanup function to disconnect the IntersectionObserver instance
-  //   return () => {
-  //     if (observer.current) {
-  //       observer.current.disconnect();
-  //     }
-  //   };
-  // }, []);
   if (thumbnailUrls) {
     const thumbnailLength = thumbnailUrls.length;
     useEffect(() => {
@@ -69,18 +33,30 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
     };
 
     return (
-      <div className="thumbnail-container">
+      <div
+        className={
+          isExpanded ? 'thumbnail-container dot' : 'thumbnail-container'
+        }
+        // className="thumbnail-container"
+      >
         {thumbnailUrls.length > 6 && range[0] > 0 ? (
           <button
-            className="thumbnail-up-arrow"
+            // className="thumbnail-up-arrow"
+            className={
+              isExpanded ? 'thumbnail-up-arrow dot' : 'thumbnail-up-arrow'
+            }
             type="button"
             onClick={prevThumbnail}
+            style={{ visibility: 'visible' }}
           >
             &#10094;
           </button>
         ) : (
           <button
-            className="thumbnail-up-arrow"
+            // className="thumbnail-up-arrow"
+            className={
+              isExpanded ? 'thumbnail-up-arrow dot' : 'thumbnail-up-arrow'
+            }
             type="button"
             onClick={prevThumbnail}
             style={{ visibility: 'hidden' }}
@@ -88,50 +64,56 @@ function ImageThumbnails({ thumbnailUrls, count, handleSelectThumbnail }) {
             &#10094;
           </button>
         )}
-        {thumbnailUrls.map((thumbnail, index) => (
-          <div className="thumbnail-item" key={`thumbnail${index}`}>
-            {index <= range[1] && index >= range[0] ? (
-              <img
-                className={`${
-                  count === index ? 'active-thumbnail' : 'thumbnail'
-                }`}
-                src={thumbnail}
-                onClick={() => {
-                  handleSelectThumbnail(index);
-                }}
-                alt="thumbnail"
-              />
-            ) : null}
-          </div>
-        ))}
-        {/* {thumbnailRefs.current.map(({ ref, index }) => (
-          <div className="thumbnail-item" key={`thumbnail${index}`} ref={ref}>
-            {index <= range[1] && index >= range[0] ? (
-              <img
-                className={`${
-                  count === index ? 'active-thumbnail' : 'thumbnail'
-                }`}
-                src={thumbnail}
-                onClick={() => {
-                  handleSelectThumbnail(index);
-                }}
-                alt="thumbnail"
-              />
-            ) : null}
-              </div> */}
-        {/* // ))} */}
+
+        {isExpanded
+          ? thumbnailUrls.map((thumbnail, index) => (
+              <div className="thumbnail-item dot" key={`thumbnail${index}`}>
+                {index <= range[1] && index >= range[0] ? (
+                  <span
+                    className={`${
+                      count === index ? 'active-thumbnail dot' : 'thumbnail dot'
+                    }`}
+                    onClick={() => {
+                      handleSelectThumbnail(index);
+                    }}
+                    alt="thumbnail"
+                  />
+                ) : null}
+              </div>
+            ))
+          : thumbnailUrls.map((thumbnail, index) => (
+              <div className="thumbnail-item" key={`thumbnail${index}`}>
+                {index <= range[1] && index >= range[0] ? (
+                  <img
+                    className={`${
+                      count === index ? 'active-thumbnail' : 'thumbnail'
+                    }`}
+                    src={thumbnail}
+                    onClick={() => {
+                      handleSelectThumbnail(index);
+                    }}
+                    alt="thumbnail"
+                  />
+                ) : null}
+              </div>
+            ))}
 
         {thumbnailUrls.length > 6 && range[1] < thumbnailUrls.length - 1 ? (
           <button
-            className="thumbnail-down-arrow"
+            className={
+              isExpanded ? 'thumbnail-down-arrow dot' : 'thumbnail-down-arrow'
+            }
             type="button"
             onClick={nextThumbnail}
+            style={{ visibility: 'visible' }}
           >
             &#10094;
           </button>
         ) : (
           <button
-            className="thumbnail-down-arrow"
+            className={
+              isExpanded ? 'thumbnail-down-arrow dot' : 'thumbnail-down-arrow'
+            }
             type="button"
             onClick={nextThumbnail}
             style={{ visibility: 'hidden' }}
