@@ -20,15 +20,13 @@ function StyleSelector({ styles, setSelectedStyle, selectedStyle, setStyles }) {
 
   return (
     // <div>
-    <div className="stylesContainer">
-      <p className="selectedStyle">
+    <div className="styles-container">
+      <p className="style-title">
         Style
         <span>{selectedStyle ? selectedStyle.name : null}</span>
       </p>
-      <div className="styleThumbnailContainer">
-        {/* <div className="style-thumbnail-row"> */}
+      <div className="style-thumbnail-container">
         {styles.map((style, index) => (
-          // <div className="style-thumbnail-column" key={style.style_id}>
           <div className="style-image-container" key={style.name}>
             <input
               className={`${
@@ -41,15 +39,12 @@ function StyleSelector({ styles, setSelectedStyle, selectedStyle, setStyles }) {
               alt={style.name}
               src={style.photos[0].thumbnail_url}
             />
-            {index === 0 ? <span id="currStyle">&#10003;</span> : null}
+            {index === 0 ? <div className="currStyle">&#10003;</div> : null}
           </div>
-          // </div>
         ))}
-        {/* </div> */}
       </div>
       <SizeSelector selectedStyle={selectedStyle} />
     </div>
-    // </div>
   );
 }
 

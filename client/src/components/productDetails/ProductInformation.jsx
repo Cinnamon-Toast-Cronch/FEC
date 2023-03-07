@@ -14,34 +14,24 @@ function ProductInformation({ product, reviews, selectedStyle }) {
   }, [reviews]);
 
   return (
-    <div className="product-information">
-      {/* <div> */}
-      <div className="product-reviews">
+    <>
+      <div className="product-reviews-container">
         <ProductInfoReviewStars reviews={reviews} reviewCount={reviewCount} />
-        <p id="read-reviews">
-          <a href="#rating-review-container">
-            {reviewCount > 0 ? `Read all ${reviewCount} reviews` : null}
-          </a>
-        </p>
+        <a className="read-reviews" href="#rating-review-container">
+          {reviewCount > 0 ? `Read all ${reviewCount} reviews` : null}
+        </a>
       </div>
-      {/* {selectedStyle ? (
-        selectedStyle.photos ? (
-          <SocialMedia product={product} photo={selectedStyle.photos[0].url} />
-        ) : null
-      ) : null} */}
 
-      <p id="product-category">{product.category}</p>
-      <p id="product-title">{product.name}</p>
-
-      <div id="product-price">
+      <div className="category-title-container">
+        <p id="product-category">{product.category}</p>
+        <p id="product-title">{product.name}</p>
         <Price selectedStyle={selectedStyle} />
       </div>
-      {/* </div> */}
-      {/* <div className="product-overview">
-        <p id="product-slogan">{product.slogan}</p>
-        <p id="product-description">{product.description}</p>
+
+      {/* <div className="product-price-container">
+        <Price selectedStyle={selectedStyle} />
       </div> */}
-    </div>
+    </>
   );
 }
 

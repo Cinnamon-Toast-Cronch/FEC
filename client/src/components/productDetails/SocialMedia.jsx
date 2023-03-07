@@ -11,6 +11,7 @@ import {
 function SocialMedia({ product, photo }) {
   return (
     <div className="social-media-container">
+      <p>Love it? Share it!</p>
       <div className="social-media-icons">
         <FacebookShareButton
           quote={product.description}

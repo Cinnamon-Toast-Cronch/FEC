@@ -27,28 +27,26 @@ function ProductDetails({ product }) {
         <div className="product-image-column">
           <ProductImages selectedStyle={selectedStyle} />
         </div>
-        <div className="product-image-column">
-          <div className="product-info-container">
-            <ProductInformation
-              product={product}
-              reviews={reviews}
-              selectedStyle={selectedStyle}
-            />
-            <StyleSelector
-              styles={styles}
-              setStyles={setStyles}
-              setSelectedStyle={setSelectedStyle}
-              selectedStyle={selectedStyle}
-            />
-            {selectedStyle ? (
-              selectedStyle.photos ? (
-                <SocialMedia
-                  product={product}
-                  photo={selectedStyle.photos[0].url}
-                />
-              ) : null
-            ) : null}
-          </div>
+        <div className="product-info-column">
+          <ProductInformation
+            product={product}
+            reviews={reviews}
+            selectedStyle={selectedStyle}
+          />
+          <StyleSelector
+            styles={styles}
+            setStyles={setStyles}
+            setSelectedStyle={setSelectedStyle}
+            selectedStyle={selectedStyle}
+          />
+          {selectedStyle ? (
+            selectedStyle.photos ? (
+              <SocialMedia
+                product={product}
+                photo={selectedStyle.photos[0].url}
+              />
+            ) : null
+          ) : null}
         </div>
       </div>
       <div className="product-details-row">
