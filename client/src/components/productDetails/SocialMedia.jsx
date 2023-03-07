@@ -8,7 +8,7 @@ import {
   PinterestIcon,
 } from 'react-share';
 
-function SocialMedia({ product, photo }) {
+function SocialMedia({ product, sharePic }) {
   return (
     <div className="social-media-container">
       <p>Love it? Share it!</p>
@@ -31,7 +31,7 @@ function SocialMedia({ product, photo }) {
         </TwitterShareButton>
 
         <PinterestShareButton
-          media={photo}
+          media={sharePic.url}
           description={product.description}
           url="http://localhost:3000/"
           style={{ padding: '.5vh' }}

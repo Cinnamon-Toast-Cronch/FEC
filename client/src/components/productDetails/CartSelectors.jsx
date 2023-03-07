@@ -5,7 +5,7 @@ import AddToCart from './AddToCart.jsx';
 
 const { useEffect, useState } = React;
 
-function ProductSelectors({ selectedStyle }) {
+function CartSelectors({ selectedStyle }) {
   const [skus, setSkus] = useState({});
   const [sizesAndAmount, setSizesAndAmount] = useState([]);
   const [skuSizes, setSkuSizes] = useState([]);
@@ -83,4 +83,4 @@ function ProductSelectors({ selectedStyle }) {
   );
 }
 
-export default ProductSelectors;
+export default CartSelectors;

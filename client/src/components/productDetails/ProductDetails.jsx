@@ -4,17 +4,28 @@ import ProductInformation from './ProductInformation.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import ProductImages from './ProductImages.jsx';
 import SocialMedia from './SocialMedia.jsx';
-import ProductSelectors from './ProductSelectors.jsx';
+import CartSelectors from './CartSelectors.jsx';
 
 function ProductDetails({ product }) {
   const [reviews, setReviews] = useState([]);
   const [styles, setStyles] = useState([]);
-  const [selectedStyle, setSelectedStyle] = useState({});
+  const initialStyle = {
+    style_id: '',
+    name: '',
+    original_price: '',
+    sale_price: '',
+    'default?': '',
+    photos: [],
+    skus: {},
+  };
+  const [selectedStyle, setSelectedStyle] = useState(initialStyle);
+  const [sharePic, setSharePic] = useState({ url: '' });
 
   useEffect(() => {
     axios.get(`/products/${product.id}/styles`).then(({ data }) => {
       setStyles(data.results);
       setSelectedStyle(data.results[0]);
+      setSharePic({ url: data.results[0].photos[0].url });
       axios
         .get(`/reviews/meta?product_id=${data.product_id}`)
         .then((response) => {
@@ -41,15 +52,9 @@ function ProductDetails({ product }) {
             setSelectedStyle={setSelectedStyle}
             selectedStyle={selectedStyle}
           />
-          <ProductSelectors selectedStyle={selectedStyle} />
-          {selectedStyle ? (
-            selectedStyle.photos ? (
-              <SocialMedia
-                product={product}
-                photo={selectedStyle.photos[0].url}
-              />
-            ) : null
-          ) : null}
+          <CartSelectors selectedStyle={selectedStyle} />
+
+          <SocialMedia product={product} sharePic={sharePic} />
         </div>
       </div>
       <div className="product-details-row">
