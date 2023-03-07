@@ -13,6 +13,7 @@ function ProductDetails({ product }) {
   useEffect(() => {
     axios.get(`/products/${product.id}/styles`).then(({ data }) => {
       setStyles(data.results);
+      setSelectedStyle(data.results[0]);
       axios
         .get(`/reviews/meta?product_id=${data.product_id}`)
         .then((response) => {

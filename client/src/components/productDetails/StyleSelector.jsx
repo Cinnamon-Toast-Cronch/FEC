@@ -5,9 +5,9 @@ import QuantitySelector from './QuantitySelector.jsx';
 const { useState, useEffect } = React;
 
 function StyleSelector({ styles, setSelectedStyle, selectedStyle, setStyles }) {
-  useEffect(() => {
-    setSelectedStyle(styles[0]);
-  }, [styles]);
+  // useEffect(() => {
+  //   setSelectedStyle(styles[0]);
+  // }, [styles]);
 
   const handleStyle = (style, e) => {
     const styleIndex = e.target.value;
@@ -23,7 +23,7 @@ function StyleSelector({ styles, setSelectedStyle, selectedStyle, setStyles }) {
     <div className="styles-container">
       <p className="style-title">
         Style
-        <span>{selectedStyle ? selectedStyle.name : null}</span>
+        <span>{selectedStyle.name}</span>
       </p>
       <div className="style-thumbnail-container">
         {styles.map((style, index) => (
