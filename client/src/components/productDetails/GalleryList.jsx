@@ -10,24 +10,28 @@ function GalleryList({
 }) {
   if (photoUrls) {
     return (
-      <>
+      <div className="gallery-slides-container">
         {photoUrls.map((url, index) => (
-          <div className="gallery-slides" key={`gallery ${url}`}>
-            <div className="main-image-container">
-              <img
-                className="main-image"
-                id="default"
-                src={url}
-                alt="main product image"
-                onClick={() => (isExpanded ? setZoom(true) : handleExpand())}
-                style={
-                  index === count ? { display: 'flex' } : { display: 'none' }
-                }
-              />
-            </div>
+          <div
+            className="gallery-slides"
+            key={`gallery ${url}`}
+            style={index === count ? { display: 'flex' } : { display: 'none' }}
+          >
+            {/* <div className="main-image-container"> */}
+            <img
+              className="main-image"
+              id="default"
+              src={url}
+              alt="main product image"
+              onClick={() => (isExpanded ? setZoom(true) : handleExpand())}
+              // style={
+              //   index === count ? { display: 'flex' } : { display: 'none' }
+              // }
+            />
           </div>
+          // </div>
         ))}
-      </>
+      </div>
     );
   }
 }
