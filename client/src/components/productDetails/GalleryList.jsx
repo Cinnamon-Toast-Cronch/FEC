@@ -1,4 +1,5 @@
 import React from 'react';
+import ThumbnailSpan from './ThumbnailSpan.jsx';
 
 function GalleryList({
   photoUrls,
@@ -24,9 +25,6 @@ function GalleryList({
               src={url}
               alt="main product image"
               onClick={() => (isExpanded ? setZoom(true) : handleExpand())}
-              // style={
-              //   index === count ? { display: 'flex' } : { display: 'none' }
-              // }
             />
           </div>
           // </div>

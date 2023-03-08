@@ -12,7 +12,8 @@ function AddToCart({ selection, handleSizeView, setConfirmAdd, confirmAdd }) {
     }
   };
   return (
-    <div className="add-to-cart">
+    // <div className="add-to-cart">
+    <>
       {selection.size === '' ? (
         <button
           id="addCartButton"
@@ -28,7 +29,7 @@ function AddToCart({ selection, handleSizeView, setConfirmAdd, confirmAdd }) {
           {confirmAdd ? 'Added!' : 'Add To Cart'}
         </button>
       )}
-    </div>
+    </>
   );
 }
 export default AddToCart;

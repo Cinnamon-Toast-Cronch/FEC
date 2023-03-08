@@ -40,6 +40,13 @@ function ProductDetails({ product }) {
         <div className="product-image-column">
           <ProductImages selectedStyle={selectedStyle} />
         </div>
+        <div className="product-details-row" id="mobile-view">
+          <ProductInformation
+            product={product}
+            reviews={reviews}
+            selectedStyle={selectedStyle}
+          />
+        </div>
         <div className="product-info-column">
           <ProductInformation
             product={product}
@@ -53,8 +60,7 @@ function ProductDetails({ product }) {
             selectedStyle={selectedStyle}
           />
           <CartSelectors selectedStyle={selectedStyle} />
-
-          <SocialMedia product={product} sharePic={sharePic} />
+          {/* <SocialMedia product={product} sharePic={sharePic} /> */}
         </div>
       </div>
       <div className="product-details-row">
@@ -62,6 +68,7 @@ function ProductDetails({ product }) {
           <div className="product-overview-left">
             <p id="product-slogan">{product.slogan}</p>
             <p id="product-description">{product.description}</p>
+            <SocialMedia product={product} sharePic={sharePic} />
           </div>
         </div>
       </div>

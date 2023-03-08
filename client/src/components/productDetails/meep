@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import ThumbnailImg from './ThumbnailImg.jsx';
+import ThumbnailSpan from './ThumbnailSpan.jsx';
 
 function ImageThumbnails({
   thumbnailUrls,
@@ -34,7 +36,7 @@ function ImageThumbnails({
 
   return (
     <>
-      <div
+      {/* <div
         className={
           isExpanded ? 'thumbnail-container dot' : 'thumbnail-container'
         }
@@ -52,9 +54,23 @@ function ImageThumbnails({
           }
         >
           &#10094;
-        </button>
+        </button> */}
+      <ThumbnailSpan
+        thumbnailUrls={thumbnailUrls}
+        range={range}
+        count={count}
+        handleSelectThumbnail={handleSelectThumbnail}
+        prevThumbnail={prevThumbnail}
+        nextThumbnail={nextThumbnail}
+      />
+      <ThumbnailImg
+        thumbnailUrls={thumbnailUrls}
+        range={range}
+        count={count}
+        handleSelectThumbnail={handleSelectThumbnail}
+      />
 
-        {isExpanded
+      {/* {isExpanded
           ? thumbnailUrls.map((thumbnail, index) => (
               <div
                 className="thumbnail-item dot"
@@ -97,8 +113,8 @@ function ImageThumbnails({
                   alt="thumbnail"
                 />
               </div>
-            ))}
-        <button
+            ))} */}
+      {/* <button
           className={
             isExpanded ? 'thumbnail-down-arrow dot' : 'thumbnail-down-arrow'
           }
@@ -112,8 +128,8 @@ function ImageThumbnails({
         >
           &#10094;
         </button>
-      </div>
-      <div className="thumbnail-container dot" style={{ display: 'none' }}>
+      </div> */}
+      {/* <div className="thumbnail-container dot" style={{ display: 'none' }}>
         {thumbnailUrls.map((thumbnail, index) => (
           <div
             className="thumbnail-item dot"
@@ -135,8 +151,7 @@ function ImageThumbnails({
             />
           </div>
         ))}
-      </div>
+      </div> */}
     </>
   );
 }
-export default ImageThumbnails;

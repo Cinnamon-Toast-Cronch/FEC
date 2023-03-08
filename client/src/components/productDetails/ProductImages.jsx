@@ -2,23 +2,17 @@ import React, { useEffect, useState } from 'react';
 import DefaultGallery from './DefaultGallery.jsx';
 
 function ProductImages({ selectedStyle }) {
-  const [currentPhotos, setCurrentPhotos] = useState([]);
+  const [thumbnailUrls, setThumbnailUrls] = useState([]);
+  const [photoUrls, setPhotoUrls] = useState([]);
 
   useEffect(() => {
-    if (selectedStyle) {
-      setCurrentPhotos(selectedStyle.photos);
-    }
+    const currentPhotos = selectedStyle.photos;
+    const thumbnails = currentPhotos.map((photo) => photo.thumbnail_url);
+    const urls = currentPhotos.map((photo) => photo.url);
+    setThumbnailUrls(thumbnails);
+    setPhotoUrls(urls);
   }, [selectedStyle]);
-
-  if (currentPhotos) {
-    const thumbnailUrls = currentPhotos.map((photo) => photo.thumbnail_url);
-    const photoUrls = currentPhotos.map((photo) => photo.url);
-
-    return (
-      <DefaultGallery photoUrls={photoUrls} thumbnailUrls={thumbnailUrls} />
-    );
-  }
-  return null;
+  return <DefaultGallery photoUrls={photoUrls} thumbnailUrls={thumbnailUrls} />;
 }
 
 export default ProductImages;

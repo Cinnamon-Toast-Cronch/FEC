@@ -60,25 +60,35 @@ function CartSelectors({ selectedStyle }) {
   return (
     <>
       <div className="cart-selections">
-        <SizeSelector
-          handleSizeSelection={handleSizeSelection}
-          addCartNoSize={addCartNoSize}
-          selectedSizeAmount={selectedSizeAmount}
-          skus={skus}
-          sizesAndAmount={sizesAndAmount}
-          skuSizes={skuSizes}
-        />
-        <QuantitySelector
-          selectedSizeAmount={selectedSizeAmount}
-          handleQuantity={handleQuantity}
-        />
+        <div className="cart-form-container">
+          <SizeSelector
+            handleSizeSelection={handleSizeSelection}
+            addCartNoSize={addCartNoSize}
+            selectedSizeAmount={selectedSizeAmount}
+            skus={skus}
+            sizesAndAmount={sizesAndAmount}
+            skuSizes={skuSizes}
+          />
+          <QuantitySelector
+            selectedSizeAmount={selectedSizeAmount}
+            handleQuantity={handleQuantity}
+          />
+        </div>
+        <div className="cart-container">
+          <AddToCart
+            selection={selection}
+            handleSizeView={handleSizeView}
+            setConfirmAdd={setConfirmAdd}
+            confirmAdd={confirmAdd}
+          />
+        </div>
       </div>
-      <AddToCart
+      {/* <AddToCart
         selection={selection}
         handleSizeView={handleSizeView}
         setConfirmAdd={setConfirmAdd}
         confirmAdd={confirmAdd}
-      />
+      /> */}
     </>
   );
 }

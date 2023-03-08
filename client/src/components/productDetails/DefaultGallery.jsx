@@ -1,11 +1,10 @@
-// og
-
 import React from 'react';
 import ImageThumbnails from './ImageThumbnails.jsx';
 import GalleryList from './GalleryList.jsx';
 import Zoom from './Zoom.jsx';
 import expandIcon from '../../assets/images/expandIcon.svg';
 import compressIcon from '../../assets/images/compressIcon.svg';
+import ThumbnailSpan from './ThumbnailSpan.jsx';
 
 const { useState } = React;
 
@@ -28,8 +27,8 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
     const productColumn = document.querySelector('.product-image-column');
     productColumn.setAttribute('id', 'expanded');
     // document.querySelector('.product-image-column').style.width = '100%';
-    document.querySelector('.product-image-column').style.flexDirection =
-      'column-reverse';
+    // document.querySelector('.product-image-column').style.flexDirection =
+    //   'column-reverse';
     // document.querySelector('.product-image-column').style.flex = 1;
     document.querySelector('.gallery-slides').style.flexBasis = '100%';
     document.querySelector('.product-overview').style.visibility = 'hidden';
@@ -81,24 +80,17 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
             isExpanded={isExpanded}
           />
         )}
-        {count === 0 ? (
-          <button
-            className="gallery-left-arrow"
-            type="button"
-            onClick={prevImage}
-            style={{ visibility: 'hidden' }}
-          >
-            &#10094;
-          </button>
-        ) : (
-          <button
-            className="gallery-left-arrow"
-            type="button"
-            onClick={prevImage}
-          >
-            &#10094;
-          </button>
-        )}
+
+        <button
+          className="gallery-left-arrow"
+          type="button"
+          onClick={prevImage}
+          style={
+            count === 0 ? { visibility: 'hidden' } : { visibility: 'visible' }
+          }
+        >
+          &#10094;
+        </button>
 
         {zoom ? (
           <Zoom
@@ -134,88 +126,30 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
             <img src={expandIcon} alt="expand-icon" />
           </button>
         )}
-        {count === photoAmount ? (
-          <button
-            className="gallery-right-arrow"
-            type="button"
-            onClick={nextImage}
-            style={{ visibility: 'hidden' }}
-          >
-            &#10095;
-          </button>
-        ) : (
-          <button
-            className="gallery-right-arrow"
-            type="button"
-            onClick={nextImage}
-          >
-            &#10095;
-          </button>
-        )}
+        {/* {count === photoAmount ? ( */}
+        <button
+          className="gallery-right-arrow"
+          type="button"
+          onClick={nextImage}
+          style={
+            count === photoAmount
+              ? { visibility: 'hidden' }
+              : { visibility: 'visible' }
+          }
+        >
+          &#10095;
+        </button>
+        {/* ) : ( */}
+        {/* <button
+          className="gallery-right-arrow"
+          type="button"
+          onClick={nextImage}
+        >
+          &#10095;
+        </button> */}
+        {/* )} */}
       </div>
     </>
   );
 }
 export default DefaultGallery;
-// end
-
-//
-{
-  /* {isExpanded ? (
-        <div className="expanded-gallery-container">
-          <ImageThumbnails
-            thumbnailUrls={thumbnailUrls}
-            count={count}
-            photoUrls={photoUrls}
-            handleSelectThumbnail={(num) => setCount(num)}
-            isExpanded={isExpanded}
-          />
-
-          <div className="expanded-carousel">
-            {count === 0 ? (
-              <button
-                className="gallery-left-arrow"
-                type="button"
-                onClick={prevImage}
-                style={{ visibility: 'hidden' }}
-              >
-                &#10094;
-              </button>
-            ) : (
-              <button
-                className="gallery-left-arrow"
-                type="button"
-                onClick={prevImage}
-              >
-                &#10094;
-              </button>
-            )}
-            <GalleryList
-              photoUrls={photoUrls}
-              count={count}
-              handleExpand={handleExpand}
-              isExpanded={isExpanded}
-              setZoom={setZoom}
-            />
-            {count === photoAmount ? (
-              <button
-                className="gallery-right-arrow"
-                type="button"
-                onClick={nextImage}
-                style={{ visibility: 'hidden' }}
-              >
-                &#10095;
-              </button>
-            ) : (
-              <button
-                className="gallery-right-arrow"
-                type="button"
-                onClick={nextImage}
-              >
-                &#10095;
-              </button>
-            )}
-          </div>
-        </div>
-      ) : ( */
-}
