@@ -63,13 +63,11 @@ function ProductDetails({ product }) {
           {/* <SocialMedia product={product} sharePic={sharePic} /> */}
         </div>
       </div>
-      <div className="product-details-row">
+      <div className="product-details-row" id="overview">
         <div className="product-overview">
-          <div className="product-overview-left">
-            <p id="product-slogan">{product.slogan}</p>
-            <p id="product-description">{product.description}</p>
-            <SocialMedia product={product} sharePic={sharePic} />
-          </div>
+          <p id="product-slogan">{product.slogan}</p>
+          <p id="product-description">{product.description}</p>
+          <SocialMedia product={product} sharePic={sharePic} />
         </div>
       </div>
     </div>

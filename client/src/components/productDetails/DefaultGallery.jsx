@@ -31,7 +31,11 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
     //   'column-reverse';
     // document.querySelector('.product-image-column').style.flex = 1;
     document.querySelector('.gallery-slides').style.flexBasis = '100%';
-    document.querySelector('.product-overview').style.visibility = 'hidden';
+    // document.querySelector('.product-overview').style.visibility = 'hidden';
+    document.querySelector(
+      '.product-details-row .product-overview'
+    ).style.display = 'none';
+
     document.querySelector('img#default.main-image').style.cursor = 'crosshair';
     setExpandView(true);
   };
@@ -40,11 +44,13 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
     document.querySelector('.product-info-column').style.display = 'flex';
     const productColumn = document.querySelector('.product-image-column');
     productColumn.removeAttribute('id');
-    document.querySelector('.product-image-column').style.flex = '0 0 55%';
-    document.querySelector('.gallery-slides').style.flexBasis = '80%';
+    // document.querySelector('.product-image-column').style.flex = '0 0 55%';
+    // document.querySelector('.gallery-slides').style.flexBasis = '80%';
     document.querySelector('img#default.main-image').style.cursor = 'zoom-in';
-    document.querySelector('.product-overview').style.visibility = 'visible';
-    document.querySelector('.product-image-column').style.flexDirection = 'row';
+    document.querySelector(
+      '.product-details-row .product-overview'
+    ).style.display = 'flex';
+    // document.querySelector('.product-image-column').style.flexDirection = 'row';
     setExpandView(false);
     setZoom(false);
   };
