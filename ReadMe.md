@@ -1,8 +1,8 @@
 <h1 align="center">
-  Welcome to the Cinnamon Front End Capstone github repo!
+  Welcome to the Cinnamon Front End Capstone Repo!
 </h1>
 <p align="center">
-  <img src="https://media.giphy.com/media/6uKMx3bejVl6vqLJX8/giphy.gif" alt="FEC-overview" />
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzAwYjBjOTBlYjFmNzVmYWY2M2Y4YzhhNjU3MTc1YjNmYzA4Y2E5YyZjdD1n/nUHtC6ccMy4omuqFAZ/giphy.gif" alt="FEC-overview" />
 </p>
 <h4> Authors: </h4>
 <ul>
@@ -29,50 +29,50 @@
   </h2>
   <ol>
     <li>
-      <h4>Product Overview - primary Author: <a href="https://github.com/kallycao" target="_blank">Kally Cao<a/></h4>
+      <h4>Product Overview - Primary Author: <a href="https://github.com/kallycao" target="_blank">Kally Cao<a/></h4>
         <details>
-          <summary>widget details</summary>
-          <p>The functionality contained within this module is split into four distinct sections: product information, style selector, add to cart, and product gallery (default/expanded view). Its purpose is to display relevant product images based on user selection and guide the user through selecting a specific style, size, and quantity to add to their cart.
+          <summary>Details</summary>
+          <p>The product's functionality is divided into four sections: product information, style selector, add to cart, and product gallery (default and expanded view). Its purpose is to guide the user through the process of selecting a specific style, size, and quantity of the product and adding it to their cart, while displaying relevant product images based on user selection.
           </p>
           <p align="center">
-            <img src="https://media.giphy.com/media/AzC0ZxOpON2yieEclY/giphy.gif" alt="product overview" />
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTFlODNkYzZiNDBkNmU0Y2U3ZDgwYzAxODNkMGZmYzllNTNhYmQ3MiZjdD1n/OTW04QjuAgpT6u8Bjs/giphy.gif" alt="product overview" />
           </p>
           <p>
-            Users can view general product information such as its category, title, number of reviews, rating, price dependent on style selection, and description. By clicking on "Read all (#) of reviews", this will navigate the user to the Ratings and Review section. This section also consists of buttons that allow the user to share this product on social media platforms.
+            The product gallery allows users to view images of the currently selected product style. In the default view, users can navigate through the images using right and left arrows overlaid on the main image. All product images are also displayed on the left side of the main image, which the user can click to view. 
           </p>
           <p align="center">
-          <img src="https://media.giphy.com/media/DT2vZ28ArqfVXI8o6h/giphy.gif" alt="product information" />
+          <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTQzNGE4YjkyYzhjYjcxY2NhZDc5ZDA1MDNmMDgzY2QyYWU5N2U5NCZjdD1n/P146hus2dinNUxUYJ2/giphy.gif" alt="product gallery" />
           </p>
           <p>
-          Below the product information, users are presented with the style selector that consists of all styles of the current product. Users can click between various styles. The currently selected style is indicated with an overlay of a checkmark and the style title is displayed above the list of style thumbnail images.
+          Clicking on the main image switches to the expanded view. In the expanded view, users can also navigate through images and zoom in on the main image by clicking on it. To exit the zoomed view, the user can click on the main image. To exit the expanded view of the image gallery, the user can click on the compress button located at the top right corner near the image.
           </p>
           <p align="center">
-          <img src="https://media.giphy.com/media/zK63iaKKLBsH2Q6yzX/giphy.gif" alt="style selector" />
+          <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmMyMjI1YzcyOGQ0NzE5MDcxZmM4OGUxMTY4YTE3NGM1N2MzOTA2NSZjdD1n/eH5aBo7PXukK5Oy4hn/giphy.gif" alt="expanded view" />
           </p>
           <p>
-          Below the style selector, users are presented with two dropdowns that allow that user to select a size and quantity of the item to add to their cart via the add to cart button. The options available vary depending on the selected product style. If a size isn't selected, the user will be prompted to select a size prior to adding to their cart.
+          The product information section provides users with general product information, such as the category, title, number of reviews, rating, price dependent on style selection, and description. Clicking on "Read all (#) of reviews" navigates the user to the Ratings and Review section. Social media buttons are also available to share the product on social media platforms.
           </p>
           <p align="center">
-          <img src="https://media.giphy.com/media/AuiHO7pdOUyoyCTD0u/giphy.gif" alt="select size, quantity, and add to cart" />
+          <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzA4ZjQ3MDQ2NTBkM2QxNzg0NTNjMDAxZDI3ODdkMjkxNWNjNzQ2OCZjdD1n/NQREZ0t7uCNZc1wq4A/giphy.gif" alt="product information" />
           </p>
           <p>
-          Users are able to view images of the currently selected product style via the image gallery. In the default view of the image gallery, users are able to navigate through the images via the right and left arrows that overlay the main image. All images of the current product are also displayed on the left side of the main image which the user can click to navigate to. If the user clicks on the main image, the image gallery will change to the expanded view.
+          The add to cart section presents users with two dropdowns that allow them to select a size and quantity of the item to add to their cart via the add to cart button. The available options vary depending on the selected product style. A size must be selected to enable the add to cart button.
           </p>
           <p align="center">
-          <img src="https://media.giphy.com/media/Ho33fFXy7As8pBbjno/giphy.gif" alt="default view of image gallery" />
+          <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2I3ZWI1ZDg2NDY4MTgwN2NmZTI0YjRiNWNlOWRlOGExN2VjMTMwMSZjdD1n/qGKFFp7ThYCjNdDTJt/giphy.gif" alt="add to cart" />
           </p>
           <p>
-          The expanded view of the image gallery has similar functionality to the default view. Unlike the default view, the expanded view has the main image spanning the entire screen. This view also allows the user to zoom into the main image by clicking on it. To exit the zoomed view, the user can click on the main image. To exit the expanded view of the image gallery, the user can click on the 'X' button located at the top right corner of the page.
+          The layout designed to be responsive and work seamlessly across different screen sizes, ensuring that users have a consistent and enjoyable experience, regardless of the device they are using.
           </p>
           <p align="center">
-          <img src="https://media.giphy.com/media/oetAdDol24pdGd8O2G/giphy.gif" alt="expanded view of image gallery" />
+          <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTFmM2I4N2ZjOTdkMzQ2YjcyOTkzYjAyNWI5NjVmMjQ1YmRmZWUwNiZjdD1n/7XSCyMD292lNGgj2H6/giphy.gif" alt="responsive layout" />
           </p>
         </details>
     </li>
     <li>
-      <h4>Related Products - primary Author: <a href="https://github.com/KevZhang11" target="_blank">Kevin Zhang</a></h4>
+      <h4>Related Products - Primary Author: <a href="https://github.com/KevZhang11" target="_blank">Kevin Zhang</a></h4>
         <details>
-          <summary>widget details</summary>
+          <summary>Details</summary>
           <p>
             The main functionality of the related products component is it lists products related to the displayed product, into cards that displays the related product’s name, image, category, price, and star ratings. The component also has a sibling component called Your Outfits that allows the user to save the displayed product onto a list that will persist as the user browses through the site.
           </p>
@@ -91,9 +91,9 @@
         </details>
     </li>
     <li>
-      <h4>Questions and Answers - primary Author: <a href="https://github.com/Taylor-Sheets3" target="_blank">Taylor Sheets</a></h4>
+      <h4>Questions and Answers - Primary Author: <a href="https://github.com/Taylor-Sheets3" target="_blank">Taylor Sheets</a></h4>
         <details>
-          <summary>widget details</summary>
+          <summary>Details</summary>
           <p>
             The primary function of the questions and answers module is to allow asking and answering of questions for the selected product.  Users are able to submit a question as well as answers to existing questions, mark them as "helpful" to indicate a useful information, and report unhelpful answers.  A search bar is present at the top of the module that allows users to search for a specific question.  The search bar renders questions dynamically after 3 or more characters are typed, and resets the displayed questions list when users delete the query.
           </p>
@@ -120,9 +120,9 @@
         </details>
     </li>
     <li>
-      <h4>Ratings and Reviews - primary Author: <a href="https://github.com/KateFeaster" target="_blank">Kate Feaster</a></h4>
+      <h4>Ratings and Reviews - Primary Author: <a href="https://github.com/KateFeaster" target="_blank">Kate Feaster</a></h4>
         <details>
-          <summary>widget details</summary>
+          <summary>Details</summary>
           <p>The ratings and reviews widget was designed to give shoppers an easily digestible overview of previous buyers' experiences with the displayed product and a way to provide their experience with the product. On the left side of the widget, the shopper is greeted with a rating summary that displays the average product rating, a rating breakdown, and a set of characteristic visualizations that summarize the elements of the product that previous buyers liked or disliked. Clicking on any of the rating breakdowns will filter the reviews by the chosen rating. Mutliple filters can be chosen and reviews of all filtered ratings will be shown.</p>
           <p align="center">
             <img src="https://media.giphy.com/media/bJ71hmIfErrVnDsWev/giphy.gif" alt="Ratings and Reviews widget" style="width: 100%"/>
