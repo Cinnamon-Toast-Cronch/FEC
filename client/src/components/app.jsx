@@ -9,6 +9,7 @@ const { useState, useEffect } = React;
 
 function App() {
   const [product, setProduct] = useState({});
+  const [cartList, setCartList] = useState([]);
 
   useEffect(() => {
     axios.get('/products').then(({ data }) => {
@@ -18,16 +19,14 @@ function App() {
 
   return (
     <div>
-      <div className="widgets">
-        <div className="title-container">
-          <h1 className="title">Cinnamon</h1>
-          <div className="title-icons">
-            <span className="material-symbols-outlined">
-              shopping_cart_checkout
-            </span>
-            <span className="material-symbols-outlined">account_circle</span>
-          </div>
+      <div className="title-container">
+        <h1 className="title">Cinnamon</h1>
+        <div className="title-icons">
+          <span className="material-symbols-outlined">search</span>
+          <span className="material-symbols-outlined">shopping_bag</span>
         </div>
+      </div>
+      <div className="widgets">
         <ProductDetails product={product} />
         <RelatedItems product={product} setProduct={setProduct} />
         <QnaWidget product={product} />
