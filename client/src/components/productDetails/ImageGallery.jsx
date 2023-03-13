@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import DefaultGallery from './DefaultGallery.jsx';
 
-function ProductImages({ selectedStyle }) {
+function ImageGallery({ selectedStyle }) {
   const [thumbnailUrls, setThumbnailUrls] = useState([]);
   const [photoUrls, setPhotoUrls] = useState([]);
 
@@ -15,4 +15,4 @@ function ProductImages({ selectedStyle }) {
   return <DefaultGallery photoUrls={photoUrls} thumbnailUrls={thumbnailUrls} />;
 }
 
-export default ProductImages;
+export default ImageGallery;

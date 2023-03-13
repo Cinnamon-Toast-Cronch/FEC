@@ -1,12 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ImageThumbnails from './ImageThumbnails.jsx';
 import GalleryList from './GalleryList.jsx';
 import Zoom from './Zoom.jsx';
 import expandIcon from '../../assets/images/expandIcon.svg';
 import compressIcon from '../../assets/images/compressIcon.svg';
-import ThumbnailSpan from './ThumbnailSpan.jsx';
-
-const { useState } = React;
 
 function DefaultGallery({ photoUrls, thumbnailUrls }) {
   const [count, setCount] = useState(0);
@@ -26,12 +23,7 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
     document.querySelector('.product-info-column').style.display = 'none';
     const productColumn = document.querySelector('.product-image-column');
     productColumn.setAttribute('id', 'expanded');
-    // document.querySelector('.product-image-column').style.width = '100%';
-    // document.querySelector('.product-image-column').style.flexDirection =
-    //   'column-reverse';
-    // document.querySelector('.product-image-column').style.flex = 1;
     document.querySelector('.gallery-slides').style.flexBasis = '100%';
-    // document.querySelector('.product-overview').style.visibility = 'hidden';
     document.querySelector(
       '.product-details-row .product-overview'
     ).style.display = 'none';
@@ -44,13 +36,10 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
     document.querySelector('.product-info-column').style.display = 'flex';
     const productColumn = document.querySelector('.product-image-column');
     productColumn.removeAttribute('id');
-    // document.querySelector('.product-image-column').style.flex = '0 0 55%';
-    // document.querySelector('.gallery-slides').style.flexBasis = '80%';
     document.querySelector('img#default.main-image').style.cursor = 'zoom-in';
     document.querySelector(
       '.product-details-row .product-overview'
     ).style.display = 'flex';
-    // document.querySelector('.product-image-column').style.flexDirection = 'row';
     setExpandView(false);
     setZoom(false);
   };
@@ -132,7 +121,6 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
             <img src={expandIcon} alt="expand-icon" />
           </button>
         )}
-        {/* {count === photoAmount ? ( */}
         <button
           className="gallery-right-arrow"
           type="button"
@@ -145,15 +133,6 @@ function DefaultGallery({ photoUrls, thumbnailUrls }) {
         >
           &#10095;
         </button>
-        {/* ) : ( */}
-        {/* <button
-          className="gallery-right-arrow"
-          type="button"
-          onClick={nextImage}
-        >
-          &#10095;
-        </button> */}
-        {/* )} */}
       </div>
     </>
   );

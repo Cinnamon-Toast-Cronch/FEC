@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProductInformation from './ProductInformation.jsx';
 import StyleSelector from './StyleSelector.jsx';
-import ProductImages from './ProductImages.jsx';
+import ImageGallery from './ImageGallery.jsx';
 import SocialMedia from './SocialMedia.jsx';
 import CartSelectors from './CartSelectors.jsx';
 
@@ -38,7 +38,7 @@ function ProductDetails({ product }) {
     <div className="product-details-container">
       <div className="product-details-row">
         <div className="product-image-column">
-          <ProductImages selectedStyle={selectedStyle} />
+          <ImageGallery selectedStyle={selectedStyle} />
         </div>
         <div className="product-details-row" id="mobile-view">
           <ProductInformation
@@ -60,7 +60,6 @@ function ProductDetails({ product }) {
             selectedStyle={selectedStyle}
           />
           <CartSelectors selectedStyle={selectedStyle} />
-          {/* <SocialMedia product={product} sharePic={sharePic} /> */}
         </div>
       </div>
       <div className="product-details-row" id="overview">

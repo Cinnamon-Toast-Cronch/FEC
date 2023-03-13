@@ -1,14 +1,6 @@
 import React from 'react';
-// import SizeSelector from './SizeSelector.jsx';
-import QuantitySelector from './QuantitySelector.jsx';
-
-const { useState, useEffect } = React;
 
 function StyleSelector({ styles, setSelectedStyle, selectedStyle, setStyles }) {
-  // useEffect(() => {
-  //   setSelectedStyle(styles[0]);
-  // }, [styles]);
-
   const handleStyle = (style, e) => {
     const styleIndex = e.target.value;
     const stylesArr = styles;
@@ -42,7 +34,6 @@ function StyleSelector({ styles, setSelectedStyle, selectedStyle, setStyles }) {
           </div>
         ))}
       </div>
-      {/* <SizeSelector selectedStyle={selectedStyle} /> */}
     </div>
   );
 }

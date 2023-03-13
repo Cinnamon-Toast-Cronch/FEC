@@ -27,10 +27,6 @@ function ProductInformation({ product, reviews, selectedStyle }) {
         <p id="product-title">{product.name}</p>
         <Price selectedStyle={selectedStyle} />
       </div>
-
-      {/* <div className="product-price-container">
-        <Price selectedStyle={selectedStyle} />
-      </div> */}
     </>
   );
 }

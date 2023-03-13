@@ -1,14 +1,6 @@
 import React from 'react';
-import ThumbnailSpan from './ThumbnailSpan.jsx';
 
-function GalleryList({
-  photoUrls,
-  count,
-  handleExpand,
-  isExpanded,
-  setZoom,
-  handleZoom,
-}) {
+function GalleryList({ photoUrls, count, handleExpand, isExpanded, setZoom }) {
   if (photoUrls) {
     return (
       <div className="gallery-slides-container">
@@ -18,7 +10,6 @@ function GalleryList({
             key={`gallery ${url}`}
             style={index === count ? { display: 'flex' } : { display: 'none' }}
           >
-            {/* <div className="main-image-container"> */}
             <img
               className="main-image"
               id="default"
@@ -27,7 +18,6 @@ function GalleryList({
               onClick={() => (isExpanded ? setZoom(true) : handleExpand())}
             />
           </div>
-          // </div>
         ))}
       </div>
     );

@@ -17,24 +17,13 @@ function App() {
     });
   }, []);
 
-  const handleCartView = () => {
-    axios.get('/cart').then(({ data }) => setCartList(data));
-  };
-
   return (
     <div>
       <div className="title-container">
         <h1 className="title">Cinnamon</h1>
         <div className="title-icons">
-          <button
-            type="button"
-            className="material-symbols-outlined"
-            id="cart"
-            onClick={handleCartView}
-          >
-            shopping_cart_checkout
-          </button>
-          <span className="material-symbols-outlined">account_circle</span>
+          <span className="material-symbols-outlined">search</span>
+          <span className="material-symbols-outlined">shopping_bag</span>
         </div>
       </div>
       <div className="widgets">

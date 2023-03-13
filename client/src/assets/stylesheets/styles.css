@@ -187,16 +187,22 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  padding-right: 5em;
+  padding-left: 5em;
+  padding-bottom: 0.5em;
 }
 
 .title {
-  font-size: 3em;
+  font-size: 2.5em;
   font-variant: all-small-caps;
-  padding-left: 2vh;
 }
 
-.title-icons span,
-.title-icons button {
+.title-icons {
+  display: flex;
+  align-items: flex-end;
+}
+
+.title-icons span {
   font-size: 2em;
   padding-left: 2vh;
   padding-right: 2vh;

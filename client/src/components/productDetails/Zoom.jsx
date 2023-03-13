@@ -47,7 +47,6 @@ function Zoom({ imageUrl, setZoom, zoom, handleZoom }) {
       className="zoom-container"
       ref={containerRef}
       onClick={() => setZoom(false)}
-      // onClick={() => handleZoom()}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}

@@ -1,6 +1,5 @@
 import React from 'react';
 
-const { useState } = React;
 function QuantitySelector({ selectedSizeAmount, handleQuantity }) {
   const quantityList = [];
   if (selectedSizeAmount <= 15) {
